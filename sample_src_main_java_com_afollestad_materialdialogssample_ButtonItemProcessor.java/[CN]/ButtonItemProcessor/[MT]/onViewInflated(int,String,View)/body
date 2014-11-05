@@ -1,0 +1,6 @@
+{
+  ((TextView)view.findViewById(R.id.title)).setText(itemText + " (" + forIndex+ ")");
+  Button button=(Button)view.findViewById(R.id.button);
+  button.setTag(forIndex);
+  button.setOnClickListener(this);
+}

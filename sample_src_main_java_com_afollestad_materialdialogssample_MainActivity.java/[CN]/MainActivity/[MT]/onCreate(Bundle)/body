@@ -37,6 +37,12 @@
     }
   }
 );
+  findViewById(R.id.longList).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showLongList();
+    }
+  }
+);
   findViewById(R.id.singleChoice).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showSingleChoice();
@@ -46,6 +52,12 @@
   findViewById(R.id.multiChoice).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showMultiChoice();
+    }
+  }
+);
+  findViewById(R.id.customListItems).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showCustomList();
     }
   }
 );

@@ -8,7 +8,7 @@
         View itemView=list.getChildAt(i);
         @SuppressLint("WrongViewCast") RadioButton rb=(RadioButton)itemView.findViewById(R.id.control);
         if (rb.isChecked()) {
-          listCallbackSingle.onSelection(this,i,((TextView)itemView.findViewById(R.id.title)).getText().toString());
+          listCallbackSingle.onSelection(this,v,i,((TextView)itemView.findViewById(R.id.title)).getText().toString());
           break;
         }
       }
@@ -50,7 +50,7 @@
     int index=Integer.parseInt(split[0]);
     if (listCallback != null) {
       dismiss();
-      listCallback.onSelection(this,index,split[1]);
+      listCallback.onSelection(this,v,index,split[1]);
     }
  else     if (listCallbackSingle != null) {
       RadioButton cb=(RadioButton)((LinearLayout)v).getChildAt(0);

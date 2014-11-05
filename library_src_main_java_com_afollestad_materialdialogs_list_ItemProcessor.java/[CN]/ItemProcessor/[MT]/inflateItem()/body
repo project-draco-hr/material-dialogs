@@ -1,5 +1,0 @@
-{
-  View view=li.inflate(getLayout(),null);
-  onViewInflated(view);
-  return view;
-}

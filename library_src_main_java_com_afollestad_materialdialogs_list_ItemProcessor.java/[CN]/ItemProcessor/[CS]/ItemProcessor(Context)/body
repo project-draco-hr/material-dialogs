@@ -1,3 +1,5 @@
 {
+  this.context=context;
   li=LayoutInflater.from(context);
+  defaultLayout=R.layout.dialog_listitem;
 }

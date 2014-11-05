@@ -1,0 +1,7 @@
+{
+  int itemLayout=getLayout(forIndex);
+  if (itemLayout == 0)   itemLayout=defaultLayout;
+  View view=li.inflate(itemLayout,null);
+  onViewInflated(forIndex,itemText,view);
+  return view;
+}

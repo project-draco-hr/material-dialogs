@@ -30,7 +30,7 @@
     }
  else {
       if (mItemProcessor != null) {
-        il=mItemProcessor.inflateItem();
+        il=mItemProcessor.inflateItem(index,items[index]);
       }
  else {
         il=li.inflate(R.layout.dialog_listitem,null);

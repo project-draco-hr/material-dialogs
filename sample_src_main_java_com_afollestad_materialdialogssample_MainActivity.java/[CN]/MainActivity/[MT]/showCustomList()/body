@@ -1,8 +1,8 @@
 {
-  new MaterialDialog.Builder(this).title(R.string.socialNetworks).items(R.array.socialNetworks).itemsCallbackSingleChoice(2,new MaterialDialog.ListCallback(){
+  new MaterialDialog.Builder(this).title(R.string.socialNetworks).items(R.array.socialNetworks).itemsCallback(new MaterialDialog.ListCallback(){
     @Override public void onSelection(    MaterialDialog dialog,    View view,    int which,    String text){
       Toast.makeText(getApplicationContext(),which + ": " + text,Toast.LENGTH_SHORT).show();
     }
   }
-).positiveText(R.string.choose).build().show();
+).itemProessor(new ButtonItemProcessor(this)).build().show();
 }
