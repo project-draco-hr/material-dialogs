@@ -2,6 +2,7 @@
   super(new ContextThemeWrapper(builder.context,builder.theme == Theme.LIGHT ? R.style.Light : R.style.Dark));
   this.mContext=builder.context;
   this.view=LayoutInflater.from(builder.context).inflate(R.layout.material_dialog,null);
+  ((MeasureCallbackLinearLayout)view).setCallback(this);
   this.customView=builder.customView;
   this.callback=builder.callback;
   this.listCallback=builder.listCallback;
@@ -11,6 +12,8 @@
   this.neutralText=builder.neutralText;
   this.negativeText=builder.negativeText;
   this.positiveColor=builder.positiveColor;
+  this.negativeColor=builder.negativeColor;
+  this.neutralColor=builder.neutralColor;
   this.items=builder.items;
   this.setCancelable(builder.cancelable);
   this.regularFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
@@ -39,11 +42,7 @@
   }
   if (customView != null) {
     title=(TextView)view.findViewById(R.id.titleCustomView);
-    buttonHeight=mContext.getResources().getDimension(R.dimen.button_height_customview);
-    view.findViewById(R.id.mainFrame).setVisibility(View.GONE);
-    view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
-    view.findViewById(R.id.customViewDivider).setVisibility(View.VISIBLE);
-    view.findViewById(R.id.customViewDivider).setBackgroundColor(Utils.resolveColor(getContext(),R.attr.divider_color));
+    invalidateCustomViewAssociations();
     View firstChild=customView;
     View lastChild=customView;
     final int frameMargin=(int)mContext.getResources().getDimension(R.dimen.dialog_frame_margin);
@@ -57,11 +56,9 @@
     ((LinearLayout)view.findViewById(R.id.customViewFrame)).addView(customView);
   }
  else {
-    buttonHeight=mContext.getResources().getDimension(R.dimen.button_height);
-    view.findViewById(R.id.mainFrame).setVisibility(View.VISIBLE);
-    view.findViewById(R.id.customViewScrollParent).setVisibility(View.GONE);
-    view.findViewById(R.id.customViewDivider).setVisibility(View.GONE);
+    invalidateCustomViewAssociations();
   }
+  if (items != null && items.length > 0)   title=(TextView)view.findViewById(R.id.titleCustomView);
   if (builder.title == null || builder.title.toString().trim().isEmpty()) {
     title.setVisibility(View.GONE);
   }
@@ -83,6 +80,5 @@
   }
   invalidateList();
   invalidateActions();
-  checkIfStackingNeeded();
   setViewInternal(view);
 }

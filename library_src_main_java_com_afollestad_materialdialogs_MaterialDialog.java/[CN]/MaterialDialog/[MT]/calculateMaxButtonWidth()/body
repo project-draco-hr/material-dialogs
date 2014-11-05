@@ -1,0 +1,5 @@
+{
+  final int eightDp=(int)mContext.getResources().getDimension(R.dimen.button_padding_horizontal_external);
+  final int sixteenDp=(int)mContext.getResources().getDimension(R.dimen.button_padding_frame_side);
+  return (view.getMeasuredWidth() - sixteenDp - sixteenDp- eightDp) / 2;
+}

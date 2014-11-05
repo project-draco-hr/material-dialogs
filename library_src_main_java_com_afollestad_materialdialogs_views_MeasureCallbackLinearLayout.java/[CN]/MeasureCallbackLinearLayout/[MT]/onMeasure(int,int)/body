@@ -1,0 +1,4 @@
+{
+  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+  if (mCallback != null)   mCallback.onMeasureLinear(this);
+}

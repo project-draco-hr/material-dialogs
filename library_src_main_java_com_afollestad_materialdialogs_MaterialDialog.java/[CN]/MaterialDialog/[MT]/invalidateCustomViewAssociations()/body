@@ -1,0 +1,26 @@
+{
+  if (customView != null || (items != null && items.length > 0)) {
+    view.findViewById(R.id.mainFrame).setVisibility(View.GONE);
+    view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
+    if (!mMeasuredScrollView) {
+      ((MeasureCallbackScrollView)view.findViewById(R.id.customViewScroll)).setCallback(this);
+      return;
+    }
+    if (canCustomViewScroll()) {
+      view.findViewById(R.id.customViewDivider).setVisibility(View.VISIBLE);
+      view.findViewById(R.id.customViewDivider).setBackgroundColor(Utils.resolveColor(getContext(),R.attr.divider_color));
+      setMargin(view.findViewById(R.id.buttonStackedFrame),-1,0,-1,-1);
+      setMargin(view.findViewById(R.id.buttonDefaultFrame),-1,0,-1,-1);
+    }
+ else {
+      final int bottomMargin=(int)mContext.getResources().getDimension(R.dimen.button_padding_frame_bottom);
+      setMargin(view.findViewById(R.id.buttonStackedFrame),-1,bottomMargin,-1,-1);
+      setMargin(view.findViewById(R.id.buttonDefaultFrame),-1,bottomMargin,-1,-1);
+    }
+  }
+ else {
+    view.findViewById(R.id.mainFrame).setVisibility(View.VISIBLE);
+    view.findViewById(R.id.customViewScrollParent).setVisibility(View.GONE);
+    view.findViewById(R.id.customViewDivider).setVisibility(View.GONE);
+  }
+}

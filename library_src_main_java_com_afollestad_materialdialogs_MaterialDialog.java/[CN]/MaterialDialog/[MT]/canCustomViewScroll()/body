@@ -1,0 +1,5 @@
+{
+  final ScrollView scrollView=(ScrollView)view.findViewById(R.id.customViewScroll);
+  final int childHeight=view.findViewById(R.id.customViewFrame).getMeasuredHeight();
+  return scrollView.getMeasuredHeight() < childHeight;
+}

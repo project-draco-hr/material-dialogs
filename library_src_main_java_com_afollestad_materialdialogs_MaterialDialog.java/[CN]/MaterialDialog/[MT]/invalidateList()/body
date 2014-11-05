@@ -1,13 +1,9 @@
 {
   if (items == null || items.length == 0)   return;
   view.findViewById(R.id.content).setVisibility(View.GONE);
-  View title=view.findViewById(R.id.title);
-  setMargin(title,-1,(int)mContext.getResources().getDimension(R.dimen.button_padding),0,0);
-  View mainFrame=view.findViewById(R.id.mainFrame);
-  int dpPadding=(int)mContext.getResources().getDimension(R.dimen.button_frame_margin);
-  setMargin(mainFrame,dpPadding,0,dpPadding,dpPadding);
-  view.findViewById(R.id.listFrameScrollParent).setVisibility(View.VISIBLE);
-  LinearLayout list=(LinearLayout)view.findViewById(R.id.listFrame);
+  view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
+  LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
+  setMargin(list,-1,-1,0,0);
   LayoutInflater li=LayoutInflater.from(mContext);
   final int itemColor=Utils.resolveColor(getContext(),R.attr.item_color);
   for (int index=0; index < items.length; index++) {

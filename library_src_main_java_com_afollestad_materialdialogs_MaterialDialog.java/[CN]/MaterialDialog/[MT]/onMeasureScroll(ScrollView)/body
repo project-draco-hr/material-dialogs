@@ -1,0 +1,6 @@
+{
+  if (view.getMeasuredWidth() > 0) {
+    mMeasuredScrollView=true;
+    invalidateCustomViewAssociations();
+  }
+}

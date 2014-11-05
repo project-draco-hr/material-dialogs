@@ -1,0 +1,4 @@
+{
+  this.negativeColor=color;
+  return this;
+}

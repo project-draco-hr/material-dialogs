@@ -3,8 +3,8 @@
   if (tag.equals(POSITIVE)) {
     if (listCallbackSingle != null) {
       dismiss();
-      LinearLayout list=(LinearLayout)view.findViewById(R.id.listFrame);
-      for (int i=0; i < list.getChildCount(); i++) {
+      LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
+      for (int i=1; i < list.getChildCount(); i++) {
         View itemView=list.getChildAt(i);
         @SuppressLint("WrongViewCast") RadioButton rb=(RadioButton)itemView.findViewById(R.id.control);
         if (rb.isChecked()) {
@@ -17,8 +17,8 @@
       dismiss();
       List<Integer> selectedIndices=new ArrayList<Integer>();
       List<String> selectedTitles=new ArrayList<String>();
-      LinearLayout list=(LinearLayout)view.findViewById(R.id.listFrame);
-      for (int i=0; i < list.getChildCount(); i++) {
+      LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
+      for (int i=1; i < list.getChildCount(); i++) {
         View itemView=list.getChildAt(i);
         CheckBox rb=(CheckBox)itemView.findViewById(R.id.control);
         if (rb.isChecked()) {
