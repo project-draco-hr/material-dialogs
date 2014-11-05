@@ -1,0 +1,4 @@
+{
+  this.positiveColor=color;
+  return this;
+}

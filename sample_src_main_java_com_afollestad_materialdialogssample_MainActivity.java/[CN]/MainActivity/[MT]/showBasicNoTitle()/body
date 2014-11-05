@@ -1,0 +1,3 @@
+{
+  new MaterialDialog.Builder(this).content(R.string.shareLocationPrompt).positiveText(R.string.accept).negativeText(R.string.decline).build().show();
+}

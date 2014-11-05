@@ -1,0 +1,4 @@
+{
+  negativeText(this.context.getString(negativeRes));
+  return this;
+}

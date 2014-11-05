@@ -1,0 +1,4 @@
+{
+  positiveText(this.context.getString(postiveRes));
+  return this;
+}

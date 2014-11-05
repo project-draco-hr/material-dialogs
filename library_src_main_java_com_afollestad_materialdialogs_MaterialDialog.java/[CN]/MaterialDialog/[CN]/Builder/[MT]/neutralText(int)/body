@@ -1,0 +1,4 @@
+{
+  neutralText(this.context.getString(neutralRes));
+  return this;
+}

@@ -1,0 +1,6 @@
+{
+  this.listCallback=callback;
+  this.listCallbackSingle=null;
+  this.listCallbackMulti=null;
+  return this;
+}

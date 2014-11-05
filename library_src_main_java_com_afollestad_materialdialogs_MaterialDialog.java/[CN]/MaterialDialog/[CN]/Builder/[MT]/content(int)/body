@@ -1,0 +1,4 @@
+{
+  content(this.context.getString(contentRes));
+  return this;
+}

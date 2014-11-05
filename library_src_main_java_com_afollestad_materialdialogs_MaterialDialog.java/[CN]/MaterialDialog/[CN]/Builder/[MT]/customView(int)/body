@@ -1,0 +1,5 @@
+{
+  LayoutInflater li=LayoutInflater.from(this.context);
+  customView(li.inflate(layoutRes,null));
+  return this;
+}

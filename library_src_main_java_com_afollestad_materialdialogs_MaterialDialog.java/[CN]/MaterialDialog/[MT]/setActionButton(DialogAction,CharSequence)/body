@@ -1,0 +1,14 @@
+{
+switch (which) {
+default :
+    this.positiveText=title;
+  break;
+case NEUTRAL:
+this.neutralText=title;
+break;
+case NEGATIVE:
+this.negativeText=title;
+break;
+}
+invalidateActions();
+}

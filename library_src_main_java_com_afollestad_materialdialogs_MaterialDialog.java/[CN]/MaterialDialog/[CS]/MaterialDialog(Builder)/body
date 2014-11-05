@@ -1,0 +1,88 @@
+{
+  super(new ContextThemeWrapper(builder.context,builder.theme == Theme.LIGHT ? R.style.Light : R.style.Dark));
+  this.mContext=builder.context;
+  this.view=LayoutInflater.from(builder.context).inflate(R.layout.material_dialog,null);
+  this.customView=builder.customView;
+  this.callback=builder.callback;
+  this.listCallback=builder.listCallback;
+  this.listCallbackSingle=builder.listCallbackSingle;
+  this.listCallbackMulti=builder.listCallbackMulti;
+  this.positiveText=builder.positiveText;
+  this.neutralText=builder.neutralText;
+  this.negativeText=builder.negativeText;
+  this.positiveColor=builder.positiveColor;
+  this.items=builder.items;
+  this.setCancelable(builder.cancelable);
+  this.regularFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
+  this.mediumFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Medium.ttf");
+  this.selectedIndex=builder.selectedIndex;
+  this.selectedIndices=builder.selectedIndicies;
+  TextView title=(TextView)view.findViewById(R.id.title);
+  TextView content=(TextView)view.findViewById(R.id.content);
+  content.setText(builder.content);
+  content.setMovementMethod(new LinkMovementMethod());
+  content.setVisibility(View.VISIBLE);
+  content.setTypeface(regularFont);
+  content.setTextColor(Utils.resolveColor(getContext(),R.attr.content_color));
+  content.setLineSpacing(0f,builder.contentLineSpacingMultiplier);
+  if (this.positiveColor == 0) {
+    content.setLinkTextColor(Utils.resolveColor(getContext(),R.attr.button_color));
+  }
+ else {
+    content.setLinkTextColor(this.positiveColor);
+  }
+  if (builder.contentAlignment == Alignment.CENTER) {
+    content.setGravity(Gravity.CENTER_HORIZONTAL);
+  }
+ else   if (builder.contentAlignment == Alignment.RIGHT) {
+    content.setGravity(Gravity.RIGHT);
+  }
+  if (customView != null) {
+    title=(TextView)view.findViewById(R.id.titleCustomView);
+    buttonHeight=mContext.getResources().getDimension(R.dimen.button_height_customview);
+    view.findViewById(R.id.mainFrame).setVisibility(View.GONE);
+    view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
+    view.findViewById(R.id.customViewDivider).setVisibility(View.VISIBLE);
+    view.findViewById(R.id.customViewDivider).setBackgroundColor(Utils.resolveColor(getContext(),R.attr.divider_color));
+    View firstChild=customView;
+    View lastChild=customView;
+    final int frameMargin=(int)mContext.getResources().getDimension(R.dimen.dialog_frame_margin);
+    if (customView instanceof ViewGroup) {
+      ViewGroup group=(ViewGroup)customView;
+      firstChild=group.getChildAt(0);
+      lastChild=group.getChildAt(group.getChildCount() - 1);
+    }
+    if (builder.title == null || builder.title.toString().trim().isEmpty())     setMargin(firstChild,frameMargin,-1,-1,-1);
+    setMargin(lastChild,-1,frameMargin,-1,-1);
+    ((LinearLayout)view.findViewById(R.id.customViewFrame)).addView(customView);
+  }
+ else {
+    buttonHeight=mContext.getResources().getDimension(R.dimen.button_height);
+    view.findViewById(R.id.mainFrame).setVisibility(View.VISIBLE);
+    view.findViewById(R.id.customViewScrollParent).setVisibility(View.GONE);
+    view.findViewById(R.id.customViewDivider).setVisibility(View.GONE);
+  }
+  if (builder.title == null || builder.title.toString().trim().isEmpty()) {
+    title.setVisibility(View.GONE);
+  }
+ else {
+    title.setText(builder.title);
+    title.setTypeface(mediumFont);
+    if (builder.titleColor != -1) {
+      title.setTextColor(builder.titleColor);
+    }
+ else {
+      title.setTextColor(Utils.resolveColor(getContext(),R.attr.title_color));
+    }
+    if (builder.titleAlignment == Alignment.CENTER) {
+      title.setGravity(Gravity.CENTER_HORIZONTAL);
+    }
+ else     if (builder.titleAlignment == Alignment.RIGHT) {
+      title.setGravity(Gravity.RIGHT);
+    }
+  }
+  invalidateList();
+  invalidateActions();
+  checkIfStackingNeeded();
+  setViewInternal(view);
+}

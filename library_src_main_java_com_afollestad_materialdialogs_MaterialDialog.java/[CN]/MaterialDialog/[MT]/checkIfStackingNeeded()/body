@@ -1,0 +1,12 @@
+{
+  if (((negativeButton == null || negativeButton.getVisibility() == View.GONE) && (neutralButton == null || neutralButton.getVisibility() == View.GONE))) {
+    return;
+  }
+  Paint paint=positiveButton.getPaint();
+  float buttonMinWidth=mContext.getResources().getDimension(R.dimen.button_min_width);
+  float totalWidth=paint.measureText(positiveButton.getText().toString());
+  if (this.neutralText != null)   totalWidth+=paint.measureText(neutralButton.getText().toString());
+  if (this.negativeText != null)   totalWidth+=paint.measureText(negativeButton.getText().toString());
+  isStacked=totalWidth > (buttonMinWidth * 3);
+  invalidateActions();
+}

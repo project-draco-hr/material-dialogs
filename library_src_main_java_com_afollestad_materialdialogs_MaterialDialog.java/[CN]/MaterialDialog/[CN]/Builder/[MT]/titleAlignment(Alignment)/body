@@ -1,0 +1,4 @@
+{
+  this.titleAlignment=align;
+  return this;
+}

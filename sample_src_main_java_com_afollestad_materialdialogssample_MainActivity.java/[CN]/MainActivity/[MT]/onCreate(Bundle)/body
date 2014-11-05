@@ -1,0 +1,64 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_main);
+  findViewById(R.id.basicNoTitle).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showBasicNoTitle();
+    }
+  }
+);
+  findViewById(R.id.basic).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showBasic();
+    }
+  }
+);
+  findViewById(R.id.stacked).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showStacked();
+    }
+  }
+);
+  findViewById(R.id.neutral).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showNeutral();
+    }
+  }
+);
+  findViewById(R.id.callbacks).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showCallbacks();
+    }
+  }
+);
+  findViewById(R.id.list).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showList();
+    }
+  }
+);
+  findViewById(R.id.singleChoice).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showSingleChoice();
+    }
+  }
+);
+  findViewById(R.id.multiChoice).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showMultiChoice();
+    }
+  }
+);
+  findViewById(R.id.customView).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showCustomView();
+    }
+  }
+);
+  findViewById(R.id.themed).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showThemed();
+    }
+  }
+);
+}

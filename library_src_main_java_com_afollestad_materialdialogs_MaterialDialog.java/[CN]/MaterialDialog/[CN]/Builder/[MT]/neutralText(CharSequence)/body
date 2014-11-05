@@ -1,0 +1,4 @@
+{
+  this.neutralText=message;
+  return this;
+}

@@ -1,0 +1,4 @@
+{
+  this.positiveText=message;
+  return this;
+}

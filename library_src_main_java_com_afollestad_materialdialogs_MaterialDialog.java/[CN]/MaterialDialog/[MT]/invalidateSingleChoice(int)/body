@@ -1,0 +1,8 @@
+{
+  LinearLayout list=(LinearLayout)view.findViewById(R.id.listFrame);
+  for (int i=0; i < list.getChildCount(); i++) {
+    View v=list.getChildAt(i);
+    @SuppressLint("WrongViewCast") RadioButton rb=(RadioButton)v.findViewById(R.id.control);
+    rb.setChecked(newSelection == i);
+  }
+}

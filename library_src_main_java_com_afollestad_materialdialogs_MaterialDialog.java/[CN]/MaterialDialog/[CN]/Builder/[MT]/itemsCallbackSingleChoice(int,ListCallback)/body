@@ -1,0 +1,7 @@
+{
+  this.selectedIndex=selectedIndex;
+  this.listCallback=null;
+  this.listCallbackSingle=callback;
+  this.listCallbackMulti=null;
+  return this;
+}

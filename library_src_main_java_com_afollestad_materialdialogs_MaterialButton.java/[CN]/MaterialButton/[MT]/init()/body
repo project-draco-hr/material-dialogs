@@ -1,0 +1,10 @@
+{
+  setClickable(true);
+  TypedArray a=getContext().getTheme().obtainStyledAttributes(new int[]{android.R.attr.selectableItemBackground});
+  try {
+    setBackgroundCompat(a.getDrawable(0));
+  }
+  finally {
+    a.recycle();
+  }
+}

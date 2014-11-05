@@ -1,0 +1,52 @@
+{
+  if (items != null && listCallbackSingle == null && listCallbackMulti == null) {
+    view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.GONE);
+    view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
+    return;
+  }
+  final int buttonFrameMargin=(int)mContext.getResources().getDimension(R.dimen.button_frame_margin);
+  if (isStacked) {
+    view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.GONE);
+    view.findViewById(R.id.buttonStackedFrame).setVisibility(View.VISIBLE);
+    if (customView == null)     setMargin(view.findViewById(R.id.buttonStackedFrame),-1,buttonFrameMargin,-1,-1);
+  }
+ else {
+    view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.VISIBLE);
+    view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
+    if (customView == null)     setMargin(view.findViewById(R.id.buttonDefaultFrame),-1,buttonFrameMargin,-1,-1);
+  }
+  positiveButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedPositive : R.id.buttonDefaultPositive);
+  setHeight(positiveButton,buttonHeight);
+  positiveButton.setTypeface(mediumFont);
+  if (this.positiveText == null)   this.positiveText=mContext.getString(R.string.accept);
+  positiveButton.setText(this.positiveText);
+  positiveButton.setTextColor(getActionTextStateList(this.positiveColor));
+  positiveButton.setTag(POSITIVE);
+  positiveButton.setOnClickListener(this);
+  neutralButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNeutral : R.id.buttonDefaultNeutral);
+  setHeight(neutralButton,buttonHeight);
+  neutralButton.setTypeface(mediumFont);
+  if (this.neutralText != null) {
+    neutralButton.setVisibility(View.VISIBLE);
+    neutralButton.setTextColor(getActionTextStateList(0));
+    neutralButton.setText(this.neutralText);
+    neutralButton.setTag(NEUTRAL);
+    neutralButton.setOnClickListener(this);
+  }
+ else {
+    neutralButton.setVisibility(View.GONE);
+  }
+  negativeButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNegative : R.id.buttonDefaultNegative);
+  setHeight(negativeButton,buttonHeight);
+  negativeButton.setTypeface(mediumFont);
+  if (this.negativeText != null) {
+    negativeButton.setVisibility(View.VISIBLE);
+    negativeButton.setTextColor(getActionTextStateList(0));
+    negativeButton.setText(this.negativeText);
+    negativeButton.setTag(NEGATIVE);
+    negativeButton.setOnClickListener(this);
+  }
+ else {
+    negativeButton.setVisibility(View.GONE);
+  }
+}
