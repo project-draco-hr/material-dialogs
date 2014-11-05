@@ -1,0 +1,3 @@
+{
+  li=LayoutInflater.from(context);
+}

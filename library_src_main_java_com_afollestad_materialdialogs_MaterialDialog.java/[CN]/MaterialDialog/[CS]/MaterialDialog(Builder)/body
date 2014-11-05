@@ -20,6 +20,7 @@
   this.mediumFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Medium.ttf");
   this.selectedIndex=builder.selectedIndex;
   this.selectedIndices=builder.selectedIndicies;
+  this.mItemProcessor=builder.itemProcessor;
   TextView title=(TextView)view.findViewById(R.id.title);
   TextView content=(TextView)view.findViewById(R.id.content);
   content.setText(builder.content);

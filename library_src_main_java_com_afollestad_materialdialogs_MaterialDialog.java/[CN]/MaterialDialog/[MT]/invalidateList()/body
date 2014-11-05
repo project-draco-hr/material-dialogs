@@ -15,19 +15,30 @@
       if (selectedIndex > -1) {
         ((RadioButton)il.findViewById(R.id.control)).setChecked(selectedIndex == index);
       }
+      TextView tv=(TextView)il.findViewById(R.id.title);
+      tv.setText(items[index]);
+      tv.setTextColor(itemColor);
     }
  else     if (listCallbackMulti != null) {
       il=li.inflate(R.layout.dialog_listitem_multichoice,null);
       if (selectedIndices != null) {
         if (Arrays.asList(selectedIndices).contains(index))         ((CheckBox)il.findViewById(R.id.control)).setChecked(true);
       }
+      TextView tv=(TextView)il.findViewById(R.id.title);
+      tv.setText(items[index]);
+      tv.setTextColor(itemColor);
     }
  else {
-      il=li.inflate(R.layout.dialog_listitem,null);
+      if (mItemProcessor != null) {
+        il=mItemProcessor.inflateItem();
+      }
+ else {
+        il=li.inflate(R.layout.dialog_listitem,null);
+        TextView tv=(TextView)il.findViewById(R.id.title);
+        tv.setText(items[index]);
+        tv.setTextColor(itemColor);
+      }
     }
-    TextView tv=(TextView)il.findViewById(R.id.title);
-    tv.setText(items[index]);
-    tv.setTextColor(itemColor);
     il.setTag(index + ":" + items[index]);
     il.setOnClickListener(this);
     list.addView(il);
