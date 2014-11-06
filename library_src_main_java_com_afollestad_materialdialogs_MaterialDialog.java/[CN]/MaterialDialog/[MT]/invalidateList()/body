@@ -8,7 +8,8 @@
   setMargin(list,-1,-1,0,0);
   LayoutInflater li=LayoutInflater.from(mContext);
   if (listCallbackSingle == null && listCallbackMulti == null) {
-    setMargin(view.findViewById(R.id.customViewFrame),-1,dialogFrameMargin,-1,-1);
+    View customFrame=view.findViewById(R.id.customViewFrame);
+    customFrame.setPadding(customFrame.getPaddingLeft(),customFrame.getPaddingTop(),customFrame.getPaddingRight(),dialogFrameMargin);
   }
   final int itemColor=DialogUtils.resolveColor(getContext(),R.attr.item_color);
   for (int index=0; index < items.length; index++) {
