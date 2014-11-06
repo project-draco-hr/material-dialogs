@@ -20,6 +20,7 @@
   this.selectedIndex=builder.selectedIndex;
   this.selectedIndices=builder.selectedIndicies;
   this.mItemProcessor=builder.itemProcessor;
+  this.hideActions=builder.hideActions;
   TextView title=(TextView)view.findViewById(R.id.title);
   final TextView content=(TextView)view.findViewById(R.id.content);
   content.setText(builder.content);
@@ -79,7 +80,6 @@
     }
   }
   invalidateList();
-  invalidateActions();
-  checkIfStackingNeeded();
+  if (invalidateActions())   checkIfStackingNeeded();
   setViewInternal(view);
 }

@@ -1,8 +1,8 @@
 {
-  if (items != null && listCallbackSingle == null && listCallbackMulti == null) {
+  if (items != null && listCallbackSingle == null && listCallbackMulti == null || hideActions) {
     view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.GONE);
     view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
-    return;
+    return false;
   }
   if (isStacked) {
     view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.GONE);
@@ -46,4 +46,5 @@
  else {
     negativeButton.setVisibility(View.GONE);
   }
+  return true;
 }
