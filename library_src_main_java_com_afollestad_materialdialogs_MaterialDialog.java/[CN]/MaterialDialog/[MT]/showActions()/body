@@ -1,0 +1,4 @@
+{
+  hideActions=false;
+  if (invalidateActions())   checkIfStackingNeeded();
+}
