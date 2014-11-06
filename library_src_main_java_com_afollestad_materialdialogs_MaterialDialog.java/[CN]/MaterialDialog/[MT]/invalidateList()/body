@@ -11,7 +11,7 @@
     View customFrame=view.findViewById(R.id.customViewFrame);
     customFrame.setPadding(customFrame.getPaddingLeft(),customFrame.getPaddingTop(),customFrame.getPaddingRight(),dialogFrameMargin);
   }
-  final int itemColor=DialogUtils.resolveColor(getContext(),R.attr.item_color);
+  final int itemColor=DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary);
   for (int index=0; index < items.length; index++) {
     View il;
     if (listCallbackSingle != null) {

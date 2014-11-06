@@ -1,5 +1,5 @@
 {
-  final int buttonColor=DialogUtils.resolveColor(getContext(),R.attr.button_color);
+  final int buttonColor=DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary);
   if (newPrimaryColor == 0)   newPrimaryColor=buttonColor;
   int[][] states=new int[][]{new int[]{-android.R.attr.state_enabled},new int[]{}};
   int[] colors=new int[]{DialogUtils.adjustAlpha(buttonColor,0.6f),newPrimaryColor};
