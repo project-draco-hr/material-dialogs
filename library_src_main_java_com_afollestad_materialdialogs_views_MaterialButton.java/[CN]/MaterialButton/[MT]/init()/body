@@ -1,6 +1,0 @@
-{
-  setClickable(true);
-  setFocusable(true);
-  setFocusableInTouchMode(true);
-  setBackgroundCompat(getResources().getDrawable(R.drawable.list_selector));
-}
