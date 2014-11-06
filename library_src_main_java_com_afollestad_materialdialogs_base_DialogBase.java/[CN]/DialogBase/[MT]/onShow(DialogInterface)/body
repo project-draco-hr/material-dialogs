@@ -1,0 +1,3 @@
+{
+  if (mShowListener != null)   mShowListener.onShow(dialog);
+}

@@ -70,6 +70,7 @@
     }
   }
   invalidateList();
-  if (invalidateActions())   checkIfStackingNeeded();
+  invalidateActions();
+  setOnShowListenerInternal();
   setViewInternal(view);
 }
