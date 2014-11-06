@@ -26,10 +26,10 @@
   content.setMovementMethod(new LinkMovementMethod());
   content.setVisibility(View.VISIBLE);
   content.setTypeface(regularFont);
-  content.setTextColor(Utils.resolveColor(getContext(),R.attr.content_color));
+  content.setTextColor(DialogUtils.resolveColor(getContext(),R.attr.content_color));
   content.setLineSpacing(0f,builder.contentLineSpacingMultiplier);
   if (this.positiveColor == 0) {
-    content.setLinkTextColor(Utils.resolveColor(getContext(),R.attr.button_color));
+    content.setLinkTextColor(DialogUtils.resolveColor(getContext(),R.attr.button_color));
   }
  else {
     content.setLinkTextColor(this.positiveColor);
@@ -69,7 +69,7 @@
       title.setTextColor(builder.titleColor);
     }
  else {
-      title.setTextColor(Utils.resolveColor(getContext(),R.attr.title_color));
+      title.setTextColor(DialogUtils.resolveColor(getContext(),R.attr.title_color));
     }
     if (builder.titleAlignment == Alignment.CENTER) {
       title.setGravity(Gravity.CENTER_HORIZONTAL);

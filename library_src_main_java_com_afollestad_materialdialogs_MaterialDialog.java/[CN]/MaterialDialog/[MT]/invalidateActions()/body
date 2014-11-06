@@ -17,6 +17,7 @@
   if (this.positiveText == null)   this.positiveText=mContext.getString(android.R.string.ok);
   positiveButton.setText(this.positiveText);
   positiveButton.setTextColor(getActionTextStateList(this.positiveColor));
+  positiveButton.setBackgroundResource(DialogUtils.resolveDrawable(getContext(),R.attr.list_selector));
   positiveButton.setTag(POSITIVE);
   positiveButton.setOnClickListener(this);
   neutralButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNeutral : R.id.buttonDefaultNeutral);
@@ -24,6 +25,7 @@
   if (this.neutralText != null) {
     neutralButton.setVisibility(View.VISIBLE);
     neutralButton.setTextColor(getActionTextStateList(this.neutralColor));
+    neutralButton.setBackgroundResource(DialogUtils.resolveDrawable(getContext(),R.attr.list_selector));
     neutralButton.setText(this.neutralText);
     neutralButton.setTag(NEUTRAL);
     neutralButton.setOnClickListener(this);
@@ -36,6 +38,7 @@
   if (this.negativeText != null) {
     negativeButton.setVisibility(View.VISIBLE);
     negativeButton.setTextColor(getActionTextStateList(this.negativeColor));
+    negativeButton.setBackgroundResource(DialogUtils.resolveDrawable(getContext(),R.attr.list_selector));
     negativeButton.setText(this.negativeText);
     negativeButton.setTag(NEGATIVE);
     negativeButton.setOnClickListener(this);

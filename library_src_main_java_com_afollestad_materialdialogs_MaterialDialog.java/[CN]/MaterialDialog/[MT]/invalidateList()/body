@@ -7,7 +7,10 @@
   setMargin(view.findViewById(R.id.titleCustomView),-1,-1,dialogFrameMargin,dialogFrameMargin);
   setMargin(list,-1,-1,0,0);
   LayoutInflater li=LayoutInflater.from(mContext);
-  final int itemColor=Utils.resolveColor(getContext(),R.attr.item_color);
+  if (listCallbackSingle == null && listCallbackMulti == null) {
+    setMargin(view.findViewById(R.id.customViewFrame),-1,dialogFrameMargin,-1,-1);
+  }
+  final int itemColor=DialogUtils.resolveColor(getContext(),R.attr.item_color);
   for (int index=0; index < items.length; index++) {
     View il;
     if (listCallbackSingle != null) {
@@ -41,6 +44,7 @@
     }
     il.setTag(index + ":" + items[index]);
     il.setOnClickListener(this);
+    il.setBackgroundResource(DialogUtils.resolveDrawable(getContext(),R.attr.list_selector));
     list.addView(il);
   }
 }

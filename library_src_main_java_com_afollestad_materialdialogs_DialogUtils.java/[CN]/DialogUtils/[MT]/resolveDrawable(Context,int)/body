@@ -1,0 +1,9 @@
+{
+  TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{attr});
+  try {
+    return a.getResourceId(0,0);
+  }
+  finally {
+    a.recycle();
+  }
+}
