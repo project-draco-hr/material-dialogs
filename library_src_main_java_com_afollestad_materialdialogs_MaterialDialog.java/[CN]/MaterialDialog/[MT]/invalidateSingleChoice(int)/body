@@ -1,6 +1,6 @@
 {
   newSelection++;
-  LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
+  final LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
   for (int i=1; i < list.getChildCount(); i++) {
     View v=list.getChildAt(i);
     @SuppressLint("WrongViewCast") RadioButton rb=(RadioButton)v.findViewById(R.id.control);

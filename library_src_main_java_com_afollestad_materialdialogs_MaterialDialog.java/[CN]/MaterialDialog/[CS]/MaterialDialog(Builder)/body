@@ -2,7 +2,6 @@
   super(new ContextThemeWrapper(builder.context,builder.theme == Theme.LIGHT ? R.style.Light : R.style.Dark));
   this.mContext=builder.context;
   this.view=LayoutInflater.from(builder.context).inflate(R.layout.material_dialog,null);
-  ((MeasureCallbackLinearLayout)view).setCallback(this);
   this.customView=builder.customView;
   this.callback=builder.callback;
   this.listCallback=builder.listCallback;
@@ -16,13 +15,13 @@
   this.neutralColor=builder.neutralColor;
   this.items=builder.items;
   this.setCancelable(builder.cancelable);
-  this.regularFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
+  final Typeface regularFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
   this.mediumFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Medium.ttf");
   this.selectedIndex=builder.selectedIndex;
   this.selectedIndices=builder.selectedIndicies;
   this.mItemProcessor=builder.itemProcessor;
   TextView title=(TextView)view.findViewById(R.id.title);
-  TextView content=(TextView)view.findViewById(R.id.content);
+  final TextView content=(TextView)view.findViewById(R.id.content);
   content.setText(builder.content);
   content.setMovementMethod(new LinkMovementMethod());
   content.setVisibility(View.VISIBLE);
@@ -81,5 +80,6 @@
   }
   invalidateList();
   invalidateActions();
+  checkIfStackingNeeded();
   setViewInternal(view);
 }
