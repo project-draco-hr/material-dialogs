@@ -18,7 +18,7 @@
       il=li.inflate(R.layout.dialog_listitem_singlechoice,null);
       if (selectedIndex > -1) {
         RadioButton control=(RadioButton)il.findViewById(R.id.control);
-        control.setChecked(selectedIndex == index);
+        if (selectedIndex == index)         control.setChecked(true);
       }
       TextView tv=(TextView)il.findViewById(R.id.title);
       tv.setText(items[index]);
