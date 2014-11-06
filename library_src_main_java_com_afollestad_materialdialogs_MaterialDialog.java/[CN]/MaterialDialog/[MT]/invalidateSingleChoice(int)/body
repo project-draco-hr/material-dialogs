@@ -4,6 +4,6 @@
   for (int i=1; i < list.getChildCount(); i++) {
     View v=list.getChildAt(i);
     @SuppressLint("WrongViewCast") RadioButton rb=(RadioButton)v.findViewById(R.id.control);
-    rb.setChecked(newSelection == i);
+    if (newSelection != i)     rb.setChecked(false);
   }
 }

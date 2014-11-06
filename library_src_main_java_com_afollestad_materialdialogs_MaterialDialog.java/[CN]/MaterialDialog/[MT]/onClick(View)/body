@@ -54,12 +54,12 @@
     }
  else     if (listCallbackSingle != null) {
       RadioButton cb=(RadioButton)((LinearLayout)v).getChildAt(0);
-      cb.performClick();
+      cb.setChecked(!cb.isChecked());
       invalidateSingleChoice(index);
     }
  else     if (listCallbackMulti != null) {
       CheckBox cb=(CheckBox)((LinearLayout)v).getChildAt(0);
-      cb.performClick();
+      cb.setChecked(!cb.isChecked());
     }
   }
 }

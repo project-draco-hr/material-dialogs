@@ -3,13 +3,13 @@
   view.findViewById(R.id.content).setVisibility(View.GONE);
   final int dialogFrameMargin=(int)mContext.getResources().getDimension(R.dimen.dialog_frame_margin);
   view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
-  LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
+  LinearLayout customFrame=(LinearLayout)view.findViewById(R.id.customViewFrame);
   setMargin(view.findViewById(R.id.titleCustomView),-1,-1,dialogFrameMargin,dialogFrameMargin);
-  setMargin(list,-1,-1,0,0);
+  setMargin(customFrame,-1,-1,0,0);
   LayoutInflater li=LayoutInflater.from(mContext);
-  if (listCallbackSingle == null && listCallbackMulti == null) {
-    View customFrame=view.findViewById(R.id.customViewFrame);
-    customFrame.setPadding(customFrame.getPaddingLeft(),customFrame.getPaddingTop(),customFrame.getPaddingRight(),dialogFrameMargin);
+  if (listCallbackSingle != null || listCallbackMulti != null) {
+    final int mainFrameMargin=(int)mContext.getResources().getDimension(R.dimen.main_frame_margin);
+    customFrame.setPadding(customFrame.getPaddingLeft(),customFrame.getPaddingTop(),customFrame.getPaddingRight(),mainFrameMargin);
   }
   final int itemColor=DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary);
   for (int index=0; index < items.length; index++) {
@@ -17,7 +17,8 @@
     if (listCallbackSingle != null) {
       il=li.inflate(R.layout.dialog_listitem_singlechoice,null);
       if (selectedIndex > -1) {
-        ((RadioButton)il.findViewById(R.id.control)).setChecked(selectedIndex == index);
+        RadioButton control=(RadioButton)il.findViewById(R.id.control);
+        control.setChecked(selectedIndex == index);
       }
       TextView tv=(TextView)il.findViewById(R.id.title);
       tv.setText(items[index]);
@@ -26,7 +27,10 @@
  else     if (listCallbackMulti != null) {
       il=li.inflate(R.layout.dialog_listitem_multichoice,null);
       if (selectedIndices != null) {
-        if (Arrays.asList(selectedIndices).contains(index))         ((CheckBox)il.findViewById(R.id.control)).setChecked(true);
+        if (Arrays.asList(selectedIndices).contains(index)) {
+          CheckBox control=(CheckBox)il.findViewById(R.id.control);
+          control.setChecked(true);
+        }
       }
       TextView tv=(TextView)il.findViewById(R.id.title);
       tv.setText(items[index]);
@@ -46,6 +50,6 @@
     il.setTag(index + ":" + items[index]);
     il.setOnClickListener(this);
     il.setBackgroundResource(DialogUtils.resolveDrawable(getContext(),R.attr.list_selector));
-    list.addView(il);
+    customFrame.addView(il);
   }
 }
