@@ -1,0 +1,4 @@
+{
+  this.dismissOnActionPress=dismiss;
+  return this;
+}
