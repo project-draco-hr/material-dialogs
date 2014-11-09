@@ -1,0 +1,4 @@
+{
+  this.autoDismiss=dismiss;
+  return this;
+}

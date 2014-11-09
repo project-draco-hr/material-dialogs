@@ -2,7 +2,7 @@
   String tag=(String)v.getTag();
   if (tag.equals(POSITIVE)) {
     if (listCallbackSingle != null) {
-      if (dismissOnActionPress)       dismiss();
+      if (autoDismiss)       dismiss();
       LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
       for (int i=1; i < list.getChildCount(); i++) {
         View itemView=list.getChildAt(i);
@@ -14,7 +14,7 @@
       }
     }
  else     if (listCallbackMulti != null) {
-      if (dismissOnActionPress)       dismiss();
+      if (autoDismiss)       dismiss();
       List<Integer> selectedIndices=new ArrayList<Integer>();
       List<String> selectedTitles=new ArrayList<String>();
       LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
@@ -29,27 +29,29 @@
       listCallbackMulti.onSelection(this,selectedIndices.toArray(new Integer[selectedIndices.size()]),selectedTitles.toArray(new String[selectedTitles.size()]));
     }
  else     if (callback != null) {
-      if (dismissOnActionPress)       dismiss();
+      if (autoDismiss)       dismiss();
       callback.onPositive(this);
     }
   }
  else   if (tag.equals(NEGATIVE)) {
     if (callback != null && callback instanceof Callback) {
-      if (dismissOnActionPress)       dismiss();
+      if (autoDismiss)       dismiss();
       ((Callback)callback).onNegative(this);
     }
+ else     if (autoDismiss)     dismiss();
   }
  else   if (tag.equals(NEUTRAL)) {
     if (callback != null && callback instanceof FullCallback) {
-      if (dismissOnActionPress)       dismiss();
+      if (autoDismiss)       dismiss();
       ((FullCallback)callback).onNeutral(this);
     }
+ else     if (autoDismiss)     dismiss();
   }
  else {
     String[] split=tag.split(":");
     int index=Integer.parseInt(split[0]);
     if (listCallback != null) {
-      if (dismissOnActionPress)       dismiss();
+      if (autoDismiss)       dismiss();
       listCallback.onSelection(this,v,index,split[1]);
     }
  else     if (listCallbackSingle != null) {
@@ -61,5 +63,6 @@
       CheckBox cb=(CheckBox)((LinearLayout)v).getChildAt(0);
       cb.setChecked(!cb.isChecked());
     }
+ else     if (autoDismiss)     dismiss();
   }
 }
