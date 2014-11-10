@@ -1,7 +1,7 @@
 {
   this.context=context;
   this.positiveText=context.getString(android.R.string.ok);
-  final int materialBlue=context.getResources().getColor(R.color.material_blue_500);
+  final int materialBlue=context.getResources().getColor(R.color.md_material_blue_500);
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.colorAccent});
     try {

@@ -6,14 +6,14 @@
   setMargin(customFrame,-1,-1,0,0);
   LayoutInflater li=LayoutInflater.from(mContext);
   customFrame.setPadding(customFrame.getPaddingLeft(),customFrame.getPaddingTop(),customFrame.getPaddingRight(),0);
-  final int customFramePadding=(int)mContext.getResources().getDimension(R.dimen.dialog_frame_margin);
+  final int customFramePadding=(int)mContext.getResources().getDimension(R.dimen.md_dialog_frame_margin);
   View title=view.findViewById(R.id.titleCustomView);
   title.setPadding(customFramePadding,title.getPaddingTop(),customFramePadding,title.getPaddingBottom());
   final int itemColor=DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary);
   for (int index=0; index < items.length; index++) {
     View il;
     if (listCallbackSingle != null) {
-      il=li.inflate(R.layout.dialog_listitem_singlechoice,null);
+      il=li.inflate(R.layout.md_listitem_singlechoice,null);
       if (selectedIndex > -1) {
         RadioButton control=(RadioButton)il.findViewById(R.id.control);
         if (selectedIndex == index)         control.setChecked(true);
@@ -23,7 +23,7 @@
       tv.setTextColor(itemColor);
     }
  else     if (listCallbackMulti != null) {
-      il=li.inflate(R.layout.dialog_listitem_multichoice,null);
+      il=li.inflate(R.layout.md_listitem_multichoice,null);
       if (selectedIndices != null) {
         if (Arrays.asList(selectedIndices).contains(index)) {
           CheckBox control=(CheckBox)il.findViewById(R.id.control);
@@ -39,7 +39,7 @@
         il=mItemProcessor.inflateItem(index,items[index]);
       }
  else {
-        il=li.inflate(R.layout.dialog_listitem,null);
+        il=li.inflate(R.layout.md_listitem,null);
         TextView tv=(TextView)il.findViewById(R.id.title);
         tv.setText(items[index]);
         tv.setTextColor(itemColor);

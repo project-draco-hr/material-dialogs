@@ -1,5 +1,5 @@
 {
-  if (items != null && listCallbackSingle == null && listCallbackMulti == null || hideActions) {
+  if ((items != null || colorChooser != null) && listCallbackSingle == null && listCallbackMulti == null || hideActions) {
     view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.GONE);
     view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
     return false;

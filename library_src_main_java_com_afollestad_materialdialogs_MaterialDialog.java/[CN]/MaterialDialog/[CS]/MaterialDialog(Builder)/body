@@ -1,7 +1,7 @@
 {
-  super(new ContextThemeWrapper(builder.context,builder.theme == Theme.LIGHT ? R.style.Light : R.style.Dark));
+  super(new ContextThemeWrapper(builder.context,builder.theme == Theme.LIGHT ? R.style.MD_Light : R.style.MD_Dark));
   this.mContext=builder.context;
-  this.view=LayoutInflater.from(builder.context).inflate(R.layout.material_dialog,null);
+  this.view=LayoutInflater.from(builder.context).inflate(R.layout.md_dialog,null);
   this.customView=builder.customView;
   this.callback=builder.callback;
   this.listCallback=builder.listCallback;
@@ -50,7 +50,7 @@
  else {
     invalidateCustomViewAssociations();
   }
-  if (items != null && items.length > 0)   title=(TextView)view.findViewById(R.id.titleCustomView);
+  if ((items != null && items.length > 0) || (colorChooser != null && colorChooser.length > 0))   title=(TextView)view.findViewById(R.id.titleCustomView);
   if (builder.title == null || builder.title.toString().trim().isEmpty()) {
     title.setVisibility(View.GONE);
   }
