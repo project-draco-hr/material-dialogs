@@ -2,6 +2,7 @@
   if (items != null && listCallbackSingle == null && listCallbackMulti == null || hideActions) {
     view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.GONE);
     view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
+    invalidateList();
     return false;
   }
   if (isStacked) {
@@ -46,5 +47,6 @@
  else {
     negativeButton.setVisibility(View.GONE);
   }
+  invalidateList();
   return true;
 }

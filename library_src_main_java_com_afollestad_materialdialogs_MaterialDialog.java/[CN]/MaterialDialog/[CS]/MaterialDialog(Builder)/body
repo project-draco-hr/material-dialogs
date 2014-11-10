@@ -72,7 +72,6 @@
       title.setGravity(Gravity.RIGHT);
     }
   }
-  invalidateList();
   invalidateActions();
   setOnShowListenerInternal();
   setViewInternal(view);

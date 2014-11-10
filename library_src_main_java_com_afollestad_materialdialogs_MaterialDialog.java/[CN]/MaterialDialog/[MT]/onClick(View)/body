@@ -3,30 +3,11 @@
   if (tag.equals(POSITIVE)) {
     if (listCallbackSingle != null) {
       if (autoDismiss)       dismiss();
-      LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
-      for (int i=1; i < list.getChildCount(); i++) {
-        View itemView=list.getChildAt(i);
-        @SuppressLint("WrongViewCast") RadioButton rb=(RadioButton)itemView.findViewById(R.id.control);
-        if (rb.isChecked()) {
-          listCallbackSingle.onSelection(this,v,i - 1,((TextView)itemView.findViewById(R.id.title)).getText().toString());
-          break;
-        }
-      }
+      sendSingleChoiceCallback(v);
     }
  else     if (listCallbackMulti != null) {
       if (autoDismiss)       dismiss();
-      List<Integer> selectedIndices=new ArrayList<Integer>();
-      List<String> selectedTitles=new ArrayList<String>();
-      LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
-      for (int i=1; i < list.getChildCount(); i++) {
-        View itemView=list.getChildAt(i);
-        @SuppressLint("WrongViewCast") CheckBox rb=(CheckBox)itemView.findViewById(R.id.control);
-        if (rb.isChecked()) {
-          selectedIndices.add(i - 1);
-          selectedTitles.add(((TextView)itemView.findViewById(R.id.title)).getText().toString());
-        }
-      }
-      listCallbackMulti.onSelection(this,selectedIndices.toArray(new Integer[selectedIndices.size()]),selectedTitles.toArray(new String[selectedTitles.size()]));
+      sendMultichoiceCallback();
     }
  else     if (callback != null) {
       if (autoDismiss)       dismiss();
