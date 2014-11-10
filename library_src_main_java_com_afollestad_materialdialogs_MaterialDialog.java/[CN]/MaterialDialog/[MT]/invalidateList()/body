@@ -47,7 +47,7 @@
     }
     il.setTag(index + ":" + items[index]);
     il.setOnClickListener(this);
-    il.setBackgroundResource(DialogUtils.resolveDrawable(getContext(),R.attr.list_selector));
+    il.setBackgroundResource(DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
     customFrame.addView(il);
   }
 }
