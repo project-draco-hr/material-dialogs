@@ -49,27 +49,20 @@
   }
  else {
     String[] split=tag.split(":");
-    if (split[0].equals(COLOR)) {
-      int index=Integer.parseInt(split[1]);
-      int color=Integer.parseInt(split[2]);
-      if (colorCallback != null)       colorCallback.onColor(index,color);
+    int index=Integer.parseInt(split[0]);
+    if (listCallback != null) {
+      if (autoDismiss)       dismiss();
+      listCallback.onSelection(this,v,index,split[1]);
     }
- else {
-      int index=Integer.parseInt(split[0]);
-      if (listCallback != null) {
-        if (autoDismiss)         dismiss();
-        listCallback.onSelection(this,v,index,split[1]);
-      }
- else       if (listCallbackSingle != null) {
-        RadioButton cb=(RadioButton)((LinearLayout)v).getChildAt(0);
-        if (!cb.isChecked())         cb.setChecked(true);
-        invalidateSingleChoice(index);
-      }
- else       if (listCallbackMulti != null) {
-        CheckBox cb=(CheckBox)((LinearLayout)v).getChildAt(0);
-        cb.setChecked(!cb.isChecked());
-      }
- else       if (autoDismiss)       dismiss();
+ else     if (listCallbackSingle != null) {
+      RadioButton cb=(RadioButton)((LinearLayout)v).getChildAt(0);
+      if (!cb.isChecked())       cb.setChecked(true);
+      invalidateSingleChoice(index);
     }
+ else     if (listCallbackMulti != null) {
+      CheckBox cb=(CheckBox)((LinearLayout)v).getChildAt(0);
+      cb.setChecked(!cb.isChecked());
+    }
+ else     if (autoDismiss)     dismiss();
   }
 }

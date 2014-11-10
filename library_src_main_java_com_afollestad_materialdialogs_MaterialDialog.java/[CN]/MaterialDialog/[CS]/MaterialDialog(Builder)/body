@@ -50,7 +50,7 @@
  else {
     invalidateCustomViewAssociations();
   }
-  if ((items != null && items.length > 0) || (colorChooser != null && colorChooser.length > 0))   title=(TextView)view.findViewById(R.id.titleCustomView);
+  if (items != null && items.length > 0)   title=(TextView)view.findViewById(R.id.titleCustomView);
   if (builder.title == null || builder.title.toString().trim().isEmpty()) {
     title.setVisibility(View.GONE);
   }
