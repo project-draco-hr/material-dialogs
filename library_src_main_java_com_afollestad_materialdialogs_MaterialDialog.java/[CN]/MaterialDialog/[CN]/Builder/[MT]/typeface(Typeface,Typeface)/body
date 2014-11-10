@@ -1,0 +1,5 @@
+{
+  this.mediumFont=medium;
+  this.regularFont=regular;
+  return this;
+}

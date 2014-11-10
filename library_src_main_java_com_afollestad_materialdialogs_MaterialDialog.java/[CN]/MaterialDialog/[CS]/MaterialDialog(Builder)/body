@@ -1,5 +1,9 @@
 {
   super(new ContextThemeWrapper(builder.context,builder.theme == Theme.LIGHT ? R.style.MD_Light : R.style.MD_Dark));
+  this.regularFont=builder.regularFont;
+  if (this.regularFont == null)   Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
+  this.mediumFont=builder.mediumFont;
+  if (this.mediumFont == null)   this.mediumFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Medium.ttf");
   this.mContext=builder.context;
   this.view=LayoutInflater.from(builder.context).inflate(R.layout.md_dialog,null);
   this.customView=builder.customView;
@@ -15,8 +19,6 @@
   this.neutralColor=builder.neutralColor;
   this.items=builder.items;
   this.setCancelable(builder.cancelable);
-  final Typeface regularFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
-  this.mediumFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Medium.ttf");
   this.selectedIndex=builder.selectedIndex;
   this.selectedIndices=builder.selectedIndicies;
   this.mItemProcessor=builder.itemProcessor;

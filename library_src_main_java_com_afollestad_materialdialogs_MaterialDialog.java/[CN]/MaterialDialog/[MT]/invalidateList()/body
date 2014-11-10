@@ -21,6 +21,7 @@
       TextView tv=(TextView)il.findViewById(R.id.title);
       tv.setText(items[index]);
       tv.setTextColor(itemColor);
+      tv.setTypeface(regularFont);
     }
  else     if (listCallbackMulti != null) {
       il=li.inflate(R.layout.md_listitem_multichoice,null);
@@ -33,6 +34,7 @@
       TextView tv=(TextView)il.findViewById(R.id.title);
       tv.setText(items[index]);
       tv.setTextColor(itemColor);
+      tv.setTypeface(regularFont);
     }
  else {
       if (mItemProcessor != null) {
@@ -43,6 +45,7 @@
         TextView tv=(TextView)il.findViewById(R.id.title);
         tv.setText(items[index]);
         tv.setTextColor(itemColor);
+        tv.setTypeface(regularFont);
       }
     }
     il.setTag(index + ":" + items[index]);
