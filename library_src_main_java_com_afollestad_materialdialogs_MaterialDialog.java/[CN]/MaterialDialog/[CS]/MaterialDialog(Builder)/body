@@ -29,7 +29,7 @@
   content.setText(builder.content);
   content.setMovementMethod(new LinkMovementMethod());
   content.setVisibility(View.VISIBLE);
-  content.setTypeface(regularFont);
+  setTypeface(content,regularFont);
   content.setTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary));
   content.setLineSpacing(0f,builder.contentLineSpacingMultiplier);
   if (this.positiveColor == 0) {
@@ -58,7 +58,7 @@
   }
  else {
     title.setText(builder.title);
-    title.setTypeface(mediumFont);
+    setTypeface(title,mediumFont);
     if (builder.titleColor != -1) {
       title.setTextColor(builder.titleColor);
     }

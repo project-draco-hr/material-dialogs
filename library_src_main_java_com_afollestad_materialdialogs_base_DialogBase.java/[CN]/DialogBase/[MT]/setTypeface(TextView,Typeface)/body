@@ -1,0 +1,5 @@
+{
+  int flags=text.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG;
+  text.setPaintFlags(flags);
+  text.setTypeface(t);
+}

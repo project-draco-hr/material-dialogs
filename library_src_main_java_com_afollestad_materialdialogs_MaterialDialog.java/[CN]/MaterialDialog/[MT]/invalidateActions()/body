@@ -14,7 +14,7 @@
     view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
   }
   positiveButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedPositive : R.id.buttonDefaultPositive);
-  positiveButton.setTypeface(mediumFont);
+  setTypeface(positiveButton,mediumFont);
   if (this.positiveText == null)   this.positiveText=mContext.getString(android.R.string.ok);
   positiveButton.setText(this.positiveText);
   positiveButton.setTextColor(getActionTextStateList(this.positiveColor));
@@ -22,7 +22,7 @@
   positiveButton.setTag(POSITIVE);
   positiveButton.setOnClickListener(this);
   neutralButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNeutral : R.id.buttonDefaultNeutral);
-  neutralButton.setTypeface(mediumFont);
+  setTypeface(neutralButton,mediumFont);
   if (this.neutralText != null) {
     neutralButton.setVisibility(View.VISIBLE);
     neutralButton.setTextColor(getActionTextStateList(this.neutralColor));
@@ -35,7 +35,7 @@
     neutralButton.setVisibility(View.GONE);
   }
   negativeButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNegative : R.id.buttonDefaultNegative);
-  negativeButton.setTypeface(mediumFont);
+  setTypeface(negativeButton,mediumFont);
   if (this.negativeText != null) {
     negativeButton.setVisibility(View.VISIBLE);
     negativeButton.setTextColor(getActionTextStateList(this.negativeColor));
