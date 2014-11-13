@@ -13,6 +13,7 @@
       if (autoDismiss)       dismiss();
       callback.onPositive(this);
     }
+ else     if (autoDismiss)     dismiss();
   }
  else   if (tag.equals(NEGATIVE)) {
     if (callback != null && callback instanceof Callback) {
