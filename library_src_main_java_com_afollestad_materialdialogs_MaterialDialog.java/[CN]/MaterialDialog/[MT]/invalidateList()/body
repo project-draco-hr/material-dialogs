@@ -1,6 +1,6 @@
 {
   if (items == null || items.length == 0)   return;
-  view.findViewById(R.id.content).setVisibility(View.GONE);
+  view.findViewById(R.id.contentScrollView).setVisibility(View.GONE);
   view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
   LinearLayout customFrame=(LinearLayout)view.findViewById(R.id.customViewFrame);
   setMargin(customFrame,-1,-1,0,0);

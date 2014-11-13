@@ -13,6 +13,12 @@
     }
   }
 );
+  findViewById(R.id.basicLongContent).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showBasicLongContent();
+    }
+  }
+);
   findViewById(R.id.stacked).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showStacked();

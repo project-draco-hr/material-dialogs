@@ -28,7 +28,6 @@
   final TextView content=(TextView)view.findViewById(R.id.content);
   content.setText(builder.content);
   content.setMovementMethod(new LinkMovementMethod());
-  content.setVisibility(View.VISIBLE);
   setTypeface(content,regularFont);
   content.setTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary));
   content.setLineSpacing(0f,builder.contentLineSpacingMultiplier);

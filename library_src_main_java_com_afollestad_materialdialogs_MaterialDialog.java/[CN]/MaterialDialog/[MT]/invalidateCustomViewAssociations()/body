@@ -29,5 +29,16 @@
     view.findViewById(R.id.mainFrame).setVisibility(View.VISIBLE);
     view.findViewById(R.id.customViewScrollParent).setVisibility(View.GONE);
     view.findViewById(R.id.customViewDivider).setVisibility(View.GONE);
+    if (!mMeasuredScrollView) {
+      ((MeasureCallbackScrollView)view.findViewById(R.id.contentScrollView)).setCallback(this);
+      return;
+    }
+    if (canContentScroll()) {
+      view.findViewById(R.id.customViewDivider).setVisibility(View.VISIBLE);
+      view.findViewById(R.id.customViewDivider).setBackgroundColor(DialogUtils.resolveColor(getContext(),R.attr.md_divider));
+      setMargin(view.findViewById(R.id.mainFrame),-1,0,-1,-1);
+      setMargin(view.findViewById(R.id.buttonStackedFrame),-1,0,-1,-1);
+      setMargin(view.findViewById(R.id.buttonDefaultFrame),-1,0,-1,-1);
+    }
   }
 }
