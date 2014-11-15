@@ -1,5 +1,5 @@
 {
-  if (items != null && listCallbackSingle == null && listCallbackMulti == null || hideActions) {
+  if (positiveText == null) {
     view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.GONE);
     view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
     invalidateList();
@@ -14,16 +14,20 @@
     view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
   }
   positiveButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedPositive : R.id.buttonDefaultPositive);
-  setTypeface(positiveButton,mediumFont);
-  if (this.positiveText == null)   this.positiveText=mContext.getString(android.R.string.ok);
-  positiveButton.setText(this.positiveText);
-  positiveButton.setTextColor(getActionTextStateList(this.positiveColor));
-  setBackgroundCompat(positiveButton,DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
-  positiveButton.setTag(POSITIVE);
-  positiveButton.setOnClickListener(this);
+  if (this.positiveText != null) {
+    setTypeface(positiveButton,mediumFont);
+    positiveButton.setText(this.positiveText);
+    positiveButton.setTextColor(getActionTextStateList(this.positiveColor));
+    setBackgroundCompat(positiveButton,DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
+    positiveButton.setTag(POSITIVE);
+    positiveButton.setOnClickListener(this);
+  }
+ else {
+    positiveButton.setVisibility(View.GONE);
+  }
   neutralButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNeutral : R.id.buttonDefaultNeutral);
-  setTypeface(neutralButton,mediumFont);
   if (this.neutralText != null) {
+    setTypeface(neutralButton,mediumFont);
     neutralButton.setVisibility(View.VISIBLE);
     neutralButton.setTextColor(getActionTextStateList(this.neutralColor));
     setBackgroundCompat(neutralButton,DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
@@ -35,8 +39,8 @@
     neutralButton.setVisibility(View.GONE);
   }
   negativeButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNegative : R.id.buttonDefaultNegative);
-  setTypeface(negativeButton,mediumFont);
   if (this.negativeText != null) {
+    setTypeface(negativeButton,mediumFont);
     negativeButton.setVisibility(View.VISIBLE);
     negativeButton.setTextColor(getActionTextStateList(this.negativeColor));
     setBackgroundCompat(negativeButton,DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));

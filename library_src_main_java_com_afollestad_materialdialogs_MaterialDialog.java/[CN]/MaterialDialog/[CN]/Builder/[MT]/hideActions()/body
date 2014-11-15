@@ -1,4 +1,0 @@
-{
-  this.hideActions=true;
-  return this;
-}
