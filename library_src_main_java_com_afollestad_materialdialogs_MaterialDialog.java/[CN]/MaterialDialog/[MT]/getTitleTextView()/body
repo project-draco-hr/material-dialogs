@@ -1,4 +1,0 @@
-{
-  if (view == null)   return null;
-  return title;
-}

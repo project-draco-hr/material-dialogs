@@ -18,8 +18,9 @@
   }
   if (positiveText != null)   listPaddingBottom=0;
   customFrame.setPadding(customFrame.getPaddingLeft(),customFrame.getPaddingTop(),customFrame.getPaddingRight(),listPaddingBottom);
+  View titleFrame=(View)title.getParent();
   customFrame.removeAllViews();
-  customFrame.addView(title);
+  customFrame.addView(titleFrame);
   final int itemColor=DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary);
   for (int index=0; index < items.length; index++) {
     View il;

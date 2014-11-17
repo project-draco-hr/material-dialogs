@@ -1,0 +1,4 @@
+{
+  icon.setImageDrawable(d);
+  icon.setVisibility(d != null ? View.VISIBLE : View.GONE);
+}

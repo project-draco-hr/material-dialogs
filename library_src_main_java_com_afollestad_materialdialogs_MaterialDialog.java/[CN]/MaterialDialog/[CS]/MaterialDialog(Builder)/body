@@ -24,6 +24,8 @@
   this.mItemProcessor=builder.itemProcessor;
   this.autoDismiss=builder.autoDismiss;
   title=(TextView)view.findViewById(R.id.title);
+  icon=(ImageView)view.findViewById(R.id.icon);
+  titleFrame=view.findViewById(R.id.titleFrame);
   final TextView content=(TextView)view.findViewById(R.id.content);
   content.setText(builder.content);
   content.setMovementMethod(new LinkMovementMethod());
@@ -44,16 +46,25 @@
   }
   if (customView != null) {
     title=(TextView)view.findViewById(R.id.titleCustomView);
+    icon=(ImageView)view.findViewById(R.id.iconCustomView);
+    titleFrame=view.findViewById(R.id.titleFrameCustomView);
     invalidateCustomViewAssociations();
     ((LinearLayout)view.findViewById(R.id.customViewFrame)).addView(customView);
   }
  else {
     invalidateCustomViewAssociations();
   }
+  if (builder.icon != null) {
+    icon.setVisibility(View.VISIBLE);
+    icon.setImageDrawable(builder.icon);
+  }
+ else {
+    icon.setVisibility(View.GONE);
+  }
   if (items != null && items.length > 0)   title=(TextView)view.findViewById(R.id.titleCustomView);
  else   if (positiveText == null && customView == null)   positiveText=getContext().getString(android.R.string.ok);
   if (builder.title == null || builder.title.toString().trim().isEmpty()) {
-    title.setVisibility(View.GONE);
+    titleFrame.setVisibility(View.GONE);
   }
  else {
     title.setText(builder.title);

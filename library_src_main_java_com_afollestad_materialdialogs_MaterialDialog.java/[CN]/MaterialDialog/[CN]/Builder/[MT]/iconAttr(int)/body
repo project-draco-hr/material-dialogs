@@ -1,0 +1,4 @@
+{
+  this.icon=DialogUtils.resolveDrawable(context,iconAttr);
+  return this;
+}

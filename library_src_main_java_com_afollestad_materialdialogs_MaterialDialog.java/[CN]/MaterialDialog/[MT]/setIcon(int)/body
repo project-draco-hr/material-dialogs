@@ -1,0 +1,4 @@
+{
+  icon.setImageResource(resId);
+  icon.setVisibility(resId != 0 ? View.VISIBLE : View.GONE);
+}
