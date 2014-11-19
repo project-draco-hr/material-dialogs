@@ -1,5 +1,5 @@
 {
-  Drawable d=DialogUtils.resolveDrawable(mContext,attrId);
+  Drawable d=DialogUtils.resolveDrawable(getContext(),attrId);
   icon.setImageDrawable(d);
   icon.setVisibility(d != null ? View.VISIBLE : View.GONE);
 }
