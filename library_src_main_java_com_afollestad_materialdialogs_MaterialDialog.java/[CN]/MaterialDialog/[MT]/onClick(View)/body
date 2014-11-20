@@ -40,14 +40,14 @@
       RadioButton cb=(RadioButton)((LinearLayout)v).getChildAt(0);
       if (!cb.isChecked())       cb.setChecked(true);
       invalidateSingleChoice(index);
-      if (positiveText == null) {
+      if (!hasActionButtons()) {
         sendSingleChoiceCallback(v);
       }
     }
  else     if (listCallbackMulti != null) {
       CheckBox cb=(CheckBox)((LinearLayout)v).getChildAt(0);
       cb.setChecked(!cb.isChecked());
-      if (positiveText == null) {
+      if (!hasActionButtons()) {
         sendMultichoiceCallback();
       }
     }
