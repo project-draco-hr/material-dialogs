@@ -1,12 +1,10 @@
 {
-  super(builder.context,builder.theme == Theme.LIGHT ? R.style.MD_Light : R.style.MD_Dark);
-  if (builder.theme == Theme.LIGHT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
-    setInverseBackgroundForced(true);
-  }
+  super(new ContextThemeWrapper(builder.context,builder.theme == Theme.LIGHT ? R.style.MD_Light : R.style.MD_Dark));
   this.regularFont=builder.regularFont;
   if (this.regularFont == null)   this.regularFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
   this.mediumFont=builder.mediumFont;
   if (this.mediumFont == null)   this.mediumFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Medium.ttf");
+  this.mContext=builder.context;
   this.view=LayoutInflater.from(getContext()).inflate(R.layout.md_dialog,null);
   this.customView=builder.customView;
   this.callback=builder.callback;
