@@ -66,6 +66,7 @@
  else   if (positiveText == null && customView == null)   positiveText=getContext().getString(android.R.string.ok);
   if (builder.title == null || builder.title.toString().trim().isEmpty()) {
     titleFrame.setVisibility(View.GONE);
+    if (customView == null)     view.findViewById(R.id.titleFrameCustomView).setVisibility(View.GONE);
   }
  else {
     title.setText(builder.title);
