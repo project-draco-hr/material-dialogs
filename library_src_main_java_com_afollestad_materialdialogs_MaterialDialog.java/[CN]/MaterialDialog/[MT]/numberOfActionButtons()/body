@@ -1,0 +1,7 @@
+{
+  int number=0;
+  if (positiveText != null)   number++;
+  if (neutralText != null)   number++;
+  if (negativeText != null)   number++;
+  return number;
+}
