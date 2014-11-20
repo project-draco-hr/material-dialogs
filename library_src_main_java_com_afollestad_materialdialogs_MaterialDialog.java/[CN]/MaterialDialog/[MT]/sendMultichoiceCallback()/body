@@ -1,14 +1,14 @@
 {
-  List<Integer> selectedIndices=new ArrayList<Integer>();
-  List<String> selectedTitles=new ArrayList<String>();
+  List<Integer> selectedIndices=new ArrayList<>();
+  List<CharSequence> selectedTitles=new ArrayList<>();
   LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
   for (int i=1; i < list.getChildCount(); i++) {
     View itemView=list.getChildAt(i);
     @SuppressLint("WrongViewCast") CheckBox rb=(CheckBox)itemView.findViewById(R.id.control);
     if (rb.isChecked()) {
       selectedIndices.add(i - 1);
-      selectedTitles.add(((TextView)itemView.findViewById(R.id.title)).getText().toString());
+      selectedTitles.add(((TextView)itemView.findViewById(R.id.title)).getText());
     }
   }
-  listCallbackMulti.onSelection(this,selectedIndices.toArray(new Integer[selectedIndices.size()]),selectedTitles.toArray(new String[selectedTitles.size()]));
+  listCallbackMulti.onSelection(this,selectedIndices.toArray(new Integer[selectedIndices.size()]),selectedTitles.toArray(new CharSequence[selectedTitles.size()]));
 }

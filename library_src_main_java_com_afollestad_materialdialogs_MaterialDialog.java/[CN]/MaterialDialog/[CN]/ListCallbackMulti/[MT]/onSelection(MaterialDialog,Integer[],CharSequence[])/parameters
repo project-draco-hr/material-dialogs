@@ -1,3 +1,3 @@
 MaterialDialog dialog
 Integer[] which
-String[] text
+CharSequence[] text
