@@ -1,4 +1,4 @@
 MaterialDialog dialog
 View itemView
 int which
-String text
+CharSequence text
