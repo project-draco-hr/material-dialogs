@@ -1,6 +1,6 @@
 {
-  List<Integer> selectedIndices=new ArrayList<Integer>();
-  List<String> selectedTitles=new ArrayList<String>();
+  List<Integer> selectedIndices=new ArrayList<>();
+  List<String> selectedTitles=new ArrayList<>();
   LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
   for (int i=1; i < list.getChildCount(); i++) {
     View itemView=list.getChildAt(i);
@@ -10,5 +10,5 @@
       selectedTitles.add(((TextView)itemView.findViewById(R.id.title)).getText().toString());
     }
   }
-  listCallbackMulti.onSelection(this,selectedIndices.toArray(new Integer[selectedIndices.size()]),selectedTitles.toArray(new String[selectedTitles.size()]));
+  listCallbackMulti.onSelection(this,selectedIndices.toArray(new Integer[selectedIndices.size()]),selectedTitles.toArray(new CharSequence[selectedTitles.size()]));
 }
