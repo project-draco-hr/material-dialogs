@@ -1,0 +1,5 @@
+{
+  builder.neutralText(textId);
+  neutralDialogListener=listener;
+  return this;
+}

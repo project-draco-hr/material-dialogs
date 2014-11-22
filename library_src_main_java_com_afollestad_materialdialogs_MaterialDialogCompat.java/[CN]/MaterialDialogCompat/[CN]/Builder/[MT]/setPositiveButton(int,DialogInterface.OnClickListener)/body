@@ -1,0 +1,5 @@
+{
+  builder.positiveText(textId);
+  positiveDialogListener=listener;
+  return this;
+}

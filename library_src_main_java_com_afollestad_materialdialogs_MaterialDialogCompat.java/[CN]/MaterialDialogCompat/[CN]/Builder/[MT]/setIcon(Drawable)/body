@@ -1,0 +1,4 @@
+{
+  builder.icon(icon);
+  return this;
+}

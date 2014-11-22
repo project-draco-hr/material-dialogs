@@ -1,0 +1,5 @@
+{
+  builder.negativeText(text);
+  negativeDialogListener=listener;
+  return this;
+}
