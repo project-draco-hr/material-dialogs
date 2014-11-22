@@ -1,0 +1,22 @@
+{
+  if (positiveDialogListener != null || negativeDialogListener != null) {
+    builder.callback(new MaterialDialog.FullCallback(){
+      @Override public void onNeutral(      MaterialDialog dialog){
+        if (neutralDialogListener != null) {
+          neutralDialogListener.onClick(dialog,DialogInterface.BUTTON_NEUTRAL);
+        }
+      }
+      @Override public void onPositive(      MaterialDialog dialog){
+        if (positiveDialogListener != null) {
+          positiveDialogListener.onClick(dialog,DialogInterface.BUTTON_POSITIVE);
+        }
+      }
+      @Override public void onNegative(      MaterialDialog dialog){
+        if (negativeDialogListener != null) {
+          negativeDialogListener.onClick(dialog,DialogInterface.BUTTON_NEGATIVE);
+        }
+      }
+    }
+);
+  }
+}

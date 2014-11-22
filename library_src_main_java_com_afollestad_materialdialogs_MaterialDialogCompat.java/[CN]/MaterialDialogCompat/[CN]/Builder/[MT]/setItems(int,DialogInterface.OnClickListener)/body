@@ -1,0 +1,5 @@
+{
+  builder.items(itemsId);
+  onClickListener=listener;
+  return this;
+}
