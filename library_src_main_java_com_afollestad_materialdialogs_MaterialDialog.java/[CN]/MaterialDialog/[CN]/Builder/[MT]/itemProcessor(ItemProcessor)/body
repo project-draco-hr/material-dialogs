@@ -1,4 +1,0 @@
-{
-  this.itemProcessor=processor;
-  return this;
-}

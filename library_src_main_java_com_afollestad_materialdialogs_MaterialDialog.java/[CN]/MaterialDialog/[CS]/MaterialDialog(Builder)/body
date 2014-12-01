@@ -21,7 +21,6 @@
   this.setCancelable(builder.cancelable);
   this.selectedIndex=builder.selectedIndex;
   this.selectedIndices=builder.selectedIndicies;
-  this.mItemProcessor=builder.itemProcessor;
   this.autoDismiss=builder.autoDismiss;
   this.adapter=builder.adapter;
   title=(TextView)view.findViewById(R.id.title);
