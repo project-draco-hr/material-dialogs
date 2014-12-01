@@ -2,67 +2,36 @@
   if (items == null || items.length == 0)   return;
   view.findViewById(R.id.contentScrollView).setVisibility(View.GONE);
   view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
+  view.findViewById(R.id.customViewScroll).setVisibility(View.GONE);
   LinearLayout customFrame=(LinearLayout)view.findViewById(R.id.customViewFrame);
-  ((ScrollView)view.findViewById(R.id.customViewScroll)).smoothScrollTo(0,0);
   setMargin(customFrame,-1,-1,0,0);
-  LayoutInflater li=LayoutInflater.from(mContext);
-  final int customFramePadding=(int)getContext().getResources().getDimension(R.dimen.md_title_margin_plainlist);
-  int listPaddingBottom;
-  View title=view.findViewById(R.id.titleCustomView);
-  if (title.getVisibility() == View.VISIBLE) {
-    title.setPadding(customFramePadding,title.getPaddingTop(),customFramePadding,title.getPaddingBottom());
-    listPaddingBottom=customFramePadding;
-  }
- else {
-    listPaddingBottom=(int)getContext().getResources().getDimension(R.dimen.md_main_frame_margin);
-  }
-  if (hasActionButtons())   listPaddingBottom=0;
-  customFrame.setPadding(customFrame.getPaddingLeft(),customFrame.getPaddingTop(),customFrame.getPaddingRight(),listPaddingBottom);
-  View titleFrame=(View)title.getParent();
-  customFrame.removeAllViews();
-  customFrame.addView(titleFrame);
-  final int itemColor=DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary);
-  for (int index=0; index < items.length; index++) {
-    View il;
-    if (listCallbackSingle != null) {
-      il=li.inflate(R.layout.md_listitem_singlechoice,null);
-      if (selectedIndex > -1) {
-        RadioButton control=(RadioButton)il.findViewById(R.id.control);
-        if (selectedIndex == index)         control.setChecked(true);
-      }
-      TextView tv=(TextView)il.findViewById(R.id.title);
-      tv.setText(items[index]);
-      tv.setTextColor(itemColor);
-      setTypeface(tv,regularFont);
-    }
- else     if (listCallbackMulti != null) {
-      il=li.inflate(R.layout.md_listitem_multichoice,null);
-      if (selectedIndices != null) {
-        if (Arrays.asList(selectedIndices).contains(index)) {
-          CheckBox control=(CheckBox)il.findViewById(R.id.control);
-          control.setChecked(true);
+  LinearLayout listViewContainer=(LinearLayout)view.findViewById(R.id.list_view_container);
+  listViewContainer.setVisibility(View.VISIBLE);
+  ListView listView=(ListView)view.findViewById(R.id.contentListView);
+  listView.setAdapter(adapter);
+  listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      boolean isChecked=!((CheckBox)view.findViewById(R.id.control)).isChecked();
+      boolean previouslySelected=selectedIndicesList.contains(position);
+      if (isChecked) {
+        if (!previouslySelected) {
+          selectedIndicesList.add(position);
         }
       }
-      TextView tv=(TextView)il.findViewById(R.id.title);
-      tv.setText(items[index]);
-      tv.setTextColor(itemColor);
-      setTypeface(tv,regularFont);
-    }
- else {
-      if (mItemProcessor != null) {
-        il=mItemProcessor.inflateItem(index,items[index]);
+ else       if (previouslySelected) {
+        selectedIndicesList.remove(Integer.valueOf(position));
       }
- else {
-        il=li.inflate(R.layout.md_listitem,null);
-        TextView tv=(TextView)il.findViewById(R.id.title);
-        tv.setText(items[index]);
-        tv.setTextColor(itemColor);
-        setTypeface(tv,regularFont);
-      }
+      onClick(view);
     }
-    il.setTag(index + ":" + items[index]);
-    il.setOnClickListener(this);
-    setBackgroundCompat(il,DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
-    customFrame.addView(il);
+  }
+);
+  if (title.getVisibility() == View.VISIBLE || icon.getVisibility() == View.VISIBLE) {
+    View header=view.findViewById(R.id.titleFrameCustomView);
+    TextView title=(TextView)header.findViewById(R.id.titleCustomView);
+    final int customFramePadding=(int)getContext().getResources().getDimension(R.dimen.md_title_margin_plainlist);
+    title.setPadding(customFramePadding,title.getPaddingTop(),customFramePadding,title.getPaddingBottom());
+    View titleFrame=(View)title.getParent();
+    customFrame.removeView(titleFrame);
+    listViewContainer.addView(titleFrame,0);
   }
 }

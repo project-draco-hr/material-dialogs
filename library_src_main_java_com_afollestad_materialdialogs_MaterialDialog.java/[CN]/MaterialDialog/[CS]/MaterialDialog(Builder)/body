@@ -23,6 +23,7 @@
   this.selectedIndices=builder.selectedIndicies;
   this.mItemProcessor=builder.itemProcessor;
   this.autoDismiss=builder.autoDismiss;
+  this.adapter=builder.adapter;
   title=(TextView)view.findViewById(R.id.title);
   icon=(ImageView)view.findViewById(R.id.icon);
   titleFrame=view.findViewById(R.id.titleFrame);
@@ -61,7 +62,23 @@
  else {
     icon.setVisibility(View.GONE);
   }
-  if (items != null && items.length > 0)   title=(TextView)view.findViewById(R.id.titleCustomView);
+  if (items != null && items.length > 0) {
+    title=(TextView)view.findViewById(R.id.titleCustomView);
+    boolean adapterProvided=adapter != null;
+    if (!adapterProvided) {
+      if (listCallbackSingle != null) {
+        listType=ListType.SINGLE;
+      }
+ else       if (listCallbackMulti != null) {
+        listType=ListType.MULTI;
+        selectedIndicesList=new ArrayList<>(Arrays.asList(selectedIndices));
+      }
+ else {
+        listType=ListType.REGULAR;
+      }
+      adapter=new MaterialDialogAdapter(mContext,ListType.getLayoutForType(listType),R.id.title,items);
+    }
+  }
   if (builder.title == null || builder.title.toString().trim().isEmpty()) {
     titleFrame.setVisibility(View.GONE);
     if (customView == null)     view.findViewById(R.id.titleFrameCustomView).setVisibility(View.GONE);
