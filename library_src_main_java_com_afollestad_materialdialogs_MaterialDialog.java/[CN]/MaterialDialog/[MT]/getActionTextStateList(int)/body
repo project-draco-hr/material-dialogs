@@ -1,7 +1,7 @@
 {
-  final int buttonColor=DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary);
-  if (newPrimaryColor == 0)   newPrimaryColor=buttonColor;
+  final int fallBackButtonColor=DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary);
+  if (newPrimaryColor == 0)   newPrimaryColor=fallBackButtonColor;
   int[][] states=new int[][]{new int[]{-android.R.attr.state_enabled},new int[]{}};
-  int[] colors=new int[]{DialogUtils.adjustAlpha(buttonColor,0.6f),newPrimaryColor};
+  int[] colors=new int[]{DialogUtils.adjustAlpha(newPrimaryColor,0.4f),newPrimaryColor};
   return new ColorStateList(states,colors);
 }
