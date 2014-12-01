@@ -1,5 +1,5 @@
 {
-  super(new ContextThemeWrapper(builder.context,builder.theme == Theme.LIGHT ? R.style.MD_Light : R.style.MD_Dark));
+  super(getTheme(builder));
   this.regularFont=builder.regularFont;
   if (this.regularFont == null)   this.regularFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
   this.mediumFont=builder.mediumFont;
