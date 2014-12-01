@@ -1,11 +1,3 @@
 {
-  LinearLayout list=(LinearLayout)view.findViewById(R.id.customViewFrame);
-  for (int i=1; i < list.getChildCount(); i++) {
-    View itemView=list.getChildAt(i);
-    @SuppressLint("WrongViewCast") RadioButton rb=(RadioButton)itemView.findViewById(R.id.control);
-    if (rb.isChecked()) {
-      listCallbackSingle.onSelection(this,v,i - 1,((TextView)itemView.findViewById(R.id.title)).getText());
-      break;
-    }
-  }
+  listCallbackSingle.onSelection(this,v,selectedIndex,items[selectedIndex]);
 }

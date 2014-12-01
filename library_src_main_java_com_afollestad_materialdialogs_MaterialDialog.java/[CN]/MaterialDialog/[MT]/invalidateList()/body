@@ -23,6 +23,12 @@
           selectedIndicesList.remove(Integer.valueOf(position));
         }
       }
+ else       if (listType == ListType.SINGLE) {
+        if (selectedIndex != position) {
+          selectedIndex=position;
+          ((MaterialDialogAdapter)adapter).notifyDataSetChanged();
+        }
+      }
       onClick(view);
     }
   }
