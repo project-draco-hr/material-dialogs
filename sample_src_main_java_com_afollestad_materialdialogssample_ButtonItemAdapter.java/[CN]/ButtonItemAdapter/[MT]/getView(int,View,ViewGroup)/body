@@ -1,0 +1,8 @@
+{
+  View view=View.inflate(mContext,R.layout.dialog_customlistitem,null);
+  ((TextView)view.findViewById(R.id.title)).setText(mItems[position] + " (" + position+ ")");
+  Button button=(Button)view.findViewById(R.id.button);
+  button.setTag(position);
+  button.setOnClickListener(this);
+  return view;
+}
