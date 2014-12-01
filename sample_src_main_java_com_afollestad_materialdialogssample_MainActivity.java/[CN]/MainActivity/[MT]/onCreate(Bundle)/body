@@ -49,6 +49,12 @@
     }
   }
 );
+  findViewById(R.id.listNoTitle).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showListNoTitle();
+    }
+  }
+);
   findViewById(R.id.longList).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showLongList();
