@@ -1,0 +1,4 @@
+{
+  this.contentColor=color;
+  return this;
+}
