@@ -1,5 +1,0 @@
-{
-  this.context=context;
-  li=LayoutInflater.from(context);
-  defaultLayout=R.layout.md_listitem;
-}

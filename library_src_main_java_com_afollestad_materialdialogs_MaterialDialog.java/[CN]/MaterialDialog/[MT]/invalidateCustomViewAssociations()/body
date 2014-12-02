@@ -1,5 +1,5 @@
 {
-  if (customView != null || (items != null && items.length > 0)) {
+  if (customView != null || (items != null && items.length > 0) || adapter != null) {
     view.findViewById(R.id.mainFrame).setVisibility(View.GONE);
     view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
     if (!mMeasuredScrollView) {

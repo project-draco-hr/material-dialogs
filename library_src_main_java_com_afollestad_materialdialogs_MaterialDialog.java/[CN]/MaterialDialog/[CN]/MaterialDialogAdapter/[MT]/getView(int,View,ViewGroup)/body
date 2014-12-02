@@ -1,0 +1,22 @@
+{
+  final View view=super.getView(index,convertView,parent);
+  TextView tv=(TextView)view.findViewById(R.id.title);
+switch (listType) {
+case SINGLE:
+    RadioButton radio=(RadioButton)view.findViewById(R.id.control);
+  radio.setChecked(selectedIndex == index);
+break;
+case MULTI:
+if (selectedIndices != null) {
+CheckBox checkbox=(CheckBox)view.findViewById(R.id.control);
+checkbox.setChecked(selectedIndicesList.contains(index));
+}
+break;
+}
+tv.setText(items[index]);
+tv.setTextColor(itemColor);
+setTypeface(tv,regularFont);
+view.setTag(index + ":" + items[index]);
+setBackgroundCompat(view,DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
+return view;
+}
