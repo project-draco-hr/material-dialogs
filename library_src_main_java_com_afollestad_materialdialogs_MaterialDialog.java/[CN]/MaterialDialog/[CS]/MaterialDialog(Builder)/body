@@ -65,6 +65,7 @@
   if (items != null && items.length > 0 || adapterProvided) {
     title=(TextView)view.findViewById(R.id.titleCustomView);
     listView=(ListView)view.findViewById(R.id.contentListView);
+    ((MeasureCallbackListView)listView).setCallback(this);
     if (!adapterProvided) {
       if (listCallbackSingle != null) {
         listType=ListType.SINGLE;
@@ -78,6 +79,18 @@
       }
       adapter=new MaterialDialogAdapter(mContext,ListType.getLayoutForType(listType),R.id.title,items);
     }
+    adapter.registerDataSetObserver(new DataSetObserver(){
+      @Override public void onChanged(){
+        super.onChanged();
+        listView.post(new Runnable(){
+          @Override public void run(){
+            invalidateCustomViewAssociations();
+          }
+        }
+);
+      }
+    }
+);
   }
   if (builder.title == null || builder.title.toString().trim().isEmpty()) {
     titleFrame.setVisibility(View.GONE);
