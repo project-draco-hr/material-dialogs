@@ -61,9 +61,10 @@
  else {
     icon.setVisibility(View.GONE);
   }
-  if (items != null && items.length > 0) {
+  boolean adapterProvided=adapter != null;
+  if (items != null && items.length > 0 || adapterProvided) {
     title=(TextView)view.findViewById(R.id.titleCustomView);
-    boolean adapterProvided=adapter != null;
+    listView=(ListView)view.findViewById(R.id.contentListView);
     if (!adapterProvided) {
       if (listCallbackSingle != null) {
         listType=ListType.SINGLE;
