@@ -32,7 +32,7 @@
   setTypeface(content,regularFont);
   content.setLineSpacing(0f,builder.contentLineSpacingMultiplier);
   if (this.positiveColor == 0) {
-    content.setLinkTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary));
+    content.setLinkTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary));
   }
  else {
     content.setLinkTextColor(this.positiveColor);
@@ -115,7 +115,7 @@
     content.setTextColor(builder.contentColor);
   }
  else {
-    content.setTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary));
+    content.setTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary));
   }
   invalidateActions();
   setOnShowListenerInternal();
