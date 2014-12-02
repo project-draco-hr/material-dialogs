@@ -4,7 +4,7 @@
   if (this.regularFont == null)   this.regularFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Regular.ttf");
   this.mediumFont=builder.mediumFont;
   if (this.mediumFont == null)   this.mediumFont=Typeface.createFromAsset(getContext().getResources().getAssets(),"Roboto-Medium.ttf");
-  this.mContext=builder.context;
+  mContext=builder.context;
   this.view=LayoutInflater.from(getContext()).inflate(R.layout.md_dialog,null);
   this.customView=builder.customView;
   this.callback=builder.callback;
