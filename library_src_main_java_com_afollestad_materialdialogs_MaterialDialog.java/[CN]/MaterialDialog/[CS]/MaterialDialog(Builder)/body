@@ -30,6 +30,7 @@
   content.setText(builder.content);
   content.setMovementMethod(new LinkMovementMethod());
   setTypeface(content,regularFont);
+  content.setTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary));
   content.setLineSpacing(0f,builder.contentLineSpacingMultiplier);
   if (this.positiveColor == 0) {
     content.setLinkTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary));
@@ -110,12 +111,6 @@
  else     if (builder.titleAlignment == Alignment.RIGHT) {
       title.setGravity(Gravity.RIGHT);
     }
-  }
-  if (builder.contentColor != -1) {
-    content.setTextColor(builder.contentColor);
-  }
- else {
-    content.setTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary));
   }
   invalidateActions();
   setOnShowListenerInternal();
