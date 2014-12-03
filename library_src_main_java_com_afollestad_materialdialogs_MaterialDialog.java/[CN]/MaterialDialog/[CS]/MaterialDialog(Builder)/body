@@ -91,7 +91,7 @@
     }
 );
   }
-  if (builder.title == null || builder.title.toString().trim().isEmpty()) {
+  if (builder.title == null || builder.title.toString().trim().length() == 0) {
     titleFrame.setVisibility(View.GONE);
     if (customView == null)     view.findViewById(R.id.titleFrameCustomView).setVisibility(View.GONE);
   }

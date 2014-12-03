@@ -91,4 +91,10 @@
     }
   }
 );
+  findViewById(R.id.folder_chooser).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      new FolderSelectorDialog().show(MainActivity.this,MainActivity.this);
+    }
+  }
+);
 }

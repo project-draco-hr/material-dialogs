@@ -1,4 +1,9 @@
 {
+  if (adapter instanceof MaterialDialogAdapter) {
+    adapter=new MaterialDialogAdapter(mContext,ListType.getLayoutForType(listType),R.id.title,items);
+  }
+ else   throw new IllegalStateException("When using a custom adapter, setItems() cannot be used. Set items through the adapter instead.");
   this.items=items;
-  invalidateList();
+  listView.setAdapter(adapter);
+  invalidateCustomViewAssociations();
 }

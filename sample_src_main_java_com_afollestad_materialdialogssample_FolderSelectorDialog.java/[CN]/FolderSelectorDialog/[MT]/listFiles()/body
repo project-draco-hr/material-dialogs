@@ -1,0 +1,9 @@
+{
+  File[] contents=parentFolder.listFiles();
+  List<File> results=new ArrayList<File>();
+  for (  File fi : contents) {
+    if (fi.isDirectory())     results.add(fi);
+  }
+  Collections.sort(results,new FolderSorter());
+  return results.toArray(new File[results.size()]);
+}

@@ -1,0 +1,14 @@
+{
+  if (canGoUp && i == 0) {
+    parentFolder=parentFolder.getParentFile();
+    canGoUp=parentFolder.getParent() != null;
+  }
+ else {
+    parentFolder=parentContents[canGoUp ? i - 1 : i];
+    canGoUp=true;
+  }
+  parentContents=listFiles();
+  MaterialDialog dialog=(MaterialDialog)getDialog();
+  dialog.setTitle(parentFolder.getAbsolutePath());
+  dialog.setItems(getContentsArray());
+}

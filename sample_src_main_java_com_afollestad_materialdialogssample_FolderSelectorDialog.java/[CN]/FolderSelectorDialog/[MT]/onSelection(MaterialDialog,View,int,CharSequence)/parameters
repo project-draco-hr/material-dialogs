@@ -1,0 +1,4 @@
+MaterialDialog materialDialog
+View view
+int i
+CharSequence s

@@ -1,0 +1,4 @@
+{
+  parentFolder=Environment.getExternalStorageDirectory();
+  parentContents=listFiles();
+}
