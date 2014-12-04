@@ -1,9 +1,6 @@
 {
   if (listView != null) {
-    if (listView.getLastVisiblePosition() != -1) {
-      return listView.getLastVisiblePosition() < (listView.getCount() - 1);
-    }
-    return false;
+    return listView.getLastVisiblePosition() != -1 && listView.getLastVisiblePosition() < (listView.getCount() - 1);
   }
   final ScrollView scrollView=(ScrollView)view.findViewById(R.id.customViewScroll);
   final int childHeight=view.findViewById(R.id.customViewFrame).getMeasuredHeight();
