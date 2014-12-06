@@ -17,6 +17,5 @@ tv.setText(items[index]);
 tv.setTextColor(itemColor);
 setTypeface(tv,regularFont);
 view.setTag(index + ":" + items[index]);
-setBackgroundCompat(view,DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
 return view;
 }
