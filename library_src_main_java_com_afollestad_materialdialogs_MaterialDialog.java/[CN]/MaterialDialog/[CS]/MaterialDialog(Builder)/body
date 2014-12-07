@@ -68,13 +68,6 @@
  else {
     invalidateCustomViewAssociations();
   }
-  if (builder.icon != null) {
-    icon.setVisibility(View.VISIBLE);
-    icon.setImageDrawable(builder.icon);
-  }
- else {
-    icon.setVisibility(View.GONE);
-  }
   boolean adapterProvided=adapter != null;
   if (items != null && items.length > 0 || adapterProvided) {
     title=(TextView)view.findViewById(R.id.titleCustomView);
@@ -107,6 +100,13 @@
       }
     }
 );
+  }
+  if (builder.icon != null) {
+    icon.setVisibility(View.VISIBLE);
+    icon.setImageDrawable(builder.icon);
+  }
+ else {
+    icon.setVisibility(View.GONE);
   }
   if (builder.title == null || builder.title.toString().trim().length() == 0) {
     titleFrame.setVisibility(View.GONE);
