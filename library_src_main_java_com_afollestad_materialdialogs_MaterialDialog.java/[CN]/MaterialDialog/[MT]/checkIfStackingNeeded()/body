@@ -6,7 +6,7 @@
   final int maxWidth=calculateMaxButtonWidth();
   Log.v("MD_Stacking","Max button width: " + maxWidth);
   final Paint paint=positiveButton.getPaint();
-  final int eightDp=(int)getContext().getResources().getDimension(R.dimen.md_button_padding_horizontal_external);
+  final int eightDp=(int)getContext().getResources().getDimension(R.dimen.md_button_padding_horizontal);
   isStacked=false;
   if (this.positiveText != null) {
     final int positiveWidth=(int)paint.measureText(positiveButton.getText().toString()) + eightDp;
