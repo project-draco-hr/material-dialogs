@@ -1,5 +1,4 @@
 {
   super(context,resource,textViewResourceId,objects);
-  final int fallback=DialogUtils.resolveColor(context,android.R.attr.textColorSecondary);
-  itemColor=DialogUtils.resolveColor(getContext(),R.attr.md_item_color,fallback);
+  itemColor=DialogUtils.resolveColor(getContext(),R.attr.md_item_color,contentColor);
 }

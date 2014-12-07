@@ -1,0 +1,11 @@
+{
+  TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{attr});
+  try {
+    Drawable d=a.getDrawable(0);
+    if (d == null && fallback != null)     d=fallback;
+    return d;
+  }
+  finally {
+    a.recycle();
+  }
+}

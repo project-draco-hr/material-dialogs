@@ -1,9 +1,3 @@
 {
-  TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{attr});
-  try {
-    return a.getDrawable(0);
-  }
-  finally {
-    a.recycle();
-  }
+  return resolveDrawable(context,attr,null);
 }
