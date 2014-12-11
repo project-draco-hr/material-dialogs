@@ -1,5 +1,5 @@
 {
-  MaterialDialog dialog=new MaterialDialog(this);
+  MaterialDialog dialog=build();
   dialog.show();
   return dialog;
 }

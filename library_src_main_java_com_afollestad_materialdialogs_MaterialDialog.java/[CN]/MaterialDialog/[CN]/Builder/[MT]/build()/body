@@ -1,3 +1,13 @@
 {
-  return new MaterialDialog(this);
+  MaterialDialog dialog=new MaterialDialog(this);
+  if (this.showListener != null) {
+    dialog.setOnShowListener(this.showListener);
+  }
+  if (this.cancelListener != null) {
+    dialog.setOnCancelListener(this.cancelListener);
+  }
+  if (this.dismissListener != null) {
+    dialog.setOnDismissListener(this.dismissListener);
+  }
+  return dialog;
 }

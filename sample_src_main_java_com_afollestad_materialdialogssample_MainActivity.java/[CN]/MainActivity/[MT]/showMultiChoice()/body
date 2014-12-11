@@ -11,5 +11,5 @@
       Toast.makeText(getApplicationContext(),str.toString(),Toast.LENGTH_LONG).show();
     }
   }
-).positiveText(R.string.choose).build().show();
+).positiveText(R.string.choose).show();
 }

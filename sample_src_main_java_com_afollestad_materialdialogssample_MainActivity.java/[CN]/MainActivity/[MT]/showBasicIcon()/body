@@ -1,3 +1,3 @@
 {
-  new MaterialDialog.Builder(this).icon(R.drawable.ic_launcher).title(R.string.useGoogleLocationServices).content(R.string.useGoogleLocationServicesPrompt).positiveText(R.string.agree).negativeText(R.string.disagree).build().show();
+  new MaterialDialog.Builder(this).icon(R.drawable.ic_launcher).title(R.string.useGoogleLocationServices).content(R.string.useGoogleLocationServicesPrompt).positiveText(R.string.agree).negativeText(R.string.disagree).show();
 }
