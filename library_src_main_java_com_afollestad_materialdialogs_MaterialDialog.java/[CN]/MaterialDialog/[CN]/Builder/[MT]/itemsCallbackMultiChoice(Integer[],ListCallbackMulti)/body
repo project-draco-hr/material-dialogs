@@ -1,5 +1,5 @@
 {
-  this.selectedIndicies=selectedIndices;
+  this.selectedIndices=selectedIndices;
   this.listCallback=null;
   this.listCallbackSingle=null;
   this.listCallbackMulti=callback;
