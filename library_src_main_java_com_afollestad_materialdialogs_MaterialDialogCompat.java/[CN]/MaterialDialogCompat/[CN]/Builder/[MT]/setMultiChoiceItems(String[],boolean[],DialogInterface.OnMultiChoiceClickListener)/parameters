@@ -1,0 +1,3 @@
+String[] items
+boolean[] checkedItems
+DialogInterface.OnMultiChoiceClickListener listener
