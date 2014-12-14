@@ -17,7 +17,7 @@
   this.items=builder.items;
   this.setCancelable(builder.cancelable);
   this.selectedIndex=builder.selectedIndex;
-  this.selectedIndices=builder.selectedIndicies;
+  this.selectedIndices=builder.selectedIndices;
   this.autoDismiss=builder.autoDismiss;
   this.adapter=builder.adapter;
   this.positiveColor=builder.positiveColor;
@@ -82,7 +82,12 @@
       }
  else       if (listCallbackMulti != null) {
         listType=ListType.MULTI;
-        selectedIndicesList=new ArrayList<>(Arrays.asList(selectedIndices));
+        if (selectedIndices != null) {
+          selectedIndicesList=new ArrayList<>(Arrays.asList(selectedIndices));
+        }
+ else {
+          selectedIndicesList=new ArrayList<>();
+        }
       }
  else {
         listType=ListType.REGULAR;
