@@ -1,0 +1,12 @@
+{
+switch (whichButton) {
+case BUTTON_POSITIVE:
+    return getActionButton(DialogAction.POSITIVE);
+case BUTTON_NEUTRAL:
+  return getActionButton(DialogAction.NEUTRAL);
+case BUTTON_NEGATIVE:
+return getActionButton(DialogAction.NEGATIVE);
+default :
+return null;
+}
+}

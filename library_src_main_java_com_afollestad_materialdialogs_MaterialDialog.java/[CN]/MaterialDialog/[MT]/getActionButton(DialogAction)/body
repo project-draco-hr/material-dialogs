@@ -3,21 +3,21 @@
   if (isStacked) {
 switch (which) {
 default :
-      return view.findViewById(R.id.buttonStackedPositive);
+      return (Button)view.findViewById(R.id.buttonStackedPositive);
 case NEUTRAL:
-    return view.findViewById(R.id.buttonStackedNeutral);
+    return (Button)view.findViewById(R.id.buttonStackedNeutral);
 case NEGATIVE:
-  return view.findViewById(R.id.buttonStackedNegative);
+  return (Button)view.findViewById(R.id.buttonStackedNegative);
 }
 }
  else {
 switch (which) {
 default :
-return view.findViewById(R.id.buttonDefaultPositive);
+return (Button)view.findViewById(R.id.buttonDefaultPositive);
 case NEUTRAL:
-return view.findViewById(R.id.buttonDefaultNeutral);
+return (Button)view.findViewById(R.id.buttonDefaultNeutral);
 case NEGATIVE:
-return view.findViewById(R.id.buttonDefaultNegative);
+return (Button)view.findViewById(R.id.buttonDefaultNegative);
 }
 }
 }
