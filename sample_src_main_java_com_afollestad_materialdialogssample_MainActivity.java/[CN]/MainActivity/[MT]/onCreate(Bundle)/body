@@ -73,6 +73,12 @@
     }
   }
 );
+  findViewById(R.id.complex).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showComplexListeners();
+    }
+  }
+);
   findViewById(R.id.customListItems).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showCustomList();
