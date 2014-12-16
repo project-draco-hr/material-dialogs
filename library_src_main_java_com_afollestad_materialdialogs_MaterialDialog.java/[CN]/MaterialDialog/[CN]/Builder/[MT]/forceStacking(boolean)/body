@@ -1,0 +1,4 @@
+{
+  this.forceStacking=stacked;
+  return this;
+}

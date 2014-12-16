@@ -2,6 +2,11 @@
   if (numberOfActionButtons() <= 1) {
     return;
   }
+ else   if (forceStacking) {
+    isStacked=true;
+    invalidateActions();
+    return;
+  }
   final int maxWidth=calculateMaxButtonWidth();
   isStacked=false;
   if (this.positiveText != null) {
