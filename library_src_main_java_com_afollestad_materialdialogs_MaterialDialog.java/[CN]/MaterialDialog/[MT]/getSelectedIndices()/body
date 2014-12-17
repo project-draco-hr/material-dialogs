@@ -1,0 +1,8 @@
+{
+  if (listCallbackMulti != null) {
+    return selectedIndices;
+  }
+ else {
+    return null;
+  }
+}

@@ -4,7 +4,7 @@
       Toast.makeText(MainActivity.this,"Clicked " + text,Toast.LENGTH_SHORT).show();
     }
   }
-).callback(new MaterialDialog.FullCallback(){
+).callback(new MaterialDialog.ButtonCallback(){
     @Override public void onNeutral(    MaterialDialog dialog){
       Toast.makeText(MainActivity.this,"Maybe",Toast.LENGTH_SHORT).show();
     }
