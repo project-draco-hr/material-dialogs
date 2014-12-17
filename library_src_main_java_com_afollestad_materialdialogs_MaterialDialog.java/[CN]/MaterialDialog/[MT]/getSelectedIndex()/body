@@ -1,0 +1,8 @@
+{
+  if (listCallbackSingle != null) {
+    return selectedIndex;
+  }
+ else {
+    return -1;
+  }
+}
