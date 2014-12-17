@@ -8,14 +8,14 @@ case POSITIVE:
   if (autoDismiss)   dismiss();
 break;
 case NEGATIVE:
-if (callback != null && callback instanceof Callback) {
-((Callback)callback).onNegative(this);
+if (callback != null) {
+callback.onNegative(this);
 }
 if (autoDismiss) dismiss();
 break;
 case NEUTRAL:
-if (callback != null && callback instanceof FullCallback) {
-((FullCallback)callback).onNeutral(this);
+if (callback != null) {
+callback.onNeutral(this);
 }
 if (autoDismiss) dismiss();
 break;

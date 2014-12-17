@@ -1,4 +1,0 @@
-{
-  materialDialog.dismiss();
-  mCallback.onFolderSelection(parentFolder);
-}
