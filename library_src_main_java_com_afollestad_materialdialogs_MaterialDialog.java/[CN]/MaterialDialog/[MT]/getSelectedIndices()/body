@@ -1,6 +1,6 @@
 {
   if (listCallbackMulti != null) {
-    return selectedIndices;
+    return selectedIndicesList.toArray(new Integer[selectedIndicesList.size()]);
   }
  else {
     return null;
