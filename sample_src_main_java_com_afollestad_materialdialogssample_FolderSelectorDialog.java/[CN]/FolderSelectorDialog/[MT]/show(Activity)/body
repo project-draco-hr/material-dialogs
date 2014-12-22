@@ -1,4 +1,3 @@
 {
-  mCallback=callback;
   show(context.getFragmentManager(),"FOLDER_SELECTOR");
 }
