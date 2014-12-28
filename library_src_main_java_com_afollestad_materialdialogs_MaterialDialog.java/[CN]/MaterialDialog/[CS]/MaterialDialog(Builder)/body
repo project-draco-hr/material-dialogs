@@ -148,6 +148,15 @@
       title.setGravity(Gravity.END);
     }
   }
+  if (builder.showListener != null) {
+    setOnShowListener(builder.showListener);
+  }
+  if (builder.cancelListener != null) {
+    setOnCancelListener(builder.cancelListener);
+  }
+  if (builder.dismissListener != null) {
+    setOnDismissListener(builder.dismissListener);
+  }
   invalidateActions();
   setOnShowListenerInternal();
   setViewInternal(view);
