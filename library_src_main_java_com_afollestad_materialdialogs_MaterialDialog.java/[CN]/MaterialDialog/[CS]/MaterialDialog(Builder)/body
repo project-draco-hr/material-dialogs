@@ -151,4 +151,13 @@
     title.setTextColor(Color.BLACK);
     content.setTextColor(Color.BLACK);
   }
+  if (builder.showListener != null) {
+    setOnShowListener(builder.showListener);
+  }
+  if (builder.cancelListener != null) {
+    setOnCancelListener(builder.cancelListener);
+  }
+  if (builder.dismissListener != null) {
+    setOnDismissListener(builder.dismissListener);
+  }
 }
