@@ -59,6 +59,12 @@
     this.contentColor=DialogUtils.resolveColor(getContext(),R.attr.md_content_color,fallback);
     content.setTextColor(contentColor);
   }
+  if (builder.theme == Theme.LIGHT) {
+    defaultItemColor=Color.BLACK;
+  }
+ else {
+    defaultItemColor=Color.WHITE;
+  }
   if (customView != null) {
     title=(TextView)view.findViewById(R.id.titleCustomView);
     icon=(ImageView)view.findViewById(R.id.iconCustomView);
