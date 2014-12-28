@@ -42,6 +42,6 @@
     listViewContainer.addView(titleFrame,0);
   }
  else {
-    listView.setPadding(listView.getPaddingLeft(),mainFramePadding,listView.getPaddingRight(),listView.getPaddingBottom());
+    listView.setPadding(listView.getPaddingLeft(),0,listView.getPaddingRight(),listView.getPaddingBottom());
   }
 }
