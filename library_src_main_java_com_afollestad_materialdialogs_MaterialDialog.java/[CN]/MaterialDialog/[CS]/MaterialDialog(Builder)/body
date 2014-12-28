@@ -48,15 +48,14 @@
     content.setGravity(Gravity.CENTER_HORIZONTAL);
   }
  else   if (builder.contentAlignment == Alignment.RIGHT) {
-    content.setGravity(Gravity.END);
+    content.setGravity(Gravity.RIGHT);
   }
   if (builder.contentColor != -1) {
-    this.contentColor=builder.contentColor;
-    content.setTextColor(this.contentColor);
+    content.setTextColor(builder.contentColor);
   }
  else {
     final int fallback=DialogUtils.resolveColor(getContext(),android.R.attr.textColorSecondary);
-    this.contentColor=DialogUtils.resolveColor(getContext(),R.attr.md_content_color,fallback);
+    final int contentColor=DialogUtils.resolveColor(getContext(),R.attr.md_content_color,fallback);
     content.setTextColor(contentColor);
   }
   if (builder.theme == Theme.LIGHT) {
@@ -146,7 +145,7 @@
       title.setGravity(Gravity.CENTER_HORIZONTAL);
     }
  else     if (builder.titleAlignment == Alignment.RIGHT) {
-      title.setGravity(Gravity.END);
+      title.setGravity(Gravity.RIGHT);
     }
   }
   invalidateActions();
@@ -156,14 +155,5 @@
     setInverseBackgroundForced(true);
     title.setTextColor(Color.BLACK);
     content.setTextColor(Color.BLACK);
-  }
-  if (builder.showListener != null) {
-    setOnShowListener(builder.showListener);
-  }
-  if (builder.cancelListener != null) {
-    setOnCancelListener(builder.cancelListener);
-  }
-  if (builder.dismissListener != null) {
-    setOnDismissListener(builder.dismissListener);
   }
 }

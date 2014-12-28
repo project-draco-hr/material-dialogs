@@ -1,5 +1,5 @@
 {
-  List<CharSequence> selectedTitles=new ArrayList<>();
+  List<CharSequence> selectedTitles=new ArrayList<CharSequence>();
   for (  Integer i : selectedIndicesList) {
     selectedTitles.add(items[i]);
   }
