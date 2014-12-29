@@ -87,6 +87,7 @@
  else {
           selectedIndicesList=new ArrayList<>();
         }
+        alwaysCallMultiChoiceCallback=builder.alwaysCallMultiChoiceCallback;
       }
  else {
         listType=ListType.REGULAR;
