@@ -1,7 +1,7 @@
 {
   int number=0;
-  if (positiveText != null)   number++;
-  if (neutralText != null)   number++;
-  if (negativeText != null)   number++;
+  if (mBuilder.positiveText != null)   number++;
+  if (mBuilder.neutralText != null)   number++;
+  if (mBuilder.negativeText != null)   number++;
   return number;
 }

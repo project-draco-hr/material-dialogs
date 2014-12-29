@@ -1,11 +1,11 @@
 {
-  if ((items == null || items.length == 0) && adapter == null)   return;
+  if ((mBuilder.items == null || mBuilder.items.length == 0) && mBuilder.adapter == null)   return;
   view.findViewById(R.id.contentScrollView).setVisibility(View.GONE);
   view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
   view.findViewById(R.id.customViewScroll).setVisibility(View.GONE);
   LinearLayout listViewContainer=(LinearLayout)view.findViewById(R.id.list_view_container);
   listViewContainer.setVisibility(View.VISIBLE);
-  listView.setAdapter(adapter);
+  listView.setAdapter(mBuilder.adapter);
   if (listType != null) {
     listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
       @Override public void onItemClick(      AdapterView<?> parent,      View view,      int position,      long id){
@@ -22,9 +22,9 @@
           }
         }
  else         if (listType == ListType.SINGLE) {
-          if (selectedIndex != position) {
-            selectedIndex=position;
-            ((MaterialDialogAdapter)adapter).notifyDataSetChanged();
+          if (mBuilder.selectedIndex != position) {
+            mBuilder.selectedIndex=position;
+            ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
           }
         }
         onClick(view);
@@ -32,7 +32,7 @@
     }
 );
   }
-  final int dialogFramePadding=(int)mContext.getResources().getDimension(R.dimen.md_dialog_frame_margin);
+  final int dialogFramePadding=(int)mBuilder.context.getResources().getDimension(R.dimen.md_dialog_frame_margin);
   if (titleFrame.getVisibility() == View.VISIBLE || icon.getVisibility() == View.VISIBLE) {
     int bottomPadding=(int)getContext().getResources().getDimension(R.dimen.md_title_margin_plainlist);
     setMargin(titleFrame,dialogFramePadding,bottomPadding,dialogFramePadding,dialogFramePadding);

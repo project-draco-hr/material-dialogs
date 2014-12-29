@@ -1,7 +1,7 @@
 {
   List<CharSequence> selectedTitles=new ArrayList<>();
   for (  Integer i : selectedIndicesList) {
-    selectedTitles.add(items[i]);
+    selectedTitles.add(mBuilder.items[i]);
   }
-  listCallbackMulti.onSelection(this,selectedIndicesList.toArray(new Integer[selectedIndicesList.size()]),selectedTitles.toArray(new CharSequence[selectedTitles.size()]));
+  mBuilder.listCallbackMulti.onSelection(this,selectedIndicesList.toArray(new Integer[selectedIndicesList.size()]),selectedTitles.toArray(new CharSequence[selectedTitles.size()]));
 }

@@ -1,34 +1,15 @@
 {
   super(getTheme(builder));
-  this.regularFont=builder.regularFont;
-  if (this.regularFont == null)   this.regularFont=TypefaceHelper.get(getContext(),"Roboto-Regular");
-  this.mediumFont=builder.mediumFont;
-  if (this.mediumFont == null)   this.mediumFont=TypefaceHelper.get(getContext(),"Roboto-Medium");
-  mContext=builder.context;
+  mBuilder=builder;
+  if (mBuilder.regularFont == null)   mBuilder.regularFont=TypefaceHelper.get(getContext(),"Roboto-Regular");
+  if (mBuilder.mediumFont == null)   mBuilder.mediumFont=TypefaceHelper.get(getContext(),"Roboto-Medium");
   this.view=LayoutInflater.from(getContext()).inflate(R.layout.md_dialog,null);
-  this.customView=builder.customView;
-  this.callback=builder.callback;
-  this.listCallback=builder.listCallback;
-  this.listCallbackSingle=builder.listCallbackSingle;
-  this.listCallbackMulti=builder.listCallbackMulti;
-  this.positiveText=builder.positiveText;
-  this.neutralText=builder.neutralText;
-  this.negativeText=builder.negativeText;
-  this.items=builder.items;
   this.setCancelable(builder.cancelable);
-  this.selectedIndex=builder.selectedIndex;
-  this.selectedIndices=builder.selectedIndices;
-  this.autoDismiss=builder.autoDismiss;
-  this.adapter=builder.adapter;
-  this.forceStacking=builder.forceStacking;
-  this.positiveColor=builder.positiveColor;
-  this.negativeColor=builder.negativeColor;
-  this.neutralColor=builder.neutralColor;
-  final int mdAccentColor=DialogUtils.resolveColor(mContext,R.attr.md_accent_color);
+  final int mdAccentColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_accent_color);
   if (mdAccentColor != 0) {
-    this.positiveColor=mdAccentColor;
-    this.negativeColor=mdAccentColor;
-    this.neutralColor=mdAccentColor;
+    mBuilder.positiveColor=mdAccentColor;
+    mBuilder.negativeColor=mdAccentColor;
+    mBuilder.neutralColor=mdAccentColor;
   }
   title=(TextView)view.findViewById(R.id.title);
   icon=(ImageView)view.findViewById(R.id.icon);
@@ -36,13 +17,13 @@
   final TextView content=(TextView)view.findViewById(R.id.content);
   content.setText(builder.content);
   content.setMovementMethod(new LinkMovementMethod());
-  setTypeface(content,regularFont);
+  setTypeface(content,mBuilder.regularFont);
   content.setLineSpacing(0f,builder.contentLineSpacingMultiplier);
-  if (this.positiveColor == 0) {
+  if (mBuilder.positiveColor == 0) {
     content.setLinkTextColor(DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary));
   }
  else {
-    content.setLinkTextColor(this.positiveColor);
+    content.setLinkTextColor(mBuilder.positiveColor);
   }
   if (builder.contentAlignment == Alignment.CENTER) {
     content.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -64,18 +45,18 @@
  else {
     defaultItemColor=Color.WHITE;
   }
-  if (customView != null) {
+  if (mBuilder.customView != null) {
     title=(TextView)view.findViewById(R.id.titleCustomView);
     icon=(ImageView)view.findViewById(R.id.iconCustomView);
     titleFrame=view.findViewById(R.id.titleFrameCustomView);
     invalidateCustomViewAssociations();
-    ((LinearLayout)view.findViewById(R.id.customViewFrame)).addView(customView);
+    ((LinearLayout)view.findViewById(R.id.customViewFrame)).addView(mBuilder.customView);
   }
  else {
     invalidateCustomViewAssociations();
   }
-  boolean adapterProvided=adapter != null;
-  if (items != null && items.length > 0 || adapterProvided) {
+  boolean adapterProvided=mBuilder.adapter != null;
+  if (mBuilder.items != null && mBuilder.items.length > 0 || adapterProvided) {
     title=(TextView)view.findViewById(R.id.titleCustomView);
     icon=(ImageView)view.findViewById(R.id.iconCustomView);
     titleFrame=view.findViewById(R.id.titleFrameCustomView);
@@ -83,13 +64,13 @@
     listView.setSelector(DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
     ((MeasureCallbackListView)listView).setCallback(this);
     if (!adapterProvided) {
-      if (listCallbackSingle != null) {
+      if (mBuilder.listCallbackSingle != null) {
         listType=ListType.SINGLE;
       }
- else       if (listCallbackMulti != null) {
+ else       if (mBuilder.listCallbackMulti != null) {
         listType=ListType.MULTI;
-        if (selectedIndices != null) {
-          selectedIndicesList=new ArrayList<>(Arrays.asList(selectedIndices));
+        if (mBuilder.selectedIndices != null) {
+          selectedIndicesList=new ArrayList<>(Arrays.asList(mBuilder.selectedIndices));
         }
  else {
           selectedIndicesList=new ArrayList<>();
@@ -98,9 +79,9 @@
  else {
         listType=ListType.REGULAR;
       }
-      adapter=new MaterialDialogAdapter(mContext,ListType.getLayoutForType(listType),R.id.title,items);
+      mBuilder.adapter=new MaterialDialogAdapter(mBuilder.context,ListType.getLayoutForType(listType),R.id.title,mBuilder.items);
     }
-    adapter.registerDataSetObserver(new DataSetObserver(){
+    mBuilder.adapter.registerDataSetObserver(new DataSetObserver(){
       @Override public void onChanged(){
         super.onChanged();
         listView.post(new Runnable(){
@@ -118,7 +99,7 @@
     icon.setImageDrawable(builder.icon);
   }
  else {
-    Drawable d=DialogUtils.resolveDrawable(mContext,R.attr.md_icon);
+    Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_icon);
     if (d != null) {
       icon.setVisibility(View.VISIBLE);
       icon.setImageDrawable(d);
@@ -129,11 +110,11 @@
   }
   if (builder.title == null || builder.title.toString().trim().length() == 0) {
     titleFrame.setVisibility(View.GONE);
-    if (customView == null)     view.findViewById(R.id.titleFrameCustomView).setVisibility(View.GONE);
+    if (mBuilder.customView == null)     view.findViewById(R.id.titleFrameCustomView).setVisibility(View.GONE);
   }
  else {
     title.setText(builder.title);
-    setTypeface(title,mediumFont);
+    setTypeface(title,mBuilder.mediumFont);
     if (builder.titleColor != -1) {
       title.setTextColor(builder.titleColor);
     }

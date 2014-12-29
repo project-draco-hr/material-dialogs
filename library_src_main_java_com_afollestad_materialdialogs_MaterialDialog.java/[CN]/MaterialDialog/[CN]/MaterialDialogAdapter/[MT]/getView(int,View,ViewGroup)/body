@@ -3,19 +3,23 @@
   TextView tv=(TextView)view.findViewById(R.id.title);
 switch (listType) {
 case SINGLE:
-    RadioButton radio=(RadioButton)view.findViewById(R.id.control);
-  radio.setChecked(selectedIndex == index);
-break;
+{
+      RadioButton radio=(RadioButton)view.findViewById(R.id.control);
+      radio.setChecked(mBuilder.selectedIndex == index);
+      break;
+    }
 case MULTI:
-if (selectedIndices != null) {
-CheckBox checkbox=(CheckBox)view.findViewById(R.id.control);
-checkbox.setChecked(selectedIndicesList.contains(index));
+{
+    if (mBuilder.selectedIndices != null) {
+      CheckBox checkbox=(CheckBox)view.findViewById(R.id.control);
+      checkbox.setChecked(selectedIndicesList.contains(index));
+    }
+    break;
+  }
 }
-break;
-}
-tv.setText(items[index]);
+tv.setText(mBuilder.items[index]);
 tv.setTextColor(itemColor);
-setTypeface(tv,regularFont);
-view.setTag(index + ":" + items[index]);
+setTypeface(tv,mBuilder.regularFont);
+view.setTag(index + ":" + mBuilder.items[index]);
 return view;
 }

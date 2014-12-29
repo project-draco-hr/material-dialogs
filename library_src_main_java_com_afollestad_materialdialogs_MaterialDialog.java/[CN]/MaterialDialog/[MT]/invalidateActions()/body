@@ -13,11 +13,11 @@
     view.findViewById(R.id.buttonDefaultFrame).setVisibility(View.VISIBLE);
     view.findViewById(R.id.buttonStackedFrame).setVisibility(View.GONE);
   }
-  positiveButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedPositive : R.id.buttonDefaultPositive);
-  if (this.positiveText != null) {
-    setTypeface(positiveButton,mediumFont);
-    positiveButton.setText(this.positiveText);
-    positiveButton.setTextColor(getActionTextStateList(this.positiveColor));
+  positiveButton=(Button)view.findViewById(isStacked ? R.id.buttonStackedPositive : R.id.buttonDefaultPositive);
+  if (mBuilder.positiveText != null) {
+    setTypeface(positiveButton,mBuilder.mediumFont);
+    positiveButton.setText(mBuilder.positiveText);
+    positiveButton.setTextColor(getActionTextStateList(mBuilder.positiveColor));
     setBackgroundCompat(positiveButton,DialogUtils.resolveDrawable(getContext(),isStacked ? R.attr.md_selector : R.attr.md_btn_selector));
     positiveButton.setTag(POSITIVE);
     positiveButton.setOnClickListener(this);
@@ -25,31 +25,31 @@
  else {
     positiveButton.setVisibility(View.GONE);
   }
-  neutralButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNeutral : R.id.buttonDefaultNeutral);
-  if (this.neutralText != null) {
-    setTypeface(neutralButton,mediumFont);
+  neutralButton=(Button)view.findViewById(isStacked ? R.id.buttonStackedNeutral : R.id.buttonDefaultNeutral);
+  if (mBuilder.neutralText != null) {
+    setTypeface(neutralButton,mBuilder.mediumFont);
     neutralButton.setVisibility(View.VISIBLE);
-    neutralButton.setTextColor(getActionTextStateList(this.neutralColor));
+    neutralButton.setTextColor(getActionTextStateList(mBuilder.neutralColor));
     setBackgroundCompat(neutralButton,DialogUtils.resolveDrawable(getContext(),isStacked ? R.attr.md_selector : R.attr.md_btn_selector));
-    neutralButton.setText(this.neutralText);
+    neutralButton.setText(mBuilder.neutralText);
     neutralButton.setTag(NEUTRAL);
     neutralButton.setOnClickListener(this);
   }
  else {
     neutralButton.setVisibility(View.GONE);
   }
-  negativeButton=(TextView)view.findViewById(isStacked ? R.id.buttonStackedNegative : R.id.buttonDefaultNegative);
-  if (this.negativeText != null) {
-    setTypeface(negativeButton,mediumFont);
+  negativeButton=(Button)view.findViewById(isStacked ? R.id.buttonStackedNegative : R.id.buttonDefaultNegative);
+  if (mBuilder.negativeText != null) {
+    setTypeface(negativeButton,mBuilder.mediumFont);
     negativeButton.setVisibility(View.VISIBLE);
-    negativeButton.setTextColor(getActionTextStateList(this.negativeColor));
+    negativeButton.setTextColor(getActionTextStateList(mBuilder.negativeColor));
     setBackgroundCompat(negativeButton,DialogUtils.resolveDrawable(getContext(),isStacked ? R.attr.md_selector : R.attr.md_btn_selector));
-    negativeButton.setText(this.negativeText);
+    negativeButton.setText(mBuilder.negativeText);
     negativeButton.setTag(NEGATIVE);
     negativeButton.setOnClickListener(this);
     if (!isStacked) {
       RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,(int)getContext().getResources().getDimension(R.dimen.md_button_height));
-      if (this.positiveText != null) {
+      if (mBuilder.positiveText != null) {
         params.addRule(RelativeLayout.LEFT_OF,R.id.buttonDefaultPositive);
       }
  else {

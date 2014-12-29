@@ -1,6 +1,6 @@
 {
-  if (listCallbackSingle != null) {
-    return selectedIndex;
+  if (mBuilder.listCallbackSingle != null) {
+    return mBuilder.selectedIndex;
   }
  else {
     return -1;

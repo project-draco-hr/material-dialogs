@@ -1,7 +1,7 @@
 {
   CharSequence text=null;
-  if (selectedIndex >= 0) {
-    text=items[selectedIndex];
+  if (mBuilder.selectedIndex >= 0) {
+    text=mBuilder.items[mBuilder.selectedIndex];
   }
-  listCallbackSingle.onSelection(this,v,selectedIndex,text);
+  mBuilder.listCallbackSingle.onSelection(this,v,mBuilder.selectedIndex,text);
 }

@@ -1,5 +1,5 @@
 {
-  if (customView != null || (items != null && items.length > 0) || adapter != null) {
+  if (mBuilder.customView != null || (mBuilder.items != null && mBuilder.items.length > 0) || mBuilder.adapter != null) {
     view.findViewById(R.id.mainFrame).setVisibility(View.GONE);
     view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
     if (!mMeasuredScrollView && listView == null) {
@@ -11,7 +11,7 @@
       view.findViewById(R.id.customViewDivider).setBackgroundColor(DialogUtils.resolveColor(getContext(),R.attr.md_divider));
       setMargin(view.findViewById(R.id.buttonStackedFrame),-1,0,-1,-1);
       setMargin(view.findViewById(R.id.buttonDefaultFrame),-1,0,-1,-1);
-      if (items != null && items.length > 0) {
+      if (mBuilder.items != null && mBuilder.items.length > 0) {
         View customFrame=view.findViewById(R.id.customViewFrame);
         Resources r=getContext().getResources();
         int bottomPadding=view.findViewById(R.id.titleCustomView).getVisibility() == View.VISIBLE ? (int)r.getDimension(R.dimen.md_main_frame_margin) : (int)r.getDimension(R.dimen.md_dialog_frame_margin);

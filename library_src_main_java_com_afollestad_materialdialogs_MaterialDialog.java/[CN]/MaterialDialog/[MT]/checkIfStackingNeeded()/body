@@ -2,22 +2,22 @@
   if (numberOfActionButtons() <= 1) {
     return;
   }
- else   if (forceStacking) {
+ else   if (mBuilder.forceStacking) {
     isStacked=true;
     invalidateActions();
     return;
   }
   final int maxWidth=calculateMaxButtonWidth();
   isStacked=false;
-  if (this.positiveText != null) {
+  if (mBuilder.positiveText != null) {
     final int positiveWidth=positiveButton.getWidth();
     isStacked=positiveWidth > maxWidth;
   }
-  if (!isStacked && this.neutralText != null) {
+  if (!isStacked && mBuilder.neutralText != null) {
     final int neutralWidth=neutralButton.getWidth();
     isStacked=neutralWidth > maxWidth;
   }
-  if (!isStacked && this.negativeText != null) {
+  if (!isStacked && mBuilder.negativeText != null) {
     final int negativeWidth=negativeButton.getWidth();
     isStacked=negativeWidth > maxWidth;
   }
