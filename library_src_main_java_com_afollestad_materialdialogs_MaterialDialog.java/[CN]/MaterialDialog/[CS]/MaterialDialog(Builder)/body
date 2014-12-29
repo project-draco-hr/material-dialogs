@@ -50,7 +50,7 @@
     FrameLayout frame=(FrameLayout)view.findViewById(R.id.customViewFrame);
     customViewFrame=frame;
     View innerView=mBuilder.customView;
-    if (mBuilder.customViewScroll) {
+    if (mBuilder.wrapCustomViewInScroll) {
       Resources r=getContext().getResources();
       int frameMargin=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
       innerView.setPadding(frameMargin,0,frameMargin,0);

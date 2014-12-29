@@ -1,5 +1,5 @@
 {
   this.customView=view;
-  this.customViewScroll=wrapInScrollView;
+  this.wrapCustomViewInScroll=wrapInScrollView;
   return this;
 }
