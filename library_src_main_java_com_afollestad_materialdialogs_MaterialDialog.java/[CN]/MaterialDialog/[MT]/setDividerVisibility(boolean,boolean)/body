@@ -1,4 +1,6 @@
 {
+  topVisible=topVisible && titleFrame.getVisibility() == View.VISIBLE;
+  bottomVisible=bottomVisible && hasActionButtons();
   View titleBarDivider=view.findViewById(R.id.titleBarDivider);
   if (topVisible) {
     titleBarDivider.setVisibility(View.VISIBLE);

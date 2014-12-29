@@ -34,7 +34,6 @@ if (mBuilder.listCallback != null) {
  else if (mBuilder.listCallbackSingle != null) {
   RadioButton cb=(RadioButton)((LinearLayout)v).getChildAt(0);
   if (!cb.isChecked())   cb.setChecked(true);
-  invalidateSingleChoice(index);
   if (mBuilder.autoDismiss && mBuilder.positiveText == null) {
     dismiss();
     sendSingleChoiceCallback(v);

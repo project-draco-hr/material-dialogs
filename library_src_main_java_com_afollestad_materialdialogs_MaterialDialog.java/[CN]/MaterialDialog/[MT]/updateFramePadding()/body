@@ -8,7 +8,7 @@
   if (titleFrame.getVisibility() == View.GONE)   paddingTop=frameMargin;
   contentScrollView.setPadding(contentScrollView.getPaddingLeft(),paddingTop,contentScrollView.getPaddingRight(),paddingBottom);
   if (listView != null) {
-    final int titleMarginBottom=(int)mBuilder.context.getResources().getDimension(R.dimen.md_title_frame_margin_bottom_list);
-    setVerticalMargins(titleFrame,-1,titleMarginBottom);
+    final int titlePaddingBottom=(int)mBuilder.context.getResources().getDimension(R.dimen.md_title_frame_margin_bottom_list);
+    titleFrame.setPadding(titleFrame.getPaddingLeft(),titleFrame.getPaddingTop(),titleFrame.getPaddingRight(),titlePaddingBottom);
   }
 }

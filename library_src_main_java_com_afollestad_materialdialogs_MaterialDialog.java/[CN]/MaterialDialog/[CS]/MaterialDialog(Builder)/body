@@ -125,7 +125,7 @@
       title.setGravity(Gravity.CENTER_HORIZONTAL);
     }
  else     if (builder.titleAlignment == Alignment.END) {
-      title.setGravity(Gravity.RIGHT);
+      title.setGravity(Gravity.END);
     }
   }
   if (builder.showListener != null) {

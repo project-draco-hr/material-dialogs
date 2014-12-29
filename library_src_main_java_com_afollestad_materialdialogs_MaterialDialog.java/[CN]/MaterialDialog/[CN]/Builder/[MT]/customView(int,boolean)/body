@@ -1,6 +1,4 @@
 {
   LayoutInflater li=LayoutInflater.from(this.context);
-  customView(li.inflate(layoutRes,null));
-  this.wrapCustomViewInScroll=wrapInScrollView;
-  return this;
+  return customView(li.inflate(layoutRes,null),wrapInScrollView);
 }
