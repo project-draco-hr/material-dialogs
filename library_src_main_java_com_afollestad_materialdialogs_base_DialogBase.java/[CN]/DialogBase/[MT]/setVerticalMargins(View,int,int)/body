@@ -1,0 +1,13 @@
+{
+  ViewGroup.MarginLayoutParams params=(ViewGroup.MarginLayoutParams)view.getLayoutParams();
+  boolean changed=false;
+  if (topMargin > -1 && params.topMargin != topMargin) {
+    params.topMargin=topMargin;
+    changed=true;
+  }
+  if (bottomMargin > -1 && params.bottomMargin != bottomMargin) {
+    params.bottomMargin=bottomMargin;
+    changed=true;
+  }
+  if (changed)   view.setLayoutParams(params);
+}

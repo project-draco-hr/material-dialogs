@@ -1,4 +1,3 @@
 {
-  this.customView=view;
-  return this;
+  return customView(view,true);
 }

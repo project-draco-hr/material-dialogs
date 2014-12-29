@@ -1,0 +1,24 @@
+{
+  View titleBarDivider=view.findViewById(R.id.titleBarDivider);
+  if (topVisible) {
+    titleBarDivider.setVisibility(View.VISIBLE);
+    titleBarDivider.setBackgroundColor(DialogUtils.resolveColor(getContext(),R.attr.md_divider));
+  }
+ else {
+    titleBarDivider.setVisibility(View.GONE);
+  }
+  View buttonBarDivider=view.findViewById(R.id.buttonBarDivider);
+  if (bottomVisible) {
+    buttonBarDivider.setVisibility(View.VISIBLE);
+    buttonBarDivider.setBackgroundColor(DialogUtils.resolveColor(getContext(),R.attr.md_divider));
+    setVerticalMargins(view.findViewById(R.id.buttonStackedFrame),0,0);
+    setVerticalMargins(view.findViewById(R.id.buttonDefaultFrame),0,0);
+  }
+ else {
+    Resources r=getContext().getResources();
+    buttonBarDivider.setVisibility(View.GONE);
+    final int bottomMargin=r.getDimensionPixelSize(R.dimen.md_button_frame_vertical_padding);
+    setVerticalMargins(view.findViewById(R.id.buttonStackedFrame),bottomMargin,bottomMargin);
+    setVerticalMargins(view.findViewById(R.id.buttonDefaultFrame),bottomMargin,bottomMargin);
+  }
+}

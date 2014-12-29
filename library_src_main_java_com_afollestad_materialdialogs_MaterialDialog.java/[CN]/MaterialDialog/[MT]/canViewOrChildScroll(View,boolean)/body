@@ -1,0 +1,25 @@
+{
+  if (view == null || !(view instanceof ViewGroup)) {
+    return false;
+  }
+  if (view instanceof ScrollView) {
+    ScrollView sv=(ScrollView)view;
+    if (sv.getChildCount() == 0)     return false;
+    final int childHeight=sv.getChildAt(0).getMeasuredHeight();
+    return sv.getMeasuredHeight() < childHeight;
+  }
+ else   if (view instanceof AdapterView) {
+    return canAdapterViewScroll((AdapterView)view);
+  }
+ else   if (view instanceof WebView) {
+    return canWebViewScroll((WebView)view);
+  }
+ else {
+    if (atBottom) {
+      return canViewOrChildScroll(getBottomView((ViewGroup)view),true);
+    }
+ else {
+      return canViewOrChildScroll(getTopView((ViewGroup)view),false);
+    }
+  }
+}

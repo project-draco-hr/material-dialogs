@@ -91,6 +91,12 @@
     }
   }
 );
+  findViewById(R.id.customView_noScroll).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showCustomWebView();
+    }
+  }
+);
   findViewById(R.id.themed).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showThemed();

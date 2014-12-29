@@ -1,0 +1,6 @@
+{
+  MaterialDialog dialog=new MaterialDialog.Builder(this).title(R.string.changelog).customView(R.layout.dialog_webview,false).positiveText(android.R.string.ok).build();
+  WebView webView=(WebView)dialog.getCustomView().findViewById(R.id.webview);
+  webView.loadUrl("file:///android_asset/webview.html");
+  dialog.show();
+}

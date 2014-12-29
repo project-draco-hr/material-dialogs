@@ -1,9 +1,8 @@
 {
   if ((mBuilder.items == null || mBuilder.items.length == 0) && mBuilder.adapter == null)   return;
   view.findViewById(R.id.contentScrollView).setVisibility(View.GONE);
-  view.findViewById(R.id.customViewScrollParent).setVisibility(View.VISIBLE);
-  view.findViewById(R.id.customViewScroll).setVisibility(View.GONE);
-  LinearLayout listViewContainer=(LinearLayout)view.findViewById(R.id.list_view_container);
+  view.findViewById(R.id.customViewFrame).setVisibility(View.GONE);
+  FrameLayout listViewContainer=(FrameLayout)view.findViewById(R.id.contentListViewFrame);
   listViewContainer.setVisibility(View.VISIBLE);
   listView.setAdapter(mBuilder.adapter);
   if (listType != null) {
@@ -31,15 +30,5 @@
       }
     }
 );
-  }
-  final int dialogFramePadding=(int)mBuilder.context.getResources().getDimension(R.dimen.md_dialog_frame_margin);
-  if (titleFrame.getVisibility() == View.VISIBLE || icon.getVisibility() == View.VISIBLE) {
-    int bottomPadding=(int)getContext().getResources().getDimension(R.dimen.md_title_margin_plainlist);
-    setMargin(titleFrame,dialogFramePadding,bottomPadding,dialogFramePadding,dialogFramePadding);
-    ((ViewGroup)titleFrame.getParent()).removeView(titleFrame);
-    listViewContainer.addView(titleFrame,0);
-  }
- else {
-    listView.setPadding(listView.getPaddingLeft(),0,listView.getPaddingRight(),listView.getPaddingBottom());
   }
 }
