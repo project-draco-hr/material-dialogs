@@ -137,6 +137,9 @@
   if (builder.dismissListener != null) {
     setOnDismissListener(builder.dismissListener);
   }
+  if (builder.keyListener != null) {
+    setOnKeyListener(builder.keyListener);
+  }
   updateFramePadding();
   invalidateActions();
   setOnShowListenerInternal();
