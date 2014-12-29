@@ -1,4 +1,0 @@
-{
-  this.contentAlignment=align;
-  return this;
-}
