@@ -1,3 +1,4 @@
 {
   ((TextView)view.findViewById(R.id.content)).setText(content);
+  invalidateCustomViewAssociations();
 }
