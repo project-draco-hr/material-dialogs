@@ -1,0 +1,4 @@
+{
+  this.contentGravity=gravity;
+  return this;
+}

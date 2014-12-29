@@ -25,11 +25,11 @@
  else {
     content.setLinkTextColor(mBuilder.positiveColor);
   }
-  if (builder.contentAlignment == Alignment.CENTER) {
-    content.setGravity(Gravity.CENTER_HORIZONTAL);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+    title.setTextAlignment(gravityToAlignment(builder.titleGravity));
   }
- else   if (builder.contentAlignment == Alignment.END) {
-    content.setGravity(Gravity.START);
+ else {
+    title.setGravity(builder.titleGravity);
   }
   if (builder.contentColor != -1) {
     content.setTextColor(builder.contentColor);
@@ -87,6 +87,7 @@
  else {
           selectedIndicesList=new ArrayList<>();
         }
+        alwaysCallMultiChoiceCallback=builder.alwaysCallMultiChoiceCallback;
       }
  else {
         listType=ListType.REGULAR;
@@ -121,11 +122,11 @@
       final int fallback=DialogUtils.resolveColor(getContext(),android.R.attr.textColorPrimary);
       title.setTextColor(DialogUtils.resolveColor(getContext(),R.attr.md_title_color,fallback));
     }
-    if (builder.titleAlignment == Alignment.CENTER) {
-      title.setGravity(Gravity.CENTER_HORIZONTAL);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+      content.setTextAlignment(gravityToAlignment(builder.contentGravity));
     }
- else     if (builder.titleAlignment == Alignment.END) {
-      title.setGravity(Gravity.END);
+ else {
+      content.setGravity(builder.contentGravity);
     }
   }
   if (builder.showListener != null) {
@@ -136,6 +137,9 @@
   }
   if (builder.dismissListener != null) {
     setOnDismissListener(builder.dismissListener);
+  }
+  if (builder.keyListener != null) {
+    setOnKeyListener(builder.keyListener);
   }
   updateFramePadding();
   invalidateActions();

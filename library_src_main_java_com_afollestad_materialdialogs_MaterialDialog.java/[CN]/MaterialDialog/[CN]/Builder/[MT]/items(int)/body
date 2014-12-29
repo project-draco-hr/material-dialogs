@@ -1,4 +1,4 @@
 {
-  items(this.context.getResources().getStringArray(itemsRes));
+  items(this.context.getResources().getTextArray(itemsRes));
   return this;
 }

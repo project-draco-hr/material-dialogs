@@ -1,0 +1,12 @@
+{
+switch (gravity) {
+case Gravity.START:
+    return View.TEXT_ALIGNMENT_VIEW_START;
+case Gravity.CENTER_HORIZONTAL:
+  return View.TEXT_ALIGNMENT_CENTER;
+case Gravity.END:
+return View.TEXT_ALIGNMENT_VIEW_END;
+default :
+return View.TEXT_ALIGNMENT_VIEW_START;
+}
+}

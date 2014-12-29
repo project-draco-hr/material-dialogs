@@ -40,6 +40,9 @@ if (mBuilder.listCallback != null) {
  else if (mBuilder.listCallbackMulti != null) {
   CheckBox cb=(CheckBox)((LinearLayout)v).getChildAt(0);
   cb.setChecked(!cb.isChecked());
+  if (alwaysCallMultiChoiceCallback) {
+    sendMultichoiceCallback();
+  }
 }
  else if (mBuilder.autoDismiss) dismiss();
 break;

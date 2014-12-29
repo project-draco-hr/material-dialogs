@@ -1,0 +1,4 @@
+{
+  builder.iconAttr(attrId);
+  return this;
+}

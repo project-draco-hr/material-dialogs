@@ -1,0 +1,4 @@
+{
+  this.titleGravity=gravity;
+  return this;
+}
