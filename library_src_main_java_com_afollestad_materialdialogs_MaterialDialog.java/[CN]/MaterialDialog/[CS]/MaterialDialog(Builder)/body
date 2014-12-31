@@ -29,7 +29,7 @@
     title.setTextAlignment(gravityToAlignment(builder.titleGravity));
   }
  else {
-    title.setGravity(builder.titleGravity);
+    title.setGravity(gravityIntToGravity(builder.titleGravity));
   }
   if (builder.contentColor != -1) {
     content.setTextColor(builder.contentColor);
@@ -126,7 +126,7 @@
       content.setTextAlignment(gravityToAlignment(builder.contentGravity));
     }
  else {
-      content.setGravity(builder.contentGravity);
+      content.setGravity(gravityIntToGravity(builder.contentGravity));
     }
   }
   if (builder.showListener != null) {
