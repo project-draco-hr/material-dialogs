@@ -5,6 +5,8 @@
   if (mBuilder.mediumFont == null)   mBuilder.mediumFont=TypefaceHelper.get(getContext(),"Roboto-Medium");
   this.view=LayoutInflater.from(getContext()).inflate(R.layout.md_dialog,null);
   this.setCancelable(builder.cancelable);
+  if (mBuilder.backgroundColor == 0)   mBuilder.backgroundColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_background_color);
+  if (mBuilder.backgroundColor != 0)   this.view.setBackgroundColor(mBuilder.backgroundColor);
   final int mdAccentColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_accent_color);
   if (mdAccentColor != 0) {
     mBuilder.positiveColor=mdAccentColor;

@@ -1,4 +1,3 @@
 {
-  neutralColor(this.context.getResources().getColor(colorRes));
-  return this;
+  return neutralColor(this.context.getResources().getColor(colorRes));
 }

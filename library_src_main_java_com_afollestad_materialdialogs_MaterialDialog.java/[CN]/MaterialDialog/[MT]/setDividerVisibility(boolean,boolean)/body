@@ -1,10 +1,12 @@
 {
   topVisible=topVisible && titleFrame.getVisibility() == View.VISIBLE;
   bottomVisible=bottomVisible && hasActionButtons();
+  if (mBuilder.dividerColor == 0)   mBuilder.dividerColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_divider_color);
+  if (mBuilder.dividerColor == 0)   mBuilder.dividerColor=DialogUtils.resolveColor(getContext(),R.attr.md_divider);
   View titleBarDivider=view.findViewById(R.id.titleBarDivider);
   if (topVisible) {
     titleBarDivider.setVisibility(View.VISIBLE);
-    titleBarDivider.setBackgroundColor(DialogUtils.resolveColor(getContext(),R.attr.md_divider));
+    titleBarDivider.setBackgroundColor(mBuilder.dividerColor);
   }
  else {
     titleBarDivider.setVisibility(View.GONE);
@@ -12,7 +14,7 @@
   View buttonBarDivider=view.findViewById(R.id.buttonBarDivider);
   if (bottomVisible) {
     buttonBarDivider.setVisibility(View.VISIBLE);
-    buttonBarDivider.setBackgroundColor(DialogUtils.resolveColor(getContext(),R.attr.md_divider));
+    buttonBarDivider.setBackgroundColor(mBuilder.dividerColor);
     setVerticalMargins(view.findViewById(R.id.buttonStackedFrame),0,0);
     setVerticalMargins(view.findViewById(R.id.buttonDefaultFrame),0,0);
   }

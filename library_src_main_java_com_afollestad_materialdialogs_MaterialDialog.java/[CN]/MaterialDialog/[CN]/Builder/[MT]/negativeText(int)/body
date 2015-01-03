@@ -1,4 +1,3 @@
 {
-  negativeText(this.context.getString(negativeRes));
-  return this;
+  return negativeText(this.context.getString(negativeRes));
 }

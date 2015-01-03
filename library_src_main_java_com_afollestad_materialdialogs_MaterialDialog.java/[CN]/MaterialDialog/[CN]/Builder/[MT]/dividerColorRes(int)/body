@@ -1,0 +1,3 @@
+{
+  return dividerColor(this.context.getResources().getColor(colorRes));
+}
