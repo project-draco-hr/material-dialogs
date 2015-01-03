@@ -4,14 +4,14 @@
 switch (listType) {
 case SINGLE:
 {
-      RadioButton radio=(RadioButton)view.findViewById(R.id.control);
+      @SuppressLint("CutPasteId") RadioButton radio=(RadioButton)view.findViewById(R.id.control);
       radio.setChecked(mBuilder.selectedIndex == index);
       break;
     }
 case MULTI:
 {
     if (mBuilder.selectedIndices != null) {
-      CheckBox checkbox=(CheckBox)view.findViewById(R.id.control);
+      @SuppressLint("CutPasteId") CheckBox checkbox=(CheckBox)view.findViewById(R.id.control);
       checkbox.setChecked(selectedIndicesList.contains(index));
     }
     break;

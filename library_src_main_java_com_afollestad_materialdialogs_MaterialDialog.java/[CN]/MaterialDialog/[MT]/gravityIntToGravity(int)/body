@@ -1,11 +1,9 @@
 {
 switch (gravity) {
-case START:
-    return Gravity.START;
 case CENTER:
-  return Gravity.CENTER_HORIZONTAL;
+    return Gravity.CENTER_HORIZONTAL;
 case END:
-return Gravity.END;
+  return Gravity.END;
 default :
 return Gravity.START;
 }

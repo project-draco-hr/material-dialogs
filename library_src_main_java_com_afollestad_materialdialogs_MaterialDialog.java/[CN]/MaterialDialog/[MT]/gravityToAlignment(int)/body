@@ -1,11 +1,9 @@
 {
 switch (gravity) {
-case START:
-    return View.TEXT_ALIGNMENT_VIEW_START;
 case CENTER:
-  return View.TEXT_ALIGNMENT_CENTER;
+    return View.TEXT_ALIGNMENT_CENTER;
 case END:
-return View.TEXT_ALIGNMENT_VIEW_END;
+  return View.TEXT_ALIGNMENT_VIEW_END;
 default :
 return View.TEXT_ALIGNMENT_VIEW_START;
 }
