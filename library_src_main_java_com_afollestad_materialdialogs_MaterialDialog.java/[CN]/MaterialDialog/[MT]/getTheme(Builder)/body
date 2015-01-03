@@ -4,6 +4,7 @@
   if (!darkTheme) {
     try {
       darkTheme=a.getBoolean(0,false);
+      builder.theme=darkTheme ? Theme.DARK : Theme.LIGHT;
     }
   finally {
       a.recycle();

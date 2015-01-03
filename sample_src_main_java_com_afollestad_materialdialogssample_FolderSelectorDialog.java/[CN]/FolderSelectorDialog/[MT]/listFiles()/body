@@ -1,6 +1,6 @@
 {
   File[] contents=parentFolder.listFiles();
-  List<File> results=new ArrayList<File>();
+  List<File> results=new ArrayList<>();
   for (  File fi : contents) {
     if (fi.isDirectory())     results.add(fi);
   }

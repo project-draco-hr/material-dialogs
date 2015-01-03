@@ -1,8 +1,5 @@
 {
   if (lv.getLastVisiblePosition() == -1)   return false;
-  boolean lastItemVisible=lv.getLastVisiblePosition() == lv.getCount() - 1;
-  if (lastItemVisible) {
-    return lv.getChildAt(lv.getChildCount() - 1).getBottom() > lv.getHeight() - lv.getPaddingBottom();
-  }
-  return true;
+  final boolean lastItemVisible=lv.getLastVisiblePosition() == lv.getCount() - 1;
+  return !lastItemVisible || lv.getChildAt(lv.getChildCount() - 1).getBottom() > lv.getHeight() - lv.getPaddingBottom();
 }
