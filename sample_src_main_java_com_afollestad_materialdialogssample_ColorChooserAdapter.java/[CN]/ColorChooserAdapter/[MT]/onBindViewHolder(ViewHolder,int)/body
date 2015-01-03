@@ -1,0 +1,8 @@
+{
+  holder.mView.setTag(position);
+  holder.mView.setOnClickListener(this);
+  ShapeDrawable circle=new ShapeDrawable(new OvalShape());
+  circle.getPaint().setColor(mColors[position]);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)   holder.mColorView.setBackground(circle);
+ else   holder.mColorView.setBackgroundDrawable(circle);
+}

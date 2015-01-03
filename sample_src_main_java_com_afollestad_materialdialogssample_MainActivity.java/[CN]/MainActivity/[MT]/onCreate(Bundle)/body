@@ -85,9 +85,15 @@
     }
   }
 );
-  findViewById(R.id.customView_noScroll).setOnClickListener(new View.OnClickListener(){
+  findViewById(R.id.customView_webView).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showCustomWebView();
+    }
+  }
+);
+  findViewById(R.id.customView_colorChooser).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showCustomColorChooser();
     }
   }
 );

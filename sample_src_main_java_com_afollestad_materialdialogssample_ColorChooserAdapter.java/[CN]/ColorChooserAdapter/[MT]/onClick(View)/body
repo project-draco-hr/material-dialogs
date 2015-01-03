@@ -1,0 +1,6 @@
+{
+  if (mCallback != null) {
+    Integer index=(Integer)v.getTag();
+    mCallback.onColorSelected(index,mColors[index]);
+  }
+}

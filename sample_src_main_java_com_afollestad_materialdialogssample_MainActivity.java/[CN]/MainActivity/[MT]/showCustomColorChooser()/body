@@ -1,0 +1,7 @@
+{
+  new ColorChooserDialog().show(this,new ColorChooserDialog.Callback(){
+    @Override public void onColorSelection(    int primary){
+    }
+  }
+);
+}

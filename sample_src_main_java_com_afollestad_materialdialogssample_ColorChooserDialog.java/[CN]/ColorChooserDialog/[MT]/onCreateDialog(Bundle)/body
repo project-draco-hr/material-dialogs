@@ -1,0 +1,9 @@
+{
+  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(R.string.color_chooser).autoDismiss(false).customView(R.layout.dialog_color_chooser,false).positiveText(R.string.choose).build();
+  RecyclerView list=(RecyclerView)dialog.getCustomView().findViewById(R.id.list);
+  if (list != null) {
+    list.setLayoutManager(new GridLayoutManager(getActivity(),getResources().getInteger(R.integer.color_chooser_columns)));
+    list.setAdapter(new ColorChooserAdapter(getActivity(),this));
+  }
+  return dialog;
+}

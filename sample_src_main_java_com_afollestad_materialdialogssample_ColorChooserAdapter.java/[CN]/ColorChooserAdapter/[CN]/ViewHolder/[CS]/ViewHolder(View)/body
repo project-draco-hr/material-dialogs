@@ -1,0 +1,5 @@
+{
+  super(v);
+  mView=v;
+  mColorView=v.findViewById(R.id.color);
+}
