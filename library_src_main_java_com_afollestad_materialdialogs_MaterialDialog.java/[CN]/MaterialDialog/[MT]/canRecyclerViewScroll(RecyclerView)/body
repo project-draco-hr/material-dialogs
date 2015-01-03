@@ -11,7 +11,7 @@
     lastVisible=glm.findLastVisibleItemPosition();
   }
  else {
-    throw new NotImplementedException("MaterialDialogs currently only supports LinearLayoutManager and GridLayoutManager. Please report any new layout managers.");
+    throw new NotImplementedException("Material Dialogs currently only supports LinearLayoutManager and GridLayoutManager. Please report any new layout managers.");
   }
   if (lastVisible == -1)   return false;
   final boolean lastItemVisible=lastVisible == count - 1;

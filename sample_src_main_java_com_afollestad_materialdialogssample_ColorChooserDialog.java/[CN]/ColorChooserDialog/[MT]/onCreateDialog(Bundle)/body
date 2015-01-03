@@ -1,9 +1,16 @@
 {
-  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(R.string.color_chooser).autoDismiss(false).customView(R.layout.dialog_color_chooser,false).positiveText(R.string.choose).build();
-  RecyclerView list=(RecyclerView)dialog.getCustomView().findViewById(R.id.list);
-  if (list != null) {
-    list.setLayoutManager(new GridLayoutManager(getActivity(),getResources().getInteger(R.integer.color_chooser_columns)));
-    list.setAdapter(new ColorChooserAdapter(getActivity(),this));
+  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(R.string.color_chooser).autoDismiss(false).customView(R.layout.dialog_color_chooser,false).build();
+  TypedArray ta=getActivity().getResources().obtainTypedArray(R.array.material_colors_500);
+  int[] mColors=new int[ta.length()];
+  for (int i=0; i < ta.length(); i++)   mColors[i]=ta.getColor(i,0);
+  ta.recycle();
+  GridLayout list=(GridLayout)dialog.getCustomView().findViewById(R.id.grid);
+  for (int i=0; i < list.getChildCount(); i++) {
+    View child=list.getChildAt(i);
+    ShapeDrawable circle=new ShapeDrawable(new OvalShape());
+    circle.getPaint().setColor(mColors[i]);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)     child.setBackground(circle);
+ else     child.setBackgroundDrawable(circle);
   }
   return dialog;
 }
