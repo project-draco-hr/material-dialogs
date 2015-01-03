@@ -1,12 +1,11 @@
 {
-switch (whichButton) {
-case BUTTON_POSITIVE:
-    return getActionButton(DialogAction.POSITIVE);
-case BUTTON_NEUTRAL:
-  return getActionButton(DialogAction.NEUTRAL);
-case BUTTON_NEGATIVE:
-return getActionButton(DialogAction.NEGATIVE);
-default :
-return null;
-}
+  if (whichButton == AlertDialog.BUTTON_POSITIVE) {
+    return mBuilder.positiveText != null ? new Button(getContext()) : null;
+  }
+ else   if (whichButton == AlertDialog.BUTTON_NEUTRAL) {
+    return mBuilder.neutralText != null ? new Button(getContext()) : null;
+  }
+ else {
+    return mBuilder.negativeText != null ? new Button(getContext()) : null;
+  }
 }
