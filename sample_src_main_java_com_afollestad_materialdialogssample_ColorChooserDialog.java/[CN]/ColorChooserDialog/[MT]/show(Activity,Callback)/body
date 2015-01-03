@@ -1,4 +1,0 @@
-{
-  mCallback=callback;
-  show(context.getFragmentManager(),"COLOR_SELECTOR");
-}

@@ -1,6 +1,9 @@
 {
-  new ColorChooserDialog().show(this,new ColorChooserDialog.Callback(){
-    @Override public void onColorSelection(    int primary){
+  new ColorChooserDialog().show(this,selectedColorIndex,new ColorChooserDialog.Callback(){
+    @Override public void onColorSelection(    int index,    int color,    int darker){
+      selectedColorIndex=index;
+      getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)       getWindow().setStatusBarColor(darker);
     }
   }
 );
