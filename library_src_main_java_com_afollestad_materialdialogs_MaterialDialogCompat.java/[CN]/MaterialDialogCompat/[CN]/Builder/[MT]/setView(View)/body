@@ -1,5 +1,4 @@
 {
-  boolean wrapInScrollView=!(view instanceof ScrollView || view instanceof AdapterView || view instanceof WebView);
-  builder.customView(view,wrapInScrollView);
+  builder.customView(view,false);
   return this;
 }
