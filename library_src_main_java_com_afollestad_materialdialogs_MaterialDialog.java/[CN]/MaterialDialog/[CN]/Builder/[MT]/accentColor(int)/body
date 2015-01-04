@@ -1,0 +1,6 @@
+{
+  this.positiveColor=color;
+  this.negativeColor=color;
+  this.neutralColor=color;
+  return this;
+}

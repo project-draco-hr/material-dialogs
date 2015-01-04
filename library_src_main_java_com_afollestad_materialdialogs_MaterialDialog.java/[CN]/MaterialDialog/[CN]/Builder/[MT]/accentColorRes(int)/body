@@ -1,0 +1,3 @@
+{
+  return accentColor(this.context.getResources().getColor(colorRes));
+}

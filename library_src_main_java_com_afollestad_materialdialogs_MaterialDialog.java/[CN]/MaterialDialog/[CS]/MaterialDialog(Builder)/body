@@ -41,7 +41,10 @@
     final int contentColor=DialogUtils.resolveColor(getContext(),R.attr.md_content_color,fallback);
     content.setTextColor(contentColor);
   }
-  if (builder.theme == Theme.LIGHT) {
+  if (builder.itemColor != -1) {
+    defaultItemColor=builder.itemColor;
+  }
+ else   if (builder.theme == Theme.LIGHT) {
     defaultItemColor=Color.BLACK;
   }
  else {

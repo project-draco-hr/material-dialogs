@@ -1,0 +1,4 @@
+{
+  if (singleton == null && createIfNull)   singleton=new ThemeSingleton();
+  return singleton;
+}
