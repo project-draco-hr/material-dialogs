@@ -1,0 +1,10 @@
+{
+  boolean isRecyclerView=false;
+  try {
+    Class.forName("android.support.v7.widget.RecyclerView");
+    isRecyclerView=view instanceof RecyclerView;
+  }
+ catch (  ClassNotFoundException ignored) {
+  }
+  return isRecyclerView;
+}
