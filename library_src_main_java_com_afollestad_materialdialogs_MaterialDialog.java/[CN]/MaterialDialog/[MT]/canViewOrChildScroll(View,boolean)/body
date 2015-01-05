@@ -15,7 +15,7 @@
     return canWebViewScroll((WebView)view);
   }
  else   if (isRecyclerView(view)) {
-    return RecyclerUtil.canRecyclerViewScroll((RecyclerView)view);
+    return RecyclerUtil.canRecyclerViewScroll(view);
   }
  else {
     if (atBottom) {
