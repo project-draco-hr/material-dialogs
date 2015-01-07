@@ -1,0 +1,4 @@
+{
+  this.alwaysCallSingleChoiceCallback=true;
+  return this;
+}
