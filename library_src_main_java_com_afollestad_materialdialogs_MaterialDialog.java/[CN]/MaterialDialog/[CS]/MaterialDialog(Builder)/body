@@ -83,6 +83,7 @@
     if (!adapterProvided) {
       if (mBuilder.listCallbackSingle != null) {
         listType=ListType.SINGLE;
+        alwaysCallSingleChoiceCallback=builder.alwaysCallSingleChoiceCallback;
       }
  else       if (mBuilder.listCallbackMulti != null) {
         listType=ListType.MULTI;
