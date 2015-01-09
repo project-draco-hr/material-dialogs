@@ -19,8 +19,11 @@ tv.setText(mBuilder.items[index]);
 tv.setTextColor(itemColor);
 setTypeface(tv,mBuilder.regularFont);
 view.setTag(index + ":" + mBuilder.items[index]);
-Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_selector);
+Drawable d=mBuilder.selector;
+if (d == null) {
+d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_selector);
 if (d == null) d=DialogUtils.resolveDrawable(getContext(),R.attr.md_selector);
+}
 setBackgroundCompat(view,d);
 return view;
 }

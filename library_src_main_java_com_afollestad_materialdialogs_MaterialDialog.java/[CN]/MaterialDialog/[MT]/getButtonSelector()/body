@@ -1,9 +1,11 @@
 {
   if (isStacked) {
+    if (mBuilder.selector != null)     return mBuilder.selector;
     Drawable custom=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_selector);
     if (custom != null)     return custom;
   }
  else {
+    if (mBuilder.btnSelector != null)     return mBuilder.btnSelector;
     Drawable custom=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_selector);
     if (custom != null)     return custom;
   }
