@@ -9,4 +9,6 @@
   if (s.icon != null)   icon(s.icon);
   if (s.backgroundColor != 0)   backgroundColor(s.backgroundColor);
   if (s.dividerColor != 0)   dividerColor(s.dividerColor);
+  if (s.selector != null)   selector(s.selector);
+  if (s.btnSelector != null)   btnSelector(s.btnSelector);
 }

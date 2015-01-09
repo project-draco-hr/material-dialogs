@@ -1,0 +1,4 @@
+{
+  this.btnSelector=selector;
+  return this;
+}

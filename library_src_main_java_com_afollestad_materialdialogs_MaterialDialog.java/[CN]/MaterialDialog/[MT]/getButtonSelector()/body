@@ -1,0 +1,11 @@
+{
+  if (isStacked) {
+    Drawable custom=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_selector);
+    if (custom != null)     return custom;
+  }
+ else {
+    Drawable custom=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_selector);
+    if (custom != null)     return custom;
+  }
+  return DialogUtils.resolveDrawable(getContext(),isStacked ? R.attr.md_selector : R.attr.md_btn_selector);
+}

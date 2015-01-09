@@ -19,7 +19,7 @@
     setTypeface(positiveTextView,mBuilder.mediumFont);
     positiveTextView.setText(mBuilder.positiveText);
     positiveTextView.setTextColor(getActionTextStateList(mBuilder.positiveColor));
-    setBackgroundCompat(positiveButton,DialogUtils.resolveDrawable(getContext(),isStacked ? R.attr.md_selector : R.attr.md_btn_selector));
+    setBackgroundCompat(positiveButton,getButtonSelector());
     positiveButton.setTag(POSITIVE);
     positiveButton.setOnClickListener(this);
   }
@@ -32,7 +32,7 @@
     setTypeface(neutralTextView,mBuilder.mediumFont);
     neutralButton.setVisibility(View.VISIBLE);
     neutralTextView.setTextColor(getActionTextStateList(mBuilder.neutralColor));
-    setBackgroundCompat(neutralButton,DialogUtils.resolveDrawable(getContext(),isStacked ? R.attr.md_selector : R.attr.md_btn_selector));
+    setBackgroundCompat(neutralButton,getButtonSelector());
     neutralTextView.setText(mBuilder.neutralText);
     neutralButton.setTag(NEUTRAL);
     neutralButton.setOnClickListener(this);
@@ -46,7 +46,7 @@
     setTypeface(negativeTextView,mBuilder.mediumFont);
     negativeButton.setVisibility(View.VISIBLE);
     negativeTextView.setTextColor(getActionTextStateList(mBuilder.negativeColor));
-    setBackgroundCompat(negativeButton,DialogUtils.resolveDrawable(getContext(),isStacked ? R.attr.md_selector : R.attr.md_btn_selector));
+    setBackgroundCompat(negativeButton,getButtonSelector());
     negativeTextView.setText(mBuilder.negativeText);
     negativeButton.setTag(NEGATIVE);
     negativeButton.setOnClickListener(this);
