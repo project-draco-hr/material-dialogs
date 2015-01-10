@@ -1,5 +1,10 @@
 {
   if (lv.getLastVisiblePosition() == -1)   return false;
-  final boolean lastItemVisible=lv.getLastVisiblePosition() == lv.getCount() - 1;
-  return !lastItemVisible || lv.getChildAt(lv.getChildCount() - 1).getBottom() > lv.getHeight() - lv.getPaddingBottom();
+  boolean firstItemVisible=lv.getFirstVisiblePosition() == 0;
+  boolean lastItemVisible=lv.getLastVisiblePosition() == lv.getCount() - 1;
+  if (firstItemVisible && lastItemVisible) {
+    if (lv.getChildAt(0).getTop() < lv.getPaddingTop())     return true;
+    return lv.getChildAt(lv.getChildCount() - 1).getBottom() > lv.getHeight() - lv.getPaddingBottom();
+  }
+  return true;
 }
