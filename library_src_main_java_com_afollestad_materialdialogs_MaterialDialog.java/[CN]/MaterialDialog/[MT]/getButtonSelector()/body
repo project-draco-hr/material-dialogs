@@ -1,13 +1,19 @@
 {
   if (isStacked) {
-    if (mBuilder.selector != null)     return mBuilder.selector;
-    Drawable custom=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_selector);
-    if (custom != null)     return custom;
+    return getSelector();
   }
  else {
-    if (mBuilder.btnSelector != null)     return mBuilder.btnSelector;
-    Drawable custom=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_selector);
-    if (custom != null)     return custom;
+    if (mBtnSelectorCache == null) {
+      if (mBuilder.btnSelector != null) {
+        mBtnSelectorCache=mBuilder.btnSelector;
+      }
+ else {
+        mBtnSelectorCache=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_selector);
+      }
+      if (mBtnSelectorCache == null) {
+        mBtnSelectorCache=DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_selector);
+      }
+    }
+    return mBtnSelectorCache;
   }
-  return DialogUtils.resolveDrawable(getContext(),isStacked ? R.attr.md_selector : R.attr.md_btn_selector);
 }

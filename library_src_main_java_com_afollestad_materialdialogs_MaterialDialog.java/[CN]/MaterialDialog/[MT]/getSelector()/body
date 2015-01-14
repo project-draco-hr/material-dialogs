@@ -1,0 +1,14 @@
+{
+  if (mSelectorCache == null) {
+    if (mBuilder.selector != null) {
+      mSelectorCache=mBuilder.selector;
+    }
+ else {
+      mSelectorCache=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_selector);
+    }
+    if (mSelectorCache == null) {
+      mSelectorCache=DialogUtils.resolveDrawable(getContext(),R.attr.md_selector);
+    }
+  }
+  return mSelectorCache;
+}

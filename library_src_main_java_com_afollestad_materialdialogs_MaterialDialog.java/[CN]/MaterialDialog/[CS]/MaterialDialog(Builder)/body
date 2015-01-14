@@ -79,7 +79,7 @@
   boolean adapterProvided=mBuilder.adapter != null;
   if (mBuilder.items != null && mBuilder.items.length > 0 || adapterProvided) {
     listView=(ListView)view.findViewById(R.id.contentListView);
-    listView.setSelector(DialogUtils.resolveDrawable(getContext(),R.attr.md_selector));
+    listView.setSelector(getSelector());
     if (!adapterProvided) {
       if (mBuilder.listCallbackSingle != null) {
         listType=ListType.SINGLE;
