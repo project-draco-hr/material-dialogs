@@ -3,17 +3,13 @@
     return getSelector();
   }
  else {
-    if (mBtnSelectorCache == null) {
-      if (mBuilder.btnSelector != null) {
-        mBtnSelectorCache=mBuilder.btnSelector;
-      }
- else {
-        mBtnSelectorCache=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_selector);
-      }
-      if (mBtnSelectorCache == null) {
-        mBtnSelectorCache=DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_selector);
-      }
+    if (mBuilder.btnSelector != null) {
+      return mBuilder.btnSelector;
     }
-    return mBtnSelectorCache;
+ else {
+      Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_selector);
+      if (d != null)       return d;
+    }
+    return DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_selector);
   }
 }
