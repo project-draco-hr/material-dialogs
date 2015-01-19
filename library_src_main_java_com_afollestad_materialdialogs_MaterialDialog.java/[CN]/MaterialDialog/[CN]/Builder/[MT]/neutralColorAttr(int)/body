@@ -1,0 +1,3 @@
+{
+  return neutralColor(DialogUtils.resolveColor(this.context,colorAttr));
+}

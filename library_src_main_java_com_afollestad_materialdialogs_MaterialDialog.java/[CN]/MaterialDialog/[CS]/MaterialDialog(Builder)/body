@@ -7,12 +7,9 @@
   this.setCancelable(builder.cancelable);
   if (mBuilder.backgroundColor == 0)   mBuilder.backgroundColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_background_color);
   if (mBuilder.backgroundColor != 0)   this.view.setBackgroundColor(mBuilder.backgroundColor);
-  final int mdAccentColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_accent_color);
-  if (mdAccentColor != 0) {
-    mBuilder.positiveColor=mdAccentColor;
-    mBuilder.negativeColor=mdAccentColor;
-    mBuilder.neutralColor=mdAccentColor;
-  }
+  mBuilder.positiveColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_positive_color,mBuilder.positiveColor);
+  mBuilder.neutralColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_negative_color,mBuilder.neutralColor);
+  mBuilder.negativeColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_neutral_color,mBuilder.negativeColor);
   title=(TextView)view.findViewById(R.id.title);
   icon=(ImageView)view.findViewById(R.id.icon);
   titleFrame=view.findViewById(R.id.titleFrame);
@@ -79,11 +76,10 @@
   boolean adapterProvided=mBuilder.adapter != null;
   if (mBuilder.items != null && mBuilder.items.length > 0 || adapterProvided) {
     listView=(ListView)view.findViewById(R.id.contentListView);
-    listView.setSelector(getSelector());
+    listView.setSelector(getListSelector());
     if (!adapterProvided) {
       if (mBuilder.listCallbackSingle != null) {
         listType=ListType.SINGLE;
-        alwaysCallSingleChoiceCallback=builder.alwaysCallSingleChoiceCallback;
       }
  else       if (mBuilder.listCallbackMulti != null) {
         listType=ListType.MULTI;
@@ -93,7 +89,6 @@
  else {
           selectedIndicesList=new ArrayList<>();
         }
-        alwaysCallMultiChoiceCallback=builder.alwaysCallMultiChoiceCallback;
       }
  else {
         listType=ListType.REGULAR;

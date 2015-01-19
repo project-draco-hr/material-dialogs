@@ -3,7 +3,9 @@
     @Override public void onColorSelection(    int index,    int color,    int darker){
       selectedColorIndex=index;
       getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
-      ThemeSingleton.get().accentColor=color;
+      ThemeSingleton.get().positiveColor=color;
+      ThemeSingleton.get().neutralColor=color;
+      ThemeSingleton.get().negativeColor=color;
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)       getWindow().setStatusBarColor(darker);
     }
   }

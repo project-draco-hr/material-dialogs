@@ -1,0 +1,4 @@
+{
+  this.btnSelectorStacked=selectorRes;
+  return this;
+}

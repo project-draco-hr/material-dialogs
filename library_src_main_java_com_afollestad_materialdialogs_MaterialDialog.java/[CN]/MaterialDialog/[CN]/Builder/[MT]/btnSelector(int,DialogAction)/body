@@ -1,0 +1,14 @@
+{
+switch (which) {
+default :
+    this.btnSelectorPositive=selectorRes;
+  break;
+case NEUTRAL:
+this.btnSelectorNeutral=selectorRes;
+break;
+case NEGATIVE:
+this.btnSelectorNegative=selectorRes;
+break;
+}
+return this;
+}

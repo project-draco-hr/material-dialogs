@@ -1,0 +1,4 @@
+{
+  titleColor(DialogUtils.resolveColor(this.context,colorAttr));
+  return this;
+}

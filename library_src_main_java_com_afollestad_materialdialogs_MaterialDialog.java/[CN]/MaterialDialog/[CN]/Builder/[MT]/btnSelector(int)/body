@@ -1,0 +1,6 @@
+{
+  this.btnSelectorPositive=selectorRes;
+  this.btnSelectorNeutral=selectorRes;
+  this.btnSelectorNegative=selectorRes;
+  return this;
+}

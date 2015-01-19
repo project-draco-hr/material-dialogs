@@ -19,6 +19,5 @@ tv.setText(mBuilder.items[index]);
 tv.setTextColor(itemColor);
 setTypeface(tv,mBuilder.regularFont);
 view.setTag(index + ":" + mBuilder.items[index]);
-setBackgroundCompat(view,getSelector());
 return view;
 }

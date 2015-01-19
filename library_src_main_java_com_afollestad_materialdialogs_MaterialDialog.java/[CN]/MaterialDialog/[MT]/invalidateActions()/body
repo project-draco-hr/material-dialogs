@@ -19,7 +19,7 @@
     setTypeface(positiveTextView,mBuilder.mediumFont);
     positiveTextView.setText(mBuilder.positiveText);
     positiveTextView.setTextColor(getActionTextStateList(mBuilder.positiveColor));
-    setBackgroundCompat(positiveButton,getButtonSelector());
+    setBackgroundCompat(positiveButton,getButtonSelector(DialogAction.POSITIVE));
     positiveButton.setTag(POSITIVE);
     positiveButton.setOnClickListener(this);
   }
@@ -32,7 +32,7 @@
     setTypeface(neutralTextView,mBuilder.mediumFont);
     neutralButton.setVisibility(View.VISIBLE);
     neutralTextView.setTextColor(getActionTextStateList(mBuilder.neutralColor));
-    setBackgroundCompat(neutralButton,getButtonSelector());
+    setBackgroundCompat(neutralButton,getButtonSelector(DialogAction.NEUTRAL));
     neutralTextView.setText(mBuilder.neutralText);
     neutralButton.setTag(NEUTRAL);
     neutralButton.setOnClickListener(this);
@@ -46,7 +46,7 @@
     setTypeface(negativeTextView,mBuilder.mediumFont);
     negativeButton.setVisibility(View.VISIBLE);
     negativeTextView.setTextColor(getActionTextStateList(mBuilder.negativeColor));
-    setBackgroundCompat(negativeButton,getButtonSelector());
+    setBackgroundCompat(negativeButton,getButtonSelector(DialogAction.NEGATIVE));
     negativeTextView.setText(mBuilder.negativeText);
     negativeButton.setTag(NEGATIVE);
     negativeButton.setOnClickListener(this);

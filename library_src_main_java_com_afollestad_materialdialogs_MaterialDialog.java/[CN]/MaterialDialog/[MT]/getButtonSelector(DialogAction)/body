@@ -1,0 +1,33 @@
+{
+  if (isStacked) {
+    if (mBuilder.btnSelectorStacked != 0)     return mBuilder.context.getResources().getDrawable(mBuilder.btnSelectorStacked);
+    final Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_stacked_selector);
+    if (d != null)     return d;
+    return DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_stacked_selector);
+  }
+ else {
+switch (which) {
+default :
+{
+        if (mBuilder.btnSelectorPositive != 0)         return mBuilder.context.getResources().getDrawable(mBuilder.btnSelectorPositive);
+        final Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_positive_selector);
+        if (d != null)         return d;
+        return DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_positive_selector);
+      }
+case NEUTRAL:
+{
+      if (mBuilder.btnSelectorNeutral != 0)       return mBuilder.context.getResources().getDrawable(mBuilder.btnSelectorNeutral);
+      final Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_neutral_selector);
+      if (d != null)       return d;
+      return DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_neutral_selector);
+    }
+case NEGATIVE:
+{
+    if (mBuilder.btnSelectorNegative != 0)     return mBuilder.context.getResources().getDrawable(mBuilder.btnSelectorNegative);
+    final Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_negative_selector);
+    if (d != null)     return d;
+    return DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_negative_selector);
+  }
+}
+}
+}
