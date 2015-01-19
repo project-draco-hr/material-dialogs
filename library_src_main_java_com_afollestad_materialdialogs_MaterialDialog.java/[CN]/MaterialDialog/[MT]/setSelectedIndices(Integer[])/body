@@ -1,0 +1,10 @@
+{
+  mBuilder.selectedIndices=indices;
+  selectedIndicesList=new ArrayList<>(Arrays.asList(indices));
+  if (mBuilder.adapter != null && mBuilder.adapter instanceof MaterialDialogAdapter) {
+    ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
+  }
+ else {
+    throw new IllegalStateException("You can only use setSelectedIndices() with the default adapter implementation.");
+  }
+}
