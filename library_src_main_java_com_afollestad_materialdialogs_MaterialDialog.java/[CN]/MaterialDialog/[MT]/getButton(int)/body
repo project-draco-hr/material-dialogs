@@ -1,4 +1,5 @@
 {
+  Log.w("MaterialDialog","Warning: getButton() is a deprecated method that does not return valid references to action buttons.");
   if (whichButton == AlertDialog.BUTTON_POSITIVE) {
     return mBuilder.positiveText != null ? new Button(getContext()) : null;
   }
