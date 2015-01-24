@@ -1,0 +1,5 @@
+{
+  if (medium != null)   this.mediumFont=TypefaceHelper.get(this.context,medium);
+  if (regular != null)   this.regularFont=TypefaceHelper.get(this.context,regular);
+  return this;
+}
