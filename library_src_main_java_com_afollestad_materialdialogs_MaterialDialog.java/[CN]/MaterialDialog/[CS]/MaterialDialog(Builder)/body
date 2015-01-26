@@ -1,6 +1,14 @@
 {
   super(getTheme(builder));
   mBuilder=builder;
+  if (!mBuilder.useCustomFonts && mBuilder.mediumFont == null) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      mBuilder.mediumFont=Typeface.create("sans-serif-medium",Typeface.NORMAL);
+    }
+ else {
+      mBuilder.mediumFont=Typeface.create("sans-serif",Typeface.BOLD);
+    }
+  }
   this.view=LayoutInflater.from(getContext()).inflate(R.layout.md_dialog,null);
   this.setCancelable(builder.cancelable);
   if (mBuilder.backgroundColor == 0)   mBuilder.backgroundColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_background_color);
