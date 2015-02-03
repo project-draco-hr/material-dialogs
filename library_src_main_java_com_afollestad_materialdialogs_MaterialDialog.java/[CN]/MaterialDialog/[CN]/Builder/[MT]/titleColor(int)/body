@@ -1,4 +1,5 @@
 {
   this.titleColor=color;
+  this.titleColorSet=true;
   return this;
 }

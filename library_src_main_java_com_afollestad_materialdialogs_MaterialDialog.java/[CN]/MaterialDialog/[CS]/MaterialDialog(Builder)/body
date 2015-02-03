@@ -32,7 +32,7 @@
  else {
     title.setGravity(gravityIntToGravity(builder.titleGravity));
   }
-  if (builder.contentColor != -1) {
+  if (builder.contentColorSet) {
     content.setTextColor(builder.contentColor);
   }
  else {
@@ -40,7 +40,7 @@
     final int contentColor=DialogUtils.resolveColor(getContext(),R.attr.md_content_color,fallback);
     content.setTextColor(contentColor);
   }
-  if (builder.itemColor != 0) {
+  if (builder.itemColorSet) {
     defaultItemColor=builder.itemColor;
   }
  else   if (builder.theme == Theme.LIGHT) {

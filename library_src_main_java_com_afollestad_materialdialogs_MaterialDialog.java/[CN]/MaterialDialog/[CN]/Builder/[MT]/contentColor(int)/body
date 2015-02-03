@@ -1,4 +1,5 @@
 {
   this.contentColor=color;
+  this.contentColorSet=true;
   return this;
 }
