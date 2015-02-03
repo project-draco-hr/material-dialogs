@@ -119,7 +119,7 @@
  else {
     title.setText(builder.title);
     setTypeface(title,mBuilder.mediumFont);
-    if (builder.titleColor != -1) {
+    if (builder.titleColorSet) {
       title.setTextColor(builder.titleColor);
     }
  else {
@@ -159,7 +159,7 @@
 );
   if (builder.theme == Theme.LIGHT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
     setInverseBackgroundForced(true);
-    if (builder.titleColor == -1)     title.setTextColor(Color.BLACK);
-    if (builder.contentColor == -1)     content.setTextColor(Color.BLACK);
+    if (!builder.titleColorSet)     title.setTextColor(Color.BLACK);
+    if (!builder.contentColorSet)     content.setTextColor(Color.BLACK);
   }
 }
