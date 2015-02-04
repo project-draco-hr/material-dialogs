@@ -22,11 +22,13 @@
     setBackgroundCompat(positiveButton,getButtonSelector(DialogAction.POSITIVE));
     positiveButton.setTag(POSITIVE);
     positiveButton.setOnClickListener(this);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      positiveTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
-    }
+    if (isStacked) {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        positiveTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
+      }
  else {
-      positiveTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
+        positiveTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
+      }
     }
   }
  else {
@@ -42,11 +44,13 @@
     neutralTextView.setText(mBuilder.neutralText);
     neutralButton.setTag(NEUTRAL);
     neutralButton.setOnClickListener(this);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      neutralTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
-    }
+    if (isStacked) {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        neutralTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
+      }
  else {
-      neutralTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
+        neutralTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
+      }
     }
   }
  else {
@@ -62,12 +66,6 @@
     negativeTextView.setText(mBuilder.negativeText);
     negativeButton.setTag(NEGATIVE);
     negativeButton.setOnClickListener(this);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      negativeTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
-    }
- else {
-      negativeTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
-    }
     if (!isStacked) {
       RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,(int)getContext().getResources().getDimension(R.dimen.md_button_height));
       if (mBuilder.positiveText != null) {
@@ -87,6 +85,14 @@
         }
       }
       negativeButton.setLayoutParams(params);
+    }
+ else {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        negativeTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
+      }
+ else {
+        negativeTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
+      }
     }
   }
  else {
