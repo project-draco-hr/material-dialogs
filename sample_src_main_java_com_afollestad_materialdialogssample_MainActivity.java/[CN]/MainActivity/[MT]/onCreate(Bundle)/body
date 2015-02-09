@@ -115,4 +115,10 @@
     }
   }
 );
+  findViewById(R.id.preference_dialogs).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      startActivity(new Intent(getApplicationContext(),MaterialPreferenceActivity.class));
+    }
+  }
+);
 }
