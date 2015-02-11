@@ -1,11 +1,5 @@
 {
-  mBuilder=new MaterialDialog.Builder(context);
-  mBuilder.title(getTitle());
-  mBuilder.icon(getDialogIcon());
-  mBuilder.positiveText(null);
-  mBuilder.negativeText(getNegativeButtonText());
-  mBuilder.items(getEntries());
-  mBuilder.itemsCallback(new MaterialDialog.ListCallback(){
+  mBuilder=new MaterialDialog.Builder(context).title(getTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).items(getEntries()).itemsCallback(new MaterialDialog.ListCallback(){
     @Override public void onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
       onClick(null,DialogInterface.BUTTON_POSITIVE);
       dialog.dismiss();
@@ -19,8 +13,10 @@
   final View contentView=onCreateDialogView();
   if (contentView != null) {
     onBindDialogView(contentView);
-    mBuilder.customView(contentView);
+    mBuilder.customView(contentView,false);
   }
- else   mBuilder.content(getDialogMessage());
+ else {
+    mBuilder.content(getDialogMessage());
+  }
   mBuilder.show();
 }

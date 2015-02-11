@@ -4,14 +4,9 @@
   layout.setPadding(margin,0,margin,0);
   editText.setText(getText());
   editText.setId(android.R.id.edit);
+  if (editText.getParent() != null)   ((ViewGroup)editText.getParent()).removeView(editText);
   layout.addView(editText);
-  MaterialDialog.Builder mBuilder=new MaterialDialog.Builder(context);
-  mBuilder.title(getTitle());
-  mBuilder.icon(getDialogIcon());
-  mBuilder.positiveText(android.R.string.ok);
-  mBuilder.customView(layout,false);
-  mBuilder.negativeText(getNegativeButtonText());
-  mBuilder.callback(new MaterialDialog.ButtonCallback(){
+  MaterialDialog.Builder mBuilder=new MaterialDialog.Builder(context).title(getTitle()).icon(getDialogIcon()).positiveText(android.R.string.ok).customView(layout,false).negativeText(getNegativeButtonText()).callback(new MaterialDialog.ButtonCallback(){
     @Override public void onPositive(    MaterialDialog dialog){
       super.onPositive(dialog);
       layout.removeView(editText);
@@ -31,8 +26,10 @@
   final View contentView=onCreateDialogView();
   if (contentView != null) {
     onBindDialogView(contentView);
-    mBuilder.customView(contentView);
+    mBuilder.customView(contentView,false);
   }
- else   mBuilder.content(getDialogMessage());
+ else {
+    mBuilder.content(getDialogMessage());
+  }
   mBuilder.show();
 }
