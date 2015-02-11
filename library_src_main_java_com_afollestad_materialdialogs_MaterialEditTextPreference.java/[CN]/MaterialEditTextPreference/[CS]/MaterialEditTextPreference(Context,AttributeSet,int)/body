@@ -1,0 +1,5 @@
+{
+  super(context,attrs,defStyleAttr);
+  this.context=context;
+  editText=new EditText(context,attrs);
+}
