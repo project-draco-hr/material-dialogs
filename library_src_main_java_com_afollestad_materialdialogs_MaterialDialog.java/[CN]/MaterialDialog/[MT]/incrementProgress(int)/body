@@ -1,0 +1,4 @@
+{
+  if (mBuilder.mProgress <= -2)   throw new IllegalStateException("Cannot use incrementProgress() on this dialog.");
+  setProgress(getCurrentProgress() + by);
+}

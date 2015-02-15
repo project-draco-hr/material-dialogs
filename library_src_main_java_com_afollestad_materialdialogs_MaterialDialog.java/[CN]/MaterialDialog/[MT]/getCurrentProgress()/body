@@ -1,0 +1,4 @@
+{
+  if (mProgress == null)   return -1;
+  return mProgress.getProgress();
+}

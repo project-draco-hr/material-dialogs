@@ -1,0 +1,15 @@
+{
+  MaterialDialog.Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).customView(R.layout.md_input_dialog,false).callback(new MaterialDialog.ButtonCallback(){
+    @Override public void onPositive(    MaterialDialog dialog){
+      super.onPositive(dialog);
+      String value=editText.getText().toString();
+      if (callChangeListener(value) && isPersistent())       setText(value);
+    }
+  }
+);
+  mBuilder.content(getDialogMessage());
+  MaterialDialog dialog=mBuilder.build();
+  editText=(EditText)((ViewGroup)dialog.getCustomView()).getChildAt(0);
+  editText.setText(getText());
+  dialog.show();
+}

@@ -1,0 +1,12 @@
+{
+  if (indeterminate) {
+    this.mIndeterminateProgress=true;
+    this.mProgress=-2;
+  }
+ else {
+    this.mIndeterminateProgress=false;
+    this.mProgress=-1;
+    this.mProgressMax=max;
+  }
+  return this;
+}

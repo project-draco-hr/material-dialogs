@@ -115,6 +115,18 @@
     }
   }
 );
+  findViewById(R.id.progress1).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showProgressDialog(false);
+    }
+  }
+);
+  findViewById(R.id.progress2).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showProgressDialog(true);
+    }
+  }
+);
   findViewById(R.id.preference_dialogs).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       startActivity(new Intent(getApplicationContext(),PreferenceActivity.class));

@@ -5,7 +5,8 @@
     if (mBuilder.mediumFont == null)     mBuilder.mediumFont=TypefaceHelper.get(getContext(),"Roboto-Medium");
     if (mBuilder.regularFont == null)     mBuilder.regularFont=TypefaceHelper.get(getContext(),"Roboto-Regular");
   }
-  this.view=LayoutInflater.from(getContext()).inflate(R.layout.md_dialog,null);
+  final LayoutInflater inflater=LayoutInflater.from(mBuilder.context);
+  this.view=inflater.inflate(R.layout.md_dialog,null);
   this.setCancelable(builder.cancelable);
   if (mBuilder.backgroundColor == 0)   mBuilder.backgroundColor=DialogUtils.resolveColor(mBuilder.context,R.attr.md_background_color);
   if (mBuilder.backgroundColor != 0)   this.view.setBackgroundColor(mBuilder.backgroundColor);
@@ -15,7 +16,21 @@
   title=(TextView)view.findViewById(R.id.title);
   icon=(ImageView)view.findViewById(R.id.icon);
   titleFrame=view.findViewById(R.id.titleFrame);
-  final TextView content=(TextView)view.findViewById(R.id.content);
+  content=(TextView)view.findViewById(R.id.content);
+  if (mBuilder.mIndeterminateProgress || mBuilder.mProgress > -2) {
+    mBuilder.customView=inflater.inflate(mBuilder.mIndeterminateProgress ? R.layout.md_progress_dialog_indeterminate : R.layout.md_progress_dialog,(ViewGroup)this.view,false);
+    mProgress=(ProgressBar)mBuilder.customView.findViewById(android.R.id.progress);
+    content=(TextView)mBuilder.customView.findViewById(android.R.id.message);
+    if (!mBuilder.mIndeterminateProgress) {
+      mProgress.setProgress(0);
+      mProgress.setMax(mBuilder.mProgressMax);
+      mProgressLabel=(TextView)mBuilder.customView.findViewById(R.id.label);
+      mProgressLabel.setText("0%");
+    }
+    int bottomPadding=(int)getContext().getResources().getDimension(R.dimen.md_dialog_frame_margin);
+    int topPadding=builder.title == null ? bottomPadding : (int)getContext().getResources().getDimension(R.dimen.md_progressdialog_paddingwithtitle);
+    mBuilder.customView.setPadding(mBuilder.customView.getPaddingLeft(),topPadding,mBuilder.customView.getPaddingRight(),bottomPadding);
+  }
   content.setText(builder.content);
   content.setMovementMethod(new LinkMovementMethod());
   setTypeface(content,mBuilder.regularFont);
@@ -111,7 +126,7 @@
       icon.setVisibility(View.GONE);
     }
   }
-  if (builder.title == null || builder.title.toString().trim().length() == 0) {
+  if (builder.title == null) {
     titleFrame.setVisibility(View.GONE);
   }
  else {

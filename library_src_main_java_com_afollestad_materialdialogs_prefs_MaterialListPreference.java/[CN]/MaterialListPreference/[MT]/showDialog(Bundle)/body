@@ -1,0 +1,31 @@
+{
+  int preselect=-1;
+  if (getEntryValues() != null) {
+    for (int i=0; i < getEntryValues().length; i++) {
+      if (getValue() != null && getValue().equals(getEntryValues()[i])) {
+        preselect=i;
+        break;
+      }
+    }
+  }
+  mBuilder=new MaterialDialog.Builder(context).title(getTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).items(getEntries()).itemsCallbackSingleChoice(preselect,new MaterialDialog.ListCallback(){
+    @Override public void onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
+      onClick(null,DialogInterface.BUTTON_POSITIVE);
+      dialog.dismiss();
+      if (which >= 0 && getEntryValues() != null) {
+        String value=getEntryValues()[which].toString();
+        if (callChangeListener(value) && isPersistent())         setValue(value);
+      }
+    }
+  }
+);
+  final View contentView=onCreateDialogView();
+  if (contentView != null) {
+    onBindDialogView(contentView);
+    mBuilder.customView(contentView,false);
+  }
+ else {
+    mBuilder.content(getDialogMessage());
+  }
+  mBuilder.show();
+}
