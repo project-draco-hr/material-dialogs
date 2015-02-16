@@ -1,12 +1,13 @@
 {
-  if (dialog == null) {
-    if (VERSION.SDK_INT < VERSION_CODES.LOLLIPOP)     getEditText().getBackground().setColorFilter(color,PorterDuff.Mode.SRC_ATOP);
-    dialog=new MaterialDialog.Builder(getContext()).title(getTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).customView(R.layout.md_input_dialog,false).callback(callback).content(getDialogMessage()).build();
-    FrameLayout layout=(FrameLayout)dialog.getCustomView();
-    if (layout != null) {
-      layout.removeAllViews();
-      layout.addView(getEditText());
-    }
-  }
-  dialog.show();
+  Context context=getContext();
+  if (VERSION.SDK_INT < VERSION_CODES.LOLLIPOP)   mEditText.getBackground().setColorFilter(mColor,PorterDuff.Mode.SRC_ATOP);
+  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).callback(callback).content(getDialogMessage());
+  FrameLayout layout=(FrameLayout)LayoutInflater.from(context).inflate(R.layout.md_input_dialog,null);
+  onBindDialogView(layout);
+  mBuilder.customView(layout,false);
+  MaterialDialog mDialog=mBuilder.build();
+  if (state != null)   mDialog.onRestoreInstanceState(state);
+  requestInputMethod(mDialog);
+  mDialog.setOnDismissListener(this);
+  mDialog.show();
 }
