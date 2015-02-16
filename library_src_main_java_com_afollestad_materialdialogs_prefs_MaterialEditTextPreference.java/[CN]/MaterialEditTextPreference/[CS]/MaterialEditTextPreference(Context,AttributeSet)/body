@@ -1,6 +1,9 @@
 {
   super(context,attrs);
-  TypedValue value=new TypedValue();
-  context.getTheme().resolveAttribute(R.attr.colorAccent,value,true);
-  color=value.data;
+  if (VERSION.SDK_INT < VERSION_CODES.LOLLIPOP) {
+    TypedValue value=new TypedValue();
+    context.getTheme().resolveAttribute(R.attr.colorAccent,value,true);
+    mColor=value.data;
+  }
+  mEditText=super.getEditText();
 }

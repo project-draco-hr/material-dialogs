@@ -1,0 +1,5 @@
+{
+  ViewGroup viewGroup=(ViewGroup)dialogView;
+  viewGroup.removeAllViews();
+  viewGroup.addView(editText,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+}
