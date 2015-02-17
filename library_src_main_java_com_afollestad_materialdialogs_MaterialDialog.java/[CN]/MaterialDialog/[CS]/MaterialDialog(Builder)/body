@@ -21,6 +21,18 @@
     mBuilder.customView=inflater.inflate(mBuilder.mIndeterminateProgress ? R.layout.md_progress_dialog_indeterminate : R.layout.md_progress_dialog,(ViewGroup)this.view,false);
     mProgress=(ProgressBar)mBuilder.customView.findViewById(android.R.id.progress);
     content=(TextView)mBuilder.customView.findViewById(android.R.id.message);
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+      Drawable indDraw=mProgress.getIndeterminateDrawable();
+      if (indDraw != null) {
+        indDraw.setColorFilter(mBuilder.accentColor,PorterDuff.Mode.SRC_ATOP);
+        mProgress.setIndeterminateDrawable(indDraw);
+      }
+      Drawable regDraw=mProgress.getProgressDrawable();
+      if (regDraw != null) {
+        regDraw.setColorFilter(mBuilder.accentColor,PorterDuff.Mode.SRC_ATOP);
+        mProgress.setProgressDrawable(regDraw);
+      }
+    }
     if (!mBuilder.mIndeterminateProgress) {
       mProgress.setProgress(0);
       mProgress.setMax(mBuilder.mProgressMax);
