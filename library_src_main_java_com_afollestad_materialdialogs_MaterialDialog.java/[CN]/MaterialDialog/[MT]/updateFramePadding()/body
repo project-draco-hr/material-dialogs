@@ -1,11 +1,11 @@
 {
   Resources r=getContext().getResources();
-  int frameMargin=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
+  int framePadding=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
   View contentScrollView=view.findViewById(R.id.contentScrollView);
   int paddingTop=contentScrollView.getPaddingTop();
   int paddingBottom=contentScrollView.getPaddingBottom();
-  if (!hasActionButtons())   paddingBottom=frameMargin;
-  if (titleFrame.getVisibility() == View.GONE)   paddingTop=frameMargin;
+  if (!hasActionButtons())   paddingBottom=framePadding;
+  if (titleFrame.getVisibility() == View.GONE)   paddingTop=framePadding;
   contentScrollView.setPadding(contentScrollView.getPaddingLeft(),paddingTop,contentScrollView.getPaddingRight(),paddingBottom);
   if (listView != null) {
     final int titlePaddingBottom=(int)mBuilder.context.getResources().getDimension(R.dimen.md_title_frame_margin_bottom_list);
