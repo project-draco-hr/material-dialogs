@@ -22,14 +22,7 @@
     setBackgroundCompat(positiveButton,getButtonSelector(DialogAction.POSITIVE));
     positiveButton.setTag(POSITIVE);
     positiveButton.setOnClickListener(this);
-    if (isStacked) {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-        positiveTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
-      }
- else {
-        positiveTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
-      }
-    }
+    if (isStacked)     positiveTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
   }
  else {
     positiveButton.setVisibility(View.GONE);
@@ -44,14 +37,7 @@
     neutralTextView.setText(mBuilder.neutralText);
     neutralButton.setTag(NEUTRAL);
     neutralButton.setOnClickListener(this);
-    if (isStacked) {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-        neutralTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
-      }
- else {
-        neutralTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
-      }
-    }
+    if (isStacked)     neutralTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
   }
  else {
     neutralButton.setVisibility(View.GONE);
@@ -87,12 +73,7 @@
       negativeButton.setLayoutParams(params);
     }
  else {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-        negativeTextView.setTextAlignment(gravityToAlignment(mBuilder.btnStackedGravity));
-      }
- else {
-        negativeTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
-      }
+      negativeTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
     }
   }
  else {
