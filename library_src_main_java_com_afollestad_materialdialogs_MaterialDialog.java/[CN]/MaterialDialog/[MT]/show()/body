@@ -1,4 +1,9 @@
 {
   if (Looper.myLooper() != Looper.getMainLooper())   throw new IllegalStateException("Dialogs can only be shown from the UI thread.");
-  super.show();
+  try {
+    super.show();
+  }
+ catch (  WindowManager.BadTokenException e) {
+    throw new DialogException("Bad window token, you cannot show a dialog before an Activity is created or after it's hidden.");
+  }
 }
