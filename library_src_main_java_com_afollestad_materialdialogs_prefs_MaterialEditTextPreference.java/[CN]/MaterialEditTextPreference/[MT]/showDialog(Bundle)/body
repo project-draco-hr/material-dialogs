@@ -2,8 +2,16 @@
   Context context=getContext();
   if (VERSION.SDK_INT < VERSION_CODES.LOLLIPOP)   mEditText.getBackground().setColorFilter(mColor,PorterDuff.Mode.SRC_ATOP);
   Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).callback(callback).content(getDialogMessage());
-  FrameLayout layout=(FrameLayout)LayoutInflater.from(context).inflate(R.layout.md_input_dialog,null);
-  onBindDialogView(layout);
+  ViewGroup layout=(ViewGroup)LayoutInflater.from(context).inflate(R.layout.md_input_dialog,null);
+  mEditText=(EditText)layout.findViewById(android.R.id.edit);
+  TextView message=(TextView)layout.findViewById(android.R.id.message);
+  if (getDialogMessage() != null && getDialogMessage().toString().length() > 0) {
+    message.setVisibility(View.VISIBLE);
+    message.setText(getDialogMessage());
+  }
+ else {
+    message.setVisibility(View.GONE);
+  }
   mBuilder.customView(layout,false);
   MaterialDialog mDialog=mBuilder.build();
   if (state != null)   mDialog.onRestoreInstanceState(state);

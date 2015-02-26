@@ -1,0 +1,8 @@
+{
+  final boolean wasBlocking=shouldDisableDependents();
+  persistString(text);
+  final boolean isBlocking=shouldDisableDependents();
+  if (isBlocking != wasBlocking) {
+    notifyDependencyChange(isBlocking);
+  }
+}
