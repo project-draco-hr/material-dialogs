@@ -13,8 +13,8 @@
     setDividerVisibility(topScroll,bottomScroll);
   }
  else   if ((mBuilder.items != null && mBuilder.items.length > 0) || mBuilder.adapter != null) {
-    contentScrollView.setVisibility(View.GONE);
-    boolean canScroll=titleFrame.getVisibility() == View.VISIBLE && canListViewScroll();
+    contentScrollView.setVisibility(mBuilder.content != null ? View.VISIBLE : View.GONE);
+    boolean canScroll=titleFrame.getVisibility() == View.VISIBLE && (canListViewScroll() || canContentScroll());
     setDividerVisibility(canScroll,canScroll);
   }
  else {
