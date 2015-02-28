@@ -1,6 +1,6 @@
 {
   int preselect=findIndexOfValue(getValue());
-  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).icon(getDialogIcon()).negativeText(getNegativeButtonText()).items(getEntries()).itemsCallbackSingleChoice(preselect,new MaterialDialog.ListCallback(){
+  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).content(getDialogMessage()).icon(getDialogIcon()).negativeText(getNegativeButtonText()).items(getEntries()).itemsCallbackSingleChoice(preselect,new MaterialDialog.ListCallback(){
     @Override public void onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
       onClick(null,DialogInterface.BUTTON_POSITIVE);
       dialog.dismiss();

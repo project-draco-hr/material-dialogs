@@ -1,6 +1,6 @@
 {
   if ((mBuilder.items == null || mBuilder.items.length == 0) && mBuilder.adapter == null)   return;
-  view.findViewById(R.id.contentScrollView).setVisibility(mBuilder.content != null ? View.VISIBLE : View.GONE);
+  view.findViewById(R.id.contentScrollView).setVisibility(mBuilder.content != null && mBuilder.content.toString().trim().length() > 0 ? View.VISIBLE : View.GONE);
   view.findViewById(R.id.customViewFrame).setVisibility(View.GONE);
   FrameLayout listViewContainer=(FrameLayout)view.findViewById(R.id.contentListViewFrame);
   listViewContainer.setVisibility(View.VISIBLE);
