@@ -133,4 +133,7 @@
     }
   }
 );
+  EditText view=new EditText(this);
+  view.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  new MaterialDialog.Builder(this).title("Test").customView(view,true).positiveText(android.R.string.ok).show();
 }
