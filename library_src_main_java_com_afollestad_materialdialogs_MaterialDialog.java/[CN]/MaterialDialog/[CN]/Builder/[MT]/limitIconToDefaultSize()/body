@@ -1,0 +1,4 @@
+{
+  this.limitIconToDefaultSize=true;
+  return this;
+}
