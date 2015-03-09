@@ -137,20 +137,6 @@
       icon.setVisibility(View.GONE);
     }
   }
-  int maxIconSize=builder.maxIconSize;
-  if (maxIconSize == -1) {
-    maxIconSize=DialogUtils.resolveDimension(mBuilder.context,R.attr.md_icon_max_size);
-  }
-  boolean limitIconToDefaultSize=DialogUtils.resolveBoolean(mBuilder.context,R.attr.md_icon_limit_icon_to_default_size);
-  if (builder.limitIconToDefaultSize || limitIconToDefaultSize) {
-    maxIconSize=mBuilder.context.getResources().getDimensionPixelSize(R.dimen.md_icon_max_size);
-  }
-  if (maxIconSize > -1) {
-    icon.setAdjustViewBounds(true);
-    icon.setMaxHeight(maxIconSize);
-    icon.setMaxWidth(maxIconSize);
-    icon.requestLayout();
-  }
   if (builder.title == null) {
     titleFrame.setVisibility(View.GONE);
   }

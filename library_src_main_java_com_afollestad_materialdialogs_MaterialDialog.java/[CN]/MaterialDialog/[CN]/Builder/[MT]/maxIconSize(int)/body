@@ -1,4 +1,0 @@
-{
-  this.maxIconSize=maxIconSize;
-  return this;
-}
