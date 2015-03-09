@@ -1,3 +1,0 @@
-{
-  return maxIconSize((int)this.context.getResources().getDimension(maxIconSizeRes));
-}
