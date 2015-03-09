@@ -183,9 +183,7 @@
   setViewInternal(view);
   view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
     @Override public void onGlobalLayout(){
-      if (view.getMeasuredWidth() > 0) {
-        invalidateCustomViewAssociations();
-      }
+      invalidateCustomViewAssociations();
     }
   }
 );
