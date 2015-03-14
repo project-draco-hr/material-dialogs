@@ -1,0 +1,4 @@
+{
+  this.context=context;
+  if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1)   setWidgetLayoutResource(0);
+}
