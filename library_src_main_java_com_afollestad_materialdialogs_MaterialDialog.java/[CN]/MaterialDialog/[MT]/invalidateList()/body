@@ -5,30 +5,5 @@
   FrameLayout listViewContainer=(FrameLayout)view.findViewById(R.id.contentListViewFrame);
   listViewContainer.setVisibility(View.VISIBLE);
   listView.setAdapter(mBuilder.adapter);
-  if (listType != null) {
-    listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-      @Override public void onItemClick(      AdapterView<?> parent,      View view,      int position,      long id){
-        if (listType == ListType.MULTI) {
-          boolean isChecked=!((CheckBox)view.findViewById(R.id.control)).isChecked();
-          boolean previouslySelected=selectedIndicesList.contains(position);
-          if (isChecked) {
-            if (!previouslySelected) {
-              selectedIndicesList.add(position);
-            }
-          }
- else           if (previouslySelected) {
-            selectedIndicesList.remove(Integer.valueOf(position));
-          }
-        }
- else         if (listType == ListType.SINGLE) {
-          if (mBuilder.selectedIndex != position) {
-            mBuilder.selectedIndex=position;
-            ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
-          }
-        }
-        onClick(view);
-      }
-    }
-);
-  }
+  listView.setOnItemClickListener(this);
 }

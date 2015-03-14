@@ -1,0 +1,5 @@
+{
+  this.adapter=adapter;
+  this.listCallbackCustom=callback;
+  return this;
+}

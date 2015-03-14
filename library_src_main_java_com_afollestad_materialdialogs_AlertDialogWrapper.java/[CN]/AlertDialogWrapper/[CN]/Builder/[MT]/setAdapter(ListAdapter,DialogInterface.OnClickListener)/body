@@ -1,0 +1,10 @@
+{
+  builder.adapter=adapter;
+  builder.listCallbackCustom=new MaterialDialog.ListCallback(){
+    @Override public void onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
+      listener.onClick(dialog,which);
+    }
+  }
+;
+  return this;
+}

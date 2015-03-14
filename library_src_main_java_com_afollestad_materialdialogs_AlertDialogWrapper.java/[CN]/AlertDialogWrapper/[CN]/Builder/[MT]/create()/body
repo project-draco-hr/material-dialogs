@@ -1,5 +1,5 @@
 {
   addButtonsCallback();
-  addItemsCallBack();
+  addListCallbacks();
   return builder.build();
 }
