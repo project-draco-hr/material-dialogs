@@ -5,5 +5,5 @@
   FrameLayout listViewContainer=(FrameLayout)view.findViewById(R.id.contentListViewFrame);
   listViewContainer.setVisibility(View.VISIBLE);
   listView.setAdapter(mBuilder.adapter);
-  listView.setOnItemClickListener(this);
+  if (mBuilder.listCallbackCustom != null)   listView.setOnItemClickListener(this);
 }

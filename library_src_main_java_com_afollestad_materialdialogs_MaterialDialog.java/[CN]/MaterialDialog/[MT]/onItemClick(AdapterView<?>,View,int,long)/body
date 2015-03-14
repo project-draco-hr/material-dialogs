@@ -20,11 +20,9 @@
     }
     onClick(view);
   }
- else {
-    if (mBuilder.listCallbackCustom != null) {
-      CharSequence text=null;
-      if (view instanceof TextView)       text=((TextView)view).getText();
-      mBuilder.listCallbackCustom.onSelection(this,view,position,text);
-    }
+ else   if (mBuilder.listCallbackCustom != null) {
+    CharSequence text=null;
+    if (view instanceof TextView)     text=((TextView)view).getText();
+    mBuilder.listCallbackCustom.onSelection(this,view,position,text);
   }
 }
