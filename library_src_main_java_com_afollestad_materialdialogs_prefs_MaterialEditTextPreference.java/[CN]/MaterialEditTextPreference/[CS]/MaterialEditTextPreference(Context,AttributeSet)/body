@@ -1,4 +1,5 @@
 {
   super(context,attrs);
   if (VERSION.SDK_INT < VERSION_CODES.LOLLIPOP)   mColor=DialogUtils.resolveColor(context,R.attr.colorAccent);
+  mEditText=new EditText(context,attrs);
 }
