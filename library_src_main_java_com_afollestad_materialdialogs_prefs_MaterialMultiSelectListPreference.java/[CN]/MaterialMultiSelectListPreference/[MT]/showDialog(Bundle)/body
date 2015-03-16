@@ -1,0 +1,21 @@
+{
+  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).content(getDialogMessage()).icon(getDialogIcon()).negativeText(getNegativeButtonText()).positiveText(getPositiveButtonText()).items(getEntries()).itemsCallbackMultiChoice(getPersistedIndices(),new MaterialDialog.ListCallbackMulti(){
+    @Override public void onSelection(    MaterialDialog dialog,    Integer[] which,    CharSequence[] text){
+      onClick(null,DialogInterface.BUTTON_POSITIVE);
+      dialog.dismiss();
+      if (callChangeListener(which) && isPersistent()) {
+        persistValues(which);
+      }
+    }
+  }
+);
+  final View contentView=onCreateDialogView();
+  if (contentView != null) {
+    onBindDialogView(contentView);
+    builder.customView(contentView,false);
+  }
+ else {
+    builder.content(getDialogMessage());
+  }
+  builder.show();
+}

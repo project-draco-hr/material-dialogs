@@ -1,0 +1,7 @@
+{
+  String[] values=getPersistedValues();
+  if (values == null)   return null;
+  List<Integer> indices=new ArrayList<>();
+  for (  String v : values)   indices.add(findIndexOfValue(v));
+  return indices.toArray(new Integer[indices.size()]);
+}
