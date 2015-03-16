@@ -4,4 +4,5 @@
   mProgress.setProgress(progress);
   int percentage=(int)(((float)getCurrentProgress() / (float)getMaxProgress()) * 100f);
   mProgressLabel.setText(percentage + "%");
+  if (mProgressMinMax != null)   mProgressMinMax.setText(getCurrentProgress() + "/" + getMaxProgress());
 }
