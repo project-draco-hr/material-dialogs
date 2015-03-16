@@ -3,6 +3,7 @@
   Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).callback(callback).content(getDialogMessage());
   ViewGroup layout=(ViewGroup)LayoutInflater.from(context).inflate(R.layout.md_input_dialog_stub,null);
   mEditText.append(mValue);
+  if (mEditText.getParent() != null)   ((ViewGroup)mEditText.getParent()).removeView(mEditText);
   layout.addView(mEditText,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
   if (VERSION.SDK_INT < VERSION_CODES.LOLLIPOP)   mEditText.getBackground().setColorFilter(mColor,PorterDuff.Mode.SRC_ATOP);
   TextView message=(TextView)layout.findViewById(android.R.id.message);
