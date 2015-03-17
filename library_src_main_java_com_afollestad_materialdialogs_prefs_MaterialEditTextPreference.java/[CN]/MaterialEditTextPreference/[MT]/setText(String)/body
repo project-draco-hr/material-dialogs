@@ -1,4 +1,5 @@
 {
+  setValue(text);
   final boolean wasBlocking=shouldDisableDependents();
   persistString(text);
   final boolean isBlocking=shouldDisableDependents();
