@@ -19,5 +19,5 @@
  else {
     builder.content(getDialogMessage());
   }
-  builder.show();
+  mDialog=builder.show();
 }
