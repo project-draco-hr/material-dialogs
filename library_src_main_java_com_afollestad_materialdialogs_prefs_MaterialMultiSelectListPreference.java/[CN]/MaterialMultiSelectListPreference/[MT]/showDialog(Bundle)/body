@@ -5,6 +5,9 @@
     @Override public void onSelection(    MaterialDialog dialog,    Integer[] which,    CharSequence[] text){
       onClick(null,DialogInterface.BUTTON_POSITIVE);
       dialog.dismiss();
+      final Set<String> values=new HashSet<>();
+      for (      CharSequence s : text)       values.add((String)s);
+      if (callChangeListener(values))       setValues(values);
     }
   }
 ).dismissListener(this);
@@ -16,5 +19,5 @@
  else {
     builder.content(getDialogMessage());
   }
-  builder.show();
+  mDialog=builder.show();
 }
