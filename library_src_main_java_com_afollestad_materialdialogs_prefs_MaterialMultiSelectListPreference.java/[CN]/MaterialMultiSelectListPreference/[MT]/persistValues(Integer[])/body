@@ -1,6 +1,0 @@
-{
-  final CharSequence[] values=getEntryValues();
-  Set<String> valueSet=new HashSet<>();
-  for (  int index : indices)   valueSet.add(values[index].toString());
-  getEditor().putStringSet(getKey(),valueSet).commit();
-}

@@ -1,5 +1,0 @@
-{
-  Set<String> values=getPreferenceManager().getSharedPreferences().getStringSet(getKey(),null);
-  if (values == null)   return null;
-  return values.toArray(new String[values.size()]);
-}
