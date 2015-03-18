@@ -3,8 +3,10 @@ switch (gravity) {
 case CENTER:
     return Gravity.CENTER_HORIZONTAL;
 case END:
-  return Gravity.END;
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1)   return Gravity.RIGHT;
+return Gravity.END;
 default :
+if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) return Gravity.LEFT;
 return Gravity.START;
 }
 }
