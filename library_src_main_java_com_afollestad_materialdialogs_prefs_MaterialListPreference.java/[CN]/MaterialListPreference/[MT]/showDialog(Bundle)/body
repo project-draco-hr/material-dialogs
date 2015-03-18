@@ -1,4 +1,7 @@
 {
+  if (getEntries() == null || getEntryValues() == null) {
+    throw new IllegalStateException("ListPreference requires an entries array and an entryValues array.");
+  }
   int preselect=findIndexOfValue(getValue());
   MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).content(getDialogMessage()).icon(getDialogIcon()).negativeText(getNegativeButtonText()).items(getEntries()).itemsCallbackSingleChoice(preselect,new MaterialDialog.ListCallback(){
     @Override public void onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
