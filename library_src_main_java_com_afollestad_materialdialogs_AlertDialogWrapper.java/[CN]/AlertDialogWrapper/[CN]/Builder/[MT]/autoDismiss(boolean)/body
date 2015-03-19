@@ -1,0 +1,4 @@
+{
+  builder.autoDismiss(dismiss);
+  return this;
+}
