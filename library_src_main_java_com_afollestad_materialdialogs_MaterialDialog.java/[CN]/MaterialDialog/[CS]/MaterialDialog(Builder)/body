@@ -121,6 +121,9 @@
     if (mBuilder.title != null) {
       listView.setPadding(listView.getPaddingLeft(),0,listView.getPaddingRight(),listView.getPaddingBottom());
     }
+    if (hasActionButtons()) {
+      listView.setPadding(listView.getPaddingLeft(),0,listView.getPaddingRight(),0);
+    }
     if (!adapterProvided) {
       if (mBuilder.listCallbackSingleChoice != null) {
         listType=ListType.SINGLE;
