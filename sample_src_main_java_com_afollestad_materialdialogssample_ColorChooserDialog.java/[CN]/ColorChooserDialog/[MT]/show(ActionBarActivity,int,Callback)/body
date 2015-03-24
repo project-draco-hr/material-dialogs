@@ -3,5 +3,5 @@
   Bundle args=new Bundle();
   args.putInt("preselect",preselect);
   setArguments(args);
-  show(context.getFragmentManager(),"COLOR_SELECTOR");
+  show(context.getSupportFragmentManager(),"COLOR_SELECTOR");
 }
