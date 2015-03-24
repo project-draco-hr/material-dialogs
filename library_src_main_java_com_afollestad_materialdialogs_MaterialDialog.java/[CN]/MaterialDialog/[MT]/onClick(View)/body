@@ -4,8 +4,8 @@ switch (tag) {
 case POSITIVE:
 {
       if (mBuilder.callback != null)       mBuilder.callback.onPositive(this);
-      if (mBuilder.listCallbackSingle != null)       sendSingleChoiceCallback(v);
-      if (mBuilder.listCallbackMulti != null)       sendMultichoiceCallback();
+      if (mBuilder.listCallbackSingleChoice != null)       sendSingleChoiceCallback(v);
+      if (mBuilder.listCallbackMultiChoice != null)       sendMultichoiceCallback();
       if (mBuilder.autoDismiss)       dismiss();
       break;
     }
@@ -20,35 +20,6 @@ case NEUTRAL:
   if (mBuilder.callback != null)   mBuilder.callback.onNeutral(this);
   if (mBuilder.autoDismiss)   dismiss();
   break;
-}
-default :
-{
-String[] split=tag.split(":");
-int index=Integer.parseInt(split[0]);
-if (mBuilder.listCallback != null) {
-  if (mBuilder.autoDismiss)   dismiss();
-  mBuilder.listCallback.onSelection(this,v,index,split[1]);
-}
- else if (mBuilder.listCallbackSingle != null) {
-  RadioButton cb=(RadioButton)((LinearLayout)v).getChildAt(0);
-  if (!cb.isChecked())   cb.setChecked(true);
-  if (mBuilder.autoDismiss && mBuilder.positiveText == null) {
-    dismiss();
-    sendSingleChoiceCallback(v);
-  }
- else   if (mBuilder.alwaysCallSingleChoiceCallback) {
-    sendSingleChoiceCallback(v);
-  }
-}
- else if (mBuilder.listCallbackMulti != null) {
-  CheckBox cb=(CheckBox)((LinearLayout)v).getChildAt(0);
-  cb.setChecked(!cb.isChecked());
-  if (mBuilder.alwaysCallMultiChoiceCallback) {
-    sendMultichoiceCallback();
-  }
-}
- else if (mBuilder.autoDismiss) dismiss();
-break;
 }
 }
 }

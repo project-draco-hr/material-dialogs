@@ -73,6 +73,12 @@
     }
   }
 );
+  findViewById(R.id.multiChoiceLimited).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showMultiChoiceLimited();
+    }
+  }
+);
   findViewById(R.id.customListItems).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showCustomList();

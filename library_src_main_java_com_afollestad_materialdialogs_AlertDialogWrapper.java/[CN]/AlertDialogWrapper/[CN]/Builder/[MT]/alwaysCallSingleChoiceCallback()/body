@@ -1,0 +1,4 @@
+{
+  builder.alwaysCallSingleChoiceCallback();
+  return this;
+}

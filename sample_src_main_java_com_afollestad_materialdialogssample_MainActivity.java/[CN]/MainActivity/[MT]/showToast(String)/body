@@ -1,0 +1,8 @@
+{
+  if (mToast != null) {
+    mToast.cancel();
+    mToast=null;
+  }
+  mToast=Toast.makeText(this,message,Toast.LENGTH_SHORT);
+  mToast.show();
+}

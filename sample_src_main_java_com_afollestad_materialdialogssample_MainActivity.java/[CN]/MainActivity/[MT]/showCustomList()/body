@@ -1,7 +1,7 @@
 {
   new MaterialDialog.Builder(this).title(R.string.socialNetworks).adapter(new ButtonItemAdapter(this,R.array.socialNetworks),new MaterialDialog.ListCallback(){
     @Override public void onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
-      Toast.makeText(MainActivity.this,"Clicked item " + which,Toast.LENGTH_SHORT).show();
+      showToast("Clicked item " + which);
     }
   }
 ).show();

@@ -1,0 +1,12 @@
+{
+  new MaterialDialog.Builder(this).title(R.string.socialNetworks).items(R.array.socialNetworks).itemsCallbackMultiChoice(new Integer[]{1},new MaterialDialog.ListCallbackMultiChoice(){
+    @Override public boolean onSelection(    MaterialDialog dialog,    Integer[] which,    CharSequence[] text){
+      boolean allowSelection=which.length <= 2;
+      if (!allowSelection) {
+        showToast(R.string.selection_limit_reached);
+      }
+      return allowSelection;
+    }
+  }
+).positiveText(R.string.dismiss).alwaysCallMultiChoiceCallback().show();
+}

@@ -113,16 +113,16 @@
  else {
     invalidateCustomViewAssociations();
   }
-  if (mBuilder.listCallbackMulti != null)   selectedIndicesList=new ArrayList<>();
+  if (mBuilder.listCallbackMultiChoice != null)   selectedIndicesList=new ArrayList<>();
   boolean adapterProvided=mBuilder.adapter != null;
   if (mBuilder.items != null && mBuilder.items.length > 0 || adapterProvided) {
     listView=(ListView)view.findViewById(R.id.contentListView);
     listView.setSelector(getListSelector());
     if (!adapterProvided) {
-      if (mBuilder.listCallbackSingle != null) {
+      if (mBuilder.listCallbackSingleChoice != null) {
         listType=ListType.SINGLE;
       }
- else       if (mBuilder.listCallbackMulti != null) {
+ else       if (mBuilder.listCallbackMultiChoice != null) {
         listType=ListType.MULTI;
         if (mBuilder.selectedIndices != null) {
           selectedIndicesList=new ArrayList<>(Arrays.asList(mBuilder.selectedIndices));

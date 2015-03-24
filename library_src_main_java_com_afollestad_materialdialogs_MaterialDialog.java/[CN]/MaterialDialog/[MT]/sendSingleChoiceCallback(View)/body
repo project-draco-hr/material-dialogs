@@ -3,5 +3,5 @@
   if (mBuilder.selectedIndex >= 0) {
     text=mBuilder.items[mBuilder.selectedIndex];
   }
-  mBuilder.listCallbackSingle.onSelection(this,v,mBuilder.selectedIndex,text);
+  return mBuilder.listCallbackSingleChoice.onSelection(this,v,mBuilder.selectedIndex,text);
 }

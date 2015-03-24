@@ -1,6 +1,6 @@
 {
   this.listCallback=callback;
-  this.listCallbackSingle=null;
-  this.listCallbackMulti=null;
+  this.listCallbackSingleChoice=null;
+  this.listCallbackMultiChoice=null;
   return this;
 }

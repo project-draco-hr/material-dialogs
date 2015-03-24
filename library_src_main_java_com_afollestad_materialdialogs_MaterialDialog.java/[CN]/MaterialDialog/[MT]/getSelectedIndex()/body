@@ -1,5 +1,5 @@
 {
-  if (mBuilder.listCallbackSingle != null) {
+  if (mBuilder.listCallbackSingleChoice != null) {
     return mBuilder.selectedIndex;
   }
  else {

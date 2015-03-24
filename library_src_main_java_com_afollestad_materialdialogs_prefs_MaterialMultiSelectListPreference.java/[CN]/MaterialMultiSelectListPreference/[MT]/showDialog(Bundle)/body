@@ -6,13 +6,14 @@
       indicies.add(findIndexOfValue(s));
     }
   }
-  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).content(getDialogMessage()).icon(getDialogIcon()).negativeText(getNegativeButtonText()).positiveText(getPositiveButtonText()).items(getEntries()).itemsCallbackMultiChoice(indicies.toArray(new Integer[indicies.size()]),new MaterialDialog.ListCallbackMulti(){
-    @Override public void onSelection(    MaterialDialog dialog,    Integer[] which,    CharSequence[] text){
+  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).content(getDialogMessage()).icon(getDialogIcon()).negativeText(getNegativeButtonText()).positiveText(getPositiveButtonText()).items(getEntries()).itemsCallbackMultiChoice(indicies.toArray(new Integer[indicies.size()]),new MaterialDialog.ListCallbackMultiChoice(){
+    @Override public boolean onSelection(    MaterialDialog dialog,    Integer[] which,    CharSequence[] text){
       onClick(null,DialogInterface.BUTTON_POSITIVE);
       dialog.dismiss();
       final Set<String> values=new HashSet<>();
       for (      CharSequence s : text)       values.add((String)s);
       if (callChangeListener(values))       setValues(values);
+      return true;
     }
   }
 ).dismissListener(this);

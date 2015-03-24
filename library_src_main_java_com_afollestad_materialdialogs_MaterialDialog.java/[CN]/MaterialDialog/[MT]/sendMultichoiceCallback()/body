@@ -1,7 +1,8 @@
 {
+  Collections.sort(selectedIndicesList);
   List<CharSequence> selectedTitles=new ArrayList<>();
   for (  Integer i : selectedIndicesList) {
     selectedTitles.add(mBuilder.items[i]);
   }
-  mBuilder.listCallbackMulti.onSelection(this,selectedIndicesList.toArray(new Integer[selectedIndicesList.size()]),selectedTitles.toArray(new CharSequence[selectedTitles.size()]));
+  return mBuilder.listCallbackMultiChoice.onSelection(this,selectedIndicesList.toArray(new Integer[selectedIndicesList.size()]),selectedTitles.toArray(new CharSequence[selectedTitles.size()]));
 }

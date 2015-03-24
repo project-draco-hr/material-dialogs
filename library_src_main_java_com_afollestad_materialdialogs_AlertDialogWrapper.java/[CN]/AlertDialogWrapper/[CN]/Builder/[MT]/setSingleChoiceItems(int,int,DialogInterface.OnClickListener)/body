@@ -1,8 +1,9 @@
 {
   builder.items(itemsId);
-  builder.itemsCallbackSingleChoice(checkedItem,new MaterialDialog.ListCallback(){
-    @Override public void onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
+  builder.itemsCallbackSingleChoice(checkedItem,new MaterialDialog.ListCallbackSingleChoice(){
+    @Override public boolean onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
       listener.onClick(dialog,which);
+      return true;
     }
   }
 );

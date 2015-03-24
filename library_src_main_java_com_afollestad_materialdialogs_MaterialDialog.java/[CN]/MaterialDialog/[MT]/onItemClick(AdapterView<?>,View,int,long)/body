@@ -1,28 +1,55 @@
 {
-  if (listType != null) {
+  if (mBuilder.listCallbackCustom != null) {
+    CharSequence text=null;
+    if (view instanceof TextView)     text=((TextView)view).getText();
+    mBuilder.listCallbackCustom.onSelection(this,view,position,text);
+  }
+ else   if (listType == null || listType == ListType.REGULAR) {
+    if (mBuilder.autoDismiss) {
+      dismiss();
+    }
+    mBuilder.listCallback.onSelection(this,view,position,mBuilder.items[position]);
+  }
+ else {
     if (listType == ListType.MULTI) {
-      boolean isChecked=!((CheckBox)view.findViewById(R.id.control)).isChecked();
-      boolean previouslySelected=selectedIndicesList.contains(position);
-      if (isChecked) {
-        if (!previouslySelected) {
-          selectedIndicesList.add(position);
+      final boolean shouldBeChecked=!selectedIndicesList.contains(Integer.valueOf(position));
+      final CheckBox cb=(CheckBox)((LinearLayout)view).getChildAt(0);
+      if (shouldBeChecked) {
+        selectedIndicesList.add(position);
+        if (mBuilder.alwaysCallMultiChoiceCallback) {
+          if (sendMultichoiceCallback()) {
+            cb.setChecked(true);
+          }
+ else {
+            selectedIndicesList.remove(Integer.valueOf(position));
+          }
+        }
+ else {
+          cb.setChecked(true);
         }
       }
- else       if (previouslySelected) {
+ else {
         selectedIndicesList.remove(Integer.valueOf(position));
+        cb.setChecked(false);
       }
     }
  else     if (listType == ListType.SINGLE) {
-      if (mBuilder.selectedIndex != position) {
+      boolean allowSelection=true;
+      if (mBuilder.autoDismiss && mBuilder.positiveText == null) {
+        dismiss();
+        allowSelection=false;
+        sendSingleChoiceCallback(view);
+      }
+ else       if (mBuilder.alwaysCallSingleChoiceCallback) {
+        int oldSelected=mBuilder.selectedIndex;
+        mBuilder.selectedIndex=position;
+        allowSelection=sendSingleChoiceCallback(view);
+        mBuilder.selectedIndex=oldSelected;
+      }
+      if (allowSelection && mBuilder.selectedIndex != position) {
         mBuilder.selectedIndex=position;
         ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
       }
     }
-    onClick(view);
-  }
- else   if (mBuilder.listCallbackCustom != null) {
-    CharSequence text=null;
-    if (view instanceof TextView)     text=((TextView)view).getText();
-    mBuilder.listCallbackCustom.onSelection(this,view,position,text);
   }
 }
