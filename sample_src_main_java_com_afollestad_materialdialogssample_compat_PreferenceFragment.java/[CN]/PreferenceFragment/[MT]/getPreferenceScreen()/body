@@ -1,0 +1,3 @@
+{
+  return PreferenceManagerCompat.getPreferenceScreen(mPreferenceManager);
+}

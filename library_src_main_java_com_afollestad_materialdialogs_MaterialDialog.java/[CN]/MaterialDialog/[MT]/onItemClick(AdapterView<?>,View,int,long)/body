@@ -38,6 +38,7 @@
       if (mBuilder.autoDismiss && mBuilder.positiveText == null) {
         dismiss();
         allowSelection=false;
+        mBuilder.selectedIndex=position;
         sendSingleChoiceCallback(view);
       }
  else       if (mBuilder.alwaysCallSingleChoiceCallback) {

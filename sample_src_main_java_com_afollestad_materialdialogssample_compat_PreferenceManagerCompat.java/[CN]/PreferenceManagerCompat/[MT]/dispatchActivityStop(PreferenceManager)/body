@@ -1,0 +1,10 @@
+{
+  try {
+    Method m=PreferenceManager.class.getDeclaredMethod("dispatchActivityStop");
+    m.setAccessible(true);
+    m.invoke(manager);
+  }
+ catch (  Exception e) {
+    Log.w(TAG,"Couldn't call PreferenceManager.dispatchActivityStop by reflection",e);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (PreferenceManagerCompat.setPreferences(mPreferenceManager,preferenceScreen) && preferenceScreen != null) {
+    mHavePrefs=true;
+    if (mInitDone) {
+      postBindPreferences();
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  try {
+    Method m=PreferenceManager.class.getDeclaredMethod("inflateFromResource",Context.class,int.class,PreferenceScreen.class);
+    m.setAccessible(true);
+    PreferenceScreen prefScreen=(PreferenceScreen)m.invoke(manager,activity,resId,screen);
+    return prefScreen;
+  }
+ catch (  Exception e) {
+    Log.w(TAG,"Couldn't call PreferenceManager.inflateFromResource by reflection",e);
+  }
+  return null;
+}

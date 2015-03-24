@@ -1,0 +1,11 @@
+{
+  try {
+    Method m=PreferenceManager.class.getDeclaredMethod("getPreferenceScreen");
+    m.setAccessible(true);
+    return (PreferenceScreen)m.invoke(manager);
+  }
+ catch (  Exception e) {
+    Log.w(TAG,"Couldn't call PreferenceManager.getPreferenceScreen by reflection",e);
+  }
+  return null;
+}

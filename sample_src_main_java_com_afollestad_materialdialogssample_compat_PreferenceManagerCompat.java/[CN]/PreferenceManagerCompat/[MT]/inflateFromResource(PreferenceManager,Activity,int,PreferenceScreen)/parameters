@@ -1,0 +1,4 @@
+PreferenceManager manager
+Activity activity
+int resId
+PreferenceScreen screen
