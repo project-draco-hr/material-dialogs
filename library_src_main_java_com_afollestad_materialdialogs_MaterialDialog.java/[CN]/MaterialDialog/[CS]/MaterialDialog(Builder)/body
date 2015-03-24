@@ -118,6 +118,9 @@
   if (mBuilder.items != null && mBuilder.items.length > 0 || adapterProvided) {
     listView=(ListView)view.findViewById(R.id.contentListView);
     listView.setSelector(getListSelector());
+    if (mBuilder.title != null) {
+      listView.setPadding(listView.getPaddingLeft(),0,listView.getPaddingRight(),listView.getPaddingBottom());
+    }
     if (!adapterProvided) {
       if (mBuilder.listCallbackSingleChoice != null) {
         listType=ListType.SINGLE;
