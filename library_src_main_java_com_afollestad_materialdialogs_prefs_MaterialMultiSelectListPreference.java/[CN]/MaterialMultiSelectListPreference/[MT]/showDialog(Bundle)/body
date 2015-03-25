@@ -1,12 +1,10 @@
 {
-  List<Integer> indicies=new ArrayList<>();
+  List<Integer> indices=new ArrayList<>();
   for (  String s : getValues()) {
     int index=findIndexOfValue(s);
-    if (index >= 0) {
-      indicies.add(findIndexOfValue(s));
-    }
+    if (index >= 0)     indices.add(findIndexOfValue(s));
   }
-  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).content(getDialogMessage()).icon(getDialogIcon()).negativeText(getNegativeButtonText()).positiveText(getPositiveButtonText()).items(getEntries()).itemsCallbackMultiChoice(indicies.toArray(new Integer[indicies.size()]),new MaterialDialog.ListCallbackMultiChoice(){
+  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).content(getDialogMessage()).icon(getDialogIcon()).negativeText(getNegativeButtonText()).positiveText(getPositiveButtonText()).items(getEntries()).itemsCallbackMultiChoice(indices.toArray(new Integer[indices.size()]),new MaterialDialog.ListCallbackMultiChoice(){
     @Override public boolean onSelection(    MaterialDialog dialog,    Integer[] which,    CharSequence[] text){
       onClick(null,DialogInterface.BUTTON_POSITIVE);
       dialog.dismiss();
