@@ -1,4 +1,0 @@
-{
-  super(context,resource,textViewResourceId,objects);
-  itemColor=DialogUtils.resolveColor(getContext(),R.attr.md_item_color,defaultItemColor);
-}

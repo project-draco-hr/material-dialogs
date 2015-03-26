@@ -1,0 +1,17 @@
+{
+  if (builder.customView != null) {
+    return R.layout.md_dialog_custom;
+  }
+ else   if (builder.items != null && builder.items.length > 0 || builder.adapter != null) {
+    return R.layout.md_dialog_list;
+  }
+ else   if (builder.mProgress > -2) {
+    return R.layout.md_dialog_progress;
+  }
+ else   if (builder.mIndeterminateProgress) {
+    return R.layout.md_dialog_progress_indeterminate;
+  }
+ else {
+    return R.layout.md_dialog_basic;
+  }
+}

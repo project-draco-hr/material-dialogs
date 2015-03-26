@@ -1,23 +1,23 @@
 {
   final View view=super.getView(index,convertView,parent);
   TextView tv=(TextView)view.findViewById(R.id.title);
-switch (listType) {
+switch (dialog.listType) {
 case SINGLE:
 {
       @SuppressLint("CutPasteId") RadioButton radio=(RadioButton)view.findViewById(R.id.control);
-      radio.setChecked(mBuilder.selectedIndex == index);
+      radio.setChecked(dialog.mBuilder.selectedIndex == index);
       break;
     }
 case MULTI:
 {
     @SuppressLint("CutPasteId") CheckBox checkbox=(CheckBox)view.findViewById(R.id.control);
-    checkbox.setChecked(selectedIndicesList.contains(index));
+    checkbox.setChecked(dialog.selectedIndicesList.contains(index));
     break;
   }
 }
-tv.setText(mBuilder.items[index]);
+tv.setText(dialog.mBuilder.items[index]);
 tv.setTextColor(itemColor);
-setTypeface(tv,mBuilder.regularFont);
-view.setTag(index + ":" + mBuilder.items[index]);
+dialog.setTypeface(tv,dialog.mBuilder.regularFont);
+view.setTag(index + ":" + dialog.mBuilder.items[index]);
 return view;
 }

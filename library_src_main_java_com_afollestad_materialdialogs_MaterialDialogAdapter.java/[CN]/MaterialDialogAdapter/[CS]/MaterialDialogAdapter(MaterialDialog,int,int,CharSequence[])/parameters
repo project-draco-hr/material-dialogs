@@ -1,4 +1,4 @@
-Context context
+MaterialDialog dialog
 int resource
 int textViewResourceId
 CharSequence[] objects

@@ -1,0 +1,164 @@
+{
+  final MaterialDialog.Builder builder=dialog.mBuilder;
+  if (!builder.useCustomFonts) {
+    if (builder.mediumFont == null)     builder.mediumFont=TypefaceHelper.get(dialog.getContext(),"Roboto-Medium");
+    if (builder.regularFont == null)     builder.regularFont=TypefaceHelper.get(dialog.getContext(),"Roboto-Regular");
+  }
+  dialog.setCancelable(builder.cancelable);
+  if (builder.backgroundColor == 0)   builder.backgroundColor=DialogUtils.resolveColor(builder.context,R.attr.md_background_color);
+  if (builder.backgroundColor != 0)   dialog.view.setBackgroundColor(builder.backgroundColor);
+  builder.positiveColor=DialogUtils.resolveColor(builder.context,R.attr.md_positive_color,builder.positiveColor);
+  builder.neutralColor=DialogUtils.resolveColor(builder.context,R.attr.md_neutral_color,builder.neutralColor);
+  builder.negativeColor=DialogUtils.resolveColor(builder.context,R.attr.md_negative_color,builder.negativeColor);
+  dialog.title=(TextView)dialog.view.findViewById(R.id.title);
+  dialog.icon=(ImageView)dialog.view.findViewById(R.id.icon);
+  dialog.titleFrame=dialog.view.findViewById(R.id.titleFrame);
+  dialog.content=(TextView)dialog.view.findViewById(R.id.content);
+  dialog.listView=(ListView)dialog.view.findViewById(R.id.contentListView);
+  if (builder.icon != null) {
+    dialog.icon.setVisibility(View.VISIBLE);
+    dialog.icon.setImageDrawable(builder.icon);
+  }
+ else {
+    Drawable d=DialogUtils.resolveDrawable(builder.context,R.attr.md_icon);
+    if (d != null) {
+      dialog.icon.setVisibility(View.VISIBLE);
+      dialog.icon.setImageDrawable(d);
+    }
+ else {
+      dialog.icon.setVisibility(View.GONE);
+    }
+  }
+  int maxIconSize=builder.maxIconSize;
+  if (maxIconSize == -1)   maxIconSize=DialogUtils.resolveDimension(builder.context,R.attr.md_icon_max_size);
+  if (builder.limitIconToDefaultSize || DialogUtils.resolveBoolean(builder.context,R.attr.md_icon_limit_icon_to_default_size))   maxIconSize=builder.context.getResources().getDimensionPixelSize(R.dimen.md_icon_max_size);
+  if (maxIconSize > -1) {
+    dialog.icon.setAdjustViewBounds(true);
+    dialog.icon.setMaxHeight(maxIconSize);
+    dialog.icon.setMaxWidth(maxIconSize);
+    dialog.icon.requestLayout();
+  }
+  if (builder.title == null) {
+    dialog.titleFrame.setVisibility(View.GONE);
+  }
+ else {
+    dialog.title.setText(builder.title);
+    dialog.setTypeface(dialog.title,builder.mediumFont);
+    if (builder.titleColorSet) {
+      dialog.title.setTextColor(builder.titleColor);
+    }
+ else {
+      final int fallback=DialogUtils.resolveColor(dialog.getContext(),android.R.attr.textColorPrimary);
+      dialog.title.setTextColor(DialogUtils.resolveColor(dialog.getContext(),R.attr.md_title_color,fallback));
+    }
+    dialog.title.setGravity(MaterialDialog.gravityIntToGravity(builder.titleGravity));
+  }
+  if (dialog.content != null) {
+    dialog.content.setText(builder.content);
+    dialog.content.setMovementMethod(new LinkMovementMethod());
+    dialog.setTypeface(dialog.content,builder.regularFont);
+    dialog.content.setLineSpacing(0f,builder.contentLineSpacingMultiplier);
+    if (builder.positiveColor == 0) {
+      dialog.content.setLinkTextColor(DialogUtils.resolveColor(dialog.getContext(),android.R.attr.textColorPrimary));
+    }
+ else {
+      dialog.content.setLinkTextColor(builder.positiveColor);
+    }
+    dialog.content.setGravity(MaterialDialog.gravityIntToGravity(builder.contentGravity));
+    if (builder.contentColorSet) {
+      dialog.content.setTextColor(builder.contentColor);
+    }
+ else {
+      final int fallback=DialogUtils.resolveColor(dialog.getContext(),android.R.attr.textColorSecondary);
+      final int contentColor=DialogUtils.resolveColor(dialog.getContext(),R.attr.md_content_color,fallback);
+      dialog.content.setTextColor(contentColor);
+    }
+  }
+  if (builder.itemColorSet) {
+    dialog.defaultItemColor=builder.itemColor;
+  }
+ else   if (builder.theme == Theme.LIGHT) {
+    dialog.defaultItemColor=Color.BLACK;
+  }
+ else {
+    dialog.defaultItemColor=Color.WHITE;
+  }
+  if (builder.listCallbackMultiChoice != null)   dialog.selectedIndicesList=new ArrayList<>();
+  if (dialog.listView != null && (builder.items != null && builder.items.length > 0 || builder.adapter != null)) {
+    dialog.listView.setSelector(dialog.getListSelector());
+    if (builder.title != null) {
+      dialog.listView.setPadding(dialog.listView.getPaddingLeft(),0,dialog.listView.getPaddingRight(),dialog.listView.getPaddingBottom());
+    }
+    if (dialog.hasActionButtons()) {
+      dialog.listView.setPadding(dialog.listView.getPaddingLeft(),0,dialog.listView.getPaddingRight(),0);
+    }
+    if (builder.adapter == null) {
+      if (builder.listCallbackSingleChoice != null) {
+        dialog.listType=MaterialDialog.ListType.SINGLE;
+      }
+ else       if (builder.listCallbackMultiChoice != null) {
+        dialog.listType=MaterialDialog.ListType.MULTI;
+        if (builder.selectedIndices != null) {
+          dialog.selectedIndicesList=new ArrayList<>(Arrays.asList(builder.selectedIndices));
+        }
+      }
+ else {
+        dialog.listType=MaterialDialog.ListType.REGULAR;
+      }
+      builder.adapter=new MaterialDialogAdapter(dialog,MaterialDialog.ListType.getLayoutForType(dialog.listType),R.id.title,builder.items);
+    }
+  }
+  setupProgressDialog(dialog);
+  if (builder.customView != null) {
+    dialog.invalidateCustomViewAssociations();
+    FrameLayout frame=(FrameLayout)dialog.view.findViewById(R.id.customViewFrame);
+    dialog.customViewFrame=frame;
+    View innerView=builder.customView;
+    if (builder.wrapCustomViewInScroll) {
+      final Resources r=dialog.getContext().getResources();
+      final int framePadding=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
+      final ScrollView sv=new ScrollView(dialog.getContext());
+      int paddingTop;
+      int paddingBottom;
+      if (dialog.titleFrame.getVisibility() != View.GONE)       paddingTop=r.getDimensionPixelSize(R.dimen.md_content_vertical_padding);
+ else       paddingTop=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
+      if (dialog.hasActionButtons())       paddingBottom=r.getDimensionPixelSize(R.dimen.md_content_vertical_padding);
+ else       paddingBottom=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
+      sv.setClipToPadding(false);
+      if (innerView instanceof EditText) {
+        sv.setPadding(framePadding,paddingTop,framePadding,paddingBottom);
+      }
+ else {
+        sv.setPadding(0,paddingTop,0,paddingBottom);
+        innerView.setPadding(framePadding,0,framePadding,0);
+      }
+      sv.addView(innerView,new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+      innerView=sv;
+    }
+    frame.addView(innerView,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  }
+ else {
+    dialog.invalidateCustomViewAssociations();
+  }
+  if (builder.showListener != null)   dialog.setOnShowListener(builder.showListener);
+  if (builder.cancelListener != null)   dialog.setOnCancelListener(builder.cancelListener);
+  if (builder.dismissListener != null)   dialog.setOnDismissListener(builder.dismissListener);
+  if (builder.keyListener != null)   dialog.setOnKeyListener(builder.keyListener);
+  dialog.updateFramePadding();
+  dialog.invalidateActions();
+  dialog._setOnShowListenerInternal();
+  dialog._setViewInternal(dialog.view);
+  dialog.view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+    @Override public void onGlobalLayout(){
+      if (dialog.view.getMeasuredWidth() > 0) {
+        dialog.invalidateCustomViewAssociations();
+      }
+    }
+  }
+);
+  if (builder.theme == Theme.LIGHT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
+    dialog.setInverseBackgroundForced(true);
+    if (!builder.titleColorSet)     dialog.title.setTextColor(Color.BLACK);
+    if (!builder.contentColorSet)     dialog.content.setTextColor(Color.BLACK);
+  }
+}
