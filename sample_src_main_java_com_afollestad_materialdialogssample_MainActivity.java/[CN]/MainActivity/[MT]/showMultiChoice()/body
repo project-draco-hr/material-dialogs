@@ -12,5 +12,5 @@
       return true;
     }
   }
-).positiveText(R.string.choose).show();
+).alwaysCallMultiChoiceCallback().positiveText(R.string.choose).show();
 }
