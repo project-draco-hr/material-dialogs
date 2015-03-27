@@ -159,6 +159,6 @@
   if (builder.theme == Theme.LIGHT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
     dialog.setInverseBackgroundForced(true);
     if (!builder.titleColorSet)     dialog.title.setTextColor(Color.BLACK);
-    if (!builder.contentColorSet)     dialog.content.setTextColor(Color.BLACK);
+    if (!builder.contentColorSet && dialog.content != null)     dialog.content.setTextColor(Color.BLACK);
   }
 }
