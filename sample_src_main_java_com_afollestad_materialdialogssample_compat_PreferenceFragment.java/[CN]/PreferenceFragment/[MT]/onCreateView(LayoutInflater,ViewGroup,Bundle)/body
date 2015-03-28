@@ -1,3 +1,0 @@
-{
-  return paramLayoutInflater.inflate(R.layout.preference_list_fragment,paramViewGroup,false);
-}

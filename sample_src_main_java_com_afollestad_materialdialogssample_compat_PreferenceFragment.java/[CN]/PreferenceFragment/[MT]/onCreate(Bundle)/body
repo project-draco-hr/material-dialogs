@@ -1,5 +1,0 @@
-{
-  super.onCreate(paramBundle);
-  mPreferenceManager=PreferenceManagerCompat.newInstance(getActivity(),FIRST_REQUEST_CODE);
-  PreferenceManagerCompat.setFragment(mPreferenceManager,this);
-}

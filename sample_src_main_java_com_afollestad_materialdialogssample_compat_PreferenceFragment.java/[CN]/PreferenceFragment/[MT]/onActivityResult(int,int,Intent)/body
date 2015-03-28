@@ -1,4 +1,0 @@
-{
-  super.onActivityResult(requestCode,resultCode,data);
-  PreferenceManagerCompat.dispatchActivityResult(mPreferenceManager,requestCode,resultCode,data);
-}

@@ -1,6 +1,0 @@
-{
-  if (getActivity() instanceof OnPreferenceStartFragmentCallback) {
-    return ((OnPreferenceStartFragmentCallback)getActivity()).onPreferenceStartFragment(this,preference);
-  }
-  return false;
-}

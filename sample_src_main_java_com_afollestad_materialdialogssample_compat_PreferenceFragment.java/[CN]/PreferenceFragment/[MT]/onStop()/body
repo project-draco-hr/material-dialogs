@@ -1,5 +1,0 @@
-{
-  super.onStop();
-  PreferenceManagerCompat.dispatchActivityStop(mPreferenceManager);
-  PreferenceManagerCompat.setOnPreferenceTreeClickListener(mPreferenceManager,null);
-}

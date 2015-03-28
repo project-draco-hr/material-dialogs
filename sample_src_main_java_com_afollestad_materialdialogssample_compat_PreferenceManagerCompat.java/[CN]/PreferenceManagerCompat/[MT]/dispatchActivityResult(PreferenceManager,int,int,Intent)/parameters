@@ -1,4 +1,0 @@
-PreferenceManager manager
-int requestCode
-int resultCode
-Intent data

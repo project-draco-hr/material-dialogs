@@ -1,4 +1,0 @@
-{
-  requirePreferenceManager();
-  setPreferenceScreen(PreferenceManagerCompat.inflateFromIntent(mPreferenceManager,intent,getPreferenceScreen()));
-}
