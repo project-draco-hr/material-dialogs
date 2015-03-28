@@ -15,12 +15,15 @@
  else   if (view instanceof RecyclerView) {
     return RecyclerUtil.canRecyclerViewScroll(view);
   }
- else {
+ else   if (view instanceof ViewGroup) {
     if (atBottom) {
       return canViewOrChildScroll(getBottomView((ViewGroup)view),true);
     }
  else {
       return canViewOrChildScroll(getTopView((ViewGroup)view),false);
     }
+  }
+ else {
+    return false;
   }
 }
