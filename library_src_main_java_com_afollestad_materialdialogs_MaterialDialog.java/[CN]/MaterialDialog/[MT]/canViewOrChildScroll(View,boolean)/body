@@ -1,7 +1,4 @@
 {
-  if (view == null || !(view instanceof ViewGroup)) {
-    return false;
-  }
   if (view instanceof ScrollView) {
     ScrollView sv=(ScrollView)view;
     if (sv.getChildCount() == 0)     return false;

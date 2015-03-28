@@ -1,0 +1,32 @@
+{
+  if (listView == null)   return;
+  listView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+    @Override public void onGlobalLayout(){
+      if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)       listView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+ else       listView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+      if (listType == ListType.SINGLE || listType == ListType.MULTI) {
+        int selectedIndex;
+        if (listType == ListType.SINGLE)         selectedIndex=mBuilder.selectedIndex;
+ else {
+          List<Integer> indicesList=Arrays.asList(mBuilder.selectedIndices);
+          Collections.sort(indicesList);
+          selectedIndex=indicesList.get(0);
+        }
+        if (listView.getLastVisiblePosition() < selectedIndex) {
+          final int totalVisible=listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
+          int scrollIndex=selectedIndex - (totalVisible / 2);
+          if (scrollIndex < 0)           scrollIndex=0;
+          final int fScrollIndex=scrollIndex;
+          listView.post(new Runnable(){
+            @Override public void run(){
+              listView.requestFocus();
+              listView.setSelection(fScrollIndex);
+            }
+          }
+);
+        }
+      }
+    }
+  }
+);
+}

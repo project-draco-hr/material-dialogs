@@ -1,7 +1,6 @@
 {
   if ((mBuilder.items == null || mBuilder.items.length == 0) && mBuilder.adapter == null)   return;
   view.findViewById(R.id.contentScrollView).setVisibility(mBuilder.content != null && mBuilder.content.toString().trim().length() > 0 ? View.VISIBLE : View.GONE);
-  FrameLayout listViewContainer=(FrameLayout)view.findViewById(R.id.contentListViewFrame);
   listView.setAdapter(mBuilder.adapter);
   if (listType != null || mBuilder.listCallbackCustom != null)   listView.setOnItemClickListener(this);
 }
