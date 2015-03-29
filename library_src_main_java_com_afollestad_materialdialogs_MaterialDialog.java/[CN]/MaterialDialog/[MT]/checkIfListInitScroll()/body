@@ -6,8 +6,12 @@
  else       listView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
       if (listType == ListType.SINGLE || listType == ListType.MULTI) {
         int selectedIndex;
-        if (listType == ListType.SINGLE)         selectedIndex=mBuilder.selectedIndex;
+        if (listType == ListType.SINGLE) {
+          if (mBuilder.selectedIndex < 0)           return;
+          selectedIndex=mBuilder.selectedIndex;
+        }
  else {
+          if (mBuilder.selectedIndices == null || mBuilder.selectedIndices.length == 0)           return;
           List<Integer> indicesList=Arrays.asList(mBuilder.selectedIndices);
           Collections.sort(indicesList);
           selectedIndex=indicesList.get(0);
