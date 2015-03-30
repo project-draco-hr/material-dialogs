@@ -53,7 +53,7 @@
     }
     dialog.title.setGravity(MaterialDialog.gravityIntToGravity(builder.titleGravity));
   }
-  if (dialog.content != null) {
+  if (dialog.content != null && builder.content != null) {
     dialog.content.setText(builder.content);
     dialog.content.setMovementMethod(new LinkMovementMethod());
     dialog.setTypeface(dialog.content,builder.regularFont);
@@ -73,6 +73,9 @@
       final int contentColor=DialogUtils.resolveColor(dialog.getContext(),R.attr.md_content_color,fallback);
       dialog.content.setTextColor(contentColor);
     }
+  }
+ else   if (dialog.content != null) {
+    dialog.content.setVisibility(View.GONE);
   }
   if (builder.itemColorSet) {
     dialog.defaultItemColor=builder.itemColor;
