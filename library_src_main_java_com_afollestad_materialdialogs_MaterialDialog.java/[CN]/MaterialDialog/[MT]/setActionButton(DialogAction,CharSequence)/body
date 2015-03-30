@@ -1,22 +1,17 @@
 {
 switch (which) {
 default :
-{
-      mBuilder.positiveText=title;
-      invalidateActions(DialogActionMask.POSITIVE);
-      break;
-    }
+    mBuilder.positiveText=title;
+  if (title == null)   positiveButton.setVisibility(View.GONE);
+break;
 case NEUTRAL:
-{
-    mBuilder.neutralText=title;
-    invalidateActions(DialogActionMask.NEUTRAL);
-    break;
-  }
+mBuilder.neutralText=title;
+if (title == null) neutralButton.setVisibility(View.GONE);
+break;
 case NEGATIVE:
-{
-  mBuilder.negativeText=title;
-  invalidateActions(DialogActionMask.NEGATIVE);
-  break;
+mBuilder.negativeText=title;
+if (title == null) negativeButton.setVisibility(View.GONE);
+break;
 }
-}
+invalidateActions();
 }

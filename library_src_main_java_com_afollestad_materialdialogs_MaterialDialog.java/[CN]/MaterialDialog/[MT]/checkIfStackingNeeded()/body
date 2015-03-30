@@ -4,18 +4,23 @@
   }
  else   if (mBuilder.forceStacking) {
     isStacked=true;
-    invalidateActions(DialogActionMask.POSITIVE | DialogActionMask.NEUTRAL | DialogActionMask.NEGATIVE);
-    return;
   }
-  isStacked=false;
-  int buttonsWidth=0;
-  positiveButton.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
-  neutralButton.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
-  negativeButton.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
-  if (mBuilder.positiveText != null)   buttonsWidth+=positiveButton.getMeasuredWidth();
-  if (mBuilder.neutralText != null)   buttonsWidth+=neutralButton.getMeasuredWidth();
-  if (mBuilder.negativeText != null)   buttonsWidth+=negativeButton.getMeasuredWidth();
-  final int buttonFrameWidth=view.findViewById(R.id.buttonDefaultFrame).getWidth();
-  isStacked=buttonsWidth > buttonFrameWidth;
-  invalidateActions(DialogActionMask.POSITIVE | DialogActionMask.NEUTRAL | DialogActionMask.NEGATIVE);
+ else {
+    isStacked=false;
+    int buttonsWidth=0;
+    positiveButton.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
+    neutralButton.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
+    negativeButton.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
+    if (mBuilder.positiveText != null)     buttonsWidth+=positiveButton.getMeasuredWidth();
+    if (mBuilder.neutralText != null)     buttonsWidth+=neutralButton.getMeasuredWidth();
+    if (mBuilder.negativeText != null)     buttonsWidth+=negativeButton.getMeasuredWidth();
+    final int buttonFrameWidth=view.findViewById(R.id.buttonDefaultFrame).getWidth();
+    isStacked=buttonsWidth > buttonFrameWidth;
+  }
+  if (isStacked) {
+    positiveButton.setVisibility(mBuilder.positiveText != null ? View.VISIBLE : View.GONE);
+    neutralButton.setVisibility(mBuilder.neutralText != null ? View.VISIBLE : View.GONE);
+    negativeButton.setVisibility(mBuilder.negativeText != null ? View.VISIBLE : View.GONE);
+  }
+  invalidateActions();
 }
