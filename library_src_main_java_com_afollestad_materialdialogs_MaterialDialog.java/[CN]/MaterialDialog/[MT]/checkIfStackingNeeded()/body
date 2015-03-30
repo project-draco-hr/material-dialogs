@@ -4,7 +4,7 @@
   }
  else   if (mBuilder.forceStacking) {
     isStacked=true;
-    invalidateActions();
+    invalidateActions(DialogActionMask.POSITIVE | DialogActionMask.NEUTRAL | DialogActionMask.NEGATIVE);
     return;
   }
   isStacked=false;
@@ -17,5 +17,5 @@
   if (mBuilder.negativeText != null)   buttonsWidth+=negativeButton.getMeasuredWidth();
   final int buttonFrameWidth=view.findViewById(R.id.buttonDefaultFrame).getWidth();
   isStacked=buttonsWidth > buttonFrameWidth;
-  invalidateActions();
+  invalidateActions(DialogActionMask.POSITIVE | DialogActionMask.NEUTRAL | DialogActionMask.NEGATIVE);
 }

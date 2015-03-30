@@ -1,14 +1,22 @@
 {
 switch (which) {
 default :
-    mBuilder.positiveText=title;
-  break;
+{
+      mBuilder.positiveText=title;
+      invalidateActions(DialogActionMask.POSITIVE);
+      break;
+    }
 case NEUTRAL:
-mBuilder.neutralText=title;
-break;
+{
+    mBuilder.neutralText=title;
+    invalidateActions(DialogActionMask.NEUTRAL);
+    break;
+  }
 case NEGATIVE:
-mBuilder.negativeText=title;
-break;
+{
+  mBuilder.negativeText=title;
+  invalidateActions(DialogActionMask.NEGATIVE);
+  break;
 }
-invalidateActions();
+}
 }
