@@ -154,6 +154,7 @@
   if (builder.dismissListener != null)   dialog.setOnDismissListener(builder.dismissListener);
   if (builder.keyListener != null)   dialog.setOnKeyListener(builder.keyListener);
   dialog.updateFramePadding();
+  dialog.invalidateList();
   dialog._setOnShowListenerInternal();
   dialog._setViewInternal(dialog.view);
   dialog.checkIfListInitScroll();

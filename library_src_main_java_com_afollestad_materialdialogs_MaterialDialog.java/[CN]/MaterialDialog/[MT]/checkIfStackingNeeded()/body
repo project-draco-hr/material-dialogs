@@ -1,5 +1,6 @@
 {
   if (numberOfActionButtons() <= 1) {
+    invalidateActions();
     return;
   }
  else   if (mBuilder.forceStacking) {

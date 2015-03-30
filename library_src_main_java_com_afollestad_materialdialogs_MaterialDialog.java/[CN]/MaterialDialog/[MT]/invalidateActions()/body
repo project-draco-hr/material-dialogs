@@ -68,6 +68,5 @@
       negativeTextView.setGravity(gravityIntToGravity(mBuilder.btnStackedGravity));
     }
   }
-  invalidateList();
   return true;
 }
