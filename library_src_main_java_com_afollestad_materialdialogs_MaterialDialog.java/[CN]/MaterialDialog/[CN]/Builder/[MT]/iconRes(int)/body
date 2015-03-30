@@ -1,4 +1,4 @@
 {
-  this.icon=context.getResources().getDrawable(icon);
+  this.icon=ResourcesCompat.getDrawable(context.getResources(),icon,null);
   return this;
 }

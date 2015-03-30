@@ -1,5 +1,5 @@
 {
-  if (mBuilder.listSelector != 0)   return mBuilder.context.getResources().getDrawable(mBuilder.listSelector);
+  if (mBuilder.listSelector != 0)   return ResourcesCompat.getDrawable(mBuilder.context.getResources(),mBuilder.listSelector,null);
   final Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_list_selector);
   if (d != null)   return d;
   return DialogUtils.resolveDrawable(getContext(),R.attr.md_list_selector);
