@@ -17,10 +17,10 @@
     final int buttonFrameWidth=view.findViewById(R.id.buttonDefaultFrame).getWidth();
     isStacked=buttonsWidth > buttonFrameWidth;
   }
+  invalidateActions();
   if (isStacked) {
     positiveButton.setVisibility(mBuilder.positiveText != null ? View.VISIBLE : View.GONE);
     neutralButton.setVisibility(mBuilder.neutralText != null ? View.VISIBLE : View.GONE);
     negativeButton.setVisibility(mBuilder.negativeText != null ? View.VISIBLE : View.GONE);
   }
-  invalidateActions();
 }
