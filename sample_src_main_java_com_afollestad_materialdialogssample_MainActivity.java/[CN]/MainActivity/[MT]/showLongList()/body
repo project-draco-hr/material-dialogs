@@ -4,5 +4,5 @@
       showToast(which + ": " + text);
     }
   }
-).positiveText(android.R.string.ok).show();
+).positiveText(android.R.string.cancel).show();
 }
