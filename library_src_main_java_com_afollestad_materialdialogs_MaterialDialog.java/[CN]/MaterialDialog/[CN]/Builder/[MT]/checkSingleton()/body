@@ -20,4 +20,5 @@
   this.contentGravity=s.contentGravity;
   this.btnStackedGravity=s.btnStackedGravity;
   this.itemsGravity=s.itemsGravity;
+  this.buttonsGravity=s.buttonsGravity;
 }
