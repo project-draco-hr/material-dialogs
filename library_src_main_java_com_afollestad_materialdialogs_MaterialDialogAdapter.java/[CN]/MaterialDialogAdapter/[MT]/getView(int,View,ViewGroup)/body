@@ -19,6 +19,13 @@ tv.setText(dialog.mBuilder.items[index]);
 tv.setTextColor(itemColor);
 dialog.setTypeface(tv,dialog.mBuilder.regularFont);
 view.setTag(index + ":" + dialog.mBuilder.items[index]);
-setupGravity(view);
+setupGravity((ViewGroup)view);
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+ViewGroup group=(ViewGroup)view;
+if (group.getChildCount() == 2) {
+  if (group.getChildAt(0) instanceof CompoundButton)   group.getChildAt(0).setBackground(null);
+ else   if (group.getChildAt(1) instanceof CompoundButton)   group.getChildAt(1).setBackground(null);
+}
+}
 return view;
 }

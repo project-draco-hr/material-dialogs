@@ -1,0 +1,25 @@
+{
+  final LinearLayout itemRoot=(LinearLayout)view;
+  final int gravityInt=MaterialDialog.gravityEnumToGravity(itemGravity);
+  itemRoot.setGravity(gravityInt | Gravity.CENTER_VERTICAL);
+  if (view.getChildCount() == 2) {
+    if (itemGravity == GravityEnum.END && !isRTL() && view.getChildAt(0) instanceof CompoundButton) {
+      CompoundButton first=(CompoundButton)view.getChildAt(0);
+      view.removeView(first);
+      TextView second=(TextView)view.getChildAt(0);
+      view.removeView(second);
+      second.setPadding(second.getPaddingRight(),second.getPaddingTop(),second.getPaddingLeft(),second.getPaddingBottom());
+      view.addView(second);
+      view.addView(first);
+    }
+ else     if (itemGravity == GravityEnum.START && isRTL() && view.getChildAt(1) instanceof CompoundButton) {
+      CompoundButton first=(CompoundButton)view.getChildAt(1);
+      view.removeView(first);
+      TextView second=(TextView)view.getChildAt(0);
+      view.removeView(second);
+      second.setPadding(second.getPaddingRight(),second.getPaddingTop(),second.getPaddingRight(),second.getPaddingBottom());
+      view.addView(first);
+      view.addView(second);
+    }
+  }
+}
