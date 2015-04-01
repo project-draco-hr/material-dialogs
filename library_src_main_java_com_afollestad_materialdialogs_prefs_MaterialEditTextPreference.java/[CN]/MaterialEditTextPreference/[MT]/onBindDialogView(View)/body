@@ -1,6 +1,6 @@
 {
   getEditText().setText("");
-  getEditText().append(getText());
+  if (getText() != null)   getEditText().append(getText());
   ViewParent oldParent=getEditText().getParent();
   if (oldParent != view) {
     if (oldParent != null)     ((ViewGroup)oldParent).removeView(getEditText());
