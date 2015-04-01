@@ -1,0 +1,16 @@
+{
+  TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{attr});
+  try {
+switch (a.getInt(0,gravityEnumToAttrInt(defaultGravity))) {
+case 1:
+      return GravityEnum.CENTER;
+case 2:
+    return GravityEnum.END;
+default :
+  return GravityEnum.START;
+}
+}
+  finally {
+a.recycle();
+}
+}

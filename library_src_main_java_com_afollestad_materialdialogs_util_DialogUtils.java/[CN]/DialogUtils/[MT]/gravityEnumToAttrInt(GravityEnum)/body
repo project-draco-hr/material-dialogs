@@ -1,0 +1,10 @@
+{
+switch (value) {
+case CENTER:
+    return 1;
+case END:
+  return 2;
+default :
+return 0;
+}
+}

@@ -12,5 +12,5 @@
       return true;
     }
   }
-).alwaysCallMultiChoiceCallback().positiveText(R.string.choose).show();
+).alwaysCallMultiChoiceCallback().positiveText(R.string.choose).itemsGravity(GravityEnum.END).show();
 }

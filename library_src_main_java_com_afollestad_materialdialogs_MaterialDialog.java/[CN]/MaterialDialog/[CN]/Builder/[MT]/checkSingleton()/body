@@ -16,4 +16,8 @@
   if (s.btnSelectorPositive != 0)   this.btnSelectorPositive=s.btnSelectorPositive;
   if (s.btnSelectorNeutral != 0)   this.btnSelectorNeutral=s.btnSelectorNeutral;
   if (s.btnSelectorNegative != 0)   this.btnSelectorNegative=s.btnSelectorNegative;
+  this.titleGravity=s.titleGravity;
+  this.contentGravity=s.contentGravity;
+  this.btnStackedGravity=s.btnStackedGravity;
+  this.itemsGravity=s.itemsGravity;
 }
