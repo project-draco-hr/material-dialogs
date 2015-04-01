@@ -22,7 +22,12 @@
     setBackgroundCompat(positiveButton,getButtonSelector(DialogAction.POSITIVE));
     positiveButton.setTag(POSITIVE);
     positiveButton.setOnClickListener(this);
-    if (isStacked)     positiveTextView.setGravity(gravityEnumToGravity(mBuilder.btnStackedGravity));
+    if (isStacked) {
+      positiveTextView.setGravity(gravityEnumToGravity(mBuilder.btnStackedGravity));
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        positiveTextView.setTextAlignment(gravityEnumToTextAlignment(mBuilder.btnStackedGravity));
+      }
+    }
   }
   neutralButton=view.findViewById(isStacked ? R.id.buttonStackedNeutral : R.id.buttonDefaultNeutral);
   if (mBuilder.neutralText != null && neutralButton.getVisibility() == View.VISIBLE) {
@@ -33,7 +38,12 @@
     neutralTextView.setText(mBuilder.neutralText);
     neutralButton.setTag(NEUTRAL);
     neutralButton.setOnClickListener(this);
-    if (isStacked)     neutralTextView.setGravity(gravityEnumToGravity(mBuilder.btnStackedGravity));
+    if (isStacked) {
+      neutralTextView.setGravity(gravityEnumToGravity(mBuilder.btnStackedGravity));
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        neutralTextView.setTextAlignment(gravityEnumToTextAlignment(mBuilder.btnStackedGravity));
+      }
+    }
   }
   negativeButton=view.findViewById(isStacked ? R.id.buttonStackedNegative : R.id.buttonDefaultNegative);
   if (mBuilder.negativeText != null && negativeButton.getVisibility() == View.VISIBLE) {
@@ -66,6 +76,9 @@
     }
  else {
       negativeTextView.setGravity(gravityEnumToGravity(mBuilder.btnStackedGravity));
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        negativeTextView.setTextAlignment(gravityEnumToTextAlignment(mBuilder.btnStackedGravity));
+      }
     }
   }
   return true;

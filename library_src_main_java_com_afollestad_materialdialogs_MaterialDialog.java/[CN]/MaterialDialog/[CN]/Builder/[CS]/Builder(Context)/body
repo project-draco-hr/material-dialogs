@@ -39,7 +39,7 @@
   }
   checkSingleton();
   this.titleGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_title_gravity,this.titleGravity);
-  this.contentGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_title_gravity,this.contentGravity);
-  this.btnStackedGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_title_gravity,this.btnStackedGravity);
-  this.itemsGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_title_gravity,this.itemsGravity);
+  this.contentGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_content_gravity,this.contentGravity);
+  this.btnStackedGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_btnstacked_gravity,this.btnStackedGravity);
+  this.itemsGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_items_gravity,this.itemsGravity);
 }
