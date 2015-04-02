@@ -1,9 +1,3 @@
 {
-  TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{attr});
-  try {
-    return a.getBoolean(0,false);
-  }
-  finally {
-    a.recycle();
-  }
+  return resolveBoolean(context,attr,false);
 }
