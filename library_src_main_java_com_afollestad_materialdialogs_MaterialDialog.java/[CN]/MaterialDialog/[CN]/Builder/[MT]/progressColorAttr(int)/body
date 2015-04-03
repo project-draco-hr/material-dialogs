@@ -1,0 +1,3 @@
+{
+  return progressColorRes(DialogUtils.resolveColor(this.context,colorAttr));
+}

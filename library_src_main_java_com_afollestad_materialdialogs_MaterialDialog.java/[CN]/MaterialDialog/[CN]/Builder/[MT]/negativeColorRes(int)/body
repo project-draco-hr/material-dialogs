@@ -1,4 +1,3 @@
 {
-  negativeColor(this.context.getResources().getColor(colorRes));
-  return this;
+  return negativeColor(this.context.getResources().getColor(colorRes));
 }

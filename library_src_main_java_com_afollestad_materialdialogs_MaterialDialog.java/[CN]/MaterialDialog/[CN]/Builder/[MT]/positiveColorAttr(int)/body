@@ -1,4 +1,3 @@
 {
-  positiveColor(DialogUtils.resolveColor(this.context,colorAttr));
-  return this;
+  return positiveColor(DialogUtils.resolveColor(this.context,colorAttr));
 }

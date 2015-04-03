@@ -1,34 +1,33 @@
 {
   this.context=context;
   final int materialBlue=context.getResources().getColor(R.color.md_material_blue_600);
+  boolean useAppCompat=true;
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.colorAccent});
     try {
-      this.accentColor=a.getColor(0,materialBlue);
-      this.positiveColor=this.accentColor;
-      this.negativeColor=this.accentColor;
-      this.neutralColor=this.accentColor;
+      this.progressColor=a.getColor(0,materialBlue);
+      this.positiveColor=this.progressColor;
+      this.negativeColor=this.progressColor;
+      this.neutralColor=this.progressColor;
+      useAppCompat=false;
     }
  catch (    Exception e) {
-      this.accentColor=materialBlue;
-      this.positiveColor=materialBlue;
-      this.negativeColor=materialBlue;
-      this.neutralColor=materialBlue;
+      e.printStackTrace();
     }
  finally {
       a.recycle();
     }
   }
- else {
+  if (useAppCompat) {
     TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{R.attr.colorAccent});
     try {
-      this.accentColor=a.getColor(0,materialBlue);
-      this.positiveColor=this.accentColor;
-      this.negativeColor=this.accentColor;
-      this.neutralColor=this.accentColor;
+      this.progressColor=a.getColor(0,materialBlue);
+      this.positiveColor=this.progressColor;
+      this.negativeColor=this.progressColor;
+      this.neutralColor=this.progressColor;
     }
  catch (    Exception e) {
-      this.accentColor=materialBlue;
+      this.progressColor=materialBlue;
       this.positiveColor=materialBlue;
       this.negativeColor=materialBlue;
       this.neutralColor=materialBlue;

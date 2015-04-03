@@ -10,6 +10,7 @@
   builder.positiveColor=DialogUtils.resolveColor(builder.context,R.attr.md_positive_color,builder.positiveColor);
   builder.neutralColor=DialogUtils.resolveColor(builder.context,R.attr.md_neutral_color,builder.neutralColor);
   builder.negativeColor=DialogUtils.resolveColor(builder.context,R.attr.md_negative_color,builder.negativeColor);
+  builder.progressColor=DialogUtils.resolveColor(builder.context,R.attr.md_progress_color,builder.progressColor);
   dialog.title=(TextView)dialog.view.findViewById(R.id.title);
   dialog.icon=(ImageView)dialog.view.findViewById(R.id.icon);
   dialog.titleFrame=dialog.view.findViewById(R.id.titleFrame);

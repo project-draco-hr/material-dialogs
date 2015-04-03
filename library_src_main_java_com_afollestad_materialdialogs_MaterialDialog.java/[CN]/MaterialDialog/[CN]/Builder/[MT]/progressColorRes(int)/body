@@ -1,0 +1,3 @@
+{
+  return progressColor(this.context.getResources().getColor(colorRes));
+}

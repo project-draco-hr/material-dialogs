@@ -2,17 +2,15 @@
   final MaterialDialog.Builder builder=dialog.mBuilder;
   if (builder.mIndeterminateProgress || builder.mProgress > -2) {
     dialog.mProgress=(ProgressBar)dialog.view.findViewById(android.R.id.progress);
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-      Drawable indDraw=dialog.mProgress.getIndeterminateDrawable();
-      if (indDraw != null) {
-        indDraw.setColorFilter(builder.accentColor,PorterDuff.Mode.SRC_ATOP);
-        dialog.mProgress.setIndeterminateDrawable(indDraw);
-      }
-      Drawable regDraw=dialog.mProgress.getProgressDrawable();
-      if (regDraw != null) {
-        regDraw.setColorFilter(builder.accentColor,PorterDuff.Mode.SRC_ATOP);
-        dialog.mProgress.setProgressDrawable(regDraw);
-      }
+    Drawable indDraw=dialog.mProgress.getIndeterminateDrawable();
+    if (indDraw != null) {
+      indDraw.setColorFilter(builder.progressColor,PorterDuff.Mode.SRC_ATOP);
+      dialog.mProgress.setIndeterminateDrawable(indDraw);
+    }
+    Drawable regDraw=dialog.mProgress.getProgressDrawable();
+    if (regDraw != null) {
+      regDraw.setColorFilter(builder.progressColor,PorterDuff.Mode.SRC_ATOP);
+      dialog.mProgress.setProgressDrawable(regDraw);
     }
     if (!builder.mIndeterminateProgress) {
       dialog.mProgress.setProgress(0);
