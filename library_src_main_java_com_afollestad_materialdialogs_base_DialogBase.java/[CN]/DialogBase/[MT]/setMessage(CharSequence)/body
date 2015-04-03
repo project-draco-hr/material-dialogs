@@ -1,3 +1,0 @@
-{
-  throw new RuntimeException("This method is not supported by the MaterialDialog, use setContent() instead.");
-}
