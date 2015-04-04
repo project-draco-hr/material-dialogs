@@ -15,7 +15,6 @@
         hasButtons=true;
       }
     }
-    Log.v(TAG,"buttonWidth " + buttonsWidth + " "+ mButtonBarHeight);
     int buttonBarPadding=getContext().getResources().getDimensionPixelSize(R.dimen.md_neutral_button_margin);
     final int buttonFrameWidth=width - 2 * buttonBarPadding;
     stacked=buttonsWidth > buttonFrameWidth;
@@ -32,6 +31,7 @@
         button.setStacked(true,false);
         measureChild(button,widthMeasureSpec,heightMeasureSpec);
         stackedHeight+=button.getMeasuredHeight();
+        hasButtons=true;
       }
     }
   }
