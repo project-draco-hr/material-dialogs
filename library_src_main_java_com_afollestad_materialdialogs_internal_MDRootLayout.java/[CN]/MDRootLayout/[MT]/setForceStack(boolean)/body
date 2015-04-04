@@ -1,0 +1,4 @@
+{
+  mForceStack=forceStack;
+  invalidate();
+}

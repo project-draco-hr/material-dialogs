@@ -1,0 +1,12 @@
+{
+  if (mStacked != stacked || force) {
+    setGravity(stacked ? (Gravity.CENTER_VERTICAL | mStackedGravity.getGravityInt()) : Gravity.CENTER);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+      setTextAlignment(stacked ? mStackedGravity.getTextAlignment() : TEXT_ALIGNMENT_CENTER);
+    }
+    DialogUtils.setBackgroundCompat(this,stacked ? mStackedBackground : mDefaultBackground);
+    if (stacked) {
+      setPadding(mStackedEndPadding,getPaddingTop(),mStackedEndPadding,getPaddingBottom());
+    }
+  }
+}

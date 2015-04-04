@@ -1,6 +1,6 @@
 {
   final LinearLayout itemRoot=(LinearLayout)view;
-  final int gravityInt=MaterialDialog.gravityEnumToGravity(itemGravity);
+  final int gravityInt=itemGravity.getGravityInt();
   itemRoot.setGravity(gravityInt | Gravity.CENTER_VERTICAL);
   if (view.getChildCount() == 2) {
     if (itemGravity == GravityEnum.END && !isRTL() && view.getChildAt(0) instanceof CompoundButton) {

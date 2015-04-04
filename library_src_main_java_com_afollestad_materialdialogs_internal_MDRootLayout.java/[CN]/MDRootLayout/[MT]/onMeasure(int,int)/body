@@ -1,0 +1,76 @@
+{
+  int width=MeasureSpec.getSize(widthMeasureSpec);
+  int height=MeasureSpec.getSize(heightMeasureSpec);
+  mUseFullPadding=true;
+  boolean hasButtons=false;
+  final boolean stacked;
+  if (!mForceStack) {
+    int buttonsWidth=0;
+    for (int i=0; i < mButtons.length; i++) {
+      MDButton button=mButtons[i];
+      if (button != null && button.getVisibility() != View.GONE) {
+        button.setStacked(false,false);
+        measureChild(button,widthMeasureSpec,heightMeasureSpec);
+        buttonsWidth+=button.getMeasuredWidth();
+        hasButtons=true;
+      }
+    }
+    Log.v(TAG,"buttonWidth " + buttonsWidth + " "+ mButtonBarHeight);
+    int buttonBarPadding=getContext().getResources().getDimensionPixelSize(R.dimen.md_neutral_button_margin);
+    final int buttonFrameWidth=width - 2 * buttonBarPadding;
+    stacked=buttonsWidth > buttonFrameWidth;
+  }
+ else {
+    stacked=mForceStack;
+  }
+  int stackedHeight=0;
+  mIsStacked=stacked;
+  if (stacked) {
+    for (int i=0; i < mButtons.length; i++) {
+      MDButton button=mButtons[i];
+      if (button != null && button.getVisibility() != View.GONE) {
+        button.setStacked(true,false);
+        measureChild(button,widthMeasureSpec,heightMeasureSpec);
+        stackedHeight+=button.getMeasuredHeight();
+      }
+    }
+  }
+  int availableHeight=height;
+  int fullPadding=0;
+  int minPadding=0;
+  if (hasButtons) {
+    if (mIsStacked) {
+      availableHeight-=stackedHeight;
+      fullPadding+=2 * mButtonPaddingFull;
+      minPadding+=2 * mButtonPaddingFull;
+    }
+ else {
+      availableHeight-=mButtonBarHeight;
+      fullPadding+=2 * mButtonPaddingFull;
+    }
+  }
+ else {
+    fullPadding+=2 * mButtonPaddingFull;
+  }
+  if (mTitleBar != null && mTitleBar.getVisibility() != View.GONE) {
+    mTitleBar.measure(MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY),MeasureSpec.UNSPECIFIED);
+    availableHeight-=mTitleBar.getMeasuredHeight();
+  }
+ else {
+    fullPadding+=mNoTitlePaddingFull;
+  }
+  if (mContent != null && mContent.getVisibility() != View.GONE) {
+    mContent.measure(MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY),MeasureSpec.makeMeasureSpec(availableHeight - minPadding,MeasureSpec.AT_MOST));
+    if (mContent.getMeasuredHeight() < availableHeight - fullPadding) {
+      mUseFullPadding=true;
+      availableHeight-=mContent.getMeasuredHeight() + fullPadding;
+    }
+ else {
+      mUseFullPadding=false;
+      availableHeight=0;
+      mDrawTopDivider=mTitleBar != null && mTitleBar.getVisibility() != View.GONE && canViewOrChildScroll(mContent,false);
+      mDrawBottomDivider=hasButtons && canViewOrChildScroll(mContent,true);
+    }
+  }
+  setMeasuredDimension(width,height - availableHeight);
+}

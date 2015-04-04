@@ -1,0 +1,4 @@
+{
+  mStackedEndPadding=context.getResources().getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
+  mStackedGravity=GravityEnum.END;
+}

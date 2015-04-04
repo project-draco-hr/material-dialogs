@@ -1,0 +1,90 @@
+{
+  if (mTitleBar != null && mTitleBar.getVisibility() != View.GONE) {
+    int height=mTitleBar.getMeasuredHeight();
+    mTitleBar.layout(l,t,r,t + height);
+    t+=height;
+  }
+ else   if (mUseFullPadding) {
+    t+=mNoTitlePaddingFull;
+  }
+  if (mContent != null && mContent.getVisibility() != View.GONE) {
+    mContent.layout(l,t,r,t + mContent.getMeasuredHeight());
+  }
+  if (mIsStacked) {
+    b-=mButtonPaddingFull;
+    for (int i=0; i < mButtons.length; i++) {
+      if (mButtons[i] != null && mButtons[i].getVisibility() != View.GONE) {
+        mButtons[i].layout(l,b - mButtons[i].getMeasuredHeight(),r,b);
+        b-=mButtons[i].getMeasuredHeight();
+      }
+    }
+  }
+ else {
+    int barTop;
+    int barBottom=b;
+    if (mUseFullPadding) {
+      barBottom-=mButtonPaddingFull;
+    }
+    barTop=barBottom - mButtonBarHeight;
+    int offset=mButtonHorizontalEdgeMargin;
+    int neutralLeft=-1;
+    int neutralRight=-1;
+    if (mButtons[INDEX_POSITIVE] != null && mButtons[INDEX_POSITIVE].getVisibility() != View.GONE) {
+      int bl, br;
+      if (mButtonGravity == GravityEnum.END) {
+        bl=l + offset;
+        br=bl + mButtons[INDEX_POSITIVE].getMeasuredWidth();
+      }
+ else {
+        br=r - offset;
+        bl=br - mButtons[INDEX_POSITIVE].getMeasuredWidth();
+        neutralRight=bl;
+      }
+      mButtons[INDEX_POSITIVE].layout(bl,barTop,br,barBottom);
+      offset+=mButtons[INDEX_POSITIVE].getMeasuredWidth();
+    }
+    if (mButtons[INDEX_NEGATIVE] != null && mButtons[INDEX_NEGATIVE].getVisibility() != View.GONE) {
+      int bl, br;
+      if (mButtonGravity == GravityEnum.END) {
+        bl=l + offset;
+        br=bl + mButtons[INDEX_NEGATIVE].getMeasuredWidth();
+      }
+ else       if (mButtonGravity == GravityEnum.START) {
+        br=r - offset;
+        bl=br - mButtons[INDEX_NEGATIVE].getMeasuredWidth();
+      }
+ else {
+        bl=l + mButtonHorizontalEdgeMargin;
+        br=bl + mButtons[INDEX_NEGATIVE].getMeasuredWidth();
+        neutralLeft=br;
+      }
+      mButtons[INDEX_NEGATIVE].layout(bl,barTop,br,barBottom);
+    }
+    if (mButtons[INDEX_NEUTRAL] != null && mButtons[INDEX_NEUTRAL].getVisibility() != View.GONE) {
+      int bl, br;
+      if (mButtonGravity == GravityEnum.END) {
+        br=r - mButtonHorizontalEdgeMargin;
+        bl=br - mButtons[INDEX_NEUTRAL].getMeasuredWidth();
+      }
+ else       if (mButtonGravity == GravityEnum.START) {
+        bl=l + mButtonHorizontalEdgeMargin;
+        br=bl + mButtons[INDEX_NEUTRAL].getMeasuredWidth();
+      }
+ else {
+        if (neutralLeft == -1 && neutralRight != -1) {
+          neutralLeft=neutralRight - mButtons[INDEX_NEUTRAL].getMeasuredWidth();
+        }
+ else         if (neutralRight == -1 && neutralLeft != -1) {
+          neutralRight=neutralLeft + mButtons[INDEX_NEUTRAL].getMeasuredWidth();
+        }
+ else         if (neutralRight == -1 && neutralLeft == -1) {
+          neutralLeft=(r - l) / 2 - mButtons[INDEX_NEUTRAL].getMeasuredWidth() / 2;
+          neutralRight=neutralLeft + mButtons[INDEX_NEUTRAL].getMeasuredWidth();
+        }
+        bl=neutralLeft;
+        br=neutralRight;
+      }
+      mButtons[INDEX_NEUTRAL].layout(bl,barTop,br,barBottom);
+    }
+  }
+}

@@ -8,5 +8,4 @@
   }
   mBuilder.items=items;
   listView.setAdapter(mBuilder.adapter);
-  invalidateCustomViewAssociations();
 }

@@ -33,9 +33,9 @@
   dialog.titleFrame=dialog.view.findViewById(R.id.titleFrame);
   dialog.content=(TextView)dialog.view.findViewById(R.id.content);
   dialog.listView=(ListView)dialog.view.findViewById(R.id.contentListView);
-  dialog.positiveButton=dialog.view.findViewById(R.id.buttonDefaultPositive);
-  dialog.neutralButton=dialog.view.findViewById(R.id.buttonDefaultNeutral);
-  dialog.negativeButton=dialog.view.findViewById(R.id.buttonDefaultNegative);
+  dialog.positiveButton=(MDButton)dialog.view.findViewById(R.id.buttonDefaultPositive);
+  dialog.neutralButton=(MDButton)dialog.view.findViewById(R.id.buttonDefaultNeutral);
+  dialog.negativeButton=(MDButton)dialog.view.findViewById(R.id.buttonDefaultNegative);
   dialog.positiveButton.setVisibility(builder.positiveText != null ? View.VISIBLE : View.GONE);
   dialog.neutralButton.setVisibility(builder.neutralText != null ? View.VISIBLE : View.GONE);
   dialog.negativeButton.setVisibility(builder.negativeText != null ? View.VISIBLE : View.GONE);
@@ -62,6 +62,9 @@
     dialog.icon.setMaxWidth(maxIconSize);
     dialog.icon.requestLayout();
   }
+  if (builder.dividerColor == 0)   builder.dividerColor=DialogUtils.resolveColor(builder.context,R.attr.md_divider_color);
+  if (builder.dividerColor == 0)   builder.dividerColor=DialogUtils.resolveColor(dialog.getContext(),R.attr.md_divider);
+  dialog.view.setDividerColor(builder.dividerColor);
   if (builder.title == null) {
     dialog.titleFrame.setVisibility(View.GONE);
   }
@@ -69,9 +72,9 @@
     dialog.title.setText(builder.title);
     dialog.setTypeface(dialog.title,builder.mediumFont);
     dialog.title.setTextColor(builder.titleColor);
-    dialog.title.setGravity(MaterialDialog.gravityEnumToGravity(builder.titleGravity));
+    dialog.title.setGravity(builder.titleGravity.getGravityInt());
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      dialog.title.setTextAlignment(MaterialDialog.gravityEnumToTextAlignment(builder.titleGravity));
+      dialog.title.setTextAlignment(builder.titleGravity.getTextAlignment());
     }
   }
   if (dialog.content != null && builder.content != null) {
@@ -86,23 +89,73 @@
       dialog.content.setLinkTextColor(builder.positiveColor);
     }
     dialog.content.setTextColor(builder.contentColor);
-    dialog.content.setGravity(MaterialDialog.gravityEnumToGravity(builder.contentGravity));
+    dialog.content.setGravity(builder.contentGravity.getGravityInt());
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      dialog.content.setTextAlignment(MaterialDialog.gravityEnumToTextAlignment(builder.contentGravity));
+      dialog.content.setTextAlignment(builder.contentGravity.getTextAlignment());
     }
   }
  else   if (dialog.content != null) {
     dialog.content.setVisibility(View.GONE);
   }
+  dialog.view.setButtonGravity(builder.buttonsGravity);
+  dialog.view.setButtonStackedGravity(builder.btnStackedGravity);
+  dialog.view.setForceStack(builder.forceStacking);
+  boolean textAllCaps;
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+    textAllCaps=DialogUtils.resolveBoolean(builder.context,android.R.attr.textAllCaps,true);
+    if (textAllCaps)     textAllCaps=DialogUtils.resolveBoolean(builder.context,R.attr.textAllCaps,true);
+  }
+ else {
+    textAllCaps=DialogUtils.resolveBoolean(builder.context,R.attr.textAllCaps,true);
+  }
+  if (dialog.positiveButton != null && builder.positiveText != null) {
+    MDButton positiveTextView=dialog.positiveButton;
+    dialog.setTypeface(positiveTextView,builder.mediumFont);
+    positiveTextView.setAllCapsCompat(textAllCaps);
+    positiveTextView.setText(builder.positiveText);
+    positiveTextView.setTextColor(getActionTextStateList(builder.context,builder.positiveColor));
+    dialog.positiveButton.setStackedSelector(dialog.getButtonSelector(DialogAction.POSITIVE,true));
+    dialog.positiveButton.setDefaultSelector(dialog.getButtonSelector(DialogAction.POSITIVE,false));
+    dialog.positiveButton.setTag(DialogAction.POSITIVE);
+    dialog.positiveButton.setOnClickListener(dialog);
+    dialog.positiveButton.setVisibility(View.VISIBLE);
+  }
+  if (dialog.negativeButton != null && builder.negativeText != null) {
+    MDButton negativeTextView=dialog.negativeButton;
+    dialog.setTypeface(negativeTextView,builder.mediumFont);
+    negativeTextView.setAllCapsCompat(textAllCaps);
+    negativeTextView.setText(builder.negativeText);
+    negativeTextView.setTextColor(getActionTextStateList(builder.context,builder.negativeColor));
+    dialog.negativeButton.setStackedSelector(dialog.getButtonSelector(DialogAction.NEGATIVE,true));
+    dialog.negativeButton.setDefaultSelector(dialog.getButtonSelector(DialogAction.NEGATIVE,false));
+    dialog.negativeButton.setTag(DialogAction.NEGATIVE);
+    dialog.negativeButton.setOnClickListener(dialog);
+    dialog.negativeButton.setVisibility(View.VISIBLE);
+  }
+  if (dialog.neutralButton != null && builder.neutralText != null) {
+    MDButton neutralTextView=dialog.neutralButton;
+    dialog.setTypeface(neutralTextView,builder.mediumFont);
+    neutralTextView.setAllCapsCompat(textAllCaps);
+    neutralTextView.setText(builder.neutralText);
+    neutralTextView.setTextColor(getActionTextStateList(builder.context,builder.neutralColor));
+    dialog.neutralButton.setStackedSelector(dialog.getButtonSelector(DialogAction.NEUTRAL,true));
+    dialog.neutralButton.setDefaultSelector(dialog.getButtonSelector(DialogAction.NEUTRAL,false));
+    dialog.neutralButton.setTag(DialogAction.NEUTRAL);
+    dialog.neutralButton.setOnClickListener(dialog);
+    dialog.neutralButton.setVisibility(View.VISIBLE);
+  }
+  if (builder.itemColorSet) {
+    dialog.defaultItemColor=builder.itemColor;
+  }
+ else   if (builder.theme == Theme.LIGHT) {
+    dialog.defaultItemColor=Color.BLACK;
+  }
+ else {
+    dialog.defaultItemColor=Color.WHITE;
+  }
   if (builder.listCallbackMultiChoice != null)   dialog.selectedIndicesList=new ArrayList<>();
   if (dialog.listView != null && (builder.items != null && builder.items.length > 0 || builder.adapter != null)) {
     dialog.listView.setSelector(dialog.getListSelector());
-    if (builder.title != null) {
-      dialog.listView.setPadding(dialog.listView.getPaddingLeft(),0,dialog.listView.getPaddingRight(),dialog.listView.getPaddingBottom());
-    }
-    if (dialog.hasActionButtons()) {
-      dialog.listView.setPadding(dialog.listView.getPaddingLeft(),0,dialog.listView.getPaddingRight(),0);
-    }
     if (builder.adapter == null) {
       if (builder.listCallbackSingleChoice != null) {
         dialog.listType=MaterialDialog.ListType.SINGLE;
@@ -121,7 +174,6 @@
   }
   setupProgressDialog(dialog);
   if (builder.customView != null) {
-    dialog.invalidateCustomViewAssociations();
     FrameLayout frame=(FrameLayout)dialog.view.findViewById(R.id.customViewFrame);
     dialog.customViewFrame=frame;
     View innerView=builder.customView;
@@ -129,12 +181,8 @@
       final Resources r=dialog.getContext().getResources();
       final int framePadding=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
       final ScrollView sv=new ScrollView(dialog.getContext());
-      int paddingTop;
-      int paddingBottom;
-      if (dialog.titleFrame.getVisibility() != View.GONE)       paddingTop=r.getDimensionPixelSize(R.dimen.md_content_vertical_padding);
- else       paddingTop=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
-      if (dialog.hasActionButtons())       paddingBottom=r.getDimensionPixelSize(R.dimen.md_content_vertical_padding);
- else       paddingBottom=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
+      int paddingTop=r.getDimensionPixelSize(R.dimen.md_content_padding_top);
+      int paddingBottom=r.getDimensionPixelSize(R.dimen.md_content_padding_bottom);
       sv.setClipToPadding(false);
       if (innerView instanceof EditText) {
         sv.setPadding(framePadding,paddingTop,framePadding,paddingBottom);
@@ -148,24 +196,12 @@
     }
     frame.addView(innerView,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
   }
- else {
-    dialog.invalidateCustomViewAssociations();
-  }
   if (builder.showListener != null)   dialog.setOnShowListener(builder.showListener);
   if (builder.cancelListener != null)   dialog.setOnCancelListener(builder.cancelListener);
   if (builder.dismissListener != null)   dialog.setOnDismissListener(builder.dismissListener);
   if (builder.keyListener != null)   dialog.setOnKeyListener(builder.keyListener);
-  dialog.updateFramePadding();
   dialog.invalidateList();
   dialog._setOnShowListenerInternal();
   dialog._setViewInternal(dialog.view);
   dialog.checkIfListInitScroll();
-  dialog.view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
-    @Override public void onGlobalLayout(){
-      if (dialog.view.getMeasuredWidth() > 0) {
-        dialog.invalidateCustomViewAssociations();
-      }
-    }
-  }
-);
 }

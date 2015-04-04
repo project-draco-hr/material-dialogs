@@ -1,22 +1,10 @@
 {
-  if (isStacked) {
 switch (which) {
 default :
-      return view.findViewById(R.id.buttonStackedPositive);
+    return view.findViewById(R.id.buttonDefaultPositive);
 case NEUTRAL:
-    return view.findViewById(R.id.buttonStackedNeutral);
-case NEGATIVE:
-  return view.findViewById(R.id.buttonStackedNegative);
-}
-}
- else {
-switch (which) {
-default :
-return view.findViewById(R.id.buttonDefaultPositive);
-case NEUTRAL:
-return view.findViewById(R.id.buttonDefaultNeutral);
+  return view.findViewById(R.id.buttonDefaultNeutral);
 case NEGATIVE:
 return view.findViewById(R.id.buttonDefaultNegative);
-}
 }
 }
