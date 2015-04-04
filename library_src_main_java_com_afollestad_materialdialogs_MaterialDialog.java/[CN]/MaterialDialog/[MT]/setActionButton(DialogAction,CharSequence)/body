@@ -2,16 +2,18 @@
 switch (which) {
 default :
     mBuilder.positiveText=title;
-  if (title == null)   positiveButton.setVisibility(View.GONE);
+  positiveButton.setText(title);
+positiveButton.setVisibility(title == null ? View.GONE : View.VISIBLE);
 break;
 case NEUTRAL:
 mBuilder.neutralText=title;
-if (title == null) neutralButton.setVisibility(View.GONE);
+neutralButton.setText(title);
+neutralButton.setVisibility(title == null ? View.GONE : View.VISIBLE);
 break;
 case NEGATIVE:
 mBuilder.negativeText=title;
-if (title == null) negativeButton.setVisibility(View.GONE);
+negativeButton.setText(title);
+negativeButton.setVisibility(title == null ? View.GONE : View.VISIBLE);
 break;
 }
-invalidateActions();
 }

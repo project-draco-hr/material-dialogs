@@ -1,0 +1,4 @@
+{
+  mDividerPaint.setColor(color);
+  invalidate();
+}

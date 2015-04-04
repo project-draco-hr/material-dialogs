@@ -1,0 +1,5 @@
+{
+  if (sv.getChildCount() == 0)   return false;
+  final int childHeight=sv.getChildAt(0).getMeasuredHeight();
+  return sv.getMeasuredHeight() - sv.getPaddingTop() - sv.getPaddingBottom() < childHeight;
+}

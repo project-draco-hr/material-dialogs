@@ -1,4 +1,4 @@
 {
   this.content.setText(content);
-  invalidateCustomViewAssociations();
+  this.content.setVisibility(TextUtils.isEmpty(content) ? View.GONE : View.VISIBLE);
 }

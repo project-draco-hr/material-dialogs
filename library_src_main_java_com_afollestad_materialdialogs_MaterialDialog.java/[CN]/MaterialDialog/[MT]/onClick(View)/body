@@ -1,5 +1,5 @@
 {
-  String tag=(String)v.getTag();
+  DialogAction tag=(DialogAction)v.getTag();
 switch (tag) {
 case POSITIVE:
 {

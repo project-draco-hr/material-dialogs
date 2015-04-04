@@ -1,0 +1,5 @@
+{
+  for (int i=0; i < mButtons.length; i++) {
+    if (mButtons[i] != null)     mButtons[i].setStackedGravity(gravity);
+  }
+}

@@ -29,9 +29,5 @@
       }
       dialog.mProgressLabel.setText("0%");
     }
-    if (builder.title == null) {
-      final View mainFrame=dialog.view.findViewById(R.id.mainFrame);
-      mainFrame.setPadding(mainFrame.getPaddingLeft(),mainFrame.getPaddingBottom(),mainFrame.getPaddingRight(),mainFrame.getPaddingBottom());
-    }
   }
 }

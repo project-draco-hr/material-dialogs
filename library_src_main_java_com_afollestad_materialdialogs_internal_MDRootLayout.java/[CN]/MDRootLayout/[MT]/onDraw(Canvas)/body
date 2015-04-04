@@ -1,0 +1,13 @@
+{
+  super.onDraw(canvas);
+  if (mContent != null) {
+    if (mDrawTopDivider) {
+      int y=mContent.getTop();
+      canvas.drawLine(0,y,getMeasuredWidth(),y,mDividerPaint);
+    }
+    if (mDrawBottomDivider) {
+      int y=mContent.getBottom();
+      canvas.drawLine(0,y,getMeasuredWidth(),y,mDividerPaint);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  super.onFinishInflate();
+  for (int i=0; i < getChildCount(); i++) {
+    View v=getChildAt(i);
+    if (v.getId() == R.id.titleFrame) {
+      mTitleBar=v;
+    }
+ else     if (v.getId() == R.id.buttonDefaultNeutral) {
+      mButtons[INDEX_NEUTRAL]=(MDButton)v;
+    }
+ else     if (v.getId() == R.id.buttonDefaultNegative) {
+      mButtons[INDEX_NEGATIVE]=(MDButton)v;
+    }
+ else     if (v.getId() == R.id.buttonDefaultPositive) {
+      mButtons[INDEX_POSITIVE]=(MDButton)v;
+    }
+ else {
+      mContent=v;
+    }
+  }
+}
