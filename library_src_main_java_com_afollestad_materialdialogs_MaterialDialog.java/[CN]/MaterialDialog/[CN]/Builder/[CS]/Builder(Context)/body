@@ -15,9 +15,6 @@
     this.neutralColor=this.progressColor;
   }
   checkSingleton();
-  this.titleColor=DialogUtils.resolveColor(context,android.R.attr.textColorPrimary);
-  this.contentColor=DialogUtils.resolveColor(context,android.R.attr.textColorSecondary);
-  this.itemColor=this.contentColor;
   this.titleGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_title_gravity,this.titleGravity);
   this.contentGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_content_gravity,this.contentGravity);
   this.btnStackedGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_btnstacked_gravity,this.btnStackedGravity);

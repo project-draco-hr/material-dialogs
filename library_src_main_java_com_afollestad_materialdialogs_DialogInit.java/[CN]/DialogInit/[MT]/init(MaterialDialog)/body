@@ -11,6 +11,21 @@
   builder.neutralColor=DialogUtils.resolveColor(builder.context,R.attr.md_neutral_color,builder.neutralColor);
   builder.negativeColor=DialogUtils.resolveColor(builder.context,R.attr.md_negative_color,builder.negativeColor);
   builder.progressColor=DialogUtils.resolveColor(builder.context,R.attr.md_progress_color,builder.progressColor);
+  if (!builder.titleColorSet) {
+    builder.titleColor=DialogUtils.resolveColor(builder.context,android.R.attr.textColorPrimary);
+    if (DialogUtils.isColorDark(builder.titleColor)) {
+      if (builder.theme == Theme.DARK)       builder.titleColor=DialogUtils.resolveColor(builder.context,android.R.attr.textColorPrimaryInverse);
+    }
+ else     if (builder.theme == Theme.LIGHT)     builder.titleColor=DialogUtils.resolveColor(builder.context,android.R.attr.textColorPrimaryInverse);
+  }
+  if (!builder.contentColorSet) {
+    builder.contentColor=DialogUtils.resolveColor(builder.context,android.R.attr.textColorSecondary);
+    if (DialogUtils.isColorDark(builder.contentColor)) {
+      if (builder.theme == Theme.DARK)       builder.contentColor=DialogUtils.resolveColor(builder.context,android.R.attr.textColorSecondaryInverse);
+    }
+ else     if (builder.theme == Theme.LIGHT)     builder.contentColor=DialogUtils.resolveColor(builder.context,android.R.attr.textColorSecondaryInverse);
+  }
+  if (!builder.itemColorSet)   builder.itemColor=builder.contentColor;
   dialog.title=(TextView)dialog.view.findViewById(R.id.title);
   dialog.icon=(ImageView)dialog.view.findViewById(R.id.icon);
   dialog.titleFrame=dialog.view.findViewById(R.id.titleFrame);
