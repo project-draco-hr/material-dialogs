@@ -1,0 +1,5 @@
+{
+  boolean val=super.verifyDrawable(who);
+  if (who != null)   who.setColorFilter(color,PorterDuff.Mode.SRC_ATOP);
+  return val;
+}

@@ -1,4 +1,0 @@
-{
-  this.progressColor=color;
-  return this;
-}

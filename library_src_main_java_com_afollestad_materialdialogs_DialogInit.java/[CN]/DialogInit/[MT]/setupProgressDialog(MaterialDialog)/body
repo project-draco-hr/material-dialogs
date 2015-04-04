@@ -4,12 +4,12 @@
     dialog.mProgress=(ProgressBar)dialog.view.findViewById(android.R.id.progress);
     Drawable indDraw=dialog.mProgress.getIndeterminateDrawable();
     if (indDraw != null) {
-      indDraw.setColorFilter(builder.progressColor,PorterDuff.Mode.SRC_ATOP);
+      indDraw.setColorFilter(builder.widgetColor,PorterDuff.Mode.SRC_ATOP);
       dialog.mProgress.setIndeterminateDrawable(indDraw);
     }
     Drawable regDraw=dialog.mProgress.getProgressDrawable();
     if (regDraw != null) {
-      regDraw.setColorFilter(builder.progressColor,PorterDuff.Mode.SRC_ATOP);
+      regDraw.setColorFilter(builder.widgetColor,PorterDuff.Mode.SRC_ATOP);
       dialog.mProgress.setProgressDrawable(regDraw);
     }
     if (!builder.mIndeterminateProgress) {
