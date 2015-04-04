@@ -2,5 +2,4 @@
   super(dialog.mBuilder.context,resource,textViewResourceId,objects);
   this.dialog=dialog;
   this.itemGravity=dialog.mBuilder.itemsGravity;
-  this.itemColor=DialogUtils.resolveColor(getContext(),R.attr.md_item_color,dialog.defaultItemColor);
 }

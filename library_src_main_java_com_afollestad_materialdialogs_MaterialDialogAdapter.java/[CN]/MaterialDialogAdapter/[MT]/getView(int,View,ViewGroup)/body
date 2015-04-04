@@ -16,7 +16,7 @@ case MULTI:
   }
 }
 tv.setText(dialog.mBuilder.items[index]);
-tv.setTextColor(itemColor);
+tv.setTextColor(dialog.mBuilder.itemColor);
 dialog.setTypeface(tv,dialog.mBuilder.regularFont);
 view.setTag(index + ":" + dialog.mBuilder.items[index]);
 setupGravity((ViewGroup)view);

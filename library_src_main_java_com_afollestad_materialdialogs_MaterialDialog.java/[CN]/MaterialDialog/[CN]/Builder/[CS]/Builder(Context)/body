@@ -1,42 +1,23 @@
 {
   this.context=context;
   final int materialBlue=context.getResources().getColor(R.color.md_material_blue_600);
-  boolean useAppCompat=true;
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-    TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.colorAccent});
-    try {
-      this.progressColor=a.getColor(0,materialBlue);
-      this.positiveColor=this.progressColor;
-      this.negativeColor=this.progressColor;
-      this.neutralColor=this.progressColor;
-      useAppCompat=false;
-    }
- catch (    Exception e) {
-      e.printStackTrace();
-    }
- finally {
-      a.recycle();
-    }
+    final int fallback=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
+    this.progressColor=DialogUtils.resolveColor(context,android.R.attr.colorAccent,fallback);
+    this.positiveColor=this.progressColor;
+    this.negativeColor=this.progressColor;
+    this.neutralColor=this.progressColor;
   }
-  if (useAppCompat) {
-    TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{R.attr.colorAccent});
-    try {
-      this.progressColor=a.getColor(0,materialBlue);
-      this.positiveColor=this.progressColor;
-      this.negativeColor=this.progressColor;
-      this.neutralColor=this.progressColor;
-    }
- catch (    Exception e) {
-      this.progressColor=materialBlue;
-      this.positiveColor=materialBlue;
-      this.negativeColor=materialBlue;
-      this.neutralColor=materialBlue;
-    }
- finally {
-      a.recycle();
-    }
+ else {
+    this.progressColor=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
+    this.positiveColor=this.progressColor;
+    this.negativeColor=this.progressColor;
+    this.neutralColor=this.progressColor;
   }
   checkSingleton();
+  this.titleColor=DialogUtils.resolveColor(context,android.R.attr.textColorPrimary);
+  this.contentColor=DialogUtils.resolveColor(context,android.R.attr.textColorSecondary);
+  this.itemColor=this.contentColor;
   this.titleGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_title_gravity,this.titleGravity);
   this.contentGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_content_gravity,this.contentGravity);
   this.btnStackedGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_btnstacked_gravity,this.btnStackedGravity);
