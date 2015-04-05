@@ -1,0 +1,8 @@
+{
+  new MaterialDialog.Builder(this).title(R.string.input).content(R.string.input_content).input(R.string.input_hint,0,new MaterialDialog.InputCallback(){
+    @Override public void onInput(    MaterialDialog dialog,    CharSequence input){
+      showToast("Hello, " + input.toString() + "!");
+    }
+  }
+).show();
+}

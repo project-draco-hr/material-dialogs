@@ -1,0 +1,4 @@
+{
+  this.widgetColor=color;
+  return this;
+}

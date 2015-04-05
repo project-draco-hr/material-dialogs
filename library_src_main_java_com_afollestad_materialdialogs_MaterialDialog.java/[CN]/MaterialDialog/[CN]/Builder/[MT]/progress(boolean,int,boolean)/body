@@ -1,4 +1,4 @@
 {
-  this.mShowMinMax=showMinMax;
+  this.showMinMax=showMinMax;
   return progress(indeterminate,max);
 }

@@ -3,17 +3,19 @@
   final int materialBlue=context.getResources().getColor(R.color.md_material_blue_600);
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     final int fallback=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
-    this.progressColor=DialogUtils.resolveColor(context,android.R.attr.colorAccent,fallback);
-    this.positiveColor=this.progressColor;
-    this.negativeColor=this.progressColor;
-    this.neutralColor=this.progressColor;
+    this.widgetColor=DialogUtils.resolveColor(context,android.R.attr.colorAccent,fallback);
+    this.positiveColor=this.widgetColor;
+    this.negativeColor=this.widgetColor;
+    this.neutralColor=this.widgetColor;
   }
  else {
-    this.progressColor=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
-    this.positiveColor=this.progressColor;
-    this.negativeColor=this.progressColor;
-    this.neutralColor=this.progressColor;
+    this.widgetColor=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
+    this.positiveColor=this.widgetColor;
+    this.negativeColor=this.widgetColor;
+    this.neutralColor=this.widgetColor;
   }
+  final int primaryTextColor=DialogUtils.resolveColor(context,android.R.attr.textColorPrimary);
+  this.theme=DialogUtils.isColorDark(primaryTextColor) ? Theme.LIGHT : Theme.DARK;
   checkSingleton();
   this.titleGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_title_gravity,this.titleGravity);
   this.contentGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_content_gravity,this.contentGravity);

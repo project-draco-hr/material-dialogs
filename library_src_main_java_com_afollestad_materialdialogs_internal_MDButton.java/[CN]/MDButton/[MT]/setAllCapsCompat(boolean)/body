@@ -3,11 +3,7 @@
     setAllCaps(allCaps);
   }
  else {
-    if (allCaps) {
-      setTransformationMethod(new AllCapsTransformationMethod(getContext()));
-    }
- else {
-      setTransformationMethod(null);
-    }
+    if (allCaps)     setTransformationMethod(new AllCapsTransformationMethod(getContext()));
+ else     setTransformationMethod(null);
   }
 }

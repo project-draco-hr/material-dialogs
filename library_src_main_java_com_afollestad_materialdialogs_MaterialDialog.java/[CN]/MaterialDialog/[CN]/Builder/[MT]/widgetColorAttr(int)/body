@@ -1,0 +1,3 @@
+{
+  return widgetColorRes(DialogUtils.resolveColor(this.context,colorAttr));
+}

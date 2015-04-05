@@ -1,0 +1,3 @@
+{
+  return widgetColor(this.context.getResources().getColor(colorRes));
+}
