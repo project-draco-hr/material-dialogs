@@ -6,8 +6,7 @@
   final boolean stacked;
   if (!mForceStack) {
     int buttonsWidth=0;
-    for (int i=0; i < mButtons.length; i++) {
-      MDButton button=mButtons[i];
+    for (    MDButton button : mButtons) {
       if (button != null && button.getVisibility() != View.GONE) {
         button.setStacked(false,false);
         measureChild(button,widthMeasureSpec,heightMeasureSpec);
@@ -21,13 +20,12 @@
     stacked=buttonsWidth > buttonFrameWidth;
   }
  else {
-    stacked=mForceStack;
+    stacked=true;
   }
   int stackedHeight=0;
   mIsStacked=stacked;
   if (stacked) {
-    for (int i=0; i < mButtons.length; i++) {
-      MDButton button=mButtons[i];
+    for (    MDButton button : mButtons) {
       if (button != null && button.getVisibility() != View.GONE) {
         button.setStacked(true,false);
         measureChild(button,widthMeasureSpec,heightMeasureSpec);
