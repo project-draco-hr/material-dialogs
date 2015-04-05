@@ -1,6 +1,0 @@
-{
-  super.setChecked(checked);
-  if (mCheckedDrawables != null) {
-    for (    Drawable d : mCheckedDrawables)     d.setColorFilter(color,PorterDuff.Mode.SRC_ATOP);
-  }
-}
