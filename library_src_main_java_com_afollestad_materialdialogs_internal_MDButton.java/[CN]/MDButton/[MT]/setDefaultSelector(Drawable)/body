@@ -1,4 +1,4 @@
 {
   mDefaultBackground=d;
-  if (!mStacked)   setStacked(true,true);
+  if (!mStacked)   setStacked(false,true);
 }
