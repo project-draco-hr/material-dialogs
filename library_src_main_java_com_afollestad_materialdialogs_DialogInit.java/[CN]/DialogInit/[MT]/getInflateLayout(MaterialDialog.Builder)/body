@@ -5,11 +5,14 @@
  else   if (builder.items != null && builder.items.length > 0 || builder.adapter != null) {
     return R.layout.md_dialog_list;
   }
- else   if (builder.mProgress > -2) {
+ else   if (builder.progress > -2) {
     return R.layout.md_dialog_progress;
   }
- else   if (builder.mIndeterminateProgress) {
+ else   if (builder.indeterminateProgress) {
     return R.layout.md_dialog_progress_indeterminate;
+  }
+ else   if (builder.inputCallback != null) {
+    return R.layout.md_dialog_input;
   }
  else {
     return R.layout.md_dialog_basic;

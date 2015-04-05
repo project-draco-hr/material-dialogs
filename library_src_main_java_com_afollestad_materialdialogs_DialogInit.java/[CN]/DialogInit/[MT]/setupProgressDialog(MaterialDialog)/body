@@ -1,16 +1,17 @@
 {
   final MaterialDialog.Builder builder=dialog.mBuilder;
-  if (builder.mIndeterminateProgress || builder.mProgress > -2) {
+  if (builder.indeterminateProgress || builder.progress > -2) {
     dialog.mProgress=(MDProgressBar)dialog.view.findViewById(android.R.id.progress);
+    if (dialog.mProgress == null)     return;
     dialog.mProgress.setColorFilter(builder.widgetColor);
-    if (!builder.mIndeterminateProgress) {
+    if (!builder.indeterminateProgress) {
       dialog.mProgress.setProgress(0);
-      dialog.mProgress.setMax(builder.mProgressMax);
+      dialog.mProgress.setMax(builder.progressMax);
       dialog.mProgressLabel=(TextView)dialog.view.findViewById(R.id.label);
       dialog.mProgressMinMax=(TextView)dialog.view.findViewById(R.id.minMax);
-      if (builder.mShowMinMax) {
+      if (builder.showMinMax) {
         dialog.mProgressMinMax.setVisibility(View.VISIBLE);
-        dialog.mProgressMinMax.setText("0/" + builder.mProgressMax);
+        dialog.mProgressMinMax.setText("0/" + builder.progressMax);
         ViewGroup.MarginLayoutParams lp=(ViewGroup.MarginLayoutParams)dialog.mProgress.getLayoutParams();
         lp.leftMargin=0;
         lp.rightMargin=0;

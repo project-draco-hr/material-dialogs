@@ -1,0 +1,55 @@
+{
+  final MaterialDialog.Builder builder=dialog.mBuilder;
+  dialog.input=(EditText)dialog.view.findViewById(android.R.id.input);
+  if (dialog.input == null)   return;
+  if (builder.inputPrefill != null)   dialog.input.append(builder.inputPrefill);
+  dialog.input.setHint(builder.inputHint);
+  dialog.input.setSingleLine();
+  dialog.setOnShowListener(new DialogInterface.OnShowListener(){
+    @Override public void onShow(    DialogInterface di){
+      final MaterialDialog dialog=(MaterialDialog)di;
+      if (dialog.getInputEditText() == null)       return;
+      dialog.getInputEditText().post(new Runnable(){
+        @Override public void run(){
+          dialog.getInputEditText().requestFocus();
+          InputMethodManager imm=(InputMethodManager)builder.context.getSystemService(Context.INPUT_METHOD_SERVICE);
+          if (imm != null)           imm.showSoftInput(dialog.getInputEditText(),InputMethodManager.SHOW_IMPLICIT);
+        }
+      }
+);
+    }
+  }
+);
+  dialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
+    @Override public void onCancel(    DialogInterface di){
+      final MaterialDialog dialog=(MaterialDialog)di;
+      if (dialog.getInputEditText() == null)       return;
+      dialog.getInputEditText().post(new Runnable(){
+        @Override public void run(){
+          dialog.getInputEditText().requestFocus();
+          InputMethodManager imm=(InputMethodManager)builder.context.getSystemService(Context.INPUT_METHOD_SERVICE);
+          imm.hideSoftInputFromWindow(dialog.getInputEditText().getWindowToken(),0);
+        }
+      }
+);
+    }
+  }
+);
+  dialog.setOnDismissListener(new DialogInterface.OnDismissListener(){
+    @Override public void onDismiss(    DialogInterface di){
+      final MaterialDialog dialog=(MaterialDialog)di;
+      if (dialog.getInputEditText() == null)       return;
+      dialog.getInputEditText().post(new Runnable(){
+        @Override public void run(){
+          dialog.getInputEditText().requestFocus();
+          InputMethodManager imm=(InputMethodManager)builder.context.getSystemService(Context.INPUT_METHOD_SERVICE);
+          if (imm != null)           imm.hideSoftInputFromWindow(dialog.getInputEditText().getWindowToken(),0);
+        }
+      }
+);
+    }
+  }
+);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)   dialog.input.setBackgroundTintList(ColorStateList.valueOf(builder.widgetColor));
+ else   if (dialog.input.getBackground() != null)   dialog.input.getBackground().setColorFilter(builder.widgetColor,PorterDuff.Mode.SRC_IN);
+}

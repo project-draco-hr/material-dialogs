@@ -36,6 +36,7 @@
   dialog.positiveButton=(MDButton)dialog.view.findViewById(R.id.buttonDefaultPositive);
   dialog.neutralButton=(MDButton)dialog.view.findViewById(R.id.buttonDefaultNeutral);
   dialog.negativeButton=(MDButton)dialog.view.findViewById(R.id.buttonDefaultNegative);
+  if (builder.inputCallback != null && builder.positiveText == null)   builder.positiveText=builder.context.getString(android.R.string.ok);
   dialog.positiveButton.setVisibility(builder.positiveText != null ? View.VISIBLE : View.GONE);
   dialog.neutralButton.setVisibility(builder.neutralText != null ? View.VISIBLE : View.GONE);
   dialog.negativeButton.setVisibility(builder.negativeText != null ? View.VISIBLE : View.GONE);
@@ -173,6 +174,7 @@
     }
   }
   setupProgressDialog(dialog);
+  setupInputDialog(dialog);
   if (builder.customView != null) {
     FrameLayout frame=(FrameLayout)dialog.view.findViewById(R.id.customViewFrame);
     dialog.customViewFrame=frame;

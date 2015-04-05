@@ -1,6 +1,6 @@
 {
   if (Looper.myLooper() != Looper.getMainLooper())   throw new IllegalStateException("You can only set the dialog's progress from the UI thread.");
- else   if (mBuilder.mProgress <= -2)   throw new IllegalStateException("Cannot use setProgress() on this dialog.");
+ else   if (mBuilder.progress <= -2)   throw new IllegalStateException("Cannot use setProgress() on this dialog.");
   mProgress.setProgress(progress);
   int percentage=(int)(((float)getCurrentProgress() / (float)getMaxProgress()) * 100f);
   mProgressLabel.setText(percentage + "%");

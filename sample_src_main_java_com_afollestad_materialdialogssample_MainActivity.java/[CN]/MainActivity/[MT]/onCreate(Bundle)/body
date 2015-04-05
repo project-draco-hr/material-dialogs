@@ -121,6 +121,12 @@
     }
   }
 );
+  findViewById(R.id.input).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showInputDialog();
+    }
+  }
+);
   findViewById(R.id.progress1).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showProgressDialog(false);
