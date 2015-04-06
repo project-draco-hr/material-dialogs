@@ -1,5 +1,5 @@
 {
-  if (mTitleBar != null && mTitleBar.getVisibility() != View.GONE) {
+  if (isVisible(mTitleBar)) {
     int height=mTitleBar.getMeasuredHeight();
     mTitleBar.layout(l,t,r,t + height);
     t+=height;
@@ -7,11 +7,11 @@
  else   if (mUseFullPadding) {
     t+=mNoTitlePaddingFull;
   }
-  if (mContent != null && mContent.getVisibility() != View.GONE)   mContent.layout(l,t,r,t + mContent.getMeasuredHeight());
+  if (isVisible(mContent))   mContent.layout(l,t,r,t + mContent.getMeasuredHeight());
   if (mIsStacked) {
     b-=mButtonPaddingFull;
     for (    MDButton mButton : mButtons) {
-      if (mButton != null && mButton.getVisibility() != View.GONE) {
+      if (isVisible(mButton)) {
         mButton.layout(l,b - mButton.getMeasuredHeight(),r,b);
         b-=mButton.getMeasuredHeight();
       }
@@ -25,7 +25,7 @@
     int offset=mButtonHorizontalEdgeMargin;
     int neutralLeft=-1;
     int neutralRight=-1;
-    if (mButtons[INDEX_POSITIVE] != null && mButtons[INDEX_POSITIVE].getVisibility() != View.GONE) {
+    if (isVisible(mButtons[INDEX_POSITIVE])) {
       int bl, br;
       if (mButtonGravity == GravityEnum.END) {
         bl=l + offset;
@@ -39,7 +39,7 @@
       mButtons[INDEX_POSITIVE].layout(bl,barTop,br,barBottom);
       offset+=mButtons[INDEX_POSITIVE].getMeasuredWidth();
     }
-    if (mButtons[INDEX_NEGATIVE] != null && mButtons[INDEX_NEGATIVE].getVisibility() != View.GONE) {
+    if (isVisible(mButtons[INDEX_NEGATIVE])) {
       int bl, br;
       if (mButtonGravity == GravityEnum.END) {
         bl=l + offset;
@@ -56,7 +56,7 @@
       }
       mButtons[INDEX_NEGATIVE].layout(bl,barTop,br,barBottom);
     }
-    if (mButtons[INDEX_NEUTRAL] != null && mButtons[INDEX_NEUTRAL].getVisibility() != View.GONE) {
+    if (isVisible(mButtons[INDEX_NEUTRAL])) {
       int bl, br;
       if (mButtonGravity == GravityEnum.END) {
         br=r - mButtonHorizontalEdgeMargin;

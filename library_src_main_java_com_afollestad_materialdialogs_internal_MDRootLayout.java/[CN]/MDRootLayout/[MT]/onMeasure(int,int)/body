@@ -50,18 +50,24 @@
  else {
     fullPadding+=2 * mButtonPaddingFull;
   }
-  if (mTitleBar != null && mTitleBar.getVisibility() != View.GONE) {
+  if (isVisible(mTitleBar)) {
     mTitleBar.measure(MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY),MeasureSpec.UNSPECIFIED);
     availableHeight-=mTitleBar.getMeasuredHeight();
   }
  else {
     fullPadding+=mNoTitlePaddingFull;
   }
-  if (mContent != null && mContent.getVisibility() != View.GONE) {
+  if (isVisible(mContent)) {
     mContent.measure(MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY),MeasureSpec.makeMeasureSpec(availableHeight - minPadding,MeasureSpec.AT_MOST));
-    if (mContent.getMeasuredHeight() < availableHeight - fullPadding) {
-      mUseFullPadding=true;
-      availableHeight-=mContent.getMeasuredHeight() + fullPadding;
+    if (mContent.getMeasuredHeight() <= availableHeight - fullPadding) {
+      if (!mReducePaddingNoTitleNoButtons || isVisible(mTitleBar) || hasButtons) {
+        mUseFullPadding=true;
+        availableHeight-=mContent.getMeasuredHeight() + fullPadding;
+      }
+ else {
+        mUseFullPadding=false;
+        availableHeight-=mContent.getMeasuredHeight() + minPadding;
+      }
     }
  else {
       mUseFullPadding=false;
