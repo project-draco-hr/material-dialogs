@@ -1,4 +1,0 @@
-{
-  super.onDismiss(dialog);
-  if (input != null)   DialogUtils.hideKeyboard(this,mBuilder);
-}
