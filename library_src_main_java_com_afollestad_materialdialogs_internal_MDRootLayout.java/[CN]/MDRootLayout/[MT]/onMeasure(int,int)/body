@@ -72,7 +72,6 @@
  else {
       mUseFullPadding=false;
       availableHeight=0;
-      setScrollListenerForDividersVisibility(mContent);
     }
   }
   setMeasuredDimension(width,height - availableHeight);

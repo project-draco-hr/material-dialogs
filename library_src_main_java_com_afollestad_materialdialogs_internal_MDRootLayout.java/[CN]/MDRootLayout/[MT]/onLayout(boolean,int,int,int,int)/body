@@ -83,4 +83,5 @@
       mButtons[INDEX_NEUTRAL].layout(bl,barTop,br,barBottom);
     }
   }
+  setUpDividersVisibility(mContent,true,false);
 }
