@@ -66,8 +66,7 @@
  else {
       mUseFullPadding=false;
       availableHeight=0;
-      mDrawTopDivider=mTitleBar != null && mTitleBar.getVisibility() != View.GONE && canViewOrChildScroll(mContent,false);
-      mDrawBottomDivider=hasButtons && canViewOrChildScroll(mContent,true);
+      setScrollListenerForDividersVisibility(mContent);
     }
   }
   setMeasuredDimension(width,height - availableHeight);
