@@ -1,5 +1,8 @@
 {
   Resources r=context.getResources();
+  TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.MDRootLayout,defStyleAttr,0);
+  mReducePaddingNoTitleNoButtons=a.getBoolean(R.styleable.MDRootLayout_md_reduce_padding_no_title_no_buttons,true);
+  a.recycle();
   mNoTitlePaddingFull=r.getDimensionPixelSize(R.dimen.md_notitle_vertical_padding);
   mButtonPaddingFull=r.getDimensionPixelSize(R.dimen.md_button_frame_vertical_padding);
   mButtonHorizontalEdgeMargin=r.getDimensionPixelSize(R.dimen.md_button_padding_frame_side);
