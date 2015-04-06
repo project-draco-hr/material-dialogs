@@ -1,0 +1,3 @@
+{
+  if (mDismissListener != null)   mDismissListener.onDismiss(dialog);
+}

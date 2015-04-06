@@ -1,0 +1,4 @@
+{
+  super.onShow(dialog);
+  if (input != null)   DialogUtils.showKeyboard(this,mBuilder);
+}

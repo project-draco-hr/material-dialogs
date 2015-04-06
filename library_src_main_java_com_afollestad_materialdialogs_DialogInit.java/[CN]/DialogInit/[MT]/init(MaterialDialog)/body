@@ -203,7 +203,9 @@
   if (builder.dismissListener != null)   dialog.setOnDismissListener(builder.dismissListener);
   if (builder.keyListener != null)   dialog.setOnKeyListener(builder.keyListener);
   dialog.invalidateList();
-  dialog._setOnShowListenerInternal();
-  dialog._setViewInternal(dialog.view);
+  dialog.setOnShowListenerInternal();
+  dialog.setOnDismissListenerInternal();
+  dialog.setOnCancelListenerInternal();
+  dialog.setViewInternal(dialog.view);
   dialog.checkIfListInitScroll();
 }

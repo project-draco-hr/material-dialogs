@@ -1,0 +1,3 @@
+{
+  if (mCancelListener != null)   mCancelListener.onCancel(dialog);
+}
