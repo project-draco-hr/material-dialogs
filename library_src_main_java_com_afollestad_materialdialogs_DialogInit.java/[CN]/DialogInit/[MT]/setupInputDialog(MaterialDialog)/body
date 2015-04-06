@@ -1,10 +1,11 @@
 {
   final MaterialDialog.Builder builder=dialog.mBuilder;
-  dialog.input=(EditText)dialog.view.findViewById(android.R.id.input);
+  dialog.input=(MDEditText)dialog.view.findViewById(android.R.id.input);
   if (dialog.input == null)   return;
   if (builder.inputPrefill != null)   dialog.input.append(builder.inputPrefill);
   dialog.input.setHint(builder.inputHint);
   dialog.input.setSingleLine();
+  dialog.input.setColorFilter(dialog.mBuilder.widgetColor);
   dialog.setOnShowListener(new DialogInterface.OnShowListener(){
     @Override public void onShow(    DialogInterface di){
       final MaterialDialog dialog=(MaterialDialog)di;
@@ -50,6 +51,4 @@
     }
   }
 );
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)   dialog.input.setBackgroundTintList(ColorStateList.valueOf(builder.widgetColor));
- else   if (dialog.input.getBackground() != null)   dialog.input.getBackground().setColorFilter(builder.widgetColor,PorterDuff.Mode.SRC_IN);
 }
