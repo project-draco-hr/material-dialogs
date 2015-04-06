@@ -1,0 +1,18 @@
+{
+  if ((!bottom && mTopOnScrollChangedListener == null || (bottom && mBottomOnScrollChangedListener == null))) {
+    ViewTreeObserver.OnScrollChangedListener onScrollChangedListener=new ViewTreeObserver.OnScrollChangedListener(){
+      @Override public void onScrollChanged(){
+        invalidateDividersForScrollingView(vg,topAndBottom,bottom);
+      }
+    }
+;
+    if (!bottom) {
+      mTopOnScrollChangedListener=onScrollChangedListener;
+      vg.getViewTreeObserver().addOnScrollChangedListener(mTopOnScrollChangedListener);
+    }
+ else {
+      mBottomOnScrollChangedListener=onScrollChangedListener;
+      vg.getViewTreeObserver().addOnScrollChangedListener(mBottomOnScrollChangedListener);
+    }
+  }
+}

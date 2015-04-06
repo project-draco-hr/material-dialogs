@@ -1,0 +1,41 @@
+{
+  if (view == null)   return;
+  if (view instanceof ScrollView) {
+    final ScrollView sv=(ScrollView)view;
+    if (canScrollViewScroll(sv)) {
+      addScrollListener(sv,topAndBottom,bottom);
+    }
+ else {
+      if (!bottom || topAndBottom)       mDrawTopDivider=false;
+      if (bottom || topAndBottom)       mDrawBottomDivider=false;
+    }
+  }
+ else   if (view instanceof AdapterView) {
+    final AdapterView sv=(AdapterView)view;
+    if (canAdapterViewScroll(sv)) {
+      addScrollListener(sv,topAndBottom,bottom);
+    }
+ else {
+      if (!bottom || topAndBottom)       mDrawTopDivider=false;
+      if (bottom || topAndBottom)       mDrawBottomDivider=false;
+    }
+  }
+ else   if (view instanceof WebView) {
+    boolean canScroll=canWebViewScroll((WebView)view);
+    if (!bottom || topAndBottom)     mDrawTopDivider=canScroll;
+    if (bottom || topAndBottom)     mDrawBottomDivider=canScroll;
+  }
+ else   if (view instanceof RecyclerView) {
+    boolean canScroll=canRecyclerViewScroll((RecyclerView)view);
+    if (!bottom || topAndBottom)     mDrawTopDivider=canScroll;
+    if (bottom || topAndBottom)     mDrawBottomDivider=canScroll;
+  }
+ else   if (view instanceof ViewGroup) {
+    View topView=getTopView((ViewGroup)view);
+    setUpDividersVisibility(topView,topAndBottom,false);
+    View bottomView=getBottomView((ViewGroup)view);
+    if (bottomView != topView) {
+      setUpDividersVisibility(bottomView,false,true);
+    }
+  }
+}
