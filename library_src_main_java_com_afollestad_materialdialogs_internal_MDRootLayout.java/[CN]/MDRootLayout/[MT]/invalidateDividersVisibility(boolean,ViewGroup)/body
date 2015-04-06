@@ -1,0 +1,13 @@
+{
+  if (canScroll) {
+    boolean hasButtons=false;
+    for (    MDButton button : mButtons) {
+      if (button != null && button.getVisibility() != View.GONE) {
+        hasButtons=true;
+      }
+    }
+    mDrawTopDivider=mTitleBar != null && mTitleBar.getVisibility() != View.GONE && view.getScrollY() + view.getPaddingTop() > view.getChildAt(0).getTop();
+    mDrawBottomDivider=hasButtons && view.getScrollY() + view.getHeight() - view.getPaddingBottom() < view.getChildAt(view.getChildCount() - 1).getBottom();
+    invalidate();
+  }
+}
