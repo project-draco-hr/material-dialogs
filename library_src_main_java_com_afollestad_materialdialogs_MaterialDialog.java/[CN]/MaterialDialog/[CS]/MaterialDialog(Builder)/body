@@ -1,8 +1,8 @@
 {
   super(builder.context);
   mBuilder=builder;
-  final ContextThemeWrapper themedContext=DialogInit.getTheme(builder);
-  final LayoutInflater inflater=LayoutInflater.from(themedContext);
+  mThemedContext=DialogInit.getTheme(builder);
+  final LayoutInflater inflater=LayoutInflater.from(getThemedContext());
   view=(MDRootLayout)inflater.inflate(DialogInit.getInflateLayout(builder),null);
   DialogInit.init(this);
 }
