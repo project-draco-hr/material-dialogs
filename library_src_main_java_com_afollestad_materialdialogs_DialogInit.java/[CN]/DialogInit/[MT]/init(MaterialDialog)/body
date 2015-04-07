@@ -149,15 +149,6 @@
     dialog.neutralButton.setOnClickListener(dialog);
     dialog.neutralButton.setVisibility(View.VISIBLE);
   }
-  if (builder.itemColorSet) {
-    dialog.defaultItemColor=builder.itemColor;
-  }
- else   if (builder.theme == Theme.LIGHT) {
-    dialog.defaultItemColor=Color.BLACK;
-  }
- else {
-    dialog.defaultItemColor=Color.WHITE;
-  }
   if (builder.listCallbackMultiChoice != null)   dialog.selectedIndicesList=new ArrayList<>();
   if (dialog.listView != null && (builder.items != null && builder.items.length > 0 || builder.adapter != null)) {
     dialog.listView.setSelector(dialog.getListSelector());
@@ -210,4 +201,7 @@
   dialog.invalidateList();
   dialog.setViewInternal(dialog.view);
   dialog.checkIfListInitScroll();
+  if (builder.theme == Theme.LIGHT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
+    dialog.setInverseBackgroundForced(true);
+  }
 }
