@@ -1,9 +1,9 @@
 {
   final MaterialDialog.Builder builder=dialog.mBuilder;
-  dialog.input=(MDEditText)dialog.view.findViewById(android.R.id.input);
+  dialog.input=(EditText)dialog.view.findViewById(android.R.id.input);
   if (dialog.input == null)   return;
   if (builder.inputPrefill != null)   dialog.input.append(builder.inputPrefill);
   dialog.input.setHint(builder.inputHint);
   dialog.input.setSingleLine();
-  dialog.input.setColorFilter(dialog.mBuilder.widgetColor);
+  MDTintHelper.setEditTextTint(dialog.input,dialog.mBuilder.widgetColor);
 }

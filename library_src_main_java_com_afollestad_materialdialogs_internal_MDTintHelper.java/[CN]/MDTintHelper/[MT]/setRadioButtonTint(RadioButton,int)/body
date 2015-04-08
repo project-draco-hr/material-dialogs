@@ -1,0 +1,12 @@
+{
+  ColorStateList sl=new ColorStateList(new int[][]{new int[]{-android.R.attr.state_checked},new int[]{android.R.attr.state_checked}},new int[]{DialogUtils.resolveColor(radioButton.getContext(),android.R.attr.textColorSecondary),color});
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    radioButton.setButtonTintList(sl);
+  }
+ else {
+    Drawable drawable=ContextCompat.getDrawable(radioButton.getContext(),R.drawable.abc_btn_radio_material);
+    DrawableWrapper d=new DrawableWrapper(drawable);
+    d.setTintList(sl);
+    radioButton.setButtonDrawable(d);
+  }
+}

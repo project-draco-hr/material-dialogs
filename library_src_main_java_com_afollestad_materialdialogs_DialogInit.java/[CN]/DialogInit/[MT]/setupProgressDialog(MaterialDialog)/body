@@ -1,9 +1,9 @@
 {
   final MaterialDialog.Builder builder=dialog.mBuilder;
   if (builder.indeterminateProgress || builder.progress > -2) {
-    dialog.mProgress=(MDProgressBar)dialog.view.findViewById(android.R.id.progress);
+    dialog.mProgress=(ProgressBar)dialog.view.findViewById(android.R.id.progress);
     if (dialog.mProgress == null)     return;
-    dialog.mProgress.setColorFilter(builder.widgetColor);
+    MDTintHelper.setProgressBarTint(dialog.mProgress,builder.widgetColor);
     if (!builder.indeterminateProgress) {
       dialog.mProgress.setProgress(0);
       dialog.mProgress.setMax(builder.progressMax);

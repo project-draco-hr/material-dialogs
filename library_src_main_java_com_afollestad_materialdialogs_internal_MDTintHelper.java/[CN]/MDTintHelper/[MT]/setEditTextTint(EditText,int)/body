@@ -1,0 +1,8 @@
+{
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    editText.setBackgroundTintList(ColorStateList.valueOf(color));
+  }
+ else {
+    editText.getBackground().setColorFilter(color,PorterDuff.Mode.SRC_IN);
+  }
+}
