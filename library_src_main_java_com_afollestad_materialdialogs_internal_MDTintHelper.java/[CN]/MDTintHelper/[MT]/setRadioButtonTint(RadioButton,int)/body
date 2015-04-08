@@ -3,7 +3,7 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     radioButton.setButtonTintList(sl);
   }
- else {
+ else   if (radioButton instanceof TintRadioButton) {
     Drawable drawable=ContextCompat.getDrawable(radioButton.getContext(),R.drawable.abc_btn_radio_material);
     DrawableWrapper d=new DrawableWrapper(drawable);
     d.setTintList(sl);

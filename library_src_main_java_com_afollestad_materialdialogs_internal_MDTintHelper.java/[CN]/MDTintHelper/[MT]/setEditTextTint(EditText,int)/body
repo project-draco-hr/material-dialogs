@@ -1,8 +1,12 @@
 {
+  ColorStateList s1=ColorStateList.valueOf(color);
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-    editText.setBackgroundTintList(ColorStateList.valueOf(color));
+    editText.setBackgroundTintList(s1);
   }
- else {
-    editText.getBackground().setColorFilter(color,PorterDuff.Mode.SRC_IN);
+ else   if (editText instanceof TintEditText) {
+    Drawable drawable=ContextCompat.getDrawable(editText.getContext(),R.drawable.abc_edit_text_material);
+    DrawableWrapper d=new DrawableWrapper(drawable);
+    d.setTintList(s1);
+    editText.setBackgroundDrawable(d);
   }
 }

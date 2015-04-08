@@ -3,7 +3,7 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     box.setButtonTintList(sl);
   }
- else {
+ else   if (box instanceof TintCheckBox) {
     Drawable drawable=ContextCompat.getDrawable(box.getContext(),R.drawable.abc_btn_check_material);
     DrawableWrapper d=new DrawableWrapper(drawable);
     d.setTintList(sl);
