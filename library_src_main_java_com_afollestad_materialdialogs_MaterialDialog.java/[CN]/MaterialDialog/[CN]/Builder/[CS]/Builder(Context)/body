@@ -1,19 +1,13 @@
 {
   this.context=context;
   final int materialBlue=context.getResources().getColor(R.color.md_material_blue_600);
+  this.widgetColor=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-    final int fallback=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
-    this.widgetColor=DialogUtils.resolveColor(context,android.R.attr.colorAccent,fallback);
-    this.positiveColor=this.widgetColor;
-    this.negativeColor=this.widgetColor;
-    this.neutralColor=this.widgetColor;
+    this.widgetColor=DialogUtils.resolveColor(context,android.R.attr.colorAccent,this.widgetColor);
   }
- else {
-    this.widgetColor=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
-    this.positiveColor=this.widgetColor;
-    this.negativeColor=this.widgetColor;
-    this.neutralColor=this.widgetColor;
-  }
+  this.positiveColor=this.widgetColor;
+  this.negativeColor=this.widgetColor;
+  this.neutralColor=this.widgetColor;
   final int primaryTextColor=DialogUtils.resolveColor(context,android.R.attr.textColorPrimary);
   this.theme=DialogUtils.isColorDark(primaryTextColor) ? Theme.LIGHT : Theme.DARK;
   checkSingleton();

@@ -1,0 +1,10 @@
+{
+  if (mDrawable != null) {
+    mDrawable.setCallback(null);
+  }
+  mDrawable=drawable;
+  if (drawable != null) {
+    drawable.setCallback(this);
+  }
+  invalidateSelf();
+}

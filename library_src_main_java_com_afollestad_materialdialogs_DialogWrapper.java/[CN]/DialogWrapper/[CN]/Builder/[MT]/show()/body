@@ -1,0 +1,5 @@
+{
+  Dialog dialog=create();
+  dialog.show();
+  return dialog;
+}

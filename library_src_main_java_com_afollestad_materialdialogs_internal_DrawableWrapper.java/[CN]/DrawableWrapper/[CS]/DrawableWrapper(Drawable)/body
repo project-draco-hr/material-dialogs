@@ -1,0 +1,3 @@
+{
+  setWrappedDrawable(drawable);
+}

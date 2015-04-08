@@ -1,0 +1,4 @@
+{
+  mTintMode=tintMode;
+  updateTint(getState());
+}

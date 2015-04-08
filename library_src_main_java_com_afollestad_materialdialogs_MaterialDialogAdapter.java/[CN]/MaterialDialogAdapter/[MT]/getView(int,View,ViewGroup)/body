@@ -4,17 +4,17 @@
 switch (dialog.listType) {
 case SINGLE:
 {
-      @SuppressLint("CutPasteId") MDRadioButton radio=(MDRadioButton)view.findViewById(R.id.control);
+      @SuppressLint("CutPasteId") RadioButton radio=(RadioButton)view.findViewById(R.id.control);
       boolean selected=dialog.mBuilder.selectedIndex == index;
-      radio.setColorFilter(dialog.mBuilder.widgetColor);
+      MDTintHelper.setRadioButtonTint(radio,dialog.mBuilder.widgetColor);
       radio.setChecked(selected);
       break;
     }
 case MULTI:
 {
-    @SuppressLint("CutPasteId") MDCheckBox checkbox=(MDCheckBox)view.findViewById(R.id.control);
+    @SuppressLint("CutPasteId") CheckBox checkbox=(CheckBox)view.findViewById(R.id.control);
     boolean selected=dialog.selectedIndicesList.contains(index);
-    checkbox.setColorFilter(dialog.mBuilder.widgetColor);
+    MDTintHelper.setCheckBoxTint(checkbox,dialog.mBuilder.widgetColor);
     checkbox.setChecked(selected);
     break;
   }
