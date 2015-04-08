@@ -3,7 +3,7 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     editText.setBackgroundTintList(s1);
   }
- else   if (editText instanceof TintEditText) {
+ else {
     Drawable drawable=ContextCompat.getDrawable(editText.getContext(),R.drawable.abc_edit_text_material);
     DrawableWrapper d=new DrawableWrapper(drawable);
     d.setTintList(s1);

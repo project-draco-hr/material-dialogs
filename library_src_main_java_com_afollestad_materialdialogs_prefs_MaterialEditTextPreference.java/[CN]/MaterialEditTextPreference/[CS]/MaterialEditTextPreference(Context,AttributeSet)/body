@@ -1,4 +1,7 @@
 {
   super(context,attrs);
-  if (VERSION.SDK_INT < VERSION_CODES.LOLLIPOP)   mColor=DialogUtils.resolveColor(context,R.attr.colorAccent);
+  mColor=DialogUtils.resolveColor(context,R.attr.colorAccent);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    mColor=DialogUtils.resolveColor(context,android.R.attr.colorAccent,mColor);
+  }
 }
