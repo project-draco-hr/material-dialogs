@@ -19,13 +19,15 @@
     }
   }
 );
-  ((CheckBox)dialog.getCustomView().findViewById(R.id.showPassword)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+  CheckBox checkbox=(CheckBox)dialog.getCustomView().findViewById(R.id.showPassword);
+  checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
     @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
       passwordInput.setInputType(!isChecked ? InputType.TYPE_TEXT_VARIATION_PASSWORD : InputType.TYPE_CLASS_TEXT);
       passwordInput.setTransformationMethod(!isChecked ? PasswordTransformationMethod.getInstance() : null);
     }
   }
 );
+  MDTintHelper.setCheckBoxTint(checkbox,getResources().getColor(R.color.material_pink_500));
   dialog.show();
   positiveAction.setEnabled(false);
 }
