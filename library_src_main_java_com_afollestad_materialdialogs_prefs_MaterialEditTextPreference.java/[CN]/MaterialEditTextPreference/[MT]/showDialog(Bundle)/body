@@ -12,7 +12,7 @@
     message.setVisibility(View.GONE);
   }
   mBuilder.customView(layout,false);
-  MaterialDialog mDialog=mBuilder.build();
+  mDialog=mBuilder.build();
   if (state != null)   mDialog.onRestoreInstanceState(state);
   requestInputMethod(mDialog);
   mDialog.show();
