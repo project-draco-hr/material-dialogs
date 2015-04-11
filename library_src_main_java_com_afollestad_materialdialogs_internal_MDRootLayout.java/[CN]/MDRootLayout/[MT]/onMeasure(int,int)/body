@@ -7,7 +7,7 @@
   if (!mForceStack) {
     int buttonsWidth=0;
     for (    MDButton button : mButtons) {
-      if (button != null && button.getVisibility() != View.GONE) {
+      if (button != null && isVisible(button)) {
         button.setStacked(false,false);
         measureChild(button,widthMeasureSpec,heightMeasureSpec);
         buttonsWidth+=button.getMeasuredWidth();
@@ -25,7 +25,7 @@
   mIsStacked=stacked;
   if (stacked) {
     for (    MDButton button : mButtons) {
-      if (button != null && button.getVisibility() != View.GONE) {
+      if (button != null && isVisible(button)) {
         button.setStacked(true,false);
         measureChild(button,widthMeasureSpec,heightMeasureSpec);
         stackedHeight+=button.getMeasuredHeight();

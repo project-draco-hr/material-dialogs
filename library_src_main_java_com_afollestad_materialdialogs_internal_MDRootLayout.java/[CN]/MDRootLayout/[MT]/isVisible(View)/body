@@ -1,3 +1,5 @@
 {
-  return v != null && v.getVisibility() != View.GONE;
+  boolean visible=v != null && v.getVisibility() != View.GONE;
+  if (visible && v instanceof MDButton)   visible=((MDButton)v).getText().toString().trim().length() > 0;
+  return visible;
 }
