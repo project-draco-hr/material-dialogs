@@ -2,7 +2,7 @@
   if (lv.getLastVisiblePosition() == -1)   return false;
   boolean firstItemVisible=lv.getFirstVisiblePosition() == 0;
   boolean lastItemVisible=lv.getLastVisiblePosition() == lv.getCount() - 1;
-  if (firstItemVisible && lastItemVisible) {
+  if (firstItemVisible && lastItemVisible && lv.getChildCount() > 0) {
     if (lv.getChildAt(0).getTop() < lv.getPaddingTop())     return true;
     return lv.getChildAt(lv.getChildCount() - 1).getBottom() > lv.getHeight() - lv.getPaddingBottom();
   }

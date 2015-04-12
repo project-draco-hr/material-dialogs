@@ -11,5 +11,5 @@
   }
   if (lastVisible == -1)   return false;
   final boolean lastItemVisible=lastVisible == count - 1;
-  return !lastItemVisible || view.getChildAt(view.getChildCount() - 1).getBottom() > view.getHeight() - view.getPaddingBottom();
+  return !lastItemVisible || (view.getChildCount() > 0 && view.getChildAt(view.getChildCount() - 1).getBottom() > view.getHeight() - view.getPaddingBottom());
 }

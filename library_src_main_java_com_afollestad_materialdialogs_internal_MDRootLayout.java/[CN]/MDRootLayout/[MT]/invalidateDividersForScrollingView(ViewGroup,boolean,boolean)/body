@@ -5,10 +5,10 @@
       hasButtons=true;
     }
   }
-  if (!bottom || topAndBottom) {
+  if ((!bottom || topAndBottom) && view.getChildCount() > 0) {
     mDrawTopDivider=mTitleBar != null && mTitleBar.getVisibility() != View.GONE && view.getScrollY() + view.getPaddingTop() > view.getChildAt(0).getTop();
   }
-  if (bottom || topAndBottom) {
+  if ((bottom || topAndBottom) && view.getChildCount() > 0) {
     mDrawBottomDivider=hasButtons && view.getScrollY() + view.getHeight() - view.getPaddingBottom() < view.getChildAt(view.getChildCount() - 1).getBottom();
   }
   invalidate();
