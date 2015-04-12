@@ -22,5 +22,16 @@
  else {
     builder.content(getDialogMessage());
   }
-  mDialog=builder.show();
+  PreferenceManager pm=getPreferenceManager();
+  try {
+    Method method=pm.getClass().getDeclaredMethod("registerOnActivityDestroyListener",PreferenceManager.OnActivityDestroyListener.class);
+    method.setAccessible(true);
+    method.invoke(pm,this);
+  }
+ catch (  NoSuchMethodException|InvocationTargetException|IllegalAccessException e) {
+    e.printStackTrace();
+  }
+  mDialog=builder.build();
+  if (state != null)   mDialog.onRestoreInstanceState(state);
+  mDialog.show();
 }
