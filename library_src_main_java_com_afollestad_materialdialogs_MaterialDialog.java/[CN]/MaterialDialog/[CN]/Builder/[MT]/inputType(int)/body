@@ -1,0 +1,4 @@
+{
+  this.inputType=type;
+  return this;
+}
