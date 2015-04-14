@@ -1,0 +1,4 @@
+{
+  this.mContent=content;
+  return this;
+}

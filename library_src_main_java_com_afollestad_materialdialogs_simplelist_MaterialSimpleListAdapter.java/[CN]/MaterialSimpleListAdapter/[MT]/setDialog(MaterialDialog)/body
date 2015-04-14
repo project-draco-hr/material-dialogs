@@ -1,0 +1,4 @@
+{
+  this.dialog=dialog;
+  notifyDataSetChanged();
+}

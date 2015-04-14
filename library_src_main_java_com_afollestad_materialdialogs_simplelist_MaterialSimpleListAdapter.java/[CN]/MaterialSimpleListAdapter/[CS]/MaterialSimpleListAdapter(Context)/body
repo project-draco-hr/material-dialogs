@@ -1,0 +1,3 @@
+{
+  super(context,R.layout.md_simplelist_item,android.R.id.title);
+}

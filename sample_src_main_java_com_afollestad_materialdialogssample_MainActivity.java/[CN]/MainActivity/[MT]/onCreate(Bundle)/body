@@ -79,6 +79,12 @@
     }
   }
 );
+  findViewById(R.id.simpleList).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showSimpleList();
+    }
+  }
+);
   findViewById(R.id.customListItems).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showCustomList();

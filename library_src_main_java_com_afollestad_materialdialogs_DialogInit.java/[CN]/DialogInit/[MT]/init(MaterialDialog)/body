@@ -161,6 +161,9 @@
       }
       builder.adapter=new MaterialDialogAdapter(dialog,MaterialDialog.ListType.getLayoutForType(dialog.listType),R.id.title,builder.items);
     }
+ else     if (builder.adapter instanceof MaterialSimpleListAdapter) {
+      ((MaterialSimpleListAdapter)builder.adapter).setDialog(dialog);
+    }
   }
   setupProgressDialog(dialog);
   setupInputDialog(dialog);

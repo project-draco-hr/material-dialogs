@@ -1,6 +1,6 @@
 {
   if (t == null)   return;
-  int flags=text.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG;
-  text.setPaintFlags(flags);
-  text.setTypeface(t);
+  int flags=target.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG;
+  target.setPaintFlags(flags);
+  target.setTypeface(t);
 }

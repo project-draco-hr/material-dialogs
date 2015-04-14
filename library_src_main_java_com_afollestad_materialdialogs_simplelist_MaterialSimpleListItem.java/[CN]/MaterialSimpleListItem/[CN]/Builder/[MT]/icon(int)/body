@@ -1,0 +1,3 @@
+{
+  return icon(ContextCompat.getDrawable(mContext,iconRes));
+}

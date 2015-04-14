@@ -1,0 +1,4 @@
+{
+  if (getContent() != null)   return getContent().toString();
+ else   return "(no content)";
+}
