@@ -31,7 +31,7 @@
     method.setAccessible(true);
     method.invoke(pm,this);
   }
- catch (  NoSuchMethodException|InvocationTargetException|IllegalAccessException e) {
+ catch (  Exception e) {
     e.printStackTrace();
   }
   mDialog=builder.build();
