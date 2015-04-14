@@ -2,6 +2,7 @@
   final MaterialDialog.Builder builder=dialog.mBuilder;
   dialog.input=(EditText)dialog.view.findViewById(android.R.id.input);
   if (dialog.input == null)   return;
+  dialog.setTypeface(dialog.input,builder.regularFont);
   if (builder.inputPrefill != null)   dialog.input.append(builder.inputPrefill);
   if (builder.alwaysCallInputCallback) {
     dialog.input.addTextChangedListener(new TextWatcher(){
