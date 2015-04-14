@@ -1,4 +1,8 @@
 {
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)   view.setBackground(d);
- else   view.setBackgroundDrawable(d);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+    view.setBackground(d);
+  }
+ else {
+    view.setBackgroundDrawable(d);
+  }
 }

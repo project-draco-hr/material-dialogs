@@ -1,0 +1,8 @@
+{
+  ChangelogDialog dialog=new ChangelogDialog();
+  Bundle args=new Bundle();
+  args.putBoolean("dark_theme",darkTheme);
+  args.putInt("accent_color",accentColor);
+  dialog.setArguments(args);
+  return dialog;
+}
