@@ -1,7 +1,7 @@
 {
   if (ThemeSingleton.get(false) == null)   return;
   ThemeSingleton s=ThemeSingleton.get();
-  theme(s.darkTheme ? Theme.DARK : Theme.LIGHT);
+  if (s.darkTheme)   this.theme=Theme.DARK;
   if (s.titleColor != 0)   this.titleColor=s.titleColor;
   if (s.contentColor != 0)   this.contentColor=s.contentColor;
   if (s.positiveColor != 0)   this.positiveColor=s.positiveColor;
