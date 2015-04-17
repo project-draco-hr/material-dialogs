@@ -1,4 +1,4 @@
 {
-  title(this.context.getString(titleRes));
+  title(this.context.getText(titleRes));
   return this;
 }

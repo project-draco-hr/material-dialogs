@@ -1,4 +1,4 @@
 {
-  content(this.context.getString(contentRes));
+  content(this.context.getText(contentRes));
   return this;
 }
