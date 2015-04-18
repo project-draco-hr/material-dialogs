@@ -1,0 +1,7 @@
+{
+  this.inputCallback=callback;
+  this.inputHint=hint;
+  this.inputPrefill=prefill;
+  this.inputAllowEmpty=allowEmptyInput;
+  return this;
+}

@@ -1,0 +1,4 @@
+int hint
+int prefill
+boolean allowEmptyInput
+InputCallback callback

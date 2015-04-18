@@ -1,6 +1,3 @@
 {
-  this.inputCallback=callback;
-  this.inputHint=hint;
-  this.inputPrefill=prefill;
-  return this;
+  return input(hint,prefill,true,callback);
 }

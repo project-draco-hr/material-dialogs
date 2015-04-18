@@ -1,0 +1,4 @@
+CharSequence hint
+CharSequence prefill
+boolean allowEmptyInput
+InputCallback callback

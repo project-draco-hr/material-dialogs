@@ -1,0 +1,3 @@
+{
+  return input(hint == 0 ? null : context.getText(hint),prefill == 0 ? null : context.getText(prefill),allowEmptyInput,callback);
+}
