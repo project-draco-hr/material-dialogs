@@ -4,7 +4,6 @@
   if (dialog.input == null)   return;
   dialog.setTypeface(dialog.input,builder.regularFont);
   if (builder.inputPrefill != null)   dialog.input.setText(builder.inputPrefill);
-  if (builder.inputType != -1)   dialog.input.setInputType(builder.inputType);
   if (builder.alwaysCallInputCallback) {
     dialog.input.addTextChangedListener(new TextWatcher(){
       @Override public void beforeTextChanged(      CharSequence s,      int start,      int count,      int after){
@@ -22,4 +21,10 @@
   dialog.input.setTextColor(builder.contentColor);
   dialog.input.setHintTextColor(DialogUtils.adjustAlpha(builder.contentColor,0.3f));
   MDTintHelper.setTint(dialog.input,dialog.mBuilder.widgetColor);
+  if (builder.inputType != -1) {
+    dialog.input.setInputType(builder.inputType);
+    if ((builder.inputType & InputType.TYPE_TEXT_VARIATION_PASSWORD) == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+      dialog.input.setTransformationMethod(PasswordTransformationMethod.getInstance());
+    }
+  }
 }
