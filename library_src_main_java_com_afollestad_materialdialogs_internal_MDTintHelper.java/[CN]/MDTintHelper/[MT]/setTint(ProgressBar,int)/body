@@ -5,7 +5,7 @@
     progressBar.setSecondaryProgressTintList(sl);
     progressBar.setIndeterminateTintList(sl);
   }
- else {
+ else   if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
     if (progressBar.getIndeterminateDrawable() != null) {
       Drawable indeterminateDrawable=DrawableCompat.wrap(progressBar.getIndeterminateDrawable());
       DrawableCompat.setTintList(indeterminateDrawable,sl);
@@ -16,5 +16,13 @@
       DrawableCompat.setTintList(progressDrawable,sl);
       progressBar.setProgressDrawable(progressDrawable);
     }
+  }
+ else {
+    PorterDuff.Mode mode=PorterDuff.Mode.SRC_IN;
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
+      mode=PorterDuff.Mode.MULTIPLY;
+    }
+    if (progressBar.getIndeterminateDrawable() != null)     progressBar.getIndeterminateDrawable().setColorFilter(color,mode);
+    if (progressBar.getProgressDrawable() != null)     progressBar.getProgressDrawable().setColorFilter(color,mode);
   }
 }
