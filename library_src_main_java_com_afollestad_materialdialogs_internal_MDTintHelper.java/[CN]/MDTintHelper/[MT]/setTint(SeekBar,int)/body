@@ -5,7 +5,13 @@
     seekBar.setProgressTintList(s1);
   }
  else {
-    seekBar.getProgressDrawable().setColorFilter(color,PorterDuff.Mode.SRC_IN);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)     seekBar.getThumb().setColorFilter(color,PorterDuff.Mode.SRC_IN);
+    Drawable progressDrawable=DrawableCompat.wrap(seekBar.getProgressDrawable());
+    seekBar.setProgressDrawable(progressDrawable);
+    DrawableCompat.setTintList(progressDrawable,s1);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+      Drawable thumbDrawable=DrawableCompat.wrap(seekBar.getThumb());
+      DrawableCompat.setTintList(thumbDrawable,s1);
+      seekBar.setThumb(thumbDrawable);
+    }
   }
 }

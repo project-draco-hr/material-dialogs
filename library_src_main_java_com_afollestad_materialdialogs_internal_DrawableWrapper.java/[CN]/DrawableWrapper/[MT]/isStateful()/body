@@ -1,3 +1,0 @@
-{
-  return (mTintList != null && mTintList.isStateful()) || mDrawable.isStateful();
-}

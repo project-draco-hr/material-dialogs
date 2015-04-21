@@ -1,4 +1,0 @@
-{
-  mTintList=tint;
-  updateTint(getState());
-}

@@ -1,8 +1,0 @@
-{
-  Drawable wrapped=mDrawable;
-  Drawable mutated=wrapped.mutate();
-  if (mutated != wrapped) {
-    setWrappedDrawable(mutated);
-  }
-  return this;
-}

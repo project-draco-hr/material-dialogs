@@ -4,9 +4,8 @@
     radioButton.setButtonTintList(sl);
   }
  else {
-    Drawable drawable=ContextCompat.getDrawable(radioButton.getContext(),R.drawable.abc_btn_radio_material);
-    DrawableWrapper d=new DrawableWrapper(drawable);
-    d.setTintList(sl);
+    Drawable d=DrawableCompat.wrap(ContextCompat.getDrawable(radioButton.getContext(),R.drawable.abc_btn_radio_material));
+    DrawableCompat.setTintList(d,sl);
     radioButton.setButtonDrawable(d);
   }
 }

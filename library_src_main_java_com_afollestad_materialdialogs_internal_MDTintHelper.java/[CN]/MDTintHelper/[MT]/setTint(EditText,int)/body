@@ -4,9 +4,8 @@
     editText.setBackgroundTintList(s1);
   }
  else {
-    Drawable drawable=ContextCompat.getDrawable(editText.getContext(),R.drawable.abc_edit_text_material);
-    DrawableWrapper d=new DrawableWrapper(drawable);
-    d.setTintList(s1);
-    DialogUtils.setBackgroundCompat(editText,d);
+    Drawable drawable=DrawableCompat.wrap(ContextCompat.getDrawable(editText.getContext(),R.drawable.abc_edit_text_material));
+    DrawableCompat.setTintList(drawable,s1);
+    DialogUtils.setBackgroundCompat(editText,drawable);
   }
 }

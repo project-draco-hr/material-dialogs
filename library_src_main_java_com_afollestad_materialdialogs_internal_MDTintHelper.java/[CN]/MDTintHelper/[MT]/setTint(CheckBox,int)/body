@@ -4,9 +4,8 @@
     box.setButtonTintList(sl);
   }
  else {
-    Drawable drawable=ContextCompat.getDrawable(box.getContext(),R.drawable.abc_btn_check_material);
-    DrawableWrapper d=new DrawableWrapper(drawable);
-    d.setTintList(sl);
-    box.setButtonDrawable(d);
+    Drawable drawable=DrawableCompat.wrap(ContextCompat.getDrawable(box.getContext(),R.drawable.abc_btn_check_material));
+    DrawableCompat.setTintList(drawable,sl);
+    box.setButtonDrawable(drawable);
   }
 }
