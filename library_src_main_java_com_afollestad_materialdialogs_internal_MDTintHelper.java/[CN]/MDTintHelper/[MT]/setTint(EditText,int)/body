@@ -1,11 +1,9 @@
 {
-  ColorStateList s1=ColorStateList.valueOf(color);
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-    editText.setBackgroundTintList(s1);
+  ColorStateList editTextColorStateList=createEditTextColorStateList(editText.getContext(),color);
+  if (editText instanceof AppCompatEditText) {
+    ((AppCompatEditText)editText).setSupportBackgroundTintList(editTextColorStateList);
   }
- else {
-    Drawable drawable=DrawableCompat.wrap(ContextCompat.getDrawable(editText.getContext(),R.drawable.abc_edit_text_material));
-    DrawableCompat.setTintList(drawable,s1);
-    DialogUtils.setBackgroundCompat(editText,drawable);
+ else   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    editText.setBackgroundTintList(editTextColorStateList);
   }
 }
