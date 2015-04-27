@@ -1,4 +1,8 @@
 {
+  if (this.content != null)   throw new IllegalStateException("You cannot use customView() when you have content set.");
+ else   if (this.items != null)   throw new IllegalStateException("You cannot use customView() when you have items set.");
+ else   if (this.inputCallback != null)   throw new IllegalStateException("You cannot use customView() with an input dialog");
+ else   if (this.progress > -2 || this.indeterminateProgress)   throw new IllegalStateException("You cannot use customView() with a progress dialog");
   this.customView=view;
   this.wrapCustomViewInScroll=wrapInScrollView;
   return this;

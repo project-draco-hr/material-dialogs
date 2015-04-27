@@ -1,4 +1,5 @@
 {
+  if (this.customView != null)   throw new IllegalStateException("You cannot set progress() when you're using a custom view.");
   if (indeterminate) {
     this.indeterminateProgress=true;
     this.progress=-2;

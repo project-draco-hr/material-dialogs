@@ -1,4 +1,5 @@
 {
+  if (this.customView != null)   throw new IllegalStateException("You cannot set adapter() when you're using a custom view.");
   this.adapter=adapter;
   this.listCallbackCustom=callback;
   return this;
