@@ -1,11 +1,11 @@
 {
   if (medium != null) {
     this.mediumFont=TypefaceHelper.get(this.context,medium);
-    if (this.mediumFont == null)     throw new RuntimeException("No font asset found for " + medium);
+    if (this.mediumFont == null)     throw new IllegalArgumentException("No font asset found for " + medium);
   }
   if (regular != null) {
     this.regularFont=TypefaceHelper.get(this.context,regular);
-    if (this.regularFont == null)     throw new RuntimeException("No font asset found for " + regular);
+    if (this.regularFont == null)     throw new IllegalArgumentException("No font asset found for " + regular);
   }
   return this;
 }
