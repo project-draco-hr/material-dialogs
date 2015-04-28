@@ -5,9 +5,20 @@
     }
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
       if (mBuilder.alwaysCallInputCallback)       mBuilder.inputCallback.onInput(MaterialDialog.this,s);
+      final int length=s.toString().trim().length();
       if (!mBuilder.inputAllowEmpty) {
         final View positiveAb=getActionButton(DialogAction.POSITIVE);
-        positiveAb.setEnabled(s.toString().trim().length() > 0);
+        positiveAb.setEnabled(length > 0);
+      }
+      if (inputMinMax != null) {
+        inputMinMax.setText(length + "/" + mBuilder.inputMaxLength);
+        final boolean overMax=length > mBuilder.inputMaxLength;
+        final int colorText=overMax ? mBuilder.inputMaxLengthErrorColor : mBuilder.contentColor;
+        final int colorWidget=overMax ? mBuilder.inputMaxLengthErrorColor : mBuilder.widgetColor;
+        inputMinMax.setTextColor(colorText);
+        MDTintHelper.setTint(input,colorWidget);
+        final View positiveAb=getActionButton(DialogAction.POSITIVE);
+        if (positiveAb.isEnabled())         positiveAb.setEnabled(!overMax);
       }
     }
     @Override public void afterTextChanged(    Editable s){

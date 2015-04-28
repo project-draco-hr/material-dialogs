@@ -16,4 +16,13 @@
       dialog.input.setTransformationMethod(PasswordTransformationMethod.getInstance());
     }
   }
+  dialog.inputMinMax=(TextView)dialog.view.findViewById(R.id.minMax);
+  if (builder.inputMaxLength > -1) {
+    dialog.inputMinMax.setText("0/" + builder.inputMaxLength);
+    dialog.inputMinMax.setTextColor(builder.contentColor);
+  }
+ else {
+    dialog.inputMinMax.setVisibility(View.GONE);
+    dialog.inputMinMax=null;
+  }
 }
