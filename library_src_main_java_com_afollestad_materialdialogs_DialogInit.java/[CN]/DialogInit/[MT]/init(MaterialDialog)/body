@@ -1,9 +1,5 @@
 {
   final MaterialDialog.Builder builder=dialog.mBuilder;
-  if (!builder.useCustomFonts) {
-    if (builder.mediumFont == null)     builder.mediumFont=TypefaceHelper.get(dialog.getContext(),"Roboto-Medium");
-    if (builder.regularFont == null)     builder.regularFont=TypefaceHelper.get(dialog.getContext(),"Roboto-Regular");
-  }
   dialog.setCancelable(builder.cancelable);
   if (builder.backgroundColor == 0)   builder.backgroundColor=DialogUtils.resolveColor(builder.context,R.attr.md_background_color);
   if (builder.backgroundColor != 0)   dialog.view.setBackgroundColor(builder.backgroundColor);

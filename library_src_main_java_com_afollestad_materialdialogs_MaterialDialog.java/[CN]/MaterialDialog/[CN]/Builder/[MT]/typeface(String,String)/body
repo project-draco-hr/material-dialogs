@@ -7,6 +7,5 @@
     this.regularFont=TypefaceHelper.get(this.context,regular);
     if (this.regularFont == null)     throw new RuntimeException("No font asset found for " + regular);
   }
-  this.useCustomFonts=this.mediumFont != null || this.regularFont != null;
   return this;
 }

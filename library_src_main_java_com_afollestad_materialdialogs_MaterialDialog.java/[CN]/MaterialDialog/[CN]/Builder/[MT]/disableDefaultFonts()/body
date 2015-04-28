@@ -1,4 +1,0 @@
-{
-  this.useCustomFonts=true;
-  return this;
-}

@@ -1,0 +1,5 @@
+{
+  TypedValue v=new TypedValue();
+  context.getTheme().resolveAttribute(attr,v,true);
+  return (String)v.string;
+}

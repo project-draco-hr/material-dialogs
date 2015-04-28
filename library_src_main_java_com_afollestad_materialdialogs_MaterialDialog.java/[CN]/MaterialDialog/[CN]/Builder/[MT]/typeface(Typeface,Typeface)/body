@@ -1,6 +1,5 @@
 {
   this.mediumFont=medium;
   this.regularFont=regular;
-  this.useCustomFonts=true;
   return this;
 }

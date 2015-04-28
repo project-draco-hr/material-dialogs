@@ -16,4 +16,22 @@
   this.btnStackedGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_btnstacked_gravity,this.btnStackedGravity);
   this.itemsGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_items_gravity,this.itemsGravity);
   this.buttonsGravity=DialogUtils.resolveGravityEnum(context,R.attr.md_buttons_gravity,this.buttonsGravity);
+  final String mediumFont=DialogUtils.resolveString(context,R.attr.md_medium_font);
+  final String regularFont=DialogUtils.resolveString(context,R.attr.md_regular_font);
+  typeface(mediumFont,regularFont);
+  if (this.mediumFont == null) {
+    try {
+      this.mediumFont=Typeface.create("sans-serif-medium",Typeface.NORMAL);
+    }
+ catch (    Throwable ignored) {
+    }
+  }
+  if (this.regularFont == null) {
+    try {
+      this.regularFont=Typeface.create("sans-serif",Typeface.NORMAL);
+    }
+ catch (    Throwable ignored) {
+    }
+  }
+  if (this.mediumFont == null)   this.mediumFont=this.regularFont;
 }
