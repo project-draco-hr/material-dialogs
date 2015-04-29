@@ -8,7 +8,7 @@
   mButtonHorizontalEdgeMargin=r.getDimensionPixelSize(R.dimen.md_button_padding_frame_side);
   mButtonBarHeight=r.getDimensionPixelSize(R.dimen.md_button_height);
   mDividerPaint=new Paint();
-  mDividerPaint.setStrokeWidth(r.getDimensionPixelSize(R.dimen.md_divider_height));
-  mDividerPaint.setStyle(Paint.Style.STROKE);
+  mDividerWidth=r.getDimensionPixelSize(R.dimen.md_divider_height);
+  mDividerPaint.setColor(DialogUtils.resolveColor(context,R.attr.md_divider_color));
   setWillNotDraw(false);
 }

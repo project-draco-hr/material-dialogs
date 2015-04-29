@@ -3,11 +3,11 @@
   if (mContent != null) {
     if (mDrawTopDivider) {
       int y=mContent.getTop();
-      canvas.drawLine(0,y,getMeasuredWidth(),y,mDividerPaint);
+      canvas.drawRect(0,y - mDividerWidth,getMeasuredWidth(),y,mDividerPaint);
     }
     if (mDrawBottomDivider) {
       int y=mContent.getBottom();
-      canvas.drawLine(0,y,getMeasuredWidth(),y,mDividerPaint);
+      canvas.drawRect(0,y,getMeasuredWidth(),y + mDividerWidth,mDividerPaint);
     }
   }
 }
