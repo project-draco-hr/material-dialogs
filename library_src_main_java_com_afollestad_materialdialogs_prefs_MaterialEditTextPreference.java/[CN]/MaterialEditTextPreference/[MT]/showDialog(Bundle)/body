@@ -1,5 +1,5 @@
 {
-  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).callback(callback).dismissListener(this).content(getDialogMessage()).showListener(new DialogInterface.OnShowListener(){
+  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).callback(callback).dismissListener(this).showListener(new DialogInterface.OnShowListener(){
     @Override public void onShow(    DialogInterface dialog){
       if (getEditText().getText().length() > 0)       getEditText().setSelection(getEditText().length());
     }
