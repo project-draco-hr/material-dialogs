@@ -1,0 +1,3 @@
+{
+  return inputMaxLength(maxLength,0);
+}
