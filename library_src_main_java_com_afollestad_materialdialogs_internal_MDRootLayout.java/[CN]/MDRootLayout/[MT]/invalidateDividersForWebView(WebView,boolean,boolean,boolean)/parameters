@@ -1,3 +1,4 @@
-View view
+WebView view
 boolean setForTop
 boolean setForBottom
+boolean hasButtons

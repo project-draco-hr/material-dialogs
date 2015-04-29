@@ -1,3 +1,4 @@
-View view
+ViewGroup view
 boolean setForTop
 boolean setForBottom
+boolean hasButtons

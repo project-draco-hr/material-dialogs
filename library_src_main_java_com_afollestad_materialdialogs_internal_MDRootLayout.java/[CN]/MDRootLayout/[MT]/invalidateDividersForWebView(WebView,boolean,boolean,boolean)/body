@@ -1,0 +1,8 @@
+{
+  if (setForTop) {
+    mDrawTopDivider=mTitleBar != null && mTitleBar.getVisibility() != View.GONE && view.getScrollY() + view.getPaddingTop() > 0;
+  }
+  if (setForBottom) {
+    mDrawBottomDivider=hasButtons && view.getScrollY() + view.getMeasuredHeight() - view.getPaddingBottom() < view.getContentHeight() * view.getScale();
+  }
+}

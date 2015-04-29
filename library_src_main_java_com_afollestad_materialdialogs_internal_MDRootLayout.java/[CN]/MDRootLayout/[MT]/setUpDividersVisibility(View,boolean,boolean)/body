@@ -3,36 +3,49 @@
   if (view instanceof ScrollView) {
     final ScrollView sv=(ScrollView)view;
     if (canScrollViewScroll(sv)) {
-      addScrollListener(sv,topAndBottom,bottom);
+      addScrollListener(sv,setForTop,setForBottom);
     }
  else {
-      if (!bottom || topAndBottom)       mDrawTopDivider=false;
-      if (bottom || topAndBottom)       mDrawBottomDivider=false;
+      if (setForTop)       mDrawTopDivider=false;
+      if (setForBottom)       mDrawBottomDivider=false;
     }
   }
  else   if (view instanceof AdapterView) {
     final AdapterView sv=(AdapterView)view;
     if (canAdapterViewScroll(sv)) {
-      addScrollListener(sv,topAndBottom,bottom);
+      addScrollListener(sv,setForTop,setForBottom);
     }
  else {
-      if (!bottom || topAndBottom)       mDrawTopDivider=false;
-      if (bottom || topAndBottom)       mDrawBottomDivider=false;
+      if (setForTop)       mDrawTopDivider=false;
+      if (setForBottom)       mDrawBottomDivider=false;
     }
   }
  else   if (view instanceof WebView) {
-    boolean canScroll=canWebViewScroll((WebView)view);
-    if (!bottom || topAndBottom)     mDrawTopDivider=canScroll;
-    if (bottom || topAndBottom)     mDrawBottomDivider=canScroll;
+    view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+      @Override public boolean onPreDraw(){
+        if (view.getMeasuredHeight() != 0) {
+          if (!canWebViewScroll((WebView)view)) {
+            if (setForTop)             mDrawTopDivider=false;
+            if (setForBottom)             mDrawBottomDivider=false;
+          }
+ else {
+            addScrollListener((ViewGroup)view,setForTop,setForBottom);
+          }
+          view.getViewTreeObserver().removeOnPreDrawListener(this);
+        }
+        return true;
+      }
+    }
+);
   }
  else   if (view instanceof RecyclerView) {
     boolean canScroll=canRecyclerViewScroll((RecyclerView)view);
-    if (!bottom || topAndBottom)     mDrawTopDivider=canScroll;
-    if (bottom || topAndBottom)     mDrawBottomDivider=canScroll;
+    if (setForTop)     mDrawTopDivider=canScroll;
+    if (setForBottom)     mDrawBottomDivider=canScroll;
   }
  else   if (view instanceof ViewGroup) {
     View topView=getTopView((ViewGroup)view);
-    setUpDividersVisibility(topView,topAndBottom,bottom);
+    setUpDividersVisibility(topView,setForTop,setForBottom);
     View bottomView=getBottomView((ViewGroup)view);
     if (bottomView != topView) {
       setUpDividersVisibility(bottomView,false,true);
