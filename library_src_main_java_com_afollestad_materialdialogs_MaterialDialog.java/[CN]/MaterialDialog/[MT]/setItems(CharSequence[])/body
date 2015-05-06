@@ -7,5 +7,10 @@
     throw new IllegalStateException("When using a custom adapter, setItems() cannot be used. Set items through the adapter instead.");
   }
   mBuilder.items=items;
-  listView.setAdapter(mBuilder.adapter);
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+      listView.setAdapter(mBuilder.adapter);
+    }
+  }
+);
 }

@@ -1,4 +1,9 @@
 {
-  icon.setImageDrawable(d);
-  icon.setVisibility(d != null ? View.VISIBLE : View.GONE);
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+      icon.setImageDrawable(d);
+      icon.setVisibility(d != null ? View.VISIBLE : View.GONE);
+    }
+  }
+);
 }

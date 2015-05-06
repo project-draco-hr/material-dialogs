@@ -1,4 +1,9 @@
 {
   if (mBuilder.progress <= -2)   throw new IllegalStateException("Cannot use incrementProgress() on this dialog.");
-  setProgress(getCurrentProgress() + by);
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+      setProgress(getCurrentProgress() + by);
+    }
+  }
+);
 }

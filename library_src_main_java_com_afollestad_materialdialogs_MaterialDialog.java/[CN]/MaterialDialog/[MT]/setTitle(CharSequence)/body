@@ -1,3 +1,8 @@
 {
-  this.title.setText(title);
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+      title.setText(newTitle);
+    }
+  }
+);
 }

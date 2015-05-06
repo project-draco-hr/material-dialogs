@@ -1,7 +1,12 @@
 {
   mBuilder.selectedIndex=index;
   if (mBuilder.adapter != null && mBuilder.adapter instanceof MaterialDialogAdapter) {
-    ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
+    mHandler.post(new Runnable(){
+      @Override public void run(){
+        ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
+      }
+    }
+);
   }
  else {
     throw new IllegalStateException("You can only use setSelectedIndex() with the default adapter implementation.");
