@@ -1,9 +1,4 @@
 {
   if (mBuilder.progress <= -2)   throw new IllegalStateException("Cannot use setMaxProgress() on this dialog.");
-  mHandler.post(new Runnable(){
-    @Override public void run(){
-      mProgress.setMax(max);
-    }
-  }
-);
+  mProgress.setMax(max);
 }
