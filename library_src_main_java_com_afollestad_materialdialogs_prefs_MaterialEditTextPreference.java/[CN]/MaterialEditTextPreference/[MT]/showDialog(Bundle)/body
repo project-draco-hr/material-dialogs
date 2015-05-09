@@ -1,13 +1,13 @@
 {
   Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).callback(callback).dismissListener(this).showListener(new DialogInterface.OnShowListener(){
     @Override public void onShow(    DialogInterface dialog){
-      if (getEditText().getText().length() > 0)       getEditText().setSelection(getEditText().length());
+      if (mEditText.getText().length() > 0)       mEditText.setSelection(mEditText.length());
     }
   }
 );
   View layout=LayoutInflater.from(getContext()).inflate(R.layout.md_stub_inputpref,null);
   onBindDialogView(layout);
-  MDTintHelper.setTint(getEditText(),mColor);
+  MDTintHelper.setTint(mEditText,mColor);
   TextView message=(TextView)layout.findViewById(android.R.id.message);
   if (getDialogMessage() != null && getDialogMessage().toString().length() > 0) {
     message.setVisibility(View.VISIBLE);

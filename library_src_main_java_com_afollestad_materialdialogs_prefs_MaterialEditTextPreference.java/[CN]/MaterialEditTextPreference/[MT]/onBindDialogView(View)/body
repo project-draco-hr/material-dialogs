@@ -1,9 +1,9 @@
 {
-  getEditText().setText("");
-  if (getText() != null)   getEditText().setText(getText());
-  ViewParent oldParent=getEditText().getParent();
+  mEditText.setText("");
+  if (getText() != null)   mEditText.setText(getText());
+  ViewParent oldParent=mEditText.getParent();
   if (oldParent != view) {
-    if (oldParent != null)     ((ViewGroup)oldParent).removeView(getEditText());
-    onAddEditTextToDialogView(view,getEditText());
+    if (oldParent != null)     ((ViewGroup)oldParent).removeView(mEditText);
+    onAddEditTextToDialogView(view,mEditText);
   }
 }

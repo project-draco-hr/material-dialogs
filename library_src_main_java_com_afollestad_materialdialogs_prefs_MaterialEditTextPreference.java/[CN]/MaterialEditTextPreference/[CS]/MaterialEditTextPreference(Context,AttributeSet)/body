@@ -4,4 +4,6 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)   fallback=DialogUtils.resolveColor(context,android.R.attr.colorAccent);
  else   fallback=0;
   mColor=DialogUtils.resolveColor(context,R.attr.colorAccent,fallback);
+  mEditText=new AppCompatEditText(context,attrs);
+  mEditText.setEnabled(true);
 }
