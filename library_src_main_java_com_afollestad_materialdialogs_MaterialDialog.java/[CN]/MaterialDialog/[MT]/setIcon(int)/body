@@ -1,9 +1,4 @@
 {
-  mHandler.post(new Runnable(){
-    @Override public void run(){
-      icon.setImageResource(resId);
-      icon.setVisibility(resId != 0 ? View.VISIBLE : View.GONE);
-    }
-  }
-);
+  icon.setImageResource(resId);
+  icon.setVisibility(resId != 0 ? View.VISIBLE : View.GONE);
 }

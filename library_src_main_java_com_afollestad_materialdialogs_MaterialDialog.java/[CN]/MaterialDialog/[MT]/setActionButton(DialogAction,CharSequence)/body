@@ -1,12 +1,10 @@
 {
-  mHandler.post(new Runnable(){
-    @Override public void run(){
 switch (which) {
 default :
-        mBuilder.positiveText=title;
-      positiveButton.setText(title);
-    positiveButton.setVisibility(title == null ? View.GONE : View.VISIBLE);
-  break;
+    mBuilder.positiveText=title;
+  positiveButton.setText(title);
+positiveButton.setVisibility(title == null ? View.GONE : View.VISIBLE);
+break;
 case NEUTRAL:
 mBuilder.neutralText=title;
 neutralButton.setText(title);
@@ -18,7 +16,4 @@ negativeButton.setText(title);
 negativeButton.setVisibility(title == null ? View.GONE : View.VISIBLE);
 break;
 }
-}
-}
-);
 }

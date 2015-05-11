@@ -2,12 +2,7 @@
   mBuilder.selectedIndices=indices;
   selectedIndicesList=new ArrayList<>(Arrays.asList(indices));
   if (mBuilder.adapter != null && mBuilder.adapter instanceof MaterialDialogAdapter) {
-    mHandler.post(new Runnable(){
-      @Override public void run(){
-        ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
-      }
-    }
-);
+    ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
   }
  else {
     throw new IllegalStateException("You can only use setSelectedIndices() with the default adapter implementation.");

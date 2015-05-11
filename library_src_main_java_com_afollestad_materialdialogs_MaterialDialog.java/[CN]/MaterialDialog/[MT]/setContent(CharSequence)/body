@@ -1,9 +1,4 @@
 {
-  mHandler.post(new Runnable(){
-    @Override public void run(){
-      content.setText(newContent);
-      content.setVisibility(TextUtils.isEmpty(newContent) ? View.GONE : View.VISIBLE);
-    }
-  }
-);
+  content.setText(newContent);
+  content.setVisibility(TextUtils.isEmpty(newContent) ? View.GONE : View.VISIBLE);
 }
