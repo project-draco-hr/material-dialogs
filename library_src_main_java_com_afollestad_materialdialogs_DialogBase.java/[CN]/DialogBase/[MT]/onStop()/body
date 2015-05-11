@@ -1,7 +1,7 @@
 {
   super.onStop();
   try {
-    Class superCls=getClass().getSuperclass();
+    Class superCls=getClass().getSuperclass().getSuperclass();
     Field cancelMsg=superCls.getDeclaredField("mCancelMessage");
     scrubMessageField(cancelMsg);
     Field dismissMsg=superCls.getDeclaredField("mDismissMessage");
