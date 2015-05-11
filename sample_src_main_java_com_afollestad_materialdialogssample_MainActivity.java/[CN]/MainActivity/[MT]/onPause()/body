@@ -1,0 +1,4 @@
+{
+  super.onPause();
+  if (mThread != null && !mThread.isInterrupted() && mThread.isAlive())   mThread.interrupt();
+}

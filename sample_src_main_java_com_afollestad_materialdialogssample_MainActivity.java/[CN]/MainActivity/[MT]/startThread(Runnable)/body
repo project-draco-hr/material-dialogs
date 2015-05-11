@@ -1,0 +1,5 @@
+{
+  if (mThread != null)   mThread.interrupt();
+  mThread=new Thread(run);
+  mThread.start();
+}
