@@ -192,10 +192,6 @@
     frame.addView(innerView,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
   }
   dialog.setOnShowListenerInternal();
-  if (builder.showListener != null)   dialog.setOnShowListener(builder.showListener);
-  if (builder.cancelListener != null)   dialog.setOnCancelListener(builder.cancelListener);
-  if (builder.dismissListener != null)   dialog.setOnDismissListener(builder.dismissListener);
-  if (builder.keyListener != null)   dialog.setOnKeyListener(builder.keyListener);
   dialog.invalidateList();
   dialog.setViewInternal(dialog.view);
   dialog.checkIfListInitScroll();

@@ -3,5 +3,6 @@
     DialogUtils.showKeyboard(this,mBuilder);
     if (input.getText().length() > 0)     input.setSelection(input.getText().length());
   }
+  DialogInit.resetListeners(this);
   super.onShow(dialog);
 }

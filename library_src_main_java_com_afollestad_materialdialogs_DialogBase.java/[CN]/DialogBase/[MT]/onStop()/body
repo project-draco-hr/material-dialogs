@@ -1,0 +1,15 @@
+{
+  super.onStop();
+  try {
+    Class superCls=getClass().getSuperclass();
+    Field cancelMsg=superCls.getDeclaredField("mCancelMessage");
+    scrubMessageField(cancelMsg);
+    Field dismissMsg=superCls.getDeclaredField("mDismissMessage");
+    scrubMessageField(dismissMsg);
+    Field showMsg=superCls.getDeclaredField("mShowMessage");
+    scrubMessageField(showMsg);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}
