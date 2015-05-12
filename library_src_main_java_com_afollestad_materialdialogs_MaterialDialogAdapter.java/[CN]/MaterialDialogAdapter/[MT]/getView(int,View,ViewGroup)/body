@@ -8,6 +8,7 @@ case SINGLE:
       boolean selected=dialog.mBuilder.selectedIndex == index;
       MDTintHelper.setTint(radio,dialog.mBuilder.widgetColor);
       radio.setChecked(selected);
+      if (selected && mInitRadio)       mRadioButton=radio;
       break;
     }
 case MULTI:

@@ -13,7 +13,7 @@
  else {
     if (listType == ListType.MULTI) {
       final boolean shouldBeChecked=!selectedIndicesList.contains(Integer.valueOf(position));
-      final CheckBox cb=(CheckBox)((LinearLayout)view).getChildAt(0);
+      final CheckBox cb=(CheckBox)view.findViewById(R.id.control);
       if (shouldBeChecked) {
         selectedIndicesList.add(position);
         if (mBuilder.alwaysCallMultiChoiceCallback) {
@@ -36,6 +36,8 @@
     }
  else     if (listType == ListType.SINGLE) {
       boolean allowSelection=true;
+      final MaterialDialogAdapter adapter=(MaterialDialogAdapter)mBuilder.adapter;
+      final RadioButton radio=(RadioButton)view.findViewById(R.id.control);
       if (mBuilder.autoDismiss && mBuilder.positiveText == null) {
         dismiss();
         allowSelection=false;
@@ -50,7 +52,13 @@
       }
       if (allowSelection && mBuilder.selectedIndex != position) {
         mBuilder.selectedIndex=position;
-        ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
+        if (adapter.mRadioButton == null) {
+          adapter.mInitRadio=true;
+          adapter.notifyDataSetChanged();
+        }
+        if (adapter.mRadioButton != null)         adapter.mRadioButton.setChecked(false);
+        radio.setChecked(true);
+        adapter.mRadioButton=radio;
       }
     }
   }

@@ -153,9 +153,7 @@
       }
  else       if (builder.listCallbackMultiChoice != null) {
         dialog.listType=MaterialDialog.ListType.MULTI;
-        if (builder.selectedIndices != null) {
-          dialog.selectedIndicesList=new ArrayList<>(Arrays.asList(builder.selectedIndices));
-        }
+        if (builder.selectedIndices != null)         dialog.selectedIndicesList=new ArrayList<>(Arrays.asList(builder.selectedIndices));
       }
  else {
         dialog.listType=MaterialDialog.ListType.REGULAR;
@@ -163,7 +161,7 @@
       builder.adapter=new MaterialDialogAdapter(dialog,MaterialDialog.ListType.getLayoutForType(dialog.listType),R.id.title,builder.items);
     }
  else     if (builder.adapter instanceof MaterialSimpleListAdapter) {
-      ((MaterialSimpleListAdapter)builder.adapter).setDialog(dialog);
+      ((MaterialSimpleListAdapter)builder.adapter).setDialog(dialog,false);
     }
   }
   setupProgressDialog(dialog);
