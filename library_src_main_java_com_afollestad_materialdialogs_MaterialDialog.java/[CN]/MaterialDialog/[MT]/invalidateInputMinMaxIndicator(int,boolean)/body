@@ -1,0 +1,12 @@
+{
+  if (inputMinMax != null) {
+    inputMinMax.setText(currentLength + "/" + mBuilder.inputMaxLength);
+    final boolean isDisabled=emptyDisabled || currentLength > mBuilder.inputMaxLength;
+    final int colorText=isDisabled ? mBuilder.inputMaxLengthErrorColor : mBuilder.contentColor;
+    final int colorWidget=isDisabled ? mBuilder.inputMaxLengthErrorColor : mBuilder.widgetColor;
+    inputMinMax.setTextColor(colorText);
+    MDTintHelper.setTint(input,colorWidget);
+    final View positiveAb=getActionButton(DialogAction.POSITIVE);
+    positiveAb.setEnabled(!isDisabled);
+  }
+}

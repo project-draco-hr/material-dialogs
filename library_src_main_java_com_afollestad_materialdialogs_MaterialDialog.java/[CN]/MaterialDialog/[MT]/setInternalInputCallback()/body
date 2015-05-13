@@ -6,11 +6,13 @@
     @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
       if (mBuilder.alwaysCallInputCallback)       mBuilder.inputCallback.onInput(MaterialDialog.this,s);
       final int length=s.toString().length();
+      boolean emptyDisabled=false;
       if (!mBuilder.inputAllowEmpty) {
+        emptyDisabled=length == 0;
         final View positiveAb=getActionButton(DialogAction.POSITIVE);
-        positiveAb.setEnabled(length > 0);
+        positiveAb.setEnabled(!emptyDisabled);
       }
-      invalidateInputMinMaxIndicator(length);
+      invalidateInputMinMaxIndicator(length,emptyDisabled);
     }
     @Override public void afterTextChanged(    Editable s){
     }
