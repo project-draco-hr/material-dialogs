@@ -1,9 +1,0 @@
-{
-  field.setAccessible(true);
-  Object val=field.get(this);
-  if (val != null) {
-    Message msg=(Message)val;
-    msg.recycle();
-    field.set(this,null);
-  }
-}
