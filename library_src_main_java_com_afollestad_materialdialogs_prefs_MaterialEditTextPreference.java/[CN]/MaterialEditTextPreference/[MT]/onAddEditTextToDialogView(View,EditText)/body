@@ -1,4 +1,3 @@
 {
-  if (editText.getParent() != null)   ((ViewGroup)mEditText.getParent()).removeView(editText);
   ((ViewGroup)dialogView).addView(editText,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
 }
