@@ -1,10 +1,5 @@
 {
-  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).callback(callback).dismissListener(this).showListener(new DialogInterface.OnShowListener(){
-    @Override public void onShow(    DialogInterface dialog){
-      if (mEditText.getText().length() > 0)       mEditText.setSelection(mEditText.length());
-    }
-  }
-);
+  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).callback(callback).dismissListener(this);
   View layout=LayoutInflater.from(getContext()).inflate(R.layout.md_stub_inputpref,null);
   onBindDialogView(layout);
   MDTintHelper.setTint(mEditText,mColor);
