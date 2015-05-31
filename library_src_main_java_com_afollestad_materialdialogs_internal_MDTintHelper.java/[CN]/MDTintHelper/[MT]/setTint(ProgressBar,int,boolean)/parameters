@@ -1,0 +1,3 @@
+ProgressBar progressBar
+int color
+boolean skipIndeterminate
