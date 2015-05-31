@@ -1,5 +1,4 @@
 {
-  if (Looper.myLooper() != Looper.getMainLooper())   throw new IllegalStateException("Dialogs can only be shown from the UI thread.");
   try {
     super.show();
     mHandler=new Handler();
