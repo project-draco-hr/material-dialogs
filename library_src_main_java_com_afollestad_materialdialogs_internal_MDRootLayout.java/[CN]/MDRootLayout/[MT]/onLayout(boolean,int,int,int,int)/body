@@ -4,7 +4,7 @@
     mTitleBar.layout(l,t,r,t + height);
     t+=height;
   }
- else   if (mUseFullPadding) {
+ else   if (!mNoTitleNoPadding && mUseFullPadding) {
     t+=mNoTitlePaddingFull;
   }
   if (isVisible(mContent))   mContent.layout(l,t,r,t + mContent.getMeasuredHeight());

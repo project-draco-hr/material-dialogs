@@ -167,6 +167,7 @@
   setupProgressDialog(dialog);
   setupInputDialog(dialog);
   if (builder.customView != null) {
+    ((MDRootLayout)dialog.view.findViewById(R.id.root)).noTitleNoPadding();
     FrameLayout frame=(FrameLayout)dialog.view.findViewById(R.id.customViewFrame);
     dialog.customViewFrame=frame;
     View innerView=builder.customView;

@@ -54,7 +54,7 @@
     mTitleBar.measure(MeasureSpec.makeMeasureSpec(width,MeasureSpec.EXACTLY),MeasureSpec.UNSPECIFIED);
     availableHeight-=mTitleBar.getMeasuredHeight();
   }
- else {
+ else   if (!mNoTitleNoPadding) {
     fullPadding+=mNoTitlePaddingFull;
   }
   if (isVisible(mContent)) {
