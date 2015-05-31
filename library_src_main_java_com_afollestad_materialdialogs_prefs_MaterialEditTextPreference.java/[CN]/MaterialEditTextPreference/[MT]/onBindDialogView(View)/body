@@ -1,14 +1,10 @@
 {
   EditText editText=mEditText;
   editText.setText(getText());
-  if (editText.getText().length() > 0) {
-    editText.setSelection(editText.length());
-  }
+  if (editText.getText().length() > 0)   editText.setSelection(editText.length());
   ViewParent oldParent=editText.getParent();
   if (oldParent != view) {
-    if (oldParent != null) {
-      ((ViewGroup)oldParent).removeView(editText);
-    }
+    if (oldParent != null)     ((ViewGroup)oldParent).removeView(editText);
     onAddEditTextToDialogView(view,editText);
   }
 }

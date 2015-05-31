@@ -1,8 +1,6 @@
 {
   if (positiveResult) {
     String value=mEditText.getText().toString();
-    if (callChangeListener(value)) {
-      setText(value);
-    }
+    if (callChangeListener(value))     setText(value);
   }
 }

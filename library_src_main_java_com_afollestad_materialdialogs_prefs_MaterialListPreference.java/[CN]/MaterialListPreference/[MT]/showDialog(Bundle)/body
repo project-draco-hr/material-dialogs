@@ -22,14 +22,13 @@
  else {
     builder.content(getDialogMessage());
   }
-  PreferenceManager pm=getPreferenceManager();
   try {
+    PreferenceManager pm=getPreferenceManager();
     Method method=pm.getClass().getDeclaredMethod("registerOnActivityDestroyListener",PreferenceManager.OnActivityDestroyListener.class);
     method.setAccessible(true);
     method.invoke(pm,this);
   }
- catch (  Exception e) {
-    e.printStackTrace();
+ catch (  Exception ignored) {
   }
   mDialog=builder.build();
   if (state != null)   mDialog.onRestoreInstanceState(state);
