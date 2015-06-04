@@ -1,5 +1,5 @@
 {
-  super(dialog.mBuilder.context,resource,textViewResourceId,objects);
   this.dialog=dialog;
+  this.layout=layout;
   this.itemGravity=dialog.mBuilder.itemsGravity;
 }

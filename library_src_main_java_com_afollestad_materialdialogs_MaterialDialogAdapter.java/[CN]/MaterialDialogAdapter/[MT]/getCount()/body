@@ -1,0 +1,3 @@
+{
+  return dialog.mBuilder.items != null ? dialog.mBuilder.items.length : 0;
+}

@@ -1,5 +1,5 @@
 {
-  final View view=super.getView(index,convertView,parent);
+  if (view == null)   view=LayoutInflater.from(dialog.getContext()).inflate(layout,parent,false);
   TextView tv=(TextView)view.findViewById(R.id.title);
 switch (dialog.listType) {
 case SINGLE:
