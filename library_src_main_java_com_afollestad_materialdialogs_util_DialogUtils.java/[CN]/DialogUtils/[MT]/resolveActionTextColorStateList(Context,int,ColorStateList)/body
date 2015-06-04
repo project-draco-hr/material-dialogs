@@ -1,0 +1,24 @@
+{
+  TypedArray a=context.getTheme().obtainStyledAttributes(new int[]{colorAttr});
+  try {
+    final TypedValue value=a.peekValue(0);
+    if (value == null) {
+      return fallback;
+    }
+    if (value.type >= TypedValue.TYPE_FIRST_COLOR_INT && value.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+      return getActionTextStateList(context,value.data);
+    }
+ else {
+      final ColorStateList stateList=a.getColorStateList(0);
+      if (stateList != null) {
+        return stateList;
+      }
+ else {
+        return fallback;
+      }
+    }
+  }
+  finally {
+    a.recycle();
+  }
+}

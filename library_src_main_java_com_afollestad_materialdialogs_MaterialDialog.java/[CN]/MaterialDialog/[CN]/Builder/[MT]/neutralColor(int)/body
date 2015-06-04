@@ -1,5 +1,3 @@
 {
-  this.neutralColor=color;
-  this.neutralColorSet=true;
-  return this;
+  return neutralColor(DialogUtils.getActionTextStateList(context,color));
 }

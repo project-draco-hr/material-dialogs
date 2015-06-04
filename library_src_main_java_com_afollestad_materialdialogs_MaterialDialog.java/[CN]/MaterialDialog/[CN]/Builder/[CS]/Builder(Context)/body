@@ -5,9 +5,9 @@
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     this.widgetColor=DialogUtils.resolveColor(context,android.R.attr.colorAccent,this.widgetColor);
   }
-  this.positiveColor=this.widgetColor;
-  this.negativeColor=this.widgetColor;
-  this.neutralColor=this.widgetColor;
+  this.positiveColor=DialogUtils.getActionTextStateList(context,this.widgetColor);
+  this.negativeColor=DialogUtils.getActionTextStateList(context,this.widgetColor);
+  this.neutralColor=DialogUtils.getActionTextStateList(context,this.widgetColor);
   this.progressPercentFormat=NumberFormat.getPercentInstance();
   this.progressNumberFormat="%1d/%2d";
   final int primaryTextColor=DialogUtils.resolveColor(context,android.R.attr.textColorPrimary);

@@ -4,9 +4,9 @@
   if (s.darkTheme)   this.theme=Theme.DARK;
   if (s.titleColor != 0)   this.titleColor=s.titleColor;
   if (s.contentColor != 0)   this.contentColor=s.contentColor;
-  if (s.positiveColor != 0)   this.positiveColor=s.positiveColor;
-  if (s.neutralColor != 0)   this.neutralColor=s.neutralColor;
-  if (s.negativeColor != 0)   this.negativeColor=s.negativeColor;
+  if (s.positiveColor != null)   this.positiveColor=s.positiveColor;
+  if (s.neutralColor != null)   this.neutralColor=s.neutralColor;
+  if (s.negativeColor != null)   this.negativeColor=s.negativeColor;
   if (s.itemColor != 0)   this.itemColor=s.itemColor;
   if (s.icon != null)   this.icon=s.icon;
   if (s.backgroundColor != 0)   this.backgroundColor=s.backgroundColor;

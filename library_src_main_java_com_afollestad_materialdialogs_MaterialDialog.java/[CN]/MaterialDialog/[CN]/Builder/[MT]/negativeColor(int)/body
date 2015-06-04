@@ -1,5 +1,3 @@
 {
-  this.negativeColor=color;
-  this.negativeColorSet=true;
-  return this;
+  return negativeColor(DialogUtils.getActionTextStateList(context,color));
 }
