@@ -1,7 +1,6 @@
 {
   try {
     super.show();
-    mHandler=new Handler();
   }
  catch (  WindowManager.BadTokenException e) {
     throw new DialogException("Bad window token, you cannot show a dialog before an Activity is created or after it's hidden.");

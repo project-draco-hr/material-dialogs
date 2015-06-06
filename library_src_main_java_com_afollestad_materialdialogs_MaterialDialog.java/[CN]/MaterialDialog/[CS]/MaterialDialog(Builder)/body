@@ -1,5 +1,6 @@
 {
   super(builder.context,DialogInit.getTheme(builder));
+  mHandler=new Handler();
   mBuilder=builder;
   final LayoutInflater inflater=LayoutInflater.from(builder.context);
   view=(MDRootLayout)inflater.inflate(DialogInit.getInflateLayout(builder),null);
