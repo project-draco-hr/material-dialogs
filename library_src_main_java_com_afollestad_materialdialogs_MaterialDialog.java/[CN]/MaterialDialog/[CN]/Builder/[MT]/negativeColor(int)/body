@@ -1,4 +1,5 @@
 {
   this.negativeColor=color;
+  this.negativeColorSet=true;
   return this;
 }

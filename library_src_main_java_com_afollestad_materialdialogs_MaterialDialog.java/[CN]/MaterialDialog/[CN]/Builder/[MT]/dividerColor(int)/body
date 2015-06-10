@@ -1,4 +1,5 @@
 {
   this.dividerColor=color;
+  this.dividerColorSet=true;
   return this;
 }

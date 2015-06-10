@@ -1,4 +1,5 @@
 {
   this.neutralColor=color;
+  this.neutralColorSet=true;
   return this;
 }
