@@ -3,7 +3,10 @@
 switch (tag) {
 case POSITIVE:
 {
-      if (mBuilder.callback != null)       mBuilder.callback.onPositive(this);
+      if (mBuilder.callback != null) {
+        mBuilder.callback.onAny(this);
+        mBuilder.callback.onPositive(this);
+      }
       if (mBuilder.listCallbackSingleChoice != null)       sendSingleChoiceCallback(v);
       if (mBuilder.listCallbackMultiChoice != null)       sendMultichoiceCallback();
       if (mBuilder.inputCallback != null && input != null && !mBuilder.alwaysCallInputCallback)       mBuilder.inputCallback.onInput(this,input.getText());
@@ -12,13 +15,19 @@ case POSITIVE:
     }
 case NEGATIVE:
 {
-    if (mBuilder.callback != null)     mBuilder.callback.onNegative(this);
+    if (mBuilder.callback != null) {
+      mBuilder.callback.onAny(this);
+      mBuilder.callback.onNegative(this);
+    }
     if (mBuilder.autoDismiss)     dismiss();
     break;
   }
 case NEUTRAL:
 {
-  if (mBuilder.callback != null)   mBuilder.callback.onNeutral(this);
+  if (mBuilder.callback != null) {
+    mBuilder.callback.onAny(this);
+    mBuilder.callback.onNeutral(this);
+  }
   if (mBuilder.autoDismiss)   dismiss();
   break;
 }
