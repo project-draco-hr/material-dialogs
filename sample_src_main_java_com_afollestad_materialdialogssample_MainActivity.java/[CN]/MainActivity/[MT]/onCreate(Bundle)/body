@@ -133,6 +133,12 @@
     }
   }
 );
+  findViewById(R.id.input_custominvalidation).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showInputDialogCustomInvalidation();
+    }
+  }
+);
   findViewById(R.id.progress1).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       showProgressDialog(false,false);
