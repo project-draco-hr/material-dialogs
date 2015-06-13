@@ -1,0 +1,4 @@
+{
+  this.indeterminateIsHorizontalProgress=horizontal;
+  return this;
+}

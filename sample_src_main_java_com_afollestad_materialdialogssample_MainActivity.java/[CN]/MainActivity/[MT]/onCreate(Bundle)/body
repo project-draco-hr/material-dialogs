@@ -135,13 +135,19 @@
 );
   findViewById(R.id.progress1).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      showProgressDialog(false);
+      showProgressDialog(false,false);
     }
   }
 );
   findViewById(R.id.progress2).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      showProgressDialog(true);
+      showProgressDialog(true,false);
+    }
+  }
+);
+  findViewById(R.id.progress3).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showProgressDialog(true,true);
     }
   }
 );

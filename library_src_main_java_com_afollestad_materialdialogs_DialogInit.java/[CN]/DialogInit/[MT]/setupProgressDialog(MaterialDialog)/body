@@ -3,33 +3,41 @@
   if (builder.indeterminateProgress || builder.progress > -2) {
     dialog.mProgress=(ProgressBar)dialog.view.findViewById(android.R.id.progress);
     if (dialog.mProgress == null)     return;
-    if (builder.indeterminateProgress && Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+    if (builder.indeterminateProgress && !builder.indeterminateIsHorizontalProgress && Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
       dialog.mProgress.setIndeterminateDrawable(new CircularProgressDrawable(builder.widgetColor,builder.context.getResources().getDimension(R.dimen.circular_progress_border)));
       MDTintHelper.setTint(dialog.mProgress,builder.widgetColor,true);
     }
  else {
       MDTintHelper.setTint(dialog.mProgress,builder.widgetColor);
     }
-    if (!builder.indeterminateProgress) {
+    if (!builder.indeterminateProgress || builder.indeterminateIsHorizontalProgress) {
+      dialog.mProgress.setIndeterminate(builder.indeterminateIsHorizontalProgress);
       dialog.mProgress.setProgress(0);
       dialog.mProgress.setMax(builder.progressMax);
       dialog.mProgressLabel=(TextView)dialog.view.findViewById(R.id.label);
-      dialog.mProgressLabel.setTextColor(builder.contentColor);
-      dialog.setTypeface(dialog.mProgressLabel,builder.mediumFont);
+      if (dialog.mProgressLabel != null) {
+        dialog.mProgressLabel.setTextColor(builder.contentColor);
+        dialog.setTypeface(dialog.mProgressLabel,builder.mediumFont);
+        dialog.mProgressLabel.setText(builder.progressPercentFormat.format(0));
+      }
       dialog.mProgressMinMax=(TextView)dialog.view.findViewById(R.id.minMax);
-      dialog.mProgressMinMax.setTextColor(builder.contentColor);
-      dialog.setTypeface(dialog.mProgressMinMax,builder.regularFont);
-      if (builder.showMinMax) {
-        dialog.mProgressMinMax.setVisibility(View.VISIBLE);
-        dialog.mProgressMinMax.setText(String.format(builder.progressNumberFormat,0,builder.progressMax));
-        ViewGroup.MarginLayoutParams lp=(ViewGroup.MarginLayoutParams)dialog.mProgress.getLayoutParams();
-        lp.leftMargin=0;
-        lp.rightMargin=0;
+      if (dialog.mProgressMinMax != null) {
+        dialog.mProgressMinMax.setTextColor(builder.contentColor);
+        dialog.setTypeface(dialog.mProgressMinMax,builder.regularFont);
+        if (builder.showMinMax) {
+          dialog.mProgressMinMax.setVisibility(View.VISIBLE);
+          dialog.mProgressMinMax.setText(String.format(builder.progressNumberFormat,0,builder.progressMax));
+          ViewGroup.MarginLayoutParams lp=(ViewGroup.MarginLayoutParams)dialog.mProgress.getLayoutParams();
+          lp.leftMargin=0;
+          lp.rightMargin=0;
+        }
+ else {
+          dialog.mProgressMinMax.setVisibility(View.GONE);
+        }
       }
  else {
-        dialog.mProgressMinMax.setVisibility(View.GONE);
+        builder.showMinMax=false;
       }
-      dialog.mProgressLabel.setText(builder.progressPercentFormat.format(0));
     }
   }
 }

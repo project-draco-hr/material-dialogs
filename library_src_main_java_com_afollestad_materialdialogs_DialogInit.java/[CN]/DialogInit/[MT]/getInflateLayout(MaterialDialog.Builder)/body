@@ -9,6 +9,7 @@
     return R.layout.md_dialog_progress;
   }
  else   if (builder.indeterminateProgress) {
+    if (builder.indeterminateIsHorizontalProgress)     return R.layout.md_dialog_progress_indeterminate_horizontal;
     return R.layout.md_dialog_progress_indeterminate;
   }
  else   if (builder.inputCallback != null) {
