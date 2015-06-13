@@ -1,0 +1,4 @@
+{
+  this.progressPercentFormat=format;
+  return this;
+}

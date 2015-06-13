@@ -1,0 +1,4 @@
+{
+  this.progressNumberFormat=format;
+  return this;
+}

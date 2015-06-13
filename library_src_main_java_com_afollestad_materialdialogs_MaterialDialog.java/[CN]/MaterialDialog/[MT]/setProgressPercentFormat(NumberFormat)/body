@@ -1,0 +1,4 @@
+{
+  mBuilder.progressPercentFormat=format;
+  setProgress(getCurrentProgress());
+}

@@ -8,6 +8,8 @@
   this.positiveColor=this.widgetColor;
   this.negativeColor=this.widgetColor;
   this.neutralColor=this.widgetColor;
+  this.progressPercentFormat=NumberFormat.getPercentInstance();
+  this.progressNumberFormat="%1d/%2d";
   final int primaryTextColor=DialogUtils.resolveColor(context,android.R.attr.textColorPrimary);
   this.theme=DialogUtils.isColorDark(primaryTextColor) ? Theme.LIGHT : Theme.DARK;
   checkSingleton();

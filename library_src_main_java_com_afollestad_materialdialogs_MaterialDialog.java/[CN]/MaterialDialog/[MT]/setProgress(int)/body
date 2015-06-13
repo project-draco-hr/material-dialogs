@@ -4,8 +4,10 @@
   mHandler.post(new Runnable(){
     @Override public void run(){
       final int percentage=(int)(((float)getCurrentProgress() / (float)getMaxProgress()) * 100f);
-      mProgressLabel.setText(percentage + "%");
-      if (mProgressMinMax != null)       mProgressMinMax.setText(getCurrentProgress() + "/" + getMaxProgress());
+      mProgressLabel.setText(mBuilder.progressPercentFormat.format(percentage));
+      if (mProgressMinMax != null) {
+        mProgressMinMax.setText(String.format(mBuilder.progressNumberFormat,getCurrentProgress(),getMaxProgress()));
+      }
     }
   }
 );
