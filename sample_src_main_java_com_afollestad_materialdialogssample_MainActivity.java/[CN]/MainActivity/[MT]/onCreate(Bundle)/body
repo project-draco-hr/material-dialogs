@@ -157,12 +157,6 @@
     }
   }
 );
-  findViewById(R.id.progress4).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      showProgressDialogConnectionSimulation();
-    }
-  }
-);
   findViewById(R.id.preference_dialogs).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1)       startActivity(new Intent(getApplicationContext(),PreferenceActivity.class));
