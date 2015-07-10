@@ -141,19 +141,25 @@
 );
   findViewById(R.id.progress1).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      showProgressDialog(false,false);
+      showDeterminateProgressDialog();
     }
   }
 );
   findViewById(R.id.progress2).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      showProgressDialog(true,false);
+      showIndeterminateProgressDialog(false);
     }
   }
 );
   findViewById(R.id.progress3).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      showProgressDialog(true,true);
+      showIndeterminateProgressDialog(true);
+    }
+  }
+);
+  findViewById(R.id.progress4).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showProgressDialogConnectionSimulation();
     }
   }
 );
