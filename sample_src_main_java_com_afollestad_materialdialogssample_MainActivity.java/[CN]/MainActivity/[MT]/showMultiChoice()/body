@@ -12,5 +12,10 @@
       return true;
     }
   }
-).alwaysCallMultiChoiceCallback().positiveText(R.string.choose).show();
+).callback(new MaterialDialog.ButtonCallback(){
+    @Override public void onNeutral(    MaterialDialog dialog){
+      dialog.clearSelectedIndices();
+    }
+  }
+).alwaysCallMultiChoiceCallback().positiveText(R.string.choose).autoDismiss(false).neutralText(R.string.clear_selection).show();
 }

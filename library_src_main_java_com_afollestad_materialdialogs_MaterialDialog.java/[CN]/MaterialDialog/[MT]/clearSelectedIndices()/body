@@ -1,0 +1,11 @@
+{
+  if (selectedIndicesList == null)   throw new IllegalStateException("You can only use clearSelectedIndicies() with multi choice list dialogs.");
+  mBuilder.selectedIndices=null;
+  selectedIndicesList.clear();
+  if (mBuilder.adapter != null && mBuilder.adapter instanceof MaterialDialogAdapter) {
+    ((MaterialDialogAdapter)mBuilder.adapter).notifyDataSetChanged();
+  }
+ else {
+    throw new IllegalStateException("You can only use clearSelectedIndicies() with the default adapter implementation.");
+  }
+}
