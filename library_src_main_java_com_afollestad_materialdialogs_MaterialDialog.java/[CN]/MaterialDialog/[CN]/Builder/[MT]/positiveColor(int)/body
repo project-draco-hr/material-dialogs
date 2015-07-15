@@ -1,5 +1,3 @@
 {
-  this.positiveColor=color;
-  this.positiveColorSet=true;
-  return this;
+  return positiveColor(DialogUtils.getActionTextStateList(context,color));
 }
