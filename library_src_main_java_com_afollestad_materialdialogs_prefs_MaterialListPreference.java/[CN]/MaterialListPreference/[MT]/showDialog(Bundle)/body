@@ -18,8 +18,14 @@
     @Override public boolean onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
       onClick(null,DialogInterface.BUTTON_POSITIVE);
       if (which >= 0 && getEntryValues() != null) {
-        String value=getEntryValues()[which].toString();
-        if (callChangeListener(value) && isPersistent())         setValue(value);
+        try {
+          Field clickedIndex=ListPreference.class.getDeclaredField("mClickedDialogEntryIndex");
+          clickedIndex.setAccessible(true);
+          clickedIndex.set(MaterialListPreference.this,which);
+        }
+ catch (        Exception e) {
+          e.printStackTrace();
+        }
       }
       return true;
     }
