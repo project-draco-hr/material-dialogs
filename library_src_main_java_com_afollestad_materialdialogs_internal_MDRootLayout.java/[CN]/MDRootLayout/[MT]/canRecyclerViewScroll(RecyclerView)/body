@@ -1,4 +1,5 @@
 {
+  if (view == null || view.getAdapter() == null || view.getLayoutManager() == null)   return false;
   final RecyclerView.LayoutManager lm=view.getLayoutManager();
   final int count=view.getAdapter().getItemCount();
   int lastVisible;
