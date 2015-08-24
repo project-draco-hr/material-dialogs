@@ -4,5 +4,5 @@
     mGrid.setSelector(ResourcesCompat.getDrawable(getResources(),R.drawable.md_transparent,null));
   }
  else   ((BaseAdapter)mGrid.getAdapter()).notifyDataSetChanged();
-  if (getDialog() != null)   getDialog().setTitle(title());
+  if (getDialog() != null)   getDialog().setTitle(getTitle());
 }

@@ -1,25 +1,10 @@
 {
-  if (getBuilder().mHideToplevel == 0) {
-    mColorsTop=COLORS_TOP;
-    mColorsSub=COLORS_SUB;
-    return;
+  if (getBuilder().mAccentMode) {
+    mColorsTop=ColorPalette.ACCENT_COLORS;
+    mColorsSub=ColorPalette.ACCENT_COLORS_SUB;
   }
-  mColorsTop=new int[COLORS_TOP.length - 1];
-  int index=0;
-  int skipIndex=-1;
-  for (  int color : COLORS_TOP) {
-    if (color == getBuilder().mHideToplevel) {
-      skipIndex=index;
-      continue;
-    }
-    mColorsTop[index]=color;
-    index++;
-  }
-  mColorsSub=new int[mColorsTop.length][COLORS_SUB[0].length];
-  index=0;
-  for (int i=0; i < COLORS_SUB.length; i++) {
-    if (i == skipIndex)     continue;
-    mColorsSub[index]=COLORS_SUB[i];
-    index++;
+ else {
+    mColorsTop=ColorPalette.PRIMARY_COLORS;
+    mColorsSub=ColorPalette.PRIMARY_COLORS_SUB;
   }
 }

@@ -1,25 +1,28 @@
 {
   if (getBuilder() == null)   throw new IllegalStateException("ColorChooserDialog should be created using its Builder interface.");
   generateColors();
-  final int preselectTop=preselectTop();
-  if (preselectTop != 0) {
-    for (int i=0; i < mColorsTop.length; i++) {
-      if (mColorsTop[i] == preselectTop) {
-        topIndex(i);
-        final int preselectSub=preselectSub();
-        if (preselectSub != 0) {
-          for (int b=0; b < mColorsSub[i].length; b++) {
-            if (preselectSub == mColorsSub[i][b]) {
-              subIndex(b);
-              break;
-            }
-          }
-          preselectSub(0);
+  final int preselectColor=getBuilder().mPreselect;
+  if (preselectColor != 0) {
+    for (int topIndex=0; topIndex < mColorsTop.length; topIndex++) {
+      if (mColorsTop[topIndex] == preselectColor) {
+        topIndex(topIndex);
+        if (getBuilder().mAccentMode) {
+          subIndex(2);
         }
+ else         subIndex(5);
         break;
       }
+      boolean found=false;
+      for (int subIndex=0; subIndex < mColorsSub[topIndex].length; subIndex++) {
+        if (mColorsSub[topIndex][subIndex] == preselectColor) {
+          topIndex(topIndex);
+          subIndex(subIndex);
+          found=true;
+          break;
+        }
+      }
+      if (found)       break;
     }
-    preselectTop(0);
   }
   final DisplayMetrics dm=getResources().getDisplayMetrics();
   mCircleSize=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,56,dm);
@@ -35,14 +38,13 @@
   mGrid.setClipToPadding(false);
   mGrid.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
   mGrid.setGravity(Gravity.CENTER);
-  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(title()).autoDismiss(false).customView(mGrid,false).positiveText(R.string.done).callback(new MaterialDialog.ButtonCallback(){
+  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(getTitle()).autoDismiss(false).customView(mGrid,false).positiveText(R.string.done).callback(new MaterialDialog.ButtonCallback(){
     @Override public void onPositive(    MaterialDialog dialog){
       super.onPositive(dialog);
-      int topLevelColor=0;
-      int subLevelColor=0;
-      if (topIndex() > -1)       topLevelColor=mColorsTop[topIndex()];
-      if (subIndex() > -1)       subLevelColor=mColorsSub[topIndex()][subIndex()];
-      mCallback.onColorSelection(title(),topLevelColor,subLevelColor);
+      int color=0;
+      if (subIndex() > -1)       color=mColorsSub[topIndex()][subIndex()];
+ else       if (topIndex() > -1)       color=mColorsTop[topIndex()];
+      mCallback.onColorSelection(ColorChooserDialog.this,color);
       dismiss();
     }
     @Override public void onNeutral(    MaterialDialog dialog){

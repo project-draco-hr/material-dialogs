@@ -1,3 +1,0 @@
-{
-  setBuilder(getBuilder().preselect(getBuilder().mPreselectTopLevel,value));
-}

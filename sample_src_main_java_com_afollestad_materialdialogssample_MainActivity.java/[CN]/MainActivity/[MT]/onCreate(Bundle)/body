@@ -103,9 +103,15 @@
     }
   }
 );
-  findViewById(R.id.customView_colorChooser).setOnClickListener(new View.OnClickListener(){
+  findViewById(R.id.colorChooser_primary).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      showCustomColorChooser();
+      showColorChooser(false);
+    }
+  }
+);
+  findViewById(R.id.colorChooser_accent).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showColorChooser(true);
     }
   }
 );
