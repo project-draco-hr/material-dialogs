@@ -1,0 +1,15 @@
+{
+  super(context,attrs,defStyleAttr);
+  final Resources r=getResources();
+  borderWidthSmall=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,3,r.getDisplayMetrics());
+  borderWidthLarge=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,5,r.getDisplayMetrics());
+  whitePaint=new Paint();
+  whitePaint.setAntiAlias(true);
+  whitePaint.setColor(Color.WHITE);
+  innerPaint=new Paint();
+  innerPaint.setAntiAlias(true);
+  outerPaint=new Paint();
+  outerPaint.setAntiAlias(true);
+  update(Color.DKGRAY);
+  setWillNotDraw(false);
+}

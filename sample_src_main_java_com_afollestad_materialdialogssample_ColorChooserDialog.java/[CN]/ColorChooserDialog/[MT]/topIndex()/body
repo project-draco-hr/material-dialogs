@@ -1,0 +1,3 @@
+{
+  return getArguments().getInt("top_index",-1);
+}

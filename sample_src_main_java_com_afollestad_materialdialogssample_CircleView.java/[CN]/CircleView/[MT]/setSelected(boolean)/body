@@ -1,0 +1,5 @@
+{
+  mSelected=selected;
+  requestLayout();
+  invalidate();
+}

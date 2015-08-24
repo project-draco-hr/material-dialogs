@@ -1,7 +1,14 @@
 {
   if (v.getTag() != null) {
-    Integer index=(Integer)v.getTag();
-    mCallback.onColorSelection(index,mColors[index],shiftColor(mColors[index]));
-    dismiss();
+    final int index=(Integer)v.getTag();
+    if (isInSub()) {
+      subIndex(index);
+    }
+ else {
+      ((MaterialDialog)getDialog()).setActionButton(DialogAction.NEUTRAL,R.string.back);
+      topIndex(index);
+      isInSub(true);
+    }
+    invalidateGrid();
   }
 }

@@ -1,0 +1,9 @@
+{
+  ColorChooserDialog dialog=new ColorChooserDialog();
+  Bundle args=new Bundle();
+  args.putInt("title",title);
+  args.putInt("top_level_preselect",toplevelColor);
+  args.putInt("sub_level_preselect",subLevelColor);
+  dialog.setArguments(args);
+  dialog.show(context.getSupportFragmentManager(),"COLOR_SELECTOR");
+}

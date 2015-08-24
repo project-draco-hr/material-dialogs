@@ -1,0 +1,18 @@
+{
+  if (convertView == null) {
+    convertView=new CircleView(getContext());
+    convertView.setLayoutParams(new GridView.LayoutParams(mCircleSize,mCircleSize));
+  }
+  CircleView child=(CircleView)convertView;
+  if (isInSub()) {
+    child.setBackgroundColor(SUB_LEVEL_COLORS[topIndex()][position]);
+    child.setSelected(subIndex() == position);
+  }
+ else {
+    child.setBackgroundColor(TOP_LEVEL_COLORS[position]);
+    child.setSelected(topIndex() == position);
+  }
+  child.setTag(position);
+  child.setOnClickListener(ColorChooserDialog.this);
+  return convertView;
+}

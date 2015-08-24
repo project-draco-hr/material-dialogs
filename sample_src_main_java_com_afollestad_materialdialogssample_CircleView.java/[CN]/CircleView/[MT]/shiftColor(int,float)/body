@@ -1,0 +1,7 @@
+{
+  if (by == 1f)   return color;
+  float[] hsv=new float[3];
+  Color.colorToHSV(color,hsv);
+  hsv[2]*=by;
+  return Color.HSVToColor(hsv);
+}

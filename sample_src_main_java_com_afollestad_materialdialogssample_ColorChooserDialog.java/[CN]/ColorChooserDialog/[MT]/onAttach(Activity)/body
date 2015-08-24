@@ -1,5 +1,5 @@
 {
   super.onAttach(activity);
-  if (!(activity instanceof Callback))   throw new RuntimeException("The Activity must implement Callback to be used by ColorChooserDialog.");
-  mCallback=(Callback)activity;
+  if (!(activity instanceof ColorCallback))   throw new IllegalStateException("ColorChooserDialog needs to be shown from an Activity implementing ColorCallback.");
+  mCallback=(ColorCallback)activity;
 }

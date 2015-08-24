@@ -1,0 +1,14 @@
+{
+  innerPaint.setColor(color);
+  outerPaint.setColor(shiftColorDown(color));
+  Drawable selector=createSelector(color);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    int[][] states=new int[][]{new int[]{android.R.attr.state_pressed}};
+    int[] colors=new int[]{shiftColorUp(color)};
+    ColorStateList rippleColors=new ColorStateList(states,colors);
+    setForeground(new RippleDrawable(rippleColors,selector,null));
+  }
+ else {
+    setForeground(selector);
+  }
+}

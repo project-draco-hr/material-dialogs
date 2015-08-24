@@ -1,0 +1,14 @@
+{
+  super.onDraw(canvas);
+  final int outerRadius=getMeasuredWidth() / 2;
+  if (mSelected) {
+    final int whiteRadius=outerRadius - borderWidthLarge;
+    final int innerRadius=whiteRadius - borderWidthSmall;
+    canvas.drawCircle(getMeasuredWidth() / 2,getMeasuredHeight() / 2,outerRadius,outerPaint);
+    canvas.drawCircle(getMeasuredWidth() / 2,getMeasuredHeight() / 2,whiteRadius,whitePaint);
+    canvas.drawCircle(getMeasuredWidth() / 2,getMeasuredHeight() / 2,innerRadius,innerPaint);
+  }
+ else {
+    canvas.drawCircle(getMeasuredWidth() / 2,getMeasuredHeight() / 2,outerRadius,innerPaint);
+  }
+}

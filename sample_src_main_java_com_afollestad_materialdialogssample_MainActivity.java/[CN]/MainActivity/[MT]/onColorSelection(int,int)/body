@@ -1,0 +1,15 @@
+{
+  this.topLevelColor=topLevelColor;
+  this.subLevelColor=subLevelColor;
+  int color=topLevelColor;
+  if (subLevelColor != 0)   color=subLevelColor;
+  getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
+  ThemeSingleton.get().positiveColor=DialogUtils.getActionTextStateList(this,color);
+  ThemeSingleton.get().neutralColor=DialogUtils.getActionTextStateList(this,color);
+  ThemeSingleton.get().negativeColor=DialogUtils.getActionTextStateList(this,color);
+  ThemeSingleton.get().widgetColor=color;
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    getWindow().setStatusBarColor(CircleView.shiftColorDown(color));
+    getWindow().setNavigationBarColor(color);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  ShapeDrawable darkerCircle=new ShapeDrawable(new OvalShape());
+  darkerCircle.getPaint().setColor(translucentColor(shiftColorUp(color)));
+  StateListDrawable stateListDrawable=new StateListDrawable();
+  stateListDrawable.addState(new int[]{android.R.attr.state_pressed},darkerCircle);
+  return stateListDrawable;
+}

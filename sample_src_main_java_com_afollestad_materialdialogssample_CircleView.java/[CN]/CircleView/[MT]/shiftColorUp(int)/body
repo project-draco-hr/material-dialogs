@@ -1,0 +1,3 @@
+{
+  return shiftColor(color,1.1f);
+}
