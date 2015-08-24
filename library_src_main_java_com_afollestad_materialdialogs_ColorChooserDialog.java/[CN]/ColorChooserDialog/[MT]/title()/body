@@ -1,0 +1,8 @@
+{
+  Builder builder=getBuilder();
+  int title;
+  if (isInSub())   title=builder.mTitleSub;
+ else   title=builder.mTitle;
+  if (title == 0)   title=builder.mTitle;
+  return title;
+}

@@ -1,0 +1,4 @@
+{
+  if (getArguments() == null || !getArguments().containsKey("builder"))   return null;
+  return (Builder)getArguments().getSerializable("builder");
+}

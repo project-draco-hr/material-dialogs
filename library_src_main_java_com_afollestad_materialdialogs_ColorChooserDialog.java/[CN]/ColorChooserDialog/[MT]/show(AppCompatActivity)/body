@@ -1,0 +1,4 @@
+{
+  show(context.getSupportFragmentManager(),"[MD_COLOR_CHOOSER]");
+  return this;
+}

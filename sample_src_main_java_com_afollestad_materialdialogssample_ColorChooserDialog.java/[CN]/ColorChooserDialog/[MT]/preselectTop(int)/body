@@ -1,3 +1,0 @@
-{
-  getArguments().putInt("top_level_preselect",value);
-}

@@ -1,8 +1,8 @@
 {
   this.topLevelColor=topLevelColor;
   this.subLevelColor=subLevelColor;
-  int color=subLevelColor != 0 ? subLevelColor : topLevelColor;
-  getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
+  final int color=subLevelColor != 0 ? subLevelColor : topLevelColor;
+  if (getSupportActionBar() != null)   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
   ThemeSingleton.get().positiveColor=DialogUtils.getActionTextStateList(this,color);
   ThemeSingleton.get().neutralColor=DialogUtils.getActionTextStateList(this,color);
   ThemeSingleton.get().negativeColor=DialogUtils.getActionTextStateList(this,color);

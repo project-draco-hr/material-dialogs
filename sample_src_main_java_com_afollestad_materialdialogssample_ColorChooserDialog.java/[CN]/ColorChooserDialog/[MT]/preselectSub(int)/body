@@ -1,3 +1,0 @@
-{
-  getArguments().putInt("sub_level_preselect",value);
-}
