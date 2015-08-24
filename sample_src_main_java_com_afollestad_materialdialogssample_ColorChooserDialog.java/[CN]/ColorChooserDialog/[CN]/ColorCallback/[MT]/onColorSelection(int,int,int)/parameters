@@ -1,2 +1,3 @@
+int dialogTitle
 int topLevelColor
 int subLevelColor
