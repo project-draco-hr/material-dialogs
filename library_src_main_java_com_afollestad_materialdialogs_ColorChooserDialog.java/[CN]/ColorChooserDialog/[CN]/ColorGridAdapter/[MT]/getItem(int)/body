@@ -1,8 +1,4 @@
 {
-  if (isInSub()) {
-    return SUB_LEVEL_COLORS[topIndex()][position];
-  }
- else {
-    return TOP_LEVEL_COLORS[position];
-  }
+  if (isInSub())   return mColorsSub[topIndex()][position];
+ else   return mColorsTop[position];
 }

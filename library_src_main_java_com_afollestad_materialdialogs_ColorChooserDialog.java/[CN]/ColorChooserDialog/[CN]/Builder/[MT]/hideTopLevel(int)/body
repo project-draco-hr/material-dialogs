@@ -1,0 +1,4 @@
+{
+  mHideToplevel=topLevelColor;
+  return this;
+}

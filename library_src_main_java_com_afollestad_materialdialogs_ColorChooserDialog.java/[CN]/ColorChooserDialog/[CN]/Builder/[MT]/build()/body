@@ -1,4 +1,5 @@
 {
+  if (mHideToplevel == mPreselectTopLevel)   mPreselectTopLevel=0;
   ColorChooserDialog dialog=new ColorChooserDialog();
   Bundle args=new Bundle();
   args.putSerializable("builder",this);
