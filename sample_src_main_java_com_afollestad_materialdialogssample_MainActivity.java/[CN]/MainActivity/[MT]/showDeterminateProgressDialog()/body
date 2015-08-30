@@ -22,7 +22,7 @@
           runOnUiThread(new Runnable(){
             @Override public void run(){
               mThread=null;
-              dialog.setContent(getString(R.string.done));
+              dialog.setContent(getString(R.string.md_done_label));
             }
           }
 );

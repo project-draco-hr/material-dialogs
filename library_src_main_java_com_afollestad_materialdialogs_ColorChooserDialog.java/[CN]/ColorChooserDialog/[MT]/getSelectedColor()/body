@@ -1,0 +1,6 @@
+{
+  int color=0;
+  if (subIndex() > -1)   color=mColorsSub[topIndex()][subIndex()];
+ else   if (topIndex() > -1)   color=mColorsTop[topIndex()];
+  return color;
+}
