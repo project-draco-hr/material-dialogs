@@ -1,0 +1,10 @@
+{
+switch (which) {
+default :
+    return positiveButton;
+case NEUTRAL:
+  return neutralButton;
+case NEGATIVE:
+return negativeButton;
+}
+}

@@ -1,0 +1,21 @@
+{
+  if (v.getTag() != null) {
+    final int index=(Integer)v.getTag();
+    final MaterialDialog dialog=(MaterialDialog)getDialog();
+    final Builder builder=getBuilder();
+    if (isInSub()) {
+      subIndex(index);
+    }
+ else {
+      dialog.setActionButton(DialogAction.NEUTRAL,builder.mBackBtn);
+      topIndex(index);
+      isInSub(true);
+    }
+    if (builder.mDynamicButtonColor) {
+      int selectedColor=getSelectedColor();
+      dialog.getActionButton(DialogAction.POSITIVE).setTextColor(selectedColor);
+      dialog.getActionButton(DialogAction.NEUTRAL).setTextColor(selectedColor);
+    }
+    invalidate();
+  }
+}

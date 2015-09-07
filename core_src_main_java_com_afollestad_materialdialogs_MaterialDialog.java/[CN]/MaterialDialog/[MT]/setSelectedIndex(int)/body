@@ -1,0 +1,9 @@
+{
+  mBuilder.selectedIndex=index;
+  if (mBuilder.adapter != null && mBuilder.adapter instanceof DefaultAdapter) {
+    ((DefaultAdapter)mBuilder.adapter).notifyDataSetChanged();
+  }
+ else {
+    throw new IllegalStateException("You can only use setSelectedIndex() with the default adapter implementation.");
+  }
+}
