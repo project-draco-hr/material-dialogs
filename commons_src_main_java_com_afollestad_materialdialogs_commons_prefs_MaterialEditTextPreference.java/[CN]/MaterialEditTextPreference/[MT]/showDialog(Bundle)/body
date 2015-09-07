@@ -1,6 +1,6 @@
 {
   Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).dismissListener(this).callback(callback).dismissListener(this);
-  View layout=LayoutInflater.from(getContext()).inflate(R.layout.md_stub_inputpref,null);
+  @SuppressLint("InflateParams") View layout=LayoutInflater.from(getContext()).inflate(R.layout.md_stub_inputpref,null);
   onBindDialogView(layout);
   MDTintHelper.setTint(mEditText,mColor);
   TextView message=(TextView)layout.findViewById(android.R.id.message);

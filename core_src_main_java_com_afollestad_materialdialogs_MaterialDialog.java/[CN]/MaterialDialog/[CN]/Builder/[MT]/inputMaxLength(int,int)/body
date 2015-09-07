@@ -2,7 +2,7 @@
   if (maxLength < 1)   throw new IllegalArgumentException("Max length for input dialogs cannot be less than 1.");
   this.inputMaxLength=maxLength;
   if (errorColor == 0) {
-    inputMaxLengthErrorColor=context.getResources().getColor(R.color.md_edittext_error);
+    inputMaxLengthErrorColor=ContextCompat.getColor(context,R.color.md_edittext_error);
   }
  else {
     this.inputMaxLengthErrorColor=errorColor;

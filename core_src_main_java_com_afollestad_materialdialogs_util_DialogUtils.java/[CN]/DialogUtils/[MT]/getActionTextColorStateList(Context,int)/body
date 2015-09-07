@@ -5,6 +5,6 @@
     return getActionTextStateList(context,value.data);
   }
  else {
-    return context.getResources().getColorStateList(colorId);
+    return ContextCompat.getColorStateList(context,colorId);
   }
 }

@@ -1,4 +1,4 @@
 {
-  contentColor(this.context.getResources().getColor(colorRes));
+  contentColor(ContextCompat.getColor(this.context,colorRes));
   return this;
 }

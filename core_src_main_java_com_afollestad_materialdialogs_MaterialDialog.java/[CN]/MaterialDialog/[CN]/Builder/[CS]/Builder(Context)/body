@@ -1,6 +1,6 @@
 {
   this.context=context;
-  final int materialBlue=context.getResources().getColor(R.color.md_material_blue_600);
+  final int materialBlue=ContextCompat.getColor(context,R.color.md_material_blue_600);
   this.widgetColor=DialogUtils.resolveColor(context,R.attr.colorAccent,materialBlue);
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     this.widgetColor=DialogUtils.resolveColor(context,android.R.attr.colorAccent,this.widgetColor);

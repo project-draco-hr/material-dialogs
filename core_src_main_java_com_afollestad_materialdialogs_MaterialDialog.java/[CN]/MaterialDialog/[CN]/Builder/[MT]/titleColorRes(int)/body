@@ -1,4 +1,4 @@
 {
-  titleColor(this.context.getResources().getColor(colorRes));
+  titleColor(ContextCompat.getColor(this.context,colorRes));
   return this;
 }
