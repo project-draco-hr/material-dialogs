@@ -1,3 +1,4 @@
 {
   mButtonGravity=gravity;
+  invertGravityIfNecessary();
 }
