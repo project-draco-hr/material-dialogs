@@ -1,0 +1,11 @@
+{
+  if (mAlpha == 0) {
+    return PixelFormat.TRANSPARENT;
+  }
+ else   if (mAlpha == 0xFF) {
+    return PixelFormat.OPAQUE;
+  }
+ else {
+    return PixelFormat.TRANSLUCENT;
+  }
+}

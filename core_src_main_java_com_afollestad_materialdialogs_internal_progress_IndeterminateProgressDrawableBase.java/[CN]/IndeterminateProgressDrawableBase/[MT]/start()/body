@@ -1,0 +1,9 @@
+{
+  if (isStarted()) {
+    return;
+  }
+  for (  Animator animator : mAnimators) {
+    animator.start();
+  }
+  invalidateSelf();
+}

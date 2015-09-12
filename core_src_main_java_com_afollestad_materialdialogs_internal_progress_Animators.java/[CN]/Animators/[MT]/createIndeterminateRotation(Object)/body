@@ -1,0 +1,7 @@
+{
+  ObjectAnimator rotationAnimator=ObjectAnimator.ofFloat(target,"rotation",0,720);
+  rotationAnimator.setDuration(6665);
+  rotationAnimator.setInterpolator(Interpolators.LINEAR.INSTANCE);
+  rotationAnimator.setRepeatCount(ValueAnimator.INFINITE);
+  return rotationAnimator;
+}

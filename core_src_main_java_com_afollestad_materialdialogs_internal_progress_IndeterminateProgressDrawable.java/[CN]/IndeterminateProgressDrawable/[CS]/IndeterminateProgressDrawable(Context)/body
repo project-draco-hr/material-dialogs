@@ -1,0 +1,7 @@
+{
+  super(context);
+  float density=context.getResources().getDisplayMetrics().density;
+  mProgressIntrinsicSize=Math.round(PROGRESS_INTRINSIC_SIZE_DP * density);
+  mPaddedIntrinsicSize=Math.round(PADDED_INTRINSIC_SIZE_DP * density);
+  mAnimators=new Animator[]{Animators.createIndeterminate(mRingPathTransform),Animators.createIndeterminateRotation(mRingRotation)};
+}

@@ -1,0 +1,6 @@
+{
+  if (mShowTrack != showTrack) {
+    mShowTrack=showTrack;
+    invalidateSelf();
+  }
+}

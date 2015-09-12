@@ -1,0 +1,4 @@
+{
+  int colorControlActivated=DialogUtils.resolveColor(context,R.attr.colorControlActivated);
+  setTint(colorControlActivated);
+}

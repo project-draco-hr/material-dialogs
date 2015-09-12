@@ -1,0 +1,6 @@
+{
+  if (mAutoMirrored != autoMirrored) {
+    mAutoMirrored=autoMirrored;
+    invalidateSelf();
+  }
+}

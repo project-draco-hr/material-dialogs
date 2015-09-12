@@ -1,0 +1,8 @@
+{
+  for (  Animator animator : mAnimators) {
+    if (animator.isStarted()) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,3 @@
+{
+  return ObjectAnimator.ofInt(target,xPropertyName,yPropertyName,path);
+}

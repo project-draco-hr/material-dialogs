@@ -1,0 +1,23 @@
+{
+  Rect bounds=getBounds();
+  if (bounds.width() == 0 || bounds.height() == 0) {
+    return;
+  }
+  if (mPaint == null) {
+    mPaint=new Paint();
+    mPaint.setAntiAlias(true);
+    mPaint.setColor(Color.BLACK);
+    onPreparePaint(mPaint);
+  }
+  mPaint.setAlpha(mAlpha);
+  ColorFilter colorFilter=mColorFilter != null ? mColorFilter : mTintFilter;
+  mPaint.setColorFilter(colorFilter);
+  int saveCount=canvas.save();
+  canvas.translate(bounds.left,bounds.top);
+  if (needMirroring()) {
+    canvas.translate(bounds.width(),0);
+    canvas.scale(-1,1);
+  }
+  onDraw(canvas,bounds.width(),bounds.height(),mPaint);
+  canvas.restoreToCount(saveCount);
+}

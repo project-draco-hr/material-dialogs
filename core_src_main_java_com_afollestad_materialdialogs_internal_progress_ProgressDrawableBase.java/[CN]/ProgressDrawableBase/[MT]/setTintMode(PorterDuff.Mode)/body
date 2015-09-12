@@ -1,0 +1,5 @@
+{
+  mTintMode=tintMode;
+  mTintFilter=makeTintFilter(mTint,tintMode);
+  invalidateSelf();
+}

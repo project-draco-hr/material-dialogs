@@ -1,0 +1,6 @@
+{
+  paint.setStyle(Paint.Style.STROKE);
+  paint.setStrokeWidth(4);
+  paint.setStrokeCap(Paint.Cap.SQUARE);
+  paint.setStrokeJoin(Paint.Join.MITER);
+}

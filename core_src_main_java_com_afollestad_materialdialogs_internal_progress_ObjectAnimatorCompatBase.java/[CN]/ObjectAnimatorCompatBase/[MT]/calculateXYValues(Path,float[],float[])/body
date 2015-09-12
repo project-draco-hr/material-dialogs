@@ -1,0 +1,11 @@
+{
+  PathMeasure pathMeasure=new PathMeasure(path,false);
+  float pathLength=pathMeasure.getLength();
+  float[] position=new float[2];
+  for (int i=0; i < NUM_POINTS; ++i) {
+    float distance=(i * pathLength) / (NUM_POINTS - 1);
+    pathMeasure.getPosTan(distance,position,null);
+    xValues[i]=position[0];
+    yValues[i]=position[1];
+  }
+}

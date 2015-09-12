@@ -1,0 +1,9 @@
+{
+  TypedArray a=context.obtainStyledAttributes(null,new int[]{attr});
+  try {
+    return a.getFloat(0,0);
+  }
+  finally {
+    a.recycle();
+  }
+}

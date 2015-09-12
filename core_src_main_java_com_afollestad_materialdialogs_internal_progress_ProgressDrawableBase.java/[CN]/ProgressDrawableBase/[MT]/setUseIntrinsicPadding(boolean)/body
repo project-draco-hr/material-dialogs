@@ -1,0 +1,6 @@
+{
+  if (mUseIntrinsicPadding != useIntrinsicPadding) {
+    mUseIntrinsicPadding=useIntrinsicPadding;
+    invalidateSelf();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  int[] xValues=new int[NUM_POINTS];
+  int[] yValues=new int[NUM_POINTS];
+  calculateXYValues(path,xValues,yValues);
+  PropertyValuesHolder xPvh=PropertyValuesHolder.ofInt(xProperty,xValues);
+  PropertyValuesHolder yPvh=PropertyValuesHolder.ofInt(yProperty,yValues);
+  return ObjectAnimator.ofPropertyValuesHolder(target,xPvh,yPvh);
+}

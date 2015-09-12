@@ -1,0 +1,4 @@
+{
+  invalidateSelf();
+  return true;
+}

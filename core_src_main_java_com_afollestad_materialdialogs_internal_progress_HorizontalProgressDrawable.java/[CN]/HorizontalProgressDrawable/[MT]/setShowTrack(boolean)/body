@@ -1,0 +1,6 @@
+{
+  if (mTrackDrawable.getShowTrack() != showTrack) {
+    mTrackDrawable.setShowTrack(showTrack);
+    mSecondaryProgressDrawable.setAlpha(showTrack ? mSecondaryAlpha : 2 * mSecondaryAlpha);
+  }
+}

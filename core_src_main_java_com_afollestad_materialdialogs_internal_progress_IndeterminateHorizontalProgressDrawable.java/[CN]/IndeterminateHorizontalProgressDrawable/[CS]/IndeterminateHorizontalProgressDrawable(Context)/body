@@ -1,0 +1,8 @@
+{
+  super(context);
+  float density=context.getResources().getDisplayMetrics().density;
+  mProgressIntrinsicHeight=Math.round(PROGRESS_INTRINSIC_HEIGHT_DP * density);
+  mPaddedIntrinsicHeight=Math.round(PADDED_INTRINSIC_HEIGHT_DP * density);
+  mTrackAlpha=DialogUtils.resolveFloat(context,android.R.attr.disabledAlpha);
+  mAnimators=new Animator[]{Animators.createIndeterminateHorizontalRect1(mRect1TransformX),Animators.createIndeterminateHorizontalRect2(mRect2TransformX)};
+}
