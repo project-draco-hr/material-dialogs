@@ -1,3 +1,3 @@
 {
-  return inputMaxLength(maxLength,ContextCompat.getColor(context,errorColor));
+  return inputRangeRes(0,maxLength,errorColor);
 }

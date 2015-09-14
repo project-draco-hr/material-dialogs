@@ -1,0 +1,3 @@
+{
+  return inputRange(minLength,maxLength,0);
+}
