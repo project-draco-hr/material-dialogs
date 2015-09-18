@@ -1,5 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1)   return false;
-  Configuration config=getContext().getResources().getConfiguration();
-  return config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
-}
