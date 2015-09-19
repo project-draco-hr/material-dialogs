@@ -1,5 +1,4 @@
 {
-  mBuilder.selectedIndices=indices;
   selectedIndicesList=new ArrayList<>(Arrays.asList(indices));
   if (mBuilder.adapter != null && mBuilder.adapter instanceof DefaultAdapter) {
     ((DefaultAdapter)mBuilder.adapter).notifyDataSetChanged();

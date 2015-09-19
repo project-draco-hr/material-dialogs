@@ -15,10 +15,9 @@
           selectedIndex=mBuilder.selectedIndex;
         }
  else {
-          if (mBuilder.selectedIndices == null || mBuilder.selectedIndices.length == 0)           return;
-          List<Integer> indicesList=Arrays.asList(mBuilder.selectedIndices);
-          Collections.sort(indicesList);
-          selectedIndex=indicesList.get(0);
+          if (selectedIndicesList == null || selectedIndicesList.size() == 0)           return;
+          Collections.sort(selectedIndicesList);
+          selectedIndex=selectedIndicesList.get(0);
         }
         if (listView.getLastVisiblePosition() < selectedIndex) {
           final int totalVisible=listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();

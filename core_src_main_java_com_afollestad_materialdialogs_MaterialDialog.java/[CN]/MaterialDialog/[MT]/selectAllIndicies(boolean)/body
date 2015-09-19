@@ -1,0 +1,14 @@
+{
+  if (listType == null || listType != ListType.MULTI)   throw new IllegalStateException("You can only use selectAllIndicies() with multi choice list dialogs.");
+  if (mBuilder.adapter != null && mBuilder.adapter instanceof DefaultAdapter) {
+    if (selectedIndicesList == null)     selectedIndicesList=new ArrayList<>();
+    for (int i=0; i < mBuilder.adapter.getCount(); i++) {
+      if (!selectedIndicesList.contains(i))       selectedIndicesList.add(i);
+    }
+    ((DefaultAdapter)mBuilder.adapter).notifyDataSetChanged();
+    if (sendCallback && mBuilder.listCallbackMultiChoice != null)     sendMultichoiceCallback();
+  }
+ else {
+    throw new IllegalStateException("You can only use selectAllIndicies() with the default adapter implementation.");
+  }
+}
