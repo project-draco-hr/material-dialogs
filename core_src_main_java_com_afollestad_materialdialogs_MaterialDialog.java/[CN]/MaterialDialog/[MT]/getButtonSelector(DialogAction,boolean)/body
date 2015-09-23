@@ -10,23 +10,29 @@ switch (which) {
 default :
 {
         if (mBuilder.btnSelectorPositive != 0)         return ResourcesCompat.getDrawable(mBuilder.context.getResources(),mBuilder.btnSelectorPositive,null);
-        final Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_positive_selector);
+        Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_positive_selector);
         if (d != null)         return d;
-        return DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_positive_selector);
+        d=DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_positive_selector);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && d instanceof RippleDrawable)         ((RippleDrawable)d).setColor(ColorStateList.valueOf(mBuilder.buttonRippleColor));
+        return d;
       }
 case NEUTRAL:
 {
       if (mBuilder.btnSelectorNeutral != 0)       return ResourcesCompat.getDrawable(mBuilder.context.getResources(),mBuilder.btnSelectorNeutral,null);
-      final Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_neutral_selector);
+      Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_neutral_selector);
       if (d != null)       return d;
-      return DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_neutral_selector);
+      d=DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_neutral_selector);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && d instanceof RippleDrawable)       ((RippleDrawable)d).setColor(ColorStateList.valueOf(mBuilder.buttonRippleColor));
+      return d;
     }
 case NEGATIVE:
 {
     if (mBuilder.btnSelectorNegative != 0)     return ResourcesCompat.getDrawable(mBuilder.context.getResources(),mBuilder.btnSelectorNegative,null);
-    final Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_negative_selector);
+    Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_negative_selector);
     if (d != null)     return d;
-    return DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_negative_selector);
+    d=DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_negative_selector);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && d instanceof RippleDrawable)     ((RippleDrawable)d).setColor(ColorStateList.valueOf(mBuilder.buttonRippleColor));
+    return d;
   }
 }
 }

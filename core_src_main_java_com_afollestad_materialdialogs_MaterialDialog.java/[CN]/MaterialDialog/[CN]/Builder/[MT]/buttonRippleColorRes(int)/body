@@ -1,0 +1,3 @@
+{
+  return buttonRippleColor(ContextCompat.getColor(this.context,colorRes));
+}

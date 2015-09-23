@@ -1,0 +1,3 @@
+{
+  return buttonRippleColor(DialogUtils.resolveColor(this.context,colorAttr));
+}
