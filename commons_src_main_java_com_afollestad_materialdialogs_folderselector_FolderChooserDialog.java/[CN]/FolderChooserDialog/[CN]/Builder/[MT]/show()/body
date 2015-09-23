@@ -1,5 +1,5 @@
 {
-  FolderSelectorDialog dialog=build();
+  FolderChooserDialog dialog=build();
   dialog.show(mContext);
   return dialog;
 }

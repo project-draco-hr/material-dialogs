@@ -1,5 +1,5 @@
 {
-  FolderSelectorDialog dialog=new FolderSelectorDialog();
+  FolderChooserDialog dialog=new FolderChooserDialog();
   Bundle args=new Bundle();
   args.putSerializable("builder",this);
   dialog.setArguments(args);
