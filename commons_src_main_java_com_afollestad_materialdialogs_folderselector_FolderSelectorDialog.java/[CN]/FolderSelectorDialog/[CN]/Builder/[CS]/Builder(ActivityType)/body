@@ -1,0 +1,5 @@
+{
+  mContext=context;
+  mChooseButton=R.string.md_choose_label;
+  mInitialPath=Environment.getExternalStorageDirectory().getAbsolutePath();
+}

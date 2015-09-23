@@ -1,0 +1,16 @@
+{
+  super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+  if (requestCode == STORAGE_PERMISSION_RC) {
+    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+      new Handler().postDelayed(new Runnable(){
+        @Override public void run(){
+          findViewById(R.id.folder_chooser).performClick();
+        }
+      }
+,1000);
+    }
+ else {
+      Toast.makeText(this,"The folder chooser will not work without permission to read external storage.",Toast.LENGTH_LONG).show();
+    }
+  }
+}

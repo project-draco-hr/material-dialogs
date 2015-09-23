@@ -5,5 +5,4 @@
     context.getSupportFragmentManager().beginTransaction().remove(frag).commit();
   }
   show(context.getSupportFragmentManager(),TAG);
-  return this;
 }

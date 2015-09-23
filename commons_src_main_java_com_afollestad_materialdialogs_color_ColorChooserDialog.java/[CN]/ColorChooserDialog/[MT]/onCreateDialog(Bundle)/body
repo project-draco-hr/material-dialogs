@@ -1,5 +1,5 @@
 {
-  if (getBuilder() == null)   throw new IllegalStateException("ColorChooserDialog should be created using its Builder interface.");
+  if (getArguments() == null || !getArguments().containsKey("builder"))   throw new IllegalStateException("ColorChooserDialog should be created using its Builder interface.");
   generateColors();
   final int preselectColor=getBuilder().mPreselect;
   if (preselectColor != 0) {

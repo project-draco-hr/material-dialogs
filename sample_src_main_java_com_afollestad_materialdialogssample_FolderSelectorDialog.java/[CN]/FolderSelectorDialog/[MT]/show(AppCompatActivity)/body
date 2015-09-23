@@ -1,3 +1,0 @@
-{
-  show(context.getSupportFragmentManager(),"FOLDER_SELECTOR");
-}

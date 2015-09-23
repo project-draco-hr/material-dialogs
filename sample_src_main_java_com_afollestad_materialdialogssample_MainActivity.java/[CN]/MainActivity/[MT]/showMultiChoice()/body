@@ -17,5 +17,5 @@
       dialog.clearSelectedIndices();
     }
   }
-).alwaysCallMultiChoiceCallback().positiveText(R.string.choose).autoDismiss(false).neutralText(R.string.clear_selection).show();
+).alwaysCallMultiChoiceCallback().positiveText(R.string.md_choose_label).autoDismiss(false).neutralText(R.string.clear_selection).show();
 }

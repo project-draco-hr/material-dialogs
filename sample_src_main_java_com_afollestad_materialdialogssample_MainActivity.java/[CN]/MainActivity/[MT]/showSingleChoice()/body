@@ -5,5 +5,5 @@
       return true;
     }
   }
-).positiveText(R.string.choose).show();
+).positiveText(R.string.md_choose_label).show();
 }
