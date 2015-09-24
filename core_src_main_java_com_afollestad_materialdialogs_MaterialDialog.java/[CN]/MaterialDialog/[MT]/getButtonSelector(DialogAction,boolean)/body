@@ -13,7 +13,7 @@ default :
         Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_positive_selector);
         if (d != null)         return d;
         d=DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_positive_selector);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && d instanceof RippleDrawable)         ((RippleDrawable)d).setColor(ColorStateList.valueOf(mBuilder.buttonRippleColor));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)         RippleHelper.applyColor(d,mBuilder.buttonRippleColor);
         return d;
       }
 case NEUTRAL:
@@ -22,7 +22,7 @@ case NEUTRAL:
       Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_neutral_selector);
       if (d != null)       return d;
       d=DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_neutral_selector);
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && d instanceof RippleDrawable)       ((RippleDrawable)d).setColor(ColorStateList.valueOf(mBuilder.buttonRippleColor));
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)       RippleHelper.applyColor(d,mBuilder.buttonRippleColor);
       return d;
     }
 case NEGATIVE:
@@ -31,7 +31,7 @@ case NEGATIVE:
     Drawable d=DialogUtils.resolveDrawable(mBuilder.context,R.attr.md_btn_negative_selector);
     if (d != null)     return d;
     d=DialogUtils.resolveDrawable(getContext(),R.attr.md_btn_negative_selector);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && d instanceof RippleDrawable)     ((RippleDrawable)d).setColor(ColorStateList.valueOf(mBuilder.buttonRippleColor));
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)     RippleHelper.applyColor(d,mBuilder.buttonRippleColor);
     return d;
   }
 }

@@ -1,0 +1,3 @@
+{
+  if (d instanceof RippleDrawable)   ((RippleDrawable)d).setColor(ColorStateList.valueOf(color));
+}
