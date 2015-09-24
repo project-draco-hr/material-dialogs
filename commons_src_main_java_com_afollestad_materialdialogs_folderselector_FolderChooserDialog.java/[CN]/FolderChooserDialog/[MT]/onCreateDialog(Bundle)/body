@@ -6,5 +6,5 @@
   if (!getArguments().containsKey("current_path"))   getArguments().putString("current_path",getBuilder().mInitialPath);
   parentFolder=new File(getArguments().getString("current_path"));
   parentContents=listFiles();
-  return new MaterialDialog.Builder(getActivity()).title(parentFolder.getAbsolutePath()).items(getContentsArray()).itemsCallback(this).callback(mButtonCallback).autoDismiss(false).positiveText(R.string.md_choose_label).negativeText(android.R.string.cancel).build();
+  return new MaterialDialog.Builder(getActivity()).title(parentFolder.getAbsolutePath()).items(getContentsArray()).itemsCallback(this).callback(mButtonCallback).autoDismiss(false).positiveText(getBuilder().mChooseButton).negativeText(getBuilder().mCancelButton).build();
 }

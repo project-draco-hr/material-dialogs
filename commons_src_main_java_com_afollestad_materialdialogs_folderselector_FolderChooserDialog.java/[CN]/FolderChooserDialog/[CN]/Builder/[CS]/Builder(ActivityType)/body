@@ -1,5 +1,6 @@
 {
   mContext=context;
   mChooseButton=R.string.md_choose_label;
+  mCancelButton=android.R.string.cancel;
   mInitialPath=Environment.getExternalStorageDirectory().getAbsolutePath();
 }
