@@ -2,7 +2,7 @@
   super.onRequestPermissionsResult(requestCode,permissions,grantResults);
   if (requestCode == STORAGE_PERMISSION_RC) {
     if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-      new Handler().postDelayed(new Runnable(){
+      mHandler.postDelayed(new Runnable(){
         @Override public void run(){
           findViewById(R.id.folder_chooser).performClick();
         }
