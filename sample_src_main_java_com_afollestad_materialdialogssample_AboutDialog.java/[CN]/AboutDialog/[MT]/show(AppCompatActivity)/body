@@ -1,0 +1,4 @@
+{
+  AboutDialog dialog=new AboutDialog();
+  dialog.show(context.getSupportFragmentManager(),"[ABOUT_DIALOG]");
+}
