@@ -1,0 +1,4 @@
+{
+  this.onNegativeCallback=callback;
+  return this;
+}
