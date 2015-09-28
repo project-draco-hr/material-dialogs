@@ -1,13 +1,7 @@
 {
-  new MaterialDialog.Builder(this).title(R.string.useGoogleLocationServices).content(R.string.useGoogleLocationServicesPrompt).positiveText(R.string.agree).negativeText(R.string.disagree).neutralText(R.string.more_info).callback(new MaterialDialog.ButtonCallback(){
-    @Override public void onPositive(    MaterialDialog dialog){
-      showToast("Positive!");
-    }
-    @Override public void onNeutral(    MaterialDialog dialog){
-      showToast("Neutral");
-    }
-    @Override public void onNegative(    MaterialDialog dialog){
-      showToast("Negative???");
+  new MaterialDialog.Builder(this).title(R.string.useGoogleLocationServices).content(R.string.useGoogleLocationServicesPrompt).positiveText(R.string.agree).negativeText(R.string.disagree).neutralText(R.string.more_info).onAny(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
+      showToast(which.name() + "!");
     }
   }
 ).show();

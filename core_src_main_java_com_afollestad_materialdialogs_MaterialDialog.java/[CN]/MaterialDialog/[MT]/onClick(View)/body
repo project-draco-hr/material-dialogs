@@ -7,7 +7,7 @@ case POSITIVE:
         mBuilder.callback.onAny(this);
         mBuilder.callback.onPositive(this);
       }
-      if (mBuilder.onPositiveCallback != null)       mBuilder.onPositiveCallback.onClick(this,DialogAction.POSITIVE);
+      if (mBuilder.onPositiveCallback != null)       mBuilder.onPositiveCallback.onClick(this,tag);
       if (mBuilder.listCallbackSingleChoice != null)       sendSingleChoiceCallback(v);
       if (mBuilder.listCallbackMultiChoice != null)       sendMultichoiceCallback();
       if (mBuilder.inputCallback != null && input != null && !mBuilder.alwaysCallInputCallback)       mBuilder.inputCallback.onInput(this,input.getText());
@@ -20,7 +20,7 @@ case NEGATIVE:
       mBuilder.callback.onAny(this);
       mBuilder.callback.onNegative(this);
     }
-    if (mBuilder.onNegativeCallback != null)     mBuilder.onNegativeCallback.onClick(this,DialogAction.NEGATIVE);
+    if (mBuilder.onNegativeCallback != null)     mBuilder.onNegativeCallback.onClick(this,tag);
     if (mBuilder.autoDismiss)     dismiss();
     break;
   }
@@ -30,10 +30,10 @@ case NEUTRAL:
     mBuilder.callback.onAny(this);
     mBuilder.callback.onNeutral(this);
   }
-  if (mBuilder.onNeutralCallback != null)   mBuilder.onNeutralCallback.onClick(this,DialogAction.NEUTRAL);
+  if (mBuilder.onNeutralCallback != null)   mBuilder.onNeutralCallback.onClick(this,tag);
   if (mBuilder.autoDismiss)   dismiss();
   break;
 }
 }
-if (mBuilder.onAnyCallback != null) mBuilder.onAnyCallback.onClick(this,null);
+if (mBuilder.onAnyCallback != null) mBuilder.onAnyCallback.onClick(this,tag);
 }

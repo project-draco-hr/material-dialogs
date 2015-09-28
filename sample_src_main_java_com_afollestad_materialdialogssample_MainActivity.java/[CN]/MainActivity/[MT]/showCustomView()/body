@@ -1,9 +1,7 @@
 {
-  MaterialDialog dialog=new MaterialDialog.Builder(this).title(R.string.googleWifi).customView(R.layout.dialog_customview,true).positiveText(R.string.connect).negativeText(android.R.string.cancel).callback(new MaterialDialog.ButtonCallback(){
-    @Override public void onPositive(    MaterialDialog dialog){
+  MaterialDialog dialog=new MaterialDialog.Builder(this).title(R.string.googleWifi).customView(R.layout.dialog_customview,true).positiveText(R.string.connect).negativeText(android.R.string.cancel).onPositive(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       showToast("Password: " + passwordInput.getText().toString());
-    }
-    @Override public void onNegative(    MaterialDialog dialog){
     }
   }
 ).build();
