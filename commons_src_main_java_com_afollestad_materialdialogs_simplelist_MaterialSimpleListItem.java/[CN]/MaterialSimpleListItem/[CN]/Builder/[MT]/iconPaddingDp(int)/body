@@ -1,0 +1,4 @@
+{
+  this.mIconPadding=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,paddingDp,mContext.getResources().getDisplayMetrics());
+  return this;
+}

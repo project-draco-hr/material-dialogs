@@ -1,0 +1,3 @@
+{
+  return iconPadding(mContext.getResources().getDimensionPixelSize(paddingRes));
+}
