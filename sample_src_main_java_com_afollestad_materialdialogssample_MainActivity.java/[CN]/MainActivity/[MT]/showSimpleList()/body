@@ -1,7 +1,7 @@
 {
   final MaterialSimpleListAdapter adapter=new MaterialSimpleListAdapter(this);
-  adapter.add(new MaterialSimpleListItem.Builder(this).content("username@gmail.com").icon(R.drawable.ic_circle_darker).build());
-  adapter.add(new MaterialSimpleListItem.Builder(this).content("user02@gmail.com").icon(R.drawable.ic_circle_darker).build());
+  adapter.add(new MaterialSimpleListItem.Builder(this).content("username@gmail.com").icon(R.drawable.ic_account_circle).build());
+  adapter.add(new MaterialSimpleListItem.Builder(this).content("user02@gmail.com").icon(R.drawable.ic_account_circle).build());
   adapter.add(new MaterialSimpleListItem.Builder(this).content(R.string.add_account).icon(R.drawable.ic_content_add).iconPaddingDp(8).build());
   new MaterialDialog.Builder(this).title(R.string.set_backup).adapter(adapter,new MaterialDialog.ListCallback(){
     @Override public void onSelection(    MaterialDialog dialog,    View itemView,    int which,    CharSequence text){
