@@ -6,6 +6,7 @@
     if (item.getIcon() != null) {
       ic.setImageDrawable(item.getIcon());
       ic.setPadding(item.getIconPadding(),item.getIconPadding(),item.getIconPadding(),item.getIconPadding());
+      ic.getBackground().setColorFilter(item.getBackgroundColor(),PorterDuff.Mode.SRC_ATOP);
     }
  else {
       ic.setVisibility(View.GONE);

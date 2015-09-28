@@ -1,0 +1,3 @@
+{
+  return backgroundColor(DialogUtils.resolveColor(mContext,colorAttr));
+}
