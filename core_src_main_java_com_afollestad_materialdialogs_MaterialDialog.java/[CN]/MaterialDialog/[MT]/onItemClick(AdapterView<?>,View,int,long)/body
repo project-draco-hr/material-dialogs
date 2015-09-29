@@ -8,7 +8,9 @@
     if (mBuilder.autoDismiss) {
       dismiss();
     }
-    mBuilder.listCallback.onSelection(this,view,position,mBuilder.items[position]);
+    if (mBuilder.listCallback != null) {
+      mBuilder.listCallback.onSelection(this,view,position,mBuilder.items[position]);
+    }
   }
  else {
     if (listType == ListType.MULTI) {
