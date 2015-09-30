@@ -1,4 +1,4 @@
 {
-  contentColor(ContextCompat.getColor(this.context,colorRes));
+  contentColor(DialogUtils.getColor(this.context,colorRes));
   return this;
 }
