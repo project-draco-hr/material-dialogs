@@ -5,6 +5,11 @@
     return getActionTextStateList(context,value.data);
   }
  else {
-    return ContextCompat.getColorStateList(context,colorId);
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
+      return context.getResources().getColorStateList(colorId);
+    }
+ else {
+      return context.getColorStateList(colorId);
+    }
   }
 }
