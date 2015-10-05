@@ -1,4 +1,4 @@
 {
-  if (topIndex() != value)   subIndex(getBuilder().mAccentMode ? 2 : 5);
+  if (topIndex() != value)   findSubIndexForColor(value,mColorsTop[value]);
   getArguments().putInt("top_index",value);
 }

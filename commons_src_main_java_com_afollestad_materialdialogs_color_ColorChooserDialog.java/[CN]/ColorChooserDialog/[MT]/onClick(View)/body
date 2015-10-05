@@ -7,9 +7,11 @@
       subIndex(index);
     }
  else {
-      dialog.setActionButton(DialogAction.NEUTRAL,builder.mBackBtn);
       topIndex(index);
-      isInSub(true);
+      if (mColorsSub != null && index < mColorsSub.length) {
+        dialog.setActionButton(DialogAction.NEUTRAL,builder.mBackBtn);
+        isInSub(true);
+      }
     }
     if (builder.mDynamicButtonColor) {
       int selectedColor=getSelectedColor();

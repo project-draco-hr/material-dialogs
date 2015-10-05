@@ -9,19 +9,26 @@
         if (getBuilder().mAccentMode) {
           subIndex(2);
         }
- else         subIndex(5);
+ else         if (getBuilder().mColorsSub != null) {
+          findSubIndexForColor(topIndex,preselectColor);
+        }
+ else {
+          subIndex(5);
+        }
         break;
       }
-      boolean found=false;
-      for (int subIndex=0; subIndex < mColorsSub[topIndex].length; subIndex++) {
-        if (mColorsSub[topIndex][subIndex] == preselectColor) {
-          topIndex(topIndex);
-          subIndex(subIndex);
-          found=true;
-          break;
+      if (mColorsSub != null) {
+        boolean found=false;
+        for (int subIndex=0; subIndex < mColorsSub[topIndex].length; subIndex++) {
+          if (mColorsSub[topIndex][subIndex] == preselectColor) {
+            topIndex(topIndex);
+            subIndex(subIndex);
+            found=true;
+            break;
+          }
         }
+        if (found)         break;
       }
-      if (found)       break;
     }
   }
   final DisplayMetrics dm=getResources().getDisplayMetrics();

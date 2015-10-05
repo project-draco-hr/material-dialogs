@@ -1,5 +1,11 @@
 {
-  if (getBuilder().mAccentMode) {
+  Builder builder=getBuilder();
+  if (builder.mColorsTop != null) {
+    mColorsTop=builder.mColorsTop;
+    mColorsSub=builder.mColorsSub;
+    return;
+  }
+  if (builder.mAccentMode) {
     mColorsTop=ColorPalette.ACCENT_COLORS;
     mColorsSub=ColorPalette.ACCENT_COLORS_SUB;
   }

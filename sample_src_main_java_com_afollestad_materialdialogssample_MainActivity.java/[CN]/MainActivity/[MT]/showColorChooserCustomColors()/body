@@ -1,0 +1,3 @@
+{
+  showColorChooser(false,R.array.custom_colors);
+}

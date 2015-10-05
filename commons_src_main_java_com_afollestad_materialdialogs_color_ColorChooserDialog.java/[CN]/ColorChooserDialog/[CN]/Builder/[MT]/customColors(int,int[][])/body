@@ -1,0 +1,5 @@
+{
+  mColorsTop=DialogUtils.getColorArray(mContext,topLevel);
+  mColorsSub=subLevel;
+  return this;
+}

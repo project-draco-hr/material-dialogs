@@ -1,3 +1,4 @@
 {
+  if (mColorsSub == null)   return;
   getArguments().putInt("sub_index",value);
 }

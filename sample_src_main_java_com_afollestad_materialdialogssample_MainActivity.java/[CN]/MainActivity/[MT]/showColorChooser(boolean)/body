@@ -1,3 +1,0 @@
-{
-  new ColorChooserDialog.Builder(this,R.string.color_palette).titleSub(R.string.colors).accentMode(accent).doneButton(R.string.md_done_label).cancelButton(R.string.md_cancel_label).backButton(R.string.md_back_label).preselect(accent ? accentPreselect : primaryPreselect).show();
-}
