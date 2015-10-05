@@ -1,5 +1,5 @@
 {
-  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).dismissListener(this).callback(callback).dismissListener(this);
+  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).dismissListener(this).onAny(this).dismissListener(this);
   @SuppressLint("InflateParams") View layout=LayoutInflater.from(getContext()).inflate(R.layout.md_stub_inputpref,null);
   onBindDialogView(layout);
   MDTintHelper.setTint(mEditText,mColor);
