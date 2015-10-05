@@ -1,27 +1,42 @@
 {
-  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).dismissListener(this).onAny(this).dismissListener(this);
-  @SuppressLint("InflateParams") View layout=LayoutInflater.from(getContext()).inflate(R.layout.md_stub_inputpref,null);
-  onBindDialogView(layout);
-  MDTintHelper.setTint(mEditText,mColor);
-  TextView message=(TextView)layout.findViewById(android.R.id.message);
-  if (getDialogMessage() != null && getDialogMessage().toString().length() > 0) {
-    message.setVisibility(View.VISIBLE);
-    message.setText(getDialogMessage());
-  }
+  Builder mBuilder=new MaterialDialog.Builder(getContext()).title(getDialogTitle()).icon(getDialogIcon()).positiveText(getPositiveButtonText()).negativeText(getNegativeButtonText()).dismissListener(this).onAny(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
+switch (which) {
+default :
+        MaterialEditTextPreference.this.onClick(dialog,DialogInterface.BUTTON_POSITIVE);
+      break;
+case NEUTRAL:
+    MaterialEditTextPreference.this.onClick(dialog,DialogInterface.BUTTON_NEUTRAL);
+  break;
+case NEGATIVE:
+MaterialEditTextPreference.this.onClick(dialog,DialogInterface.BUTTON_NEGATIVE);
+break;
+}
+}
+}
+).dismissListener(this);
+@SuppressLint("InflateParams") View layout=LayoutInflater.from(getContext()).inflate(R.layout.md_stub_inputpref,null);
+onBindDialogView(layout);
+MDTintHelper.setTint(mEditText,mColor);
+TextView message=(TextView)layout.findViewById(android.R.id.message);
+if (getDialogMessage() != null && getDialogMessage().toString().length() > 0) {
+message.setVisibility(View.VISIBLE);
+message.setText(getDialogMessage());
+}
  else {
-    message.setVisibility(View.GONE);
-  }
-  mBuilder.customView(layout,false);
-  try {
-    PreferenceManager pm=getPreferenceManager();
-    Method method=pm.getClass().getDeclaredMethod("registerOnActivityDestroyListener",PreferenceManager.OnActivityDestroyListener.class);
-    method.setAccessible(true);
-    method.invoke(pm,this);
-  }
- catch (  Exception ignored) {
-  }
-  mDialog=mBuilder.build();
-  if (state != null)   mDialog.onRestoreInstanceState(state);
-  requestInputMethod(mDialog);
-  mDialog.show();
+message.setVisibility(View.GONE);
+}
+mBuilder.customView(layout,false);
+try {
+PreferenceManager pm=getPreferenceManager();
+Method method=pm.getClass().getDeclaredMethod("registerOnActivityDestroyListener",PreferenceManager.OnActivityDestroyListener.class);
+method.setAccessible(true);
+method.invoke(pm,this);
+}
+ catch (Exception ignored) {
+}
+mDialog=mBuilder.build();
+if (state != null) mDialog.onRestoreInstanceState(state);
+requestInputMethod(mDialog);
+mDialog.show();
 }

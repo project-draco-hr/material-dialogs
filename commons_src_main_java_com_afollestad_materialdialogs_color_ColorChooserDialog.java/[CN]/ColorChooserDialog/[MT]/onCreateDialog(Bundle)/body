@@ -39,14 +39,14 @@
   mGrid.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
   mGrid.setGravity(Gravity.CENTER);
   Builder builder=getBuilder();
-  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(getTitle()).autoDismiss(false).customView(mGrid,false).neutralText(builder.mCancelBtn).positiveText(builder.mDoneBtn).callback(new MaterialDialog.ButtonCallback(){
-    @Override public void onPositive(    MaterialDialog dialog){
-      super.onPositive(dialog);
+  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(getTitle()).autoDismiss(false).customView(mGrid,false).neutralText(builder.mCancelBtn).positiveText(builder.mDoneBtn).onPositive(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       mCallback.onColorSelection(ColorChooserDialog.this,getSelectedColor());
       dismiss();
     }
-    @Override public void onNeutral(    MaterialDialog dialog){
-      super.onNeutral(dialog);
+  }
+).onNeutral(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       if (isInSub()) {
         dialog.setActionButton(DialogAction.NEUTRAL,getBuilder().mCancelBtn);
         isInSub(false);
