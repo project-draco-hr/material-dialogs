@@ -1,0 +1,3 @@
+{
+  return itemsColor(DialogUtils.getColor(this.context,colorRes));
+}

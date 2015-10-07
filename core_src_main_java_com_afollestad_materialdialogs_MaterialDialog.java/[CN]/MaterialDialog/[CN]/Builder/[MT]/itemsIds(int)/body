@@ -1,0 +1,3 @@
+{
+  return itemsIds(context.getResources().getIntArray(idsArrayRes));
+}

@@ -1,0 +1,4 @@
+{
+  this.itemIds=idsArray;
+  return this;
+}

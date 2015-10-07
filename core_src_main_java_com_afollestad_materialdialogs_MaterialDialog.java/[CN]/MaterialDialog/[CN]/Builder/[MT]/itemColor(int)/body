@@ -1,5 +1,3 @@
 {
-  this.itemColor=color;
-  this.itemColorSet=true;
-  return this;
+  return itemsColor(color);
 }
