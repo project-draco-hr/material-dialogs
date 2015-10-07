@@ -1,5 +1,5 @@
 {
   Fragment frag=context.getSupportFragmentManager().findFragmentByTag(tag);
-  if (frag != null)   return (ColorChooserDialog)frag;
+  if (frag != null && frag instanceof ColorChooserDialog)   return (ColorChooserDialog)frag;
   return null;
 }
