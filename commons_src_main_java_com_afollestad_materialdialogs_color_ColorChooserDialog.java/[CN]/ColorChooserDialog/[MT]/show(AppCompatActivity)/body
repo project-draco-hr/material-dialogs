@@ -1,9 +1,10 @@
 {
-  Fragment frag=context.getSupportFragmentManager().findFragmentByTag(TAG);
-  if (frag != null) {
-    ((DialogFragment)frag).dismiss();
-    context.getSupportFragmentManager().beginTransaction().remove(frag).commit();
-  }
-  show(context.getSupportFragmentManager(),TAG);
+  String tag;
+  Builder builder=getBuilder();
+  if (builder.mColorsTop != null)   tag=TAG_CUSTOM;
+ else   if (builder.mAccentMode)   tag=TAG_ACCENT;
+ else   tag=TAG_PRIMARY;
+  dismissIfNecessary(context,tag);
+  show(context.getSupportFragmentManager(),tag);
   return this;
 }

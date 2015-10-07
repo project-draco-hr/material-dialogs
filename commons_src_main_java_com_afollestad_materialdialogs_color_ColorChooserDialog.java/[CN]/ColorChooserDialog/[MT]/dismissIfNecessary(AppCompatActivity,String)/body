@@ -1,0 +1,7 @@
+{
+  Fragment frag=context.getSupportFragmentManager().findFragmentByTag(tag);
+  if (frag != null) {
+    ((DialogFragment)frag).dismiss();
+    context.getSupportFragmentManager().beginTransaction().remove(frag).commit();
+  }
+}
