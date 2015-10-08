@@ -13,11 +13,7 @@
         isInSub(true);
       }
     }
-    if (builder.mDynamicButtonColor) {
-      int selectedColor=getSelectedColor();
-      dialog.getActionButton(DialogAction.POSITIVE).setTextColor(selectedColor);
-      dialog.getActionButton(DialogAction.NEUTRAL).setTextColor(selectedColor);
-    }
+    invalidateDynamicButtonColors();
     invalidate();
   }
 }

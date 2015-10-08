@@ -1,0 +1,9 @@
+{
+  final Builder builder=getBuilder();
+  if (builder.mDynamicButtonColor) {
+    final MaterialDialog dialog=(MaterialDialog)getDialog();
+    int selectedColor=getSelectedColor();
+    dialog.getActionButton(DialogAction.POSITIVE).setTextColor(selectedColor);
+    dialog.getActionButton(DialogAction.NEUTRAL).setTextColor(selectedColor);
+  }
+}

@@ -64,6 +64,11 @@
       }
     }
   }
+).showListener(new DialogInterface.OnShowListener(){
+    @Override public void onShow(    DialogInterface dialog){
+      invalidateDynamicButtonColors();
+    }
+  }
 ).build();
   invalidate();
   return dialog;

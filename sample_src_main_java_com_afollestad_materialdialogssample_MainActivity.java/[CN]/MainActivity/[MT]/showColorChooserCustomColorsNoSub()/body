@@ -1,0 +1,3 @@
+{
+  new ColorChooserDialog.Builder(this,R.string.color_palette).titleSub(R.string.colors).preselect(primaryPreselect).customColors(R.array.custom_colors,null).show();
+}
