@@ -1,3 +1,3 @@
 {
-  new ColorChooserDialog.Builder(this,R.string.color_palette).titleSub(R.string.colors).accentMode(true).preselect(primaryPreselect).show();
+  new ColorChooserDialog.Builder(this,R.string.color_palette).titleSub(R.string.colors).accentMode(true).preselect(accentPreselect).show();
 }
