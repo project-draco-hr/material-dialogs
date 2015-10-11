@@ -1,4 +1,0 @@
-{
-  mColorFilter=colorFilter;
-  invalidateSelf();
-}

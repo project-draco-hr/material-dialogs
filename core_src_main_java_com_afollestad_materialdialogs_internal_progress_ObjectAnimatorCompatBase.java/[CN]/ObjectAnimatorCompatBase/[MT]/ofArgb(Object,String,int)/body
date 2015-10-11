@@ -1,5 +1,0 @@
-{
-  ObjectAnimator animator=ObjectAnimator.ofInt(target,propertyName,values);
-  animator.setEvaluator(new ArgbEvaluator());
-  return animator;
-}

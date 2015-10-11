@@ -1,5 +1,0 @@
-{
-  mTrackDrawable.setTintList(tint);
-  mSecondaryProgressDrawable.setTintList(tint);
-  mProgressDrawable.setTintList(tint);
-}

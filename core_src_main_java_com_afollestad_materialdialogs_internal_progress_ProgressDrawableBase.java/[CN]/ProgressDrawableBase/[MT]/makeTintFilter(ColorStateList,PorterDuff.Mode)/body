@@ -1,7 +1,0 @@
-{
-  if (tint == null || tintMode == null) {
-    return null;
-  }
-  int color=tint.getColorForState(getState(),Color.TRANSPARENT);
-  return new PorterDuffColorFilter(color,tintMode);
-}

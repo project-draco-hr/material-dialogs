@@ -1,8 +1,0 @@
-{
-  float[] xValues=new float[NUM_POINTS];
-  float[] yValues=new float[NUM_POINTS];
-  calculateXYValues(path,xValues,yValues);
-  PropertyValuesHolder xPvh=PropertyValuesHolder.ofFloat(xProperty,xValues);
-  PropertyValuesHolder yPvh=PropertyValuesHolder.ofFloat(yProperty,yValues);
-  return ObjectAnimator.ofPropertyValuesHolder(target,xPvh,yPvh);
-}

@@ -1,8 +1,0 @@
-{
-  int saveCount=canvas.save();
-  canvas.rotate(mRingRotation.mRotation);
-  float startAngle=-90 + 360 * (mRingPathTransform.mTrimPathOffset + mRingPathTransform.mTrimPathStart);
-  float sweepAngle=360 * (mRingPathTransform.mTrimPathEnd - mRingPathTransform.mTrimPathStart);
-  canvas.drawArc(RECT_PROGRESS,startAngle,sweepAngle,false,paint);
-  canvas.restoreToCount(saveCount);
-}

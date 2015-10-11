@@ -1,3 +1,0 @@
-{
-  canvas.drawRect(RECT_BOUND,paint);
-}

@@ -1,3 +1,0 @@
-{
-  return ObjectAnimator.ofArgb(target,property,values);
-}

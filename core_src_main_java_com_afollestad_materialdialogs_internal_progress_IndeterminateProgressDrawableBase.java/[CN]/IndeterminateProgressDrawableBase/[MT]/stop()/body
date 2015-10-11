@@ -1,5 +1,0 @@
-{
-  for (  Animator animator : mAnimators) {
-    animator.end();
-  }
-}

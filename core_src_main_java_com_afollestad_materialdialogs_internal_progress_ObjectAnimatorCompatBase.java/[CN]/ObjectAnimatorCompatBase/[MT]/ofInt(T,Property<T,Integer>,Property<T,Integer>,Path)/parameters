@@ -1,4 +1,0 @@
-T target
-Property<T,Integer> xProperty
-Property<T,Integer> yProperty
-Path path

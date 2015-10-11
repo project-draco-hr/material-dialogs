@@ -1,5 +1,0 @@
-{
-  mTrackDrawable.setTintMode(tintMode);
-  mSecondaryProgressDrawable.setTintMode(tintMode);
-  mProgressDrawable.setTintMode(tintMode);
-}

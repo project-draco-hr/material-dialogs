@@ -1,6 +1,0 @@
-{
-  super.draw(canvas);
-  if (isStarted()) {
-    invalidateSelf();
-  }
-}

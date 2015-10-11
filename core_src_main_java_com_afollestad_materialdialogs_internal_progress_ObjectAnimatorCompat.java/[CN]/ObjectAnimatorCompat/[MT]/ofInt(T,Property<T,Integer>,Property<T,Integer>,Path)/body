@@ -1,6 +1,0 @@
-{
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-    return ObjectAnimatorCompatLollipop.ofInt(target,xProperty,yProperty,path);
-  }
-  return ObjectAnimatorCompatBase.ofInt(target,xProperty,yProperty,path);
-}

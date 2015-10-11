@@ -1,7 +1,0 @@
-{
-  int saveCount=canvas.save();
-  canvas.translate(transformX.mTranslateX,0);
-  canvas.scale(transformX.mScaleX,1);
-  canvas.drawRect(RECT_PROGRESS,paint);
-  canvas.restoreToCount(saveCount);
-}

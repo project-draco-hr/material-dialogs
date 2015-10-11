@@ -1,5 +1,0 @@
-{
-  mTrackDrawable.setUseIntrinsicPadding(useIntrinsicPadding);
-  mSecondaryProgressDrawable.setUseIntrinsicPadding(useIntrinsicPadding);
-  mProgressDrawable.setUseIntrinsicPadding(useIntrinsicPadding);
-}
