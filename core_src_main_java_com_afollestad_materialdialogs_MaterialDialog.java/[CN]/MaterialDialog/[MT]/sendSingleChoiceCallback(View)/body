@@ -1,4 +1,5 @@
 {
+  if (mBuilder.listCallbackSingleChoice == null)   return false;
   CharSequence text=null;
   if (mBuilder.selectedIndex >= 0) {
     text=mBuilder.items[mBuilder.selectedIndex];
