@@ -1,5 +1,6 @@
 {
   super(context,attrs);
+  setLayoutResource(R.layout.md_preference_custom);
   int fallback;
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)   fallback=DialogUtils.resolveColor(context,android.R.attr.colorAccent);
  else   fallback=0;
