@@ -5,10 +5,4 @@
   final LayoutInflater inflater=LayoutInflater.from(builder.context);
   view=(MDRootLayout)inflater.inflate(DialogInit.getInflateLayout(builder),null);
   DialogInit.init(this);
-  if (builder.context.getResources().getBoolean(R.bool.md_is_tablet)) {
-    WindowManager.LayoutParams lp=new WindowManager.LayoutParams();
-    lp.copyFrom(getWindow().getAttributes());
-    lp.width=builder.context.getResources().getDimensionPixelSize(R.dimen.md_default_dialog_width);
-    getWindow().setAttributes(lp);
-  }
 }
