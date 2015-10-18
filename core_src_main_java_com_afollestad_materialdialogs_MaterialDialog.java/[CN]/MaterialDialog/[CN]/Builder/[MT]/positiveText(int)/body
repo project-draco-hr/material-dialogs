@@ -1,4 +1,5 @@
 {
+  if (postiveRes == 0)   return this;
   positiveText(this.context.getText(postiveRes));
   return this;
 }

@@ -1,7 +1,9 @@
 {
+  if (dialog == null)   dialog=(MaterialDialog)getDialog();
   if (mGrid.getVisibility() == View.VISIBLE) {
     dialog.setTitle(getBuilder().mCustomBtn);
-    dialog.setActionButton(DialogAction.NEUTRAL,getBuilder().mBackBtn);
+    dialog.setActionButton(DialogAction.NEUTRAL,getBuilder().mPresetsBtn);
+    dialog.getActionButton(DialogAction.NEGATIVE).setVisibility(View.GONE);
     mGrid.setVisibility(View.GONE);
     mColorChooserCustomFrame.setVisibility(View.VISIBLE);
     mCustomColorTextWatcher=new TextWatcher(){
@@ -24,18 +26,16 @@
         int blue=Color.blue(mSelectedCustomColor);
         mCustomSeekB.setProgress(blue);
         mCustomSeekBValue.setText(String.format("%d",blue));
+        isInSub(false);
+        topIndex(-1);
+        subIndex(-1);
+        invalidateDynamicButtonColors();
       }
       @Override public void afterTextChanged(      Editable s){
       }
     }
 ;
     mCustomColorHex.addTextChangedListener(mCustomColorTextWatcher);
-    mCustomColorHex.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-      @Override public void onFocusChange(      View v,      boolean hasFocus){
-        mCustomColorHex.selectAll();
-      }
-    }
-);
     mCustomColorRgbListener=new SeekBar.OnSeekBarChangeListener(){
       @Override public void onProgressChanged(      SeekBar seekBar,      int progress,      boolean fromUser){
         if (fromUser) {
@@ -52,15 +52,15 @@
     mCustomSeekR.setOnSeekBarChangeListener(mCustomColorRgbListener);
     mCustomSeekG.setOnSeekBarChangeListener(mCustomColorRgbListener);
     mCustomSeekB.setOnSeekBarChangeListener(mCustomColorRgbListener);
-    mCustomColorHex.setText(String.format("%06X",0xFFFFFF & getBuilder().mPreselect));
+    mCustomColorHex.setText(String.format("%06X",0xFFFFFF & mSelectedCustomColor));
   }
  else {
     dialog.setTitle(getBuilder().mTitle);
     dialog.setActionButton(DialogAction.NEUTRAL,getBuilder().mCustomBtn);
+    dialog.getActionButton(DialogAction.NEGATIVE).setVisibility(View.VISIBLE);
     mGrid.setVisibility(View.VISIBLE);
     mColorChooserCustomFrame.setVisibility(View.GONE);
     mCustomColorHex.removeTextChangedListener(mCustomColorTextWatcher);
-    mCustomColorHex.setOnFocusChangeListener(null);
     mCustomColorTextWatcher=null;
     mCustomSeekR.setOnSeekBarChangeListener(null);
     mCustomSeekG.setOnSeekBarChangeListener(null);

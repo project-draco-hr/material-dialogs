@@ -1,3 +1,4 @@
 {
+  if (negativeRes == 0)   return this;
   return negativeText(this.context.getText(negativeRes));
 }

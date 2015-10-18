@@ -1,9 +1,23 @@
 {
+  final MaterialDialog dialog=(MaterialDialog)getDialog();
+  if (dialog == null)   return;
   final Builder builder=getBuilder();
   if (builder.mDynamicButtonColor) {
-    final MaterialDialog dialog=(MaterialDialog)getDialog();
     int selectedColor=getSelectedColor();
+    int overLimitCount=0;
+    if (Color.red(selectedColor) > 247)     overLimitCount++;
+    if (Color.green(selectedColor) > 247)     overLimitCount++;
+    if (Color.blue(selectedColor) > 247)     overLimitCount++;
+    if (overLimitCount >= 2) {
+      selectedColor=Color.parseColor("#EEEEEE");
+    }
     dialog.getActionButton(DialogAction.POSITIVE).setTextColor(selectedColor);
     dialog.getActionButton(DialogAction.NEGATIVE).setTextColor(selectedColor);
+    dialog.getActionButton(DialogAction.NEUTRAL).setTextColor(selectedColor);
+    if (mCustomSeekR != null) {
+      MDTintHelper.setTint(mCustomSeekR,selectedColor);
+      MDTintHelper.setTint(mCustomSeekG,selectedColor);
+      MDTintHelper.setTint(mCustomSeekB,selectedColor);
+    }
   }
 }

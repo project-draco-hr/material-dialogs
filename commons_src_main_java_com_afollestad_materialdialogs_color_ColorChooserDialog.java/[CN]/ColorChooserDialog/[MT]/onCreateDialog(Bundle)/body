@@ -2,9 +2,11 @@
   if (getArguments() == null || !getArguments().containsKey("builder"))   throw new IllegalStateException("ColorChooserDialog should be created using its Builder interface.");
   generateColors();
   final int preselectColor=getBuilder().mPreselect;
+  boolean foundPreselectColor=false;
   if (preselectColor != 0) {
     for (int topIndex=0; topIndex < mColorsTop.length; topIndex++) {
       if (mColorsTop[topIndex] == preselectColor) {
+        foundPreselectColor=true;
         topIndex(topIndex);
         if (getBuilder().mAccentMode) {
           subIndex(2);
@@ -18,16 +20,15 @@
         break;
       }
       if (mColorsSub != null) {
-        boolean found=false;
         for (int subIndex=0; subIndex < mColorsSub[topIndex].length; subIndex++) {
           if (mColorsSub[topIndex][subIndex] == preselectColor) {
+            foundPreselectColor=true;
             topIndex(topIndex);
             subIndex(subIndex);
-            found=true;
             break;
           }
         }
-        if (found)         break;
+        if (foundPreselectColor)         break;
       }
     }
   }
@@ -65,6 +66,7 @@
   final View v=dialog.getCustomView();
   mGrid=(GridView)v.findViewById(R.id.grid);
   if (builder.mAllowUserCustom) {
+    mSelectedCustomColor=preselectColor;
     mColorChooserCustomFrame=v.findViewById(R.id.colorChooserCustomFrame);
     mCustomColorHex=(EditText)v.findViewById(R.id.hexInput);
     mCustomColorIndicator=v.findViewById(R.id.colorIndicator);
@@ -76,5 +78,8 @@
     mCustomSeekBValue=(TextView)v.findViewById(R.id.colorBValue);
   }
   invalidate();
+  if (!foundPreselectColor) {
+    toggleCustom(dialog);
+  }
   return dialog;
 }

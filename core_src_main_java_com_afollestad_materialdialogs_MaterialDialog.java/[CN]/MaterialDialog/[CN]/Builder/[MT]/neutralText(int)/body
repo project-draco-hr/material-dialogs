@@ -1,3 +1,4 @@
 {
+  if (neutralRes == 0)   return this;
   return neutralText(this.context.getText(neutralRes));
 }

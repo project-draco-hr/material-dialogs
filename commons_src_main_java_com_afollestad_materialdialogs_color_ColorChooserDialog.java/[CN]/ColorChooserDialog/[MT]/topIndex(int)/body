@@ -1,4 +1,4 @@
 {
-  if (topIndex() != value)   findSubIndexForColor(value,mColorsTop[value]);
+  if (topIndex() != value && value > -1)   findSubIndexForColor(value,mColorsTop[value]);
   getArguments().putInt("top_index",value);
 }

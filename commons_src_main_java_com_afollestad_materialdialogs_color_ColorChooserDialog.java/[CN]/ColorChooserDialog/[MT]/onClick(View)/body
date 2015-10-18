@@ -13,6 +13,7 @@
         isInSub(true);
       }
     }
+    if (builder.mAllowUserCustom)     mSelectedCustomColor=getSelectedColor();
     invalidateDynamicButtonColors();
     invalidate();
   }
