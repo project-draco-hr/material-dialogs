@@ -1,0 +1,4 @@
+{
+  mCustomBtn=text;
+  return this;
+}

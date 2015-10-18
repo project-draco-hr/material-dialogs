@@ -4,6 +4,6 @@
     final MaterialDialog dialog=(MaterialDialog)getDialog();
     int selectedColor=getSelectedColor();
     dialog.getActionButton(DialogAction.POSITIVE).setTextColor(selectedColor);
-    dialog.getActionButton(DialogAction.NEUTRAL).setTextColor(selectedColor);
+    dialog.getActionButton(DialogAction.NEGATIVE).setTextColor(selectedColor);
   }
 }

@@ -9,7 +9,7 @@
         if (getBuilder().mAccentMode) {
           subIndex(2);
         }
- else         if (getBuilder().mColorsSub != null) {
+ else         if (mColorsSub != null) {
           findSubIndexForColor(topIndex,preselectColor);
         }
  else {
@@ -31,31 +31,18 @@
       }
     }
   }
-  final DisplayMetrics dm=getResources().getDisplayMetrics();
-  mCircleSize=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,56,dm);
-  mGrid=new GridView(getContext());
-  mGrid.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
-  mGrid.setColumnWidth(mCircleSize);
-  mGrid.setNumColumns(GridView.AUTO_FIT);
-  final int eightDp=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,8,dm);
-  mGrid.setVerticalSpacing(eightDp);
-  mGrid.setHorizontalSpacing(eightDp);
-  final int sixteenDp=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,16,dm);
-  mGrid.setPadding(sixteenDp,sixteenDp,sixteenDp,sixteenDp);
-  mGrid.setClipToPadding(false);
-  mGrid.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
-  mGrid.setGravity(Gravity.CENTER);
-  Builder builder=getBuilder();
-  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(getTitle()).autoDismiss(false).customView(mGrid,false).neutralText(builder.mCancelBtn).positiveText(builder.mDoneBtn).onPositive(new MaterialDialog.SingleButtonCallback(){
+  mCircleSize=getResources().getDimensionPixelSize(R.dimen.md_colorchooser_circlesize);
+  final Builder builder=getBuilder();
+  MaterialDialog dialog=new MaterialDialog.Builder(getActivity()).title(getTitle()).autoDismiss(false).customView(R.layout.md_dialog_colorchooser,false).negativeText(builder.mCancelBtn).positiveText(builder.mDoneBtn).neutralText(builder.mAllowUserCustom ? builder.mCustomBtn : 0).onPositive(new MaterialDialog.SingleButtonCallback(){
     @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       mCallback.onColorSelection(ColorChooserDialog.this,getSelectedColor());
       dismiss();
     }
   }
-).onNeutral(new MaterialDialog.SingleButtonCallback(){
+).onNegative(new MaterialDialog.SingleButtonCallback(){
     @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       if (isInSub()) {
-        dialog.setActionButton(DialogAction.NEUTRAL,getBuilder().mCancelBtn);
+        dialog.setActionButton(DialogAction.NEGATIVE,getBuilder().mCancelBtn);
         isInSub(false);
         invalidate();
       }
@@ -64,12 +51,30 @@
       }
     }
   }
+).onNeutral(new MaterialDialog.SingleButtonCallback(){
+    @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
+      toggleCustom(dialog);
+    }
+  }
 ).showListener(new DialogInterface.OnShowListener(){
     @Override public void onShow(    DialogInterface dialog){
       invalidateDynamicButtonColors();
     }
   }
 ).build();
+  final View v=dialog.getCustomView();
+  mGrid=(GridView)v.findViewById(R.id.grid);
+  if (builder.mAllowUserCustom) {
+    mColorChooserCustomFrame=v.findViewById(R.id.colorChooserCustomFrame);
+    mCustomColorHex=(EditText)v.findViewById(R.id.hexInput);
+    mCustomColorIndicator=v.findViewById(R.id.colorIndicator);
+    mCustomSeekR=(SeekBar)v.findViewById(R.id.colorR);
+    mCustomSeekRValue=(TextView)v.findViewById(R.id.colorRValue);
+    mCustomSeekG=(SeekBar)v.findViewById(R.id.colorG);
+    mCustomSeekGValue=(TextView)v.findViewById(R.id.colorGValue);
+    mCustomSeekB=(SeekBar)v.findViewById(R.id.colorB);
+    mCustomSeekBValue=(TextView)v.findViewById(R.id.colorBValue);
+  }
   invalidate();
   return dialog;
 }

@@ -1,0 +1,70 @@
+{
+  if (mGrid.getVisibility() == View.VISIBLE) {
+    dialog.setTitle(getBuilder().mCustomBtn);
+    dialog.setActionButton(DialogAction.NEUTRAL,getBuilder().mBackBtn);
+    mGrid.setVisibility(View.GONE);
+    mColorChooserCustomFrame.setVisibility(View.VISIBLE);
+    mCustomColorTextWatcher=new TextWatcher(){
+      @Override public void beforeTextChanged(      CharSequence s,      int start,      int count,      int after){
+      }
+      @Override public void onTextChanged(      CharSequence s,      int start,      int before,      int count){
+        try {
+          mSelectedCustomColor=Color.parseColor("#" + s.toString());
+        }
+ catch (        IllegalArgumentException e) {
+          mSelectedCustomColor=Color.BLACK;
+        }
+        mCustomColorIndicator.setBackgroundColor(mSelectedCustomColor);
+        int red=Color.red(mSelectedCustomColor);
+        mCustomSeekR.setProgress(red);
+        mCustomSeekRValue.setText(String.format("%d",red));
+        int green=Color.green(mSelectedCustomColor);
+        mCustomSeekG.setProgress(green);
+        mCustomSeekGValue.setText(String.format("%d",green));
+        int blue=Color.blue(mSelectedCustomColor);
+        mCustomSeekB.setProgress(blue);
+        mCustomSeekBValue.setText(String.format("%d",blue));
+      }
+      @Override public void afterTextChanged(      Editable s){
+      }
+    }
+;
+    mCustomColorHex.addTextChangedListener(mCustomColorTextWatcher);
+    mCustomColorHex.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+      @Override public void onFocusChange(      View v,      boolean hasFocus){
+        mCustomColorHex.selectAll();
+      }
+    }
+);
+    mCustomColorRgbListener=new SeekBar.OnSeekBarChangeListener(){
+      @Override public void onProgressChanged(      SeekBar seekBar,      int progress,      boolean fromUser){
+        if (fromUser) {
+          int color=Color.rgb(mCustomSeekR.getProgress(),mCustomSeekG.getProgress(),mCustomSeekB.getProgress());
+          mCustomColorHex.setText(String.format("%06X",0xFFFFFF & color));
+        }
+      }
+      @Override public void onStartTrackingTouch(      SeekBar seekBar){
+      }
+      @Override public void onStopTrackingTouch(      SeekBar seekBar){
+      }
+    }
+;
+    mCustomSeekR.setOnSeekBarChangeListener(mCustomColorRgbListener);
+    mCustomSeekG.setOnSeekBarChangeListener(mCustomColorRgbListener);
+    mCustomSeekB.setOnSeekBarChangeListener(mCustomColorRgbListener);
+    mCustomColorHex.setText(String.format("%06X",0xFFFFFF & getBuilder().mPreselect));
+  }
+ else {
+    dialog.setTitle(getBuilder().mTitle);
+    dialog.setActionButton(DialogAction.NEUTRAL,getBuilder().mCustomBtn);
+    mGrid.setVisibility(View.VISIBLE);
+    mColorChooserCustomFrame.setVisibility(View.GONE);
+    mCustomColorHex.removeTextChangedListener(mCustomColorTextWatcher);
+    mCustomColorHex.setOnFocusChangeListener(null);
+    mCustomColorTextWatcher=null;
+    mCustomSeekR.setOnSeekBarChangeListener(null);
+    mCustomSeekG.setOnSeekBarChangeListener(null);
+    mCustomSeekB.setOnSeekBarChangeListener(null);
+    mCustomColorRgbListener=null;
+  }
+}

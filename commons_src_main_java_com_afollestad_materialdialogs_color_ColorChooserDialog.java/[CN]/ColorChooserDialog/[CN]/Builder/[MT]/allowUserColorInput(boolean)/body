@@ -1,0 +1,4 @@
+{
+  mAllowUserCustom=allow;
+  return this;
+}

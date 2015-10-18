@@ -9,7 +9,7 @@
  else {
       topIndex(index);
       if (mColorsSub != null && index < mColorsSub.length) {
-        dialog.setActionButton(DialogAction.NEUTRAL,builder.mBackBtn);
+        dialog.setActionButton(DialogAction.NEGATIVE,builder.mBackBtn);
         isInSub(true);
       }
     }
