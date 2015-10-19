@@ -76,10 +76,10 @@
     mCustomSeekGValue=(TextView)v.findViewById(R.id.colorGValue);
     mCustomSeekB=(SeekBar)v.findViewById(R.id.colorB);
     mCustomSeekBValue=(TextView)v.findViewById(R.id.colorBValue);
+    if (!foundPreselectColor) {
+      toggleCustom(dialog);
+    }
   }
   invalidate();
-  if (!foundPreselectColor) {
-    toggleCustom(dialog);
-  }
   return dialog;
 }
