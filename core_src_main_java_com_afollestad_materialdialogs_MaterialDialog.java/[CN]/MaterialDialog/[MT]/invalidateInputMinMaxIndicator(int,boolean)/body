@@ -1,7 +1,7 @@
 {
   if (inputMinMax != null) {
     inputMinMax.setText(String.format("%d/%d",currentLength,mBuilder.inputMaxLength));
-    final boolean isDisabled=(emptyDisabled && currentLength == 0) || currentLength > mBuilder.inputMaxLength || currentLength < mBuilder.inputMinLength;
+    final boolean isDisabled=(emptyDisabled && currentLength == 0) || (mBuilder.inputMaxLength > 0 && currentLength > mBuilder.inputMaxLength) || currentLength < mBuilder.inputMinLength;
     final int colorText=isDisabled ? mBuilder.inputRangeErrorColor : mBuilder.contentColor;
     final int colorWidget=isDisabled ? mBuilder.inputRangeErrorColor : mBuilder.widgetColor;
     inputMinMax.setTextColor(colorText);

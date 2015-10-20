@@ -1,6 +1,5 @@
 {
   if (minLength < 0)   throw new IllegalArgumentException("Min length for input dialogs cannot be less than 0.");
-  if (maxLength < 1)   throw new IllegalArgumentException("Max length for input dialogs cannot be less than 1.");
   this.inputMinLength=minLength;
   this.inputMaxLength=maxLength;
   if (errorColor == 0) {
