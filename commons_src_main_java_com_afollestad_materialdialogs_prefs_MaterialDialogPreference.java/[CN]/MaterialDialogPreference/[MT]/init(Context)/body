@@ -1,4 +1,0 @@
-{
-  this.context=context;
-  if (getLayoutResource() == 0)   setLayoutResource(R.layout.md_preference_custom);
-}

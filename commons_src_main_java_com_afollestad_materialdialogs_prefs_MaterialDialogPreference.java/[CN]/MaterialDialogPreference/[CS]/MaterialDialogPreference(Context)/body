@@ -1,4 +1,4 @@
 {
   super(context);
-  init(context);
+  init(context,null,0,0);
 }
