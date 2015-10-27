@@ -1,4 +1,4 @@
 {
   super(context,attrs,defStyleAttr);
-  init(context,attrs,defStyleAttr,0);
+  init(context,attrs);
 }
