@@ -52,15 +52,10 @@
         allowSelection=sendSingleChoiceCallback(view);
         mBuilder.selectedIndex=oldSelected;
       }
-      if (allowSelection && mBuilder.selectedIndex != position) {
+      if (allowSelection) {
         mBuilder.selectedIndex=position;
-        if (adapter.mRadioButton == null) {
-          adapter.mInitRadio=true;
-          adapter.notifyDataSetChanged();
-        }
-        if (adapter.mRadioButton != null)         adapter.mRadioButton.setChecked(false);
         radio.setChecked(true);
-        adapter.mRadioButton=radio;
+        adapter.notifyDataSetChanged();
       }
     }
   }
