@@ -3,6 +3,7 @@
   Collections.sort(selectedIndicesList);
   List<CharSequence> selectedTitles=new ArrayList<>();
   for (  Integer i : selectedIndicesList) {
+    if (i > mBuilder.items.length - 1)     continue;
     selectedTitles.add(mBuilder.items[i]);
   }
   return mBuilder.listCallbackMultiChoice.onSelection(this,selectedIndicesList.toArray(new Integer[selectedIndicesList.size()]),selectedTitles.toArray(new CharSequence[selectedTitles.size()]));
