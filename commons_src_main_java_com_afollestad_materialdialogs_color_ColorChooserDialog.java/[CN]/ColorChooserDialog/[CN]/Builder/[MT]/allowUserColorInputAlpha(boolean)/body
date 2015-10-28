@@ -1,0 +1,4 @@
+{
+  mAllowUserCustomAlpha=allow;
+  return this;
+}

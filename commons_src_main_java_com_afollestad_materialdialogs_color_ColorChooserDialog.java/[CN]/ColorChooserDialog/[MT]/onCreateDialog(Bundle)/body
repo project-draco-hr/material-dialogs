@@ -70,12 +70,25 @@
     mColorChooserCustomFrame=v.findViewById(R.id.colorChooserCustomFrame);
     mCustomColorHex=(EditText)v.findViewById(R.id.hexInput);
     mCustomColorIndicator=v.findViewById(R.id.colorIndicator);
+    mCustomSeekA=(SeekBar)v.findViewById(R.id.colorA);
+    mCustomSeekAValue=(TextView)v.findViewById(R.id.colorAValue);
     mCustomSeekR=(SeekBar)v.findViewById(R.id.colorR);
     mCustomSeekRValue=(TextView)v.findViewById(R.id.colorRValue);
     mCustomSeekG=(SeekBar)v.findViewById(R.id.colorG);
     mCustomSeekGValue=(TextView)v.findViewById(R.id.colorGValue);
     mCustomSeekB=(SeekBar)v.findViewById(R.id.colorB);
     mCustomSeekBValue=(TextView)v.findViewById(R.id.colorBValue);
+    if (!builder.mAllowUserCustomAlpha) {
+      v.findViewById(R.id.colorALabel).setVisibility(View.GONE);
+      mCustomSeekA.setVisibility(View.GONE);
+      mCustomSeekAValue.setVisibility(View.GONE);
+      mCustomColorHex.setHint("2196F3");
+      mCustomColorHex.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+    }
+ else {
+      mCustomColorHex.setHint("FF2196F3");
+      mCustomColorHex.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
+    }
     if (!foundPreselectColor) {
       toggleCustom(dialog);
     }

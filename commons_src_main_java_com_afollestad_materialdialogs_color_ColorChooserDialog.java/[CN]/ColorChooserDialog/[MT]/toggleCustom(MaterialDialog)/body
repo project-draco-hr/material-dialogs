@@ -17,15 +17,21 @@
           mSelectedCustomColor=Color.BLACK;
         }
         mCustomColorIndicator.setBackgroundColor(mSelectedCustomColor);
+        if (mCustomSeekA.getVisibility() == View.VISIBLE) {
+          int alpha=Color.alpha(mSelectedCustomColor);
+          mCustomSeekA.setProgress(alpha);
+          mCustomSeekAValue.setText(String.format("%d",alpha));
+        }
+        if (mCustomSeekA.getVisibility() == View.VISIBLE) {
+          int alpha=Color.alpha(mSelectedCustomColor);
+          mCustomSeekA.setProgress(alpha);
+        }
         int red=Color.red(mSelectedCustomColor);
         mCustomSeekR.setProgress(red);
-        mCustomSeekRValue.setText(String.format("%d",red));
         int green=Color.green(mSelectedCustomColor);
         mCustomSeekG.setProgress(green);
-        mCustomSeekGValue.setText(String.format("%d",green));
         int blue=Color.blue(mSelectedCustomColor);
         mCustomSeekB.setProgress(blue);
-        mCustomSeekBValue.setText(String.format("%d",blue));
         isInSub(false);
         topIndex(-1);
         subIndex(-1);
@@ -39,8 +45,14 @@
     mCustomColorRgbListener=new SeekBar.OnSeekBarChangeListener(){
       @Override public void onProgressChanged(      SeekBar seekBar,      int progress,      boolean fromUser){
         if (fromUser) {
-          int color=Color.rgb(mCustomSeekR.getProgress(),mCustomSeekG.getProgress(),mCustomSeekB.getProgress());
-          mCustomColorHex.setText(String.format("%06X",0xFFFFFF & color));
+          if (getBuilder().mAllowUserCustomAlpha) {
+            int color=Color.argb(mCustomSeekA.getProgress(),mCustomSeekR.getProgress(),mCustomSeekG.getProgress(),mCustomSeekB.getProgress());
+            mCustomColorHex.setText(String.format("%08X",color));
+          }
+ else {
+            int color=Color.rgb(mCustomSeekR.getProgress(),mCustomSeekG.getProgress(),mCustomSeekB.getProgress());
+            mCustomColorHex.setText(String.format("%06X",0xFFFFFF & color));
+          }
         }
       }
       @Override public void onStartTrackingTouch(      SeekBar seekBar){
@@ -49,10 +61,16 @@
       }
     }
 ;
+    if (mCustomSeekA.getVisibility() == View.VISIBLE) {
+      mCustomSeekA.setOnSeekBarChangeListener(mCustomColorRgbListener);
+      mCustomColorHex.setText(String.format("%08X",mSelectedCustomColor));
+    }
+ else {
+      mCustomColorHex.setText(String.format("%06X",0xFFFFFF & mSelectedCustomColor));
+    }
     mCustomSeekR.setOnSeekBarChangeListener(mCustomColorRgbListener);
     mCustomSeekG.setOnSeekBarChangeListener(mCustomColorRgbListener);
     mCustomSeekB.setOnSeekBarChangeListener(mCustomColorRgbListener);
-    mCustomColorHex.setText(String.format("%06X",0xFFFFFF & mSelectedCustomColor));
   }
  else {
     dialog.setTitle(getBuilder().mTitle);
