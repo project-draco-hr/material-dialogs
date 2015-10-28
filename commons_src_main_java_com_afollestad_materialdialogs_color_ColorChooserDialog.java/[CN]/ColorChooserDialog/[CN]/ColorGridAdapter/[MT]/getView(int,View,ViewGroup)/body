@@ -8,7 +8,8 @@
   child.setBackgroundColor(color);
   if (isInSub())   child.setSelected(subIndex() == position);
  else   child.setSelected(topIndex() == position);
-  child.setTag(position);
+  child.setTag(String.format("%d:%d",position,color));
   child.setOnClickListener(ColorChooserDialog.this);
+  child.setOnLongClickListener(ColorChooserDialog.this);
   return convertView;
 }

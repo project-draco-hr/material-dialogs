@@ -1,0 +1,9 @@
+{
+  if (v.getTag() != null) {
+    final String[] tag=((String)v.getTag()).split(":");
+    final int color=Integer.parseInt(tag[1]);
+    ((CircleView)v).showHint(color);
+    return true;
+  }
+  return false;
+}

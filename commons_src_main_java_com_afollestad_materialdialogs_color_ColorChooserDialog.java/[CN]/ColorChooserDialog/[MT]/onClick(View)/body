@@ -1,6 +1,7 @@
 {
   if (v.getTag() != null) {
-    final int index=(Integer)v.getTag();
+    final String[] tag=((String)v.getTag()).split(":");
+    final int index=Integer.parseInt(tag[0]);
     final MaterialDialog dialog=(MaterialDialog)getDialog();
     final Builder builder=getBuilder();
     if (isInSub()) {
