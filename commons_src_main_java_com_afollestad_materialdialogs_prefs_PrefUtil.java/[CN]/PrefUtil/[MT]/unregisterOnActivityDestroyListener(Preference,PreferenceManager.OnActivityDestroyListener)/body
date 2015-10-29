@@ -1,0 +1,10 @@
+{
+  try {
+    PreferenceManager pm=preference.getPreferenceManager();
+    Method method=pm.getClass().getDeclaredMethod("unregisterOnActivityDestroyListener",PreferenceManager.OnActivityDestroyListener.class);
+    method.setAccessible(true);
+    method.invoke(pm,listener);
+  }
+ catch (  Exception ignored) {
+  }
+}
