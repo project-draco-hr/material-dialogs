@@ -167,6 +167,7 @@
     FrameLayout frame=(FrameLayout)dialog.view.findViewById(R.id.customViewFrame);
     dialog.customViewFrame=frame;
     View innerView=builder.customView;
+    if (innerView.getParent() != null)     ((ViewGroup)innerView.getParent()).removeView(innerView);
     if (builder.wrapCustomViewInScroll) {
       final Resources r=dialog.getContext().getResources();
       final int framePadding=r.getDimensionPixelSize(R.dimen.md_dialog_frame_margin);
