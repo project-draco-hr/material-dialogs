@@ -1,0 +1,3 @@
+{
+  return linkColor(DialogUtils.resolveActionTextColorStateList(this.context,colorAttr,null));
+}

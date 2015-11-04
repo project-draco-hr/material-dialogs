@@ -17,6 +17,7 @@
   if (s.btnSelectorNeutral != 0)   this.btnSelectorNeutral=s.btnSelectorNeutral;
   if (s.btnSelectorNegative != 0)   this.btnSelectorNegative=s.btnSelectorNegative;
   if (s.widgetColor != 0)   this.widgetColor=s.widgetColor;
+  if (s.linkColor != null)   this.linkColor=s.linkColor;
   this.titleGravity=s.titleGravity;
   this.contentGravity=s.contentGravity;
   this.btnStackedGravity=s.btnStackedGravity;
