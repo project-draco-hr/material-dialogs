@@ -4,7 +4,7 @@
     dialog.setTitle(getBuilder().mCustomBtn);
     dialog.setActionButton(DialogAction.NEUTRAL,getBuilder().mPresetsBtn);
     dialog.setActionButton(DialogAction.NEGATIVE,getBuilder().mCancelBtn);
-    mGrid.setVisibility(View.GONE);
+    mGrid.setVisibility(View.INVISIBLE);
     mColorChooserCustomFrame.setVisibility(View.VISIBLE);
     mCustomColorTextWatcher=new TextWatcher(){
       @Override public void beforeTextChanged(      CharSequence s,      int start,      int count,      int after){

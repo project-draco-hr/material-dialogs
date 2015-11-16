@@ -1,34 +1,41 @@
 {
   if (getArguments() == null || !getArguments().containsKey("builder"))   throw new IllegalStateException("ColorChooserDialog should be created using its Builder interface.");
   generateColors();
-  final int preselectColor=getBuilder().mPreselect;
+  int preselectColor;
   boolean foundPreselectColor=false;
-  if (preselectColor != 0) {
-    for (int topIndex=0; topIndex < mColorsTop.length; topIndex++) {
-      if (mColorsTop[topIndex] == preselectColor) {
-        foundPreselectColor=true;
-        topIndex(topIndex);
-        if (getBuilder().mAccentMode) {
-          subIndex(2);
-        }
- else         if (mColorsSub != null) {
-          findSubIndexForColor(topIndex,preselectColor);
-        }
+  if (savedInstanceState != null) {
+    foundPreselectColor=!savedInstanceState.getBoolean("in_custom",false);
+    preselectColor=getSelectedColor();
+  }
  else {
-          subIndex(5);
-        }
-        break;
-      }
-      if (mColorsSub != null) {
-        for (int subIndex=0; subIndex < mColorsSub[topIndex].length; subIndex++) {
-          if (mColorsSub[topIndex][subIndex] == preselectColor) {
-            foundPreselectColor=true;
-            topIndex(topIndex);
-            subIndex(subIndex);
-            break;
+    preselectColor=getBuilder().mPreselect;
+    if (preselectColor != 0) {
+      for (int topIndex=0; topIndex < mColorsTop.length; topIndex++) {
+        if (mColorsTop[topIndex] == preselectColor) {
+          foundPreselectColor=true;
+          topIndex(topIndex);
+          if (getBuilder().mAccentMode) {
+            subIndex(2);
           }
+ else           if (mColorsSub != null) {
+            findSubIndexForColor(topIndex,preselectColor);
+          }
+ else {
+            subIndex(5);
+          }
+          break;
         }
-        if (foundPreselectColor)         break;
+        if (mColorsSub != null) {
+          for (int subIndex=0; subIndex < mColorsSub[topIndex].length; subIndex++) {
+            if (mColorsSub[topIndex][subIndex] == preselectColor) {
+              foundPreselectColor=true;
+              topIndex(topIndex);
+              subIndex(subIndex);
+              break;
+            }
+          }
+          if (foundPreselectColor)           break;
+        }
       }
     }
   }

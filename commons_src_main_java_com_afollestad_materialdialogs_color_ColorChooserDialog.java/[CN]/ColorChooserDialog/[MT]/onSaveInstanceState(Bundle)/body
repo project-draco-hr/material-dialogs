@@ -1,0 +1,7 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putInt("top_index",topIndex());
+  outState.putBoolean("in_sub",isInSub());
+  outState.putInt("sub_index",subIndex());
+  outState.putBoolean("in_custom",mColorChooserCustomFrame.getVisibility() == View.VISIBLE);
+}
