@@ -1,5 +1,5 @@
 {
-  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).content(getDialogMessage()).icon(getDialogIcon()).dismissListener(this).callback(new MaterialDialog.ButtonCallback(){
+  MaterialDialog.Builder builder=new MaterialDialog.Builder(context).title(getDialogTitle()).icon(getDialogIcon()).dismissListener(this).callback(new MaterialDialog.ButtonCallback(){
     @Override public void onNeutral(    MaterialDialog dialog){
       onClick(dialog,DialogInterface.BUTTON_NEUTRAL);
     }
