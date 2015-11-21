@@ -18,21 +18,6 @@ break;
 }
 }
 }
-).onAny(new MaterialDialog.SingleButtonCallback(){
-@Override public void onClick(@NonNull MaterialDialog dialog,@NonNull DialogAction which){
-switch (which) {
-case POSITIVE:
-MaterialListPreference.this.onClick(dialog,DialogInterface.BUTTON_POSITIVE);
-break;
-case NEGATIVE:
-MaterialListPreference.this.onClick(dialog,DialogInterface.BUTTON_NEGATIVE);
-break;
-case NEUTRAL:
-MaterialListPreference.this.onClick(dialog,DialogInterface.BUTTON_NEUTRAL);
-break;
-}
-}
-}
 ).negativeText(getNegativeButtonText()).items(getEntries()).autoDismiss(true).itemsCallbackSingleChoice(preselect,new MaterialDialog.ListCallbackSingleChoice(){
 @Override public boolean onSelection(MaterialDialog dialog,View itemView,int which,CharSequence text){
 onClick(null,DialogInterface.BUTTON_POSITIVE);
