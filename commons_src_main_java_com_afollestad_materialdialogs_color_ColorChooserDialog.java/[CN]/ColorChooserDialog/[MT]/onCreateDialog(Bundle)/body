@@ -8,35 +8,41 @@
     preselectColor=getSelectedColor();
   }
  else {
-    preselectColor=getBuilder().mPreselect;
-    if (preselectColor != 0) {
-      for (int topIndex=0; topIndex < mColorsTop.length; topIndex++) {
-        if (mColorsTop[topIndex] == preselectColor) {
-          foundPreselectColor=true;
-          topIndex(topIndex);
-          if (getBuilder().mAccentMode) {
-            subIndex(2);
-          }
- else           if (mColorsSub != null) {
-            findSubIndexForColor(topIndex,preselectColor);
-          }
- else {
-            subIndex(5);
-          }
-          break;
-        }
-        if (mColorsSub != null) {
-          for (int subIndex=0; subIndex < mColorsSub[topIndex].length; subIndex++) {
-            if (mColorsSub[topIndex][subIndex] == preselectColor) {
-              foundPreselectColor=true;
-              topIndex(topIndex);
-              subIndex(subIndex);
-              break;
+    if (getBuilder().mSetPreselectionColor) {
+      preselectColor=getBuilder().mPreselect;
+      if (preselectColor != 0) {
+        for (int topIndex=0; topIndex < mColorsTop.length; topIndex++) {
+          if (mColorsTop[topIndex] == preselectColor) {
+            foundPreselectColor=true;
+            topIndex(topIndex);
+            if (getBuilder().mAccentMode) {
+              subIndex(2);
             }
+ else             if (mColorsSub != null) {
+              findSubIndexForColor(topIndex,preselectColor);
+            }
+ else {
+              subIndex(5);
+            }
+            break;
           }
-          if (foundPreselectColor)           break;
+          if (mColorsSub != null) {
+            for (int subIndex=0; subIndex < mColorsSub[topIndex].length; subIndex++) {
+              if (mColorsSub[topIndex][subIndex] == preselectColor) {
+                foundPreselectColor=true;
+                topIndex(topIndex);
+                subIndex(subIndex);
+                break;
+              }
+            }
+            if (foundPreselectColor)             break;
+          }
         }
       }
+    }
+ else {
+      preselectColor=Color.BLACK;
+      foundPreselectColor=true;
     }
   }
   mCircleSize=getResources().getDimensionPixelSize(R.dimen.md_colorchooser_circlesize);

@@ -1,4 +1,5 @@
 {
   mPreselect=preselect;
+  mSetPreselectionColor=true;
   return this;
 }
