@@ -1,4 +1,4 @@
 {
-  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+  super.onMeasure(widthMeasureSpec,widthMeasureSpec);
   setMeasuredDimension(getMeasuredWidth(),getMeasuredWidth());
 }
