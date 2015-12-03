@@ -46,5 +46,6 @@ builder.content(getDialogMessage());
 PrefUtil.registerOnActivityDestroyListener(this,this);
 mDialog=builder.build();
 if (state != null) mDialog.onRestoreInstanceState(state);
+onClick(mDialog,DialogInterface.BUTTON_NEGATIVE);
 mDialog.show();
 }
