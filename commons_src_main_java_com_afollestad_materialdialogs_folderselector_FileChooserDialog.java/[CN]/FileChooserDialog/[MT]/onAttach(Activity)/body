@@ -1,0 +1,4 @@
+{
+  super.onAttach(activity);
+  mCallback=(FileCallback)activity;
+}

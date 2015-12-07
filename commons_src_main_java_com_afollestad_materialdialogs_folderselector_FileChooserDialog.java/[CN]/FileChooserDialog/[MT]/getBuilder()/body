@@ -1,0 +1,3 @@
+{
+  return (Builder)getArguments().getSerializable("builder");
+}

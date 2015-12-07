@@ -1,0 +1,21 @@
+{
+  if (canGoUp && i == 0) {
+    parentFolder=parentFolder.getParentFile();
+    canGoUp=parentFolder.getParent() != null;
+  }
+ else {
+    parentFolder=parentContents[canGoUp ? i - 1 : i];
+    canGoUp=true;
+  }
+  if (parentFolder.isFile()) {
+    mCallback.onFileSelection(parentFolder);
+    dismiss();
+  }
+ else {
+    parentContents=listFiles(getBuilder().mMimeType);
+    MaterialDialog dialog=(MaterialDialog)getDialog();
+    dialog.setTitle(parentFolder.getAbsolutePath());
+    getArguments().putString("current_path",parentFolder.getAbsolutePath());
+    dialog.setItems(getContentsArray());
+  }
+}

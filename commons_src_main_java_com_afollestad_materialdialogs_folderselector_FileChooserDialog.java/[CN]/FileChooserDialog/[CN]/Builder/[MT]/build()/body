@@ -1,0 +1,7 @@
+{
+  FileChooserDialog dialog=new FileChooserDialog();
+  Bundle args=new Bundle();
+  args.putSerializable("builder",this);
+  dialog.setArguments(args);
+  return dialog;
+}

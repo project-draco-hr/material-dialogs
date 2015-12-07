@@ -1,0 +1,4 @@
+{
+  mMimeType=type;
+  return this;
+}
