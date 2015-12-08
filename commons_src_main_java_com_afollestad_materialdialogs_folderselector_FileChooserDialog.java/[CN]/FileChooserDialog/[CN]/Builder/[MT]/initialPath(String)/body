@@ -1,0 +1,5 @@
+{
+  if (initialPath == null)   initialPath=File.separator;
+  mInitialPath=initialPath;
+  return this;
+}

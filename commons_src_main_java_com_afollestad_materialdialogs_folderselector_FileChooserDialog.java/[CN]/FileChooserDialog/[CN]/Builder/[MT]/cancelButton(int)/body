@@ -1,0 +1,4 @@
+{
+  mCancelButton=text;
+  return this;
+}
