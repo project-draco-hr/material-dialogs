@@ -1,4 +1,4 @@
 {
   this.context=context;
-  PrefUtil.setLayoutResource(this,attrs);
+  PrefUtil.setLayoutResource(context,this,attrs);
 }
