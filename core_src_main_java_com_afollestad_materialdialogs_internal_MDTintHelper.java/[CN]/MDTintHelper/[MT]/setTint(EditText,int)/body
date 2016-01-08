@@ -6,4 +6,5 @@
  else   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
     editText.setBackgroundTintList(editTextColorStateList);
   }
+  setCursorTint(editText,color);
 }
