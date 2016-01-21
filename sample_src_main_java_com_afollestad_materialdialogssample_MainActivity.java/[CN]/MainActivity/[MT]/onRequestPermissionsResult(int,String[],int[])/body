@@ -4,13 +4,13 @@
     if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
       mHandler.postDelayed(new Runnable(){
         @Override public void run(){
-          findViewById(R.id.folder_chooser).performClick();
+          findViewById(chooserDialog).performClick();
         }
       }
 ,1000);
     }
  else {
-      Toast.makeText(this,"The folder chooser will not work without permission to read external storage.",Toast.LENGTH_LONG).show();
+      Toast.makeText(this,"The folder or file chooser will not work without permission to read external storage.",Toast.LENGTH_LONG).show();
     }
   }
 }
