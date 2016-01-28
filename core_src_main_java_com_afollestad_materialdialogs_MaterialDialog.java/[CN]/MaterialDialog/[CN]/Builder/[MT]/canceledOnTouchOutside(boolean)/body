@@ -1,0 +1,4 @@
+{
+  this.canceledOnTouchOutside=canceledOnTouchOutside;
+  return this;
+}
