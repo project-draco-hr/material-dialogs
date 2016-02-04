@@ -8,8 +8,8 @@ case POSITIVE:
         mBuilder.callback.onPositive(this);
       }
       if (mBuilder.onPositiveCallback != null)       mBuilder.onPositiveCallback.onClick(this,tag);
-      sendSingleChoiceCallback(v);
-      sendMultichoiceCallback();
+      if (!mBuilder.alwaysCallSingleChoiceCallback)       sendSingleChoiceCallback(v);
+      if (!mBuilder.alwaysCallMultiChoiceCallback)       sendMultichoiceCallback();
       if (mBuilder.inputCallback != null && input != null && !mBuilder.alwaysCallInputCallback)       mBuilder.inputCallback.onInput(this,input.getText());
       if (mBuilder.autoDismiss)       dismiss();
       break;
