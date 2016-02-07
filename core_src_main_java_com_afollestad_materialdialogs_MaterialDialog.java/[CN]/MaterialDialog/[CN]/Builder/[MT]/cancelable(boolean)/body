@@ -1,4 +1,5 @@
 {
   this.cancelable=cancelable;
+  this.canceledOnTouchOutside=cancelable;
   return this;
 }
