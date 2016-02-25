@@ -1,8 +1,9 @@
 {
-  Fragment frag=context.getSupportFragmentManager().findFragmentByTag(TAG);
+  final String tag=getBuilder().mTag;
+  Fragment frag=context.getSupportFragmentManager().findFragmentByTag(tag);
   if (frag != null) {
     ((DialogFragment)frag).dismiss();
     context.getSupportFragmentManager().beginTransaction().remove(frag).commit();
   }
-  show(context.getSupportFragmentManager(),TAG);
+  show(context.getSupportFragmentManager(),tag);
 }

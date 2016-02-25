@@ -1,0 +1,5 @@
+{
+  if (tag == null)   tag=DEFAULT_TAG;
+  mTag=tag;
+  return this;
+}

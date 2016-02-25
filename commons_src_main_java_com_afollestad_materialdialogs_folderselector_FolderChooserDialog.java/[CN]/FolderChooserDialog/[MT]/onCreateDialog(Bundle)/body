@@ -9,7 +9,7 @@
   return new MaterialDialog.Builder(getActivity()).title(parentFolder.getAbsolutePath()).items(getContentsArray()).itemsCallback(this).onPositive(new MaterialDialog.SingleButtonCallback(){
     @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       dialog.dismiss();
-      mCallback.onFolderSelection(parentFolder);
+      mCallback.onFolderSelection(FolderChooserDialog.this,parentFolder);
     }
   }
 ).onNegative(new MaterialDialog.SingleButtonCallback(){

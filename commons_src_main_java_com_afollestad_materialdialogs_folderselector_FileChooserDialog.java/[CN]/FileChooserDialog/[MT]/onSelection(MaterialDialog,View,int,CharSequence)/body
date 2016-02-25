@@ -10,7 +10,7 @@
     if (parentFolder.getAbsolutePath().equals("/storage/emulated"))     parentFolder=Environment.getExternalStorageDirectory();
   }
   if (parentFolder.isFile()) {
-    mCallback.onFileSelection(parentFolder);
+    mCallback.onFileSelection(this,parentFolder);
     dismiss();
   }
  else {
