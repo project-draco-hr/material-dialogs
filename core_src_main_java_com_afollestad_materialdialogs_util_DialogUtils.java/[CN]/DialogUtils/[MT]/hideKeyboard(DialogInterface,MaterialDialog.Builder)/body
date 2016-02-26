@@ -1,12 +1,6 @@
 {
   final MaterialDialog dialog=(MaterialDialog)di;
   if (dialog.getInputEditText() == null)   return;
-  dialog.getInputEditText().post(new Runnable(){
-    @Override public void run(){
-      dialog.getInputEditText().requestFocus();
-      InputMethodManager imm=(InputMethodManager)builder.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-      if (imm != null)       imm.hideSoftInputFromWindow(dialog.getCurrentFocus().getWindowToken(),0);
-    }
-  }
-);
+  InputMethodManager imm=(InputMethodManager)builder.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+  if (imm != null)   imm.hideSoftInputFromWindow(dialog.getCurrentFocus().getWindowToken(),0);
 }

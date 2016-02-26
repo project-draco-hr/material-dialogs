@@ -1,7 +1,7 @@
 {
   if (inputMinMax != null) {
     if (mBuilder.inputMaxLength > 0) {
-      inputMinMax.setText(String.format("%d/%d",currentLength,mBuilder.inputMaxLength));
+      inputMinMax.setText(String.format(Locale.getDefault(),"%d/%d",currentLength,mBuilder.inputMaxLength));
       inputMinMax.setVisibility(View.VISIBLE);
     }
  else     inputMinMax.setVisibility(View.GONE);

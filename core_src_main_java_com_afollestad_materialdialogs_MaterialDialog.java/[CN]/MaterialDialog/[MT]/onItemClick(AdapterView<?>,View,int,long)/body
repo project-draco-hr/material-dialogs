@@ -14,7 +14,7 @@
   }
  else {
     if (listType == ListType.MULTI) {
-      final boolean shouldBeChecked=!selectedIndicesList.contains(Integer.valueOf(position));
+      final boolean shouldBeChecked=!selectedIndicesList.contains(position);
       final CheckBox cb=(CheckBox)view.findViewById(R.id.control);
       if (shouldBeChecked) {
         selectedIndicesList.add(position);
