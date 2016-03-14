@@ -12,7 +12,7 @@
   MDTintHelper.setTint(dialog.input,dialog.mBuilder.widgetColor);
   if (builder.inputType != -1) {
     dialog.input.setInputType(builder.inputType);
-    if ((builder.inputType & InputType.TYPE_TEXT_VARIATION_PASSWORD) == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+    if (builder.inputType != InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD && (builder.inputType & InputType.TYPE_TEXT_VARIATION_PASSWORD) == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
       dialog.input.setTransformationMethod(PasswordTransformationMethod.getInstance());
     }
   }

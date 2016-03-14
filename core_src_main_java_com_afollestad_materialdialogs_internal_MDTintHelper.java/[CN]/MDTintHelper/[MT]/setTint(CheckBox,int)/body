@@ -4,7 +4,8 @@
     box.setButtonTintList(sl);
   }
  else {
-    Drawable drawable=DrawableCompat.wrap(ContextCompat.getDrawable(box.getContext(),R.drawable.abc_btn_check_material));
+    Drawable checkVector=VectorDrawableCompat.create(box.getContext().getResources(),R.drawable.abc_btn_check_material,null);
+    Drawable drawable=DrawableCompat.wrap(checkVector);
     DrawableCompat.setTintList(drawable,sl);
     box.setButtonDrawable(drawable);
   }
