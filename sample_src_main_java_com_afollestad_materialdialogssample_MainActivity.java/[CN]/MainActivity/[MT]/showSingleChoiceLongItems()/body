@@ -5,5 +5,5 @@
       return true;
     }
   }
-).alwaysCallSingleChoiceCallback().show();
+).positiveText(R.string.md_choose_label).show();
 }
