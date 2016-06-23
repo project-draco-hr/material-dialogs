@@ -1,0 +1,5 @@
+{
+  Builder builder=getBuilder();
+  if (builder.mTag != null)   return builder.mTag;
+ else   return super.getTag();
+}
