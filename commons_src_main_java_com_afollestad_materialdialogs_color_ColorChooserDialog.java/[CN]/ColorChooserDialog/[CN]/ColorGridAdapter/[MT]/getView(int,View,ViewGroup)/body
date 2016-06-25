@@ -4,7 +4,7 @@
     convertView.setLayoutParams(new GridView.LayoutParams(mCircleSize,mCircleSize));
   }
   CircleView child=(CircleView)convertView;
-  final int color=isInSub() ? mColorsSub[topIndex()][position] : mColorsTop[position];
+  @ColorInt final int color=isInSub() ? mColorsSub[topIndex()][position] : mColorsTop[position];
   child.setBackgroundColor(color);
   if (isInSub())   child.setSelected(subIndex() == position);
  else   child.setSelected(topIndex() == position);

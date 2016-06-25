@@ -43,7 +43,7 @@
 ;
     mCustomColorHex.addTextChangedListener(mCustomColorTextWatcher);
     mCustomColorRgbListener=new SeekBar.OnSeekBarChangeListener(){
-      @Override public void onProgressChanged(      SeekBar seekBar,      int progress,      boolean fromUser){
+      @SuppressLint("DefaultLocale") @Override public void onProgressChanged(      SeekBar seekBar,      int progress,      boolean fromUser){
         if (fromUser) {
           if (getBuilder().mAllowUserCustomAlpha) {
             int color=Color.argb(mCustomSeekA.getProgress(),mCustomSeekR.getProgress(),mCustomSeekG.getProgress(),mCustomSeekB.getProgress());
