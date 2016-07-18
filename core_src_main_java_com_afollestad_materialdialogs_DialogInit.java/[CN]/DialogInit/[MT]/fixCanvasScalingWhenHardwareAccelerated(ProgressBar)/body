@@ -1,0 +1,7 @@
+{
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+    if (pb.isHardwareAccelerated() && pb.getLayerType() != View.LAYER_TYPE_SOFTWARE) {
+      pb.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    }
+  }
+}

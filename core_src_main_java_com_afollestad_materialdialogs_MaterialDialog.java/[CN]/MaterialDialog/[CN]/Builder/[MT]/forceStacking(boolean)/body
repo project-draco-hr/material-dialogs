@@ -1,4 +1,3 @@
 {
-  this.forceStacking=stacked;
-  return this;
+  return stackingBehavior(stacked ? StackingBehavior.ALWAYS : StackingBehavior.ADAPTIVE);
 }

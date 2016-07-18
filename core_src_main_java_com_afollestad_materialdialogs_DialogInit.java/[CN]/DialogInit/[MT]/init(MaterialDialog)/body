@@ -98,7 +98,7 @@
   }
   dialog.view.setButtonGravity(builder.buttonsGravity);
   dialog.view.setButtonStackedGravity(builder.btnStackedGravity);
-  dialog.view.setForceStack(builder.forceStacking);
+  dialog.view.setStackingBehavior(builder.stackingBehavior);
   boolean textAllCaps;
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
     textAllCaps=DialogUtils.resolveBoolean(builder.context,android.R.attr.textAllCaps,true);

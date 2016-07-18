@@ -1,7 +1,14 @@
 {
+  if (!view.isEnabled())   return;
   if (mBuilder.listCallbackCustom != null) {
     CharSequence text=null;
-    if (view instanceof TextView)     text=((TextView)view).getText();
+    if (view instanceof TextView) {
+      text=((TextView)view).getText();
+    }
+ else {
+      final TextView tv=(TextView)view.findViewById(android.R.id.title);
+      if (tv != null)       text=tv.getText();
+    }
     mBuilder.listCallbackCustom.onSelection(this,view,position,text);
   }
  else   if (listType == null || listType == ListType.REGULAR) {
@@ -14,8 +21,9 @@
   }
  else {
     if (listType == ListType.MULTI) {
-      final boolean shouldBeChecked=!selectedIndicesList.contains(position);
       final CheckBox cb=(CheckBox)view.findViewById(R.id.control);
+      if (!cb.isEnabled())       return;
+      final boolean shouldBeChecked=!selectedIndicesList.contains(position);
       if (shouldBeChecked) {
         selectedIndicesList.add(position);
         if (mBuilder.alwaysCallMultiChoiceCallback) {
@@ -37,9 +45,10 @@
       }
     }
  else     if (listType == ListType.SINGLE) {
+      final RadioButton radio=(RadioButton)view.findViewById(R.id.control);
+      if (!radio.isEnabled())       return;
       boolean allowSelection=true;
       final DefaultAdapter adapter=(DefaultAdapter)mBuilder.adapter;
-      final RadioButton radio=(RadioButton)view.findViewById(R.id.control);
       if (mBuilder.autoDismiss && mBuilder.positiveText == null) {
         dismiss();
         allowSelection=false;

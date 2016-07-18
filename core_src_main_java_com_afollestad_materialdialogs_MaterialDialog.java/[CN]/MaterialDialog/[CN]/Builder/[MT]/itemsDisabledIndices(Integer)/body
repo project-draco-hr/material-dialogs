@@ -1,0 +1,4 @@
+{
+  this.disabledIndices=disabledIndices;
+  return this;
+}

@@ -4,7 +4,13 @@
   mUseFullPadding=true;
   boolean hasButtons=false;
   final boolean stacked;
-  if (!mForceStack) {
+  if (mStackBehavior == StackingBehavior.ALWAYS) {
+    stacked=true;
+  }
+ else   if (mStackBehavior == StackingBehavior.NEVER) {
+    stacked=false;
+  }
+ else {
     int buttonsWidth=0;
     for (    MDButton button : mButtons) {
       if (button != null && isVisible(button)) {
@@ -17,9 +23,6 @@
     int buttonBarPadding=getContext().getResources().getDimensionPixelSize(R.dimen.md_neutral_button_margin);
     final int buttonFrameWidth=width - 2 * buttonBarPadding;
     stacked=buttonsWidth > buttonFrameWidth;
-  }
- else {
-    stacked=true;
   }
   int stackedHeight=0;
   mIsStacked=stacked;

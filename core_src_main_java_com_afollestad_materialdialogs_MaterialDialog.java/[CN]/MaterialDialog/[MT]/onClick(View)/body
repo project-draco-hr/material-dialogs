@@ -21,7 +21,7 @@ case NEGATIVE:
       mBuilder.callback.onNegative(this);
     }
     if (mBuilder.onNegativeCallback != null)     mBuilder.onNegativeCallback.onClick(this,tag);
-    if (mBuilder.autoDismiss)     dismiss();
+    if (mBuilder.autoDismiss)     cancel();
     break;
   }
 case NEUTRAL:

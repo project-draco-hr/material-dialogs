@@ -1,0 +1,4 @@
+{
+  mStackBehavior=behavior;
+  invalidate();
+}

@@ -26,8 +26,8 @@
   }
 );
   int widgetColor=ThemeSingleton.get().widgetColor;
-  MDTintHelper.setTint(checkbox,widgetColor == 0 ? ContextCompat.getColor(this,R.color.material_teal_a400) : widgetColor);
-  MDTintHelper.setTint(passwordInput,widgetColor == 0 ? ContextCompat.getColor(this,R.color.material_teal_a400) : widgetColor);
+  MDTintHelper.setTint(checkbox,widgetColor == 0 ? ContextCompat.getColor(this,R.color.material_blue) : widgetColor);
+  MDTintHelper.setTint(passwordInput,widgetColor == 0 ? ContextCompat.getColor(this,R.color.material_blue) : widgetColor);
   dialog.show();
   positiveAction.setEnabled(false);
 }

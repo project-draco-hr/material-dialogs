@@ -1,0 +1,7 @@
+{
+  if (ary == null || ary.length == 0)   return false;
+  for (  T item : ary) {
+    if (item.equals(find))     return true;
+  }
+  return false;
+}
