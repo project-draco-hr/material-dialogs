@@ -1,4 +1,0 @@
-{
-  mChooseButton=text;
-  return this;
-}

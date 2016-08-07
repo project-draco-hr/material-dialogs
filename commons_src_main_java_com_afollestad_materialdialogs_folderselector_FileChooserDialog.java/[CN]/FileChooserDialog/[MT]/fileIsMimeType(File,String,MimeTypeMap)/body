@@ -9,6 +9,7 @@
       return false;
     }
     String fileExtension=filename.substring(dotPos + 1);
+    if (fileExtension.endsWith("json"))     return mimeType.startsWith("application/json");
     String fileType=mimeTypeMap.getMimeTypeFromExtension(fileExtension);
     if (fileType == null) {
       return false;

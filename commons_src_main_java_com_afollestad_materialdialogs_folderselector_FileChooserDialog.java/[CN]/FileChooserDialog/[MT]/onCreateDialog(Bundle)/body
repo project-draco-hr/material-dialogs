@@ -11,5 +11,5 @@
       dialog.dismiss();
     }
   }
-).autoDismiss(false).negativeText(getBuilder().mCancelButton).positiveText(getBuilder().mChooseButton).build();
+).autoDismiss(false).negativeText(getBuilder().mCancelButton).build();
 }
