@@ -32,13 +32,13 @@
       dialog.mProgress.setIndeterminate(builder.indeterminateIsHorizontalProgress);
       dialog.mProgress.setProgress(0);
       dialog.mProgress.setMax(builder.progressMax);
-      dialog.mProgressLabel=(TextView)dialog.view.findViewById(R.id.label);
+      dialog.mProgressLabel=(TextView)dialog.view.findViewById(R.id.md_label);
       if (dialog.mProgressLabel != null) {
         dialog.mProgressLabel.setTextColor(builder.contentColor);
         dialog.setTypeface(dialog.mProgressLabel,builder.mediumFont);
         dialog.mProgressLabel.setText(builder.progressPercentFormat.format(0));
       }
-      dialog.mProgressMinMax=(TextView)dialog.view.findViewById(R.id.minMax);
+      dialog.mProgressMinMax=(TextView)dialog.view.findViewById(R.id.md_minMax);
       if (dialog.mProgressMinMax != null) {
         dialog.mProgressMinMax.setTextColor(builder.contentColor);
         dialog.setTypeface(dialog.mProgressMinMax,builder.regularFont);

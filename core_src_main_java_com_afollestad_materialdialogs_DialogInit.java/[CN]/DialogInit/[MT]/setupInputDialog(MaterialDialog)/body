@@ -16,7 +16,7 @@
       dialog.input.setTransformationMethod(PasswordTransformationMethod.getInstance());
     }
   }
-  dialog.inputMinMax=(TextView)dialog.view.findViewById(R.id.minMax);
+  dialog.inputMinMax=(TextView)dialog.view.findViewById(R.id.md_minMax);
   if (builder.inputMinLength > 0 || builder.inputMaxLength > -1) {
     dialog.invalidateInputMinMaxIndicator(dialog.input.getText().toString().length(),!builder.inputAllowEmpty);
   }
