@@ -1,4 +1,0 @@
-{
-  builder.iconRes(iconId);
-  return this;
-}

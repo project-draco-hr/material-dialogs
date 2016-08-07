@@ -1,4 +1,0 @@
-{
-  if (getDialog() == null)   return null;
-  return ((MaterialDialog)getDialog()).getListView();
-}

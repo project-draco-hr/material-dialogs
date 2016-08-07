@@ -1,12 +1,12 @@
 {
-  if (listView == null)   return;
-  listView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
-    @Override public void onGlobalLayout(){
+  if (recyclerView == null)   return;
+  recyclerView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+    @SuppressWarnings("ConstantConditions") @Override public void onGlobalLayout(){
       if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-        listView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+        recyclerView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
       }
  else {
-        listView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+        recyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
       }
       if (listType == ListType.SINGLE || listType == ListType.MULTI) {
         int selectedIndex;
@@ -19,15 +19,28 @@
           Collections.sort(selectedIndicesList);
           selectedIndex=selectedIndicesList.get(0);
         }
-        if (listView.getLastVisiblePosition() < selectedIndex) {
-          final int totalVisible=listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
+        int lastVisiblePosition;
+        int firstVisiblePosition;
+        if (mBuilder.layoutManager instanceof LinearLayoutManager) {
+          lastVisiblePosition=((LinearLayoutManager)mBuilder.layoutManager).findLastVisibleItemPosition();
+          firstVisiblePosition=((LinearLayoutManager)mBuilder.layoutManager).findFirstVisibleItemPosition();
+        }
+ else         if (mBuilder.layoutManager instanceof GridLayoutManager) {
+          lastVisiblePosition=((GridLayoutManager)mBuilder.layoutManager).findLastVisibleItemPosition();
+          firstVisiblePosition=((GridLayoutManager)mBuilder.layoutManager).findFirstVisibleItemPosition();
+        }
+ else {
+          throw new IllegalStateException("Unsupported layout manager type: " + mBuilder.layoutManager.getClass().getName());
+        }
+        if (lastVisiblePosition < selectedIndex) {
+          final int totalVisible=lastVisiblePosition - firstVisiblePosition;
           int scrollIndex=selectedIndex - (totalVisible / 2);
           if (scrollIndex < 0)           scrollIndex=0;
           final int fScrollIndex=scrollIndex;
-          listView.post(new Runnable(){
+          recyclerView.post(new Runnable(){
             @Override public void run(){
-              listView.requestFocus();
-              listView.setSelection(fScrollIndex);
+              recyclerView.requestFocus();
+              recyclerView.scrollToPosition(fScrollIndex);
             }
           }
 );

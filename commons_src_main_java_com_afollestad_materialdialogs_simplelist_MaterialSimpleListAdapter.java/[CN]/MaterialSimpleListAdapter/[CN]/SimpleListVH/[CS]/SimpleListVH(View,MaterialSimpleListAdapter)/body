@@ -1,0 +1,7 @@
+{
+  super(itemView);
+  icon=(ImageView)itemView.findViewById(android.R.id.icon);
+  title=(TextView)itemView.findViewById(android.R.id.title);
+  this.adapter=adapter;
+  itemView.setOnClickListener(this);
+}

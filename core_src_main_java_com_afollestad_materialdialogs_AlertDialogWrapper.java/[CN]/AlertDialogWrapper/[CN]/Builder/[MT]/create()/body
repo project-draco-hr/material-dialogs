@@ -1,5 +1,0 @@
-{
-  addButtonsCallback();
-  addListCallbacks();
-  return builder.build();
-}

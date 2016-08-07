@@ -1,4 +1,0 @@
-{
-  builder.cancelable(cancelable);
-  return this;
-}

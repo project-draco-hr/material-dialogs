@@ -1,6 +1,10 @@
 {
-  if (listView == null)   return;
+  if (recyclerView == null)   return;
  else   if ((mBuilder.items == null || mBuilder.items.length == 0) && mBuilder.adapter == null)   return;
-  listView.setAdapter(mBuilder.adapter);
-  if (listType != null || mBuilder.listCallbackCustom != null)   listView.setOnItemClickListener(this);
+  if (mBuilder.layoutManager == null)   mBuilder.layoutManager=new LinearLayoutManager(getContext());
+  recyclerView.setLayoutManager(mBuilder.layoutManager);
+  recyclerView.setAdapter(mBuilder.adapter);
+  if (listType != null) {
+    ((DefaultRvAdapter)mBuilder.adapter).setCallback(this);
+  }
 }

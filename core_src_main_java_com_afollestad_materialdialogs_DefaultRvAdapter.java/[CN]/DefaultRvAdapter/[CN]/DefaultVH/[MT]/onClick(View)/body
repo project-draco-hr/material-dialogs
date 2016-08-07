@@ -1,0 +1,7 @@
+{
+  if (adapter.callback != null) {
+    CharSequence text=null;
+    if (adapter.dialog.mBuilder.items != null && getAdapterPosition() < adapter.dialog.mBuilder.items.length)     text=adapter.dialog.mBuilder.items[getAdapterPosition()];
+    adapter.callback.onItemSelected(adapter.dialog,view,getAdapterPosition(),text);
+  }
+}

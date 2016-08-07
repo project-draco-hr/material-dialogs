@@ -1,0 +1,9 @@
+{
+  if (adapter.mCallback == null)   return;
+  if (view instanceof Button) {
+    adapter.mCallback.onButtonClicked(getAdapterPosition());
+  }
+ else {
+    adapter.mCallback.onItemClicked(getAdapterPosition());
+  }
+}

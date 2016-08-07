@@ -1,0 +1,4 @@
+{
+  holder.title.setText(mItems[position] + " (" + position+ ")");
+  holder.button.setTag(position);
+}

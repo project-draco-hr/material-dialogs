@@ -1,4 +1,0 @@
-{
-  builder.content(messageId);
-  return this;
-}

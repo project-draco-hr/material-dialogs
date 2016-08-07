@@ -1,3 +1,0 @@
-int itemsId
-boolean[] checkedItems
-DialogInterface.OnMultiChoiceClickListener listener

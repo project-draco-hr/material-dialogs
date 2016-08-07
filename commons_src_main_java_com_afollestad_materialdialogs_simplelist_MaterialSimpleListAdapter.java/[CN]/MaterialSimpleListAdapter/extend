@@ -1,1 +1,1 @@
-ArrayAdapter<MaterialSimpleListItem>
+RecyclerView.Adapter<MaterialSimpleListAdapter.SimpleListVH>

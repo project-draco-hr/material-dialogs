@@ -1,0 +1,4 @@
+{
+  mItems.add(item);
+  notifyItemInserted(mItems.size() - 1);
+}

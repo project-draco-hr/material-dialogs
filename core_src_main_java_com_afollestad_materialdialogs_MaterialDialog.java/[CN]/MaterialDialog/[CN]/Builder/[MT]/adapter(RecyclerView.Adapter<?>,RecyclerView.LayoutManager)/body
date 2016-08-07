@@ -1,0 +1,7 @@
+{
+  if (this.customView != null)   throw new IllegalStateException("You cannot set adapter() when you're using a custom view.");
+  if (layoutManager != null && !(layoutManager instanceof LinearLayoutManager) && !(layoutManager instanceof GridLayoutManager))   throw new IllegalStateException("You can currently only use LinearLayoutManager and GridLayoutManager with this library.");
+  this.adapter=adapter;
+  this.layoutManager=layoutManager;
+  return this;
+}

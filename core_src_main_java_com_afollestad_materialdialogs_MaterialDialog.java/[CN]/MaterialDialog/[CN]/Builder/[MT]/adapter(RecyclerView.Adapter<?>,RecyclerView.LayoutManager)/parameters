@@ -1,0 +1,2 @@
+RecyclerView.Adapter<?> adapter
+RecyclerView.LayoutManager layoutManager

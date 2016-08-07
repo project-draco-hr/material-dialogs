@@ -1,4 +1,0 @@
-{
-  builder.title(titleId);
-  return this;
-}

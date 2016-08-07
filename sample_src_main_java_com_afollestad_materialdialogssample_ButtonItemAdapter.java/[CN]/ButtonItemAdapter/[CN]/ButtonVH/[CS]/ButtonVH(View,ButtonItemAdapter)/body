@@ -1,0 +1,8 @@
+{
+  super(itemView);
+  title=(TextView)itemView.findViewById(R.id.md_title);
+  button=(Button)itemView.findViewById(R.id.md_button);
+  this.adapter=adapter;
+  itemView.setOnClickListener(this);
+  button.setOnClickListener(this);
+}

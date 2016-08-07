@@ -1,5 +1,0 @@
-{
-  builder.items(itemsId);
-  setUpMultiChoiceCallback(checkedItems,listener);
-  return this;
-}

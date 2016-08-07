@@ -1,0 +1,59 @@
+{
+  if (!view.isEnabled())   return;
+  if (listType == null || listType == ListType.REGULAR) {
+    if (mBuilder.autoDismiss) {
+      dismiss();
+    }
+    if (mBuilder.listCallback != null) {
+      mBuilder.listCallback.onSelection(this,view,position,mBuilder.items[position]);
+    }
+  }
+ else {
+    if (listType == ListType.MULTI) {
+      final CheckBox cb=(CheckBox)view.findViewById(R.id.md_control);
+      if (!cb.isEnabled())       return;
+      final boolean shouldBeChecked=!selectedIndicesList.contains(position);
+      if (shouldBeChecked) {
+        selectedIndicesList.add(position);
+        if (mBuilder.alwaysCallMultiChoiceCallback) {
+          if (sendMultichoiceCallback()) {
+            cb.setChecked(true);
+          }
+ else {
+            selectedIndicesList.remove(Integer.valueOf(position));
+          }
+        }
+ else {
+          cb.setChecked(true);
+        }
+      }
+ else {
+        selectedIndicesList.remove(Integer.valueOf(position));
+        cb.setChecked(false);
+        if (mBuilder.alwaysCallMultiChoiceCallback)         sendMultichoiceCallback();
+      }
+    }
+ else     if (listType == ListType.SINGLE) {
+      final RadioButton radio=(RadioButton)view.findViewById(R.id.md_control);
+      if (!radio.isEnabled())       return;
+      boolean allowSelection=true;
+      final int oldSelected=mBuilder.selectedIndex;
+      if (mBuilder.autoDismiss && mBuilder.positiveText == null) {
+        dismiss();
+        allowSelection=false;
+        mBuilder.selectedIndex=position;
+        sendSingleChoiceCallback(view);
+      }
+ else       if (mBuilder.alwaysCallSingleChoiceCallback) {
+        mBuilder.selectedIndex=position;
+        allowSelection=sendSingleChoiceCallback(view);
+        mBuilder.selectedIndex=oldSelected;
+      }
+      if (allowSelection) {
+        mBuilder.selectedIndex=position;
+        radio.setChecked(true);
+        mBuilder.adapter.notifyItemChanged(oldSelected);
+      }
+    }
+  }
+}

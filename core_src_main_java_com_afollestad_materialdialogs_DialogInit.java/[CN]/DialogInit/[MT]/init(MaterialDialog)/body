@@ -26,7 +26,7 @@
   dialog.icon=(ImageView)dialog.view.findViewById(R.id.md_icon);
   dialog.titleFrame=dialog.view.findViewById(R.id.md_titleFrame);
   dialog.content=(TextView)dialog.view.findViewById(R.id.md_content);
-  dialog.listView=(ListView)dialog.view.findViewById(R.id.md_contentListView);
+  dialog.recyclerView=(RecyclerView)dialog.view.findViewById(R.id.md_contentRecyclerView);
   dialog.positiveButton=(MDButton)dialog.view.findViewById(R.id.md_buttonDefaultPositive);
   dialog.neutralButton=(MDButton)dialog.view.findViewById(R.id.md_buttonDefaultNeutral);
   dialog.negativeButton=(MDButton)dialog.view.findViewById(R.id.md_buttonDefaultNegative);
@@ -138,8 +138,7 @@
   dialog.neutralButton.setOnClickListener(dialog);
   dialog.neutralButton.setVisibility(View.VISIBLE);
   if (builder.listCallbackMultiChoice != null)   dialog.selectedIndicesList=new ArrayList<>();
-  if (dialog.listView != null && (builder.items != null && builder.items.length > 0 || builder.adapter != null)) {
-    dialog.listView.setSelector(dialog.getListSelector());
+  if (dialog.recyclerView != null) {
     if (builder.adapter == null) {
       if (builder.listCallbackSingleChoice != null) {
         dialog.listType=MaterialDialog.ListType.SINGLE;
@@ -154,7 +153,7 @@
  else {
         dialog.listType=MaterialDialog.ListType.REGULAR;
       }
-      builder.adapter=new DefaultAdapter(dialog,MaterialDialog.ListType.getLayoutForType(dialog.listType));
+      builder.adapter=new DefaultRvAdapter(dialog,MaterialDialog.ListType.getLayoutForType(dialog.listType));
     }
  else     if (builder.adapter instanceof MDAdapter) {
       ((MDAdapter)builder.adapter).setDialog(dialog);

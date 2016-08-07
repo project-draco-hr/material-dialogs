@@ -1,0 +1,3 @@
+{
+  if (adapter.mCallback != null)   adapter.mCallback.onMaterialListItemSelected(getAdapterPosition(),adapter.getItem(getAdapterPosition()));
+}

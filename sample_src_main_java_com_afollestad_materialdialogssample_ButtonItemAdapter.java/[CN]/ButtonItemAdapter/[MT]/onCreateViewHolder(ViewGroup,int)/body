@@ -1,0 +1,4 @@
+{
+  final View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.dialog_customlistitem,parent,false);
+  return new ButtonVH(view,this);
+}

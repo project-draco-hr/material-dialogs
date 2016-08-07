@@ -1,0 +1,5 @@
+{
+  final View view=LayoutInflater.from(parent.getContext()).inflate(layout,parent,false);
+  DialogUtils.setBackgroundCompat(view,dialog.getListSelector());
+  return new DefaultVH(view,this);
+}

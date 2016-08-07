@@ -1,0 +1,4 @@
+MaterialDialog dialog
+View itemView
+int position
+CharSequence text

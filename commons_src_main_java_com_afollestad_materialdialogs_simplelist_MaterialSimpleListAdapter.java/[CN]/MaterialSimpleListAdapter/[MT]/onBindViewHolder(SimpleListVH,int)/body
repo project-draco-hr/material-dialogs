@@ -1,0 +1,16 @@
+{
+  if (dialog != null) {
+    final MaterialSimpleListItem item=mItems.get(position);
+    if (item.getIcon() != null) {
+      holder.icon.setImageDrawable(item.getIcon());
+      holder.icon.setPadding(item.getIconPadding(),item.getIconPadding(),item.getIconPadding(),item.getIconPadding());
+      holder.icon.getBackground().setColorFilter(item.getBackgroundColor(),PorterDuff.Mode.SRC_ATOP);
+    }
+ else {
+      holder.icon.setVisibility(View.GONE);
+    }
+    holder.title.setTextColor(dialog.getBuilder().getItemColor());
+    holder.title.setText(item.getContent());
+    dialog.setTypeface(holder.title,dialog.getBuilder().getRegularFont());
+  }
+}

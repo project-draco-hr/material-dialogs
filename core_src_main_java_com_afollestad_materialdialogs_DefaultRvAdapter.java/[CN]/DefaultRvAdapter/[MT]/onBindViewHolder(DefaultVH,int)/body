@@ -1,0 +1,39 @@
+{
+  final View view=holder.itemView;
+  boolean disabled=DialogUtils.isIn(index,dialog.mBuilder.disabledIndices);
+switch (dialog.listType) {
+case SINGLE:
+{
+      @SuppressLint("CutPasteId") RadioButton radio=(RadioButton)holder.control;
+      boolean selected=dialog.mBuilder.selectedIndex == index;
+      MDTintHelper.setTint(radio,dialog.mBuilder.widgetColor);
+      radio.setChecked(selected);
+      radio.setEnabled(!disabled);
+      break;
+    }
+case MULTI:
+{
+    @SuppressLint("CutPasteId") CheckBox checkbox=(CheckBox)holder.control;
+    boolean selected=dialog.selectedIndicesList.contains(index);
+    MDTintHelper.setTint(checkbox,dialog.mBuilder.widgetColor);
+    checkbox.setChecked(selected);
+    checkbox.setEnabled(!disabled);
+    break;
+  }
+}
+holder.title.setText(dialog.mBuilder.items[index]);
+holder.title.setTextColor(dialog.mBuilder.itemColor);
+dialog.setTypeface(holder.title,dialog.mBuilder.regularFont);
+setupGravity((ViewGroup)view);
+if (dialog.mBuilder.itemIds != null) {
+if (index < dialog.mBuilder.itemIds.length) view.setId(dialog.mBuilder.itemIds[index]);
+ else view.setId(-1);
+}
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+ViewGroup group=(ViewGroup)view;
+if (group.getChildCount() == 2) {
+  if (group.getChildAt(0) instanceof CompoundButton)   group.getChildAt(0).setBackground(null);
+ else   if (group.getChildAt(1) instanceof CompoundButton)   group.getChildAt(1).setBackground(null);
+}
+}
+}

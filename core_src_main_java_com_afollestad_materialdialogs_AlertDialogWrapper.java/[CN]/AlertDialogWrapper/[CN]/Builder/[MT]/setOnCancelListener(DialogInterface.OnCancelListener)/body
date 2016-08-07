@@ -1,4 +1,0 @@
-{
-  builder.cancelListener(listener);
-  return this;
-}

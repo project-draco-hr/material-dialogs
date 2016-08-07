@@ -1,0 +1,4 @@
+{
+  mItems=new ArrayList<>(4);
+  mCallback=callback;
+}
