@@ -1,5 +1,5 @@
 {
-  new MaterialDialog.Builder(this).iconRes(R.drawable.ic_launcher).limitIconToDefaultSize().title(Html.fromHtml(getString(R.string.permissionSample,getString(R.string.app_name)))).positiveText(R.string.allow).negativeText(R.string.deny).onAny(new MaterialDialog.SingleButtonCallback(){
+  new MaterialDialog.Builder(this).iconRes(R.mipmap.ic_launcher).limitIconToDefaultSize().title(Html.fromHtml(getString(R.string.permissionSample,getString(R.string.app_name)))).positiveText(R.string.allow).negativeText(R.string.deny).onAny(new MaterialDialog.SingleButtonCallback(){
     @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       showToast("Prompt checked? " + dialog.isPromptCheckBoxChecked());
     }

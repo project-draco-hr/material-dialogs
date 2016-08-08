@@ -1,5 +1,5 @@
 {
   int accentColor=ThemeSingleton.get().widgetColor;
-  if (accentColor == 0)   accentColor=ContextCompat.getColor(this,R.color.material_blue);
+  if (accentColor == 0)   accentColor=ContextCompat.getColor(this,R.color.accent);
   ChangelogDialog.create(false,accentColor).show(getSupportFragmentManager(),"changelog");
 }
