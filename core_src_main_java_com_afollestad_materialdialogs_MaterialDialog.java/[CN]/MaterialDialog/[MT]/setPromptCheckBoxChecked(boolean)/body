@@ -1,0 +1,3 @@
+{
+  if (checkBoxPrompt != null)   checkBoxPrompt.setChecked(checked);
+}

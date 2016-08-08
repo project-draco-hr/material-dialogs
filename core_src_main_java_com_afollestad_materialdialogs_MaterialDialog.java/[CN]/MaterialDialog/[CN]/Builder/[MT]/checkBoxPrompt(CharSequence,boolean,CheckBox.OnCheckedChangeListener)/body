@@ -1,0 +1,6 @@
+{
+  this.checkBoxPrompt=prompt;
+  this.checkBoxPromptInitiallyChecked=initiallyChecked;
+  this.checkBoxPromptListener=checkListener;
+  return this;
+}

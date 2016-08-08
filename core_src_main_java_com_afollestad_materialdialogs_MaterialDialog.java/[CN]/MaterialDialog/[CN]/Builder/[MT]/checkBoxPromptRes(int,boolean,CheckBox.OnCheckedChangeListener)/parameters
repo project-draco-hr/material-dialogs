@@ -1,0 +1,3 @@
+int prompt
+boolean initiallyChecked
+CheckBox.OnCheckedChangeListener checkListener

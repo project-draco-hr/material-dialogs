@@ -15,6 +15,9 @@
  else   if (builder.inputCallback != null) {
     return R.layout.md_dialog_input;
   }
+ else   if (builder.checkBoxPrompt != null) {
+    return R.layout.md_dialog_basic_check;
+  }
  else {
     return R.layout.md_dialog_basic;
   }

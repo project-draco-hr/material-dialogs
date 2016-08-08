@@ -1,0 +1,3 @@
+{
+  return checkBoxPrompt != null && checkBoxPrompt.isChecked();
+}

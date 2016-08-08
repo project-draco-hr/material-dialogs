@@ -27,6 +27,7 @@
   dialog.titleFrame=dialog.view.findViewById(R.id.md_titleFrame);
   dialog.content=(TextView)dialog.view.findViewById(R.id.md_content);
   dialog.recyclerView=(RecyclerView)dialog.view.findViewById(R.id.md_contentRecyclerView);
+  dialog.checkBoxPrompt=(CheckBox)dialog.view.findViewById(R.id.md_promptCheckbox);
   dialog.positiveButton=(MDButton)dialog.view.findViewById(R.id.md_buttonDefaultPositive);
   dialog.neutralButton=(MDButton)dialog.view.findViewById(R.id.md_buttonDefaultNeutral);
   dialog.negativeButton=(MDButton)dialog.view.findViewById(R.id.md_buttonDefaultNegative);
@@ -95,6 +96,14 @@
  else {
       dialog.content.setVisibility(View.GONE);
     }
+  }
+  if (dialog.checkBoxPrompt != null) {
+    dialog.checkBoxPrompt.setText(builder.checkBoxPrompt);
+    dialog.checkBoxPrompt.setChecked(builder.checkBoxPromptInitiallyChecked);
+    dialog.checkBoxPrompt.setOnCheckedChangeListener(builder.checkBoxPromptListener);
+    dialog.setTypeface(dialog.checkBoxPrompt,builder.regularFont);
+    dialog.checkBoxPrompt.setTextColor(builder.contentColor);
+    MDTintHelper.setTint(dialog.checkBoxPrompt,builder.widgetColor);
   }
   dialog.view.setButtonGravity(builder.buttonsGravity);
   dialog.view.setButtonStackedGravity(builder.btnStackedGravity);
