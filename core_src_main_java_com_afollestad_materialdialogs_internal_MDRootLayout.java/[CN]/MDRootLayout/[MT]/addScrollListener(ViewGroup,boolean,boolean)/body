@@ -1,32 +1,53 @@
 {
   if ((!setForBottom && mTopOnScrollChangedListener == null || (setForBottom && mBottomOnScrollChangedListener == null))) {
-    ViewTreeObserver.OnScrollChangedListener onScrollChangedListener=new ViewTreeObserver.OnScrollChangedListener(){
-      @Override public void onScrollChanged(){
-        boolean hasButtons=false;
-        for (        MDButton button : mButtons) {
-          if (button != null && button.getVisibility() != View.GONE) {
-            hasButtons=true;
-            break;
+    if (vg instanceof RecyclerView) {
+      RecyclerView.OnScrollListener scrollListener=new RecyclerView.OnScrollListener(){
+        @Override public void onScrolled(        RecyclerView recyclerView,        int dx,        int dy){
+          super.onScrolled(recyclerView,dx,dy);
+          boolean hasButtons=false;
+          for (          MDButton button : mButtons) {
+            if (button != null && button.getVisibility() != View.GONE) {
+              hasButtons=true;
+              break;
+            }
           }
-        }
-        if (vg instanceof WebView) {
-          invalidateDividersForWebView((WebView)vg,setForTop,setForBottom,hasButtons);
-        }
- else {
           invalidateDividersForScrollingView(vg,setForTop,setForBottom,hasButtons);
+          invalidate();
         }
-        invalidate();
       }
-    }
 ;
-    if (!setForBottom) {
-      mTopOnScrollChangedListener=onScrollChangedListener;
-      vg.getViewTreeObserver().addOnScrollChangedListener(mTopOnScrollChangedListener);
+      ((RecyclerView)vg).addOnScrollListener(scrollListener);
+      scrollListener.onScrolled((RecyclerView)vg,0,0);
     }
  else {
-      mBottomOnScrollChangedListener=onScrollChangedListener;
-      vg.getViewTreeObserver().addOnScrollChangedListener(mBottomOnScrollChangedListener);
+      ViewTreeObserver.OnScrollChangedListener onScrollChangedListener=new ViewTreeObserver.OnScrollChangedListener(){
+        @Override public void onScrollChanged(){
+          boolean hasButtons=false;
+          for (          MDButton button : mButtons) {
+            if (button != null && button.getVisibility() != View.GONE) {
+              hasButtons=true;
+              break;
+            }
+          }
+          if (vg instanceof WebView) {
+            invalidateDividersForWebView((WebView)vg,setForTop,setForBottom,hasButtons);
+          }
+ else {
+            invalidateDividersForScrollingView(vg,setForTop,setForBottom,hasButtons);
+          }
+          invalidate();
+        }
+      }
+;
+      if (!setForBottom) {
+        mTopOnScrollChangedListener=onScrollChangedListener;
+        vg.getViewTreeObserver().addOnScrollChangedListener(mTopOnScrollChangedListener);
+      }
+ else {
+        mBottomOnScrollChangedListener=onScrollChangedListener;
+        vg.getViewTreeObserver().addOnScrollChangedListener(mBottomOnScrollChangedListener);
+      }
+      onScrollChangedListener.onScrollChanged();
     }
-    onScrollChangedListener.onScrollChanged();
   }
 }

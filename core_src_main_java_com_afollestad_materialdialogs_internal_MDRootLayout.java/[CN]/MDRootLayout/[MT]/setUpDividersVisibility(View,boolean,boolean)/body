@@ -42,6 +42,7 @@
     boolean canScroll=canRecyclerViewScroll((RecyclerView)view);
     if (setForTop)     mDrawTopDivider=canScroll;
     if (setForBottom)     mDrawBottomDivider=canScroll;
+    if (canScroll)     addScrollListener((ViewGroup)view,setForTop,setForBottom);
   }
  else   if (view instanceof ViewGroup) {
     View topView=getTopView((ViewGroup)view);
