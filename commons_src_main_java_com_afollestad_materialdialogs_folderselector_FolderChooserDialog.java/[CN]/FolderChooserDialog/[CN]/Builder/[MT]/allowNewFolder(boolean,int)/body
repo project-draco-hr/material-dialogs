@@ -1,0 +1,6 @@
+{
+  mAllowNewFolder=allow;
+  if (buttonLabel == 0)   buttonLabel=R.string.new_folder;
+  mNewFolderButton=buttonLabel;
+  return this;
+}

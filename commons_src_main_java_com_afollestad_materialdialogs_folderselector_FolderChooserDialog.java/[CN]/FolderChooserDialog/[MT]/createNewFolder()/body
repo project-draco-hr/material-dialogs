@@ -1,0 +1,10 @@
+{
+  new MaterialDialog.Builder(getActivity()).title(getBuilder().mNewFolderButton).input(0,0,false,new MaterialDialog.InputCallback(){
+    @Override public void onInput(    @NonNull MaterialDialog dialog,    CharSequence input){
+      final File newFi=new File(parentFolder,input.toString());
+      if (!newFi.mkdir())       Toast.makeText(getActivity(),"Unable to create folder " + newFi.getAbsolutePath() + ", make sure you have the WRITE_EXTERNAL_STORAGE permission.",Toast.LENGTH_SHORT).show();
+ else       reload();
+    }
+  }
+).show();
+}

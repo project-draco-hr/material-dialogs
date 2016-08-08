@@ -6,7 +6,7 @@
   if (!getArguments().containsKey("current_path"))   getArguments().putString("current_path",getBuilder().mInitialPath);
   parentFolder=new File(getArguments().getString("current_path"));
   parentContents=listFiles();
-  return new MaterialDialog.Builder(getActivity()).title(parentFolder.getAbsolutePath()).items(getContentsArray()).itemsCallback(this).onPositive(new MaterialDialog.SingleButtonCallback(){
+  MaterialDialog.Builder builder=new MaterialDialog.Builder(getActivity()).title(parentFolder.getAbsolutePath()).items(getContentsArray()).itemsCallback(this).onPositive(new MaterialDialog.SingleButtonCallback(){
     @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       dialog.dismiss();
       mCallback.onFolderSelection(FolderChooserDialog.this,parentFolder);
@@ -17,5 +17,15 @@
       dialog.dismiss();
     }
   }
-).autoDismiss(false).positiveText(getBuilder().mChooseButton).negativeText(getBuilder().mCancelButton).build();
+).autoDismiss(false).positiveText(getBuilder().mChooseButton).negativeText(getBuilder().mCancelButton);
+  if (getBuilder().mAllowNewFolder) {
+    builder.neutralText(getBuilder().mNewFolderButton);
+    builder.onNeutral(new MaterialDialog.SingleButtonCallback(){
+      @Override public void onClick(      @NonNull MaterialDialog dialog,      @NonNull DialogAction which){
+        createNewFolder();
+      }
+    }
+);
+  }
+  return builder.build();
 }
