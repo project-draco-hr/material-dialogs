@@ -53,6 +53,7 @@
         mBuilder.selectedIndex=position;
         radio.setChecked(true);
         mBuilder.adapter.notifyItemChanged(oldSelected);
+        mBuilder.adapter.notifyItemChanged(position);
       }
     }
   }
