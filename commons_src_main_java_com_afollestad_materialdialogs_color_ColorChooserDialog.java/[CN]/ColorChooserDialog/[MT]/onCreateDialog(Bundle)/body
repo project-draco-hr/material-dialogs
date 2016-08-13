@@ -58,6 +58,7 @@
       if (isInSub()) {
         dialog.setActionButton(DialogAction.NEGATIVE,getBuilder().mCancelBtn);
         isInSub(false);
+        subIndex(-1);
         invalidate();
       }
  else {
