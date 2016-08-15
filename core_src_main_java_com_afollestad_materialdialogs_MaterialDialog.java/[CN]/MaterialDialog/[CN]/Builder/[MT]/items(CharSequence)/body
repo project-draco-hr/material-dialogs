@@ -1,5 +1,6 @@
 {
   if (this.customView != null)   throw new IllegalStateException("You cannot set items() when you're using a custom view.");
-  this.items=items;
+  this.items=new ArrayList<>();
+  Collections.addAll(this.items,items);
   return this;
 }

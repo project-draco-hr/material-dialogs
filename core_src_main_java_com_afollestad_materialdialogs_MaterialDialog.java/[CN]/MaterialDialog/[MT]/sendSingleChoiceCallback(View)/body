@@ -1,8 +1,8 @@
 {
   if (mBuilder.listCallbackSingleChoice == null)   return false;
   CharSequence text=null;
-  if (mBuilder.selectedIndex >= 0 && mBuilder.selectedIndex < mBuilder.items.length) {
-    text=mBuilder.items[mBuilder.selectedIndex];
+  if (mBuilder.selectedIndex >= 0 && mBuilder.selectedIndex < mBuilder.items.size()) {
+    text=mBuilder.items.get(mBuilder.selectedIndex);
   }
   return mBuilder.listCallbackSingleChoice.onSelection(this,v,mBuilder.selectedIndex,text);
 }

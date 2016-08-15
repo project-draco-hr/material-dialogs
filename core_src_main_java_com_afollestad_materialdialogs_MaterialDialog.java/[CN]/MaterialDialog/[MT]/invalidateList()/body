@@ -1,6 +1,6 @@
 {
   if (recyclerView == null)   return;
- else   if ((mBuilder.items == null || mBuilder.items.length == 0) && mBuilder.adapter == null)   return;
+ else   if ((mBuilder.items == null || mBuilder.items.size() == 0) && mBuilder.adapter == null)   return;
   if (mBuilder.layoutManager == null)   mBuilder.layoutManager=new LinearLayoutManager(getContext());
   recyclerView.setLayoutManager(mBuilder.layoutManager);
   recyclerView.setAdapter(mBuilder.adapter);

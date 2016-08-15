@@ -2,6 +2,7 @@
   if (adapter.callback != null) {
     CharSequence text=null;
     if (adapter.dialog.mBuilder.items != null && getAdapterPosition() < adapter.dialog.mBuilder.items.size())     text=adapter.dialog.mBuilder.items.get(getAdapterPosition());
-    adapter.callback.onItemSelected(adapter.dialog,view,getAdapterPosition(),text,false);
+    return adapter.callback.onItemSelected(adapter.dialog,view,getAdapterPosition(),text,true);
   }
+  return false;
 }

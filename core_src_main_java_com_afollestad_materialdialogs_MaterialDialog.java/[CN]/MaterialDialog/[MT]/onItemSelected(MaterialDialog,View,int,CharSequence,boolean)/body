@@ -1,17 +1,20 @@
 {
-  if (!view.isEnabled())   return;
+  if (!view.isEnabled())   return false;
   if (listType == null || listType == ListType.REGULAR) {
     if (mBuilder.autoDismiss) {
       dismiss();
     }
-    if (mBuilder.listCallback != null) {
-      mBuilder.listCallback.onSelection(this,view,position,mBuilder.items[position]);
+    if (!longPress && mBuilder.listCallback != null) {
+      mBuilder.listCallback.onSelection(this,view,position,mBuilder.items.get(position));
+    }
+    if (longPress && mBuilder.listLongCallback != null) {
+      return mBuilder.listLongCallback.onLongSelection(this,view,position,mBuilder.items.get(position));
     }
   }
  else {
     if (listType == ListType.MULTI) {
       final CheckBox cb=(CheckBox)view.findViewById(R.id.md_control);
-      if (!cb.isEnabled())       return;
+      if (!cb.isEnabled())       return false;
       final boolean shouldBeChecked=!selectedIndicesList.contains(position);
       if (shouldBeChecked) {
         selectedIndicesList.add(position);
@@ -35,7 +38,7 @@
     }
  else     if (listType == ListType.SINGLE) {
       final RadioButton radio=(RadioButton)view.findViewById(R.id.md_control);
-      if (!radio.isEnabled())       return;
+      if (!radio.isEnabled())       return false;
       boolean allowSelection=true;
       final int oldSelected=mBuilder.selectedIndex;
       if (mBuilder.autoDismiss && mBuilder.positiveText == null) {
@@ -57,4 +60,5 @@
       }
     }
   }
+  return true;
 }

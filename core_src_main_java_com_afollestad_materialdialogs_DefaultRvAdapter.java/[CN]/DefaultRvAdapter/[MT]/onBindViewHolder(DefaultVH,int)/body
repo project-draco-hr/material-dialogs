@@ -21,7 +21,7 @@ case MULTI:
     break;
   }
 }
-holder.title.setText(dialog.mBuilder.items[index]);
+holder.title.setText(dialog.mBuilder.items.get(index));
 holder.title.setTextColor(dialog.mBuilder.itemColor);
 dialog.setTypeface(holder.title,dialog.mBuilder.regularFont);
 setupGravity((ViewGroup)view);

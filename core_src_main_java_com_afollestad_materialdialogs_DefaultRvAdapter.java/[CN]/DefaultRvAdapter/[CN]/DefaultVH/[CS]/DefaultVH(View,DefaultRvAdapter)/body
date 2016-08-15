@@ -4,4 +4,5 @@
   title=(TextView)itemView.findViewById(R.id.md_title);
   this.adapter=adapter;
   itemView.setOnClickListener(this);
+  if (adapter.dialog.mBuilder.listLongCallback != null)   itemView.setOnLongClickListener(this);
 }

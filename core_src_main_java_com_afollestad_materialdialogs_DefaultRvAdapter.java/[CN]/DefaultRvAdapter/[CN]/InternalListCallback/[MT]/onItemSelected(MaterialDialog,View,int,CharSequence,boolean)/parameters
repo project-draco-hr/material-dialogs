@@ -1,4 +1,5 @@
 MaterialDialog dialog
-View view
+View itemView
 int position
 CharSequence text
+boolean longPress

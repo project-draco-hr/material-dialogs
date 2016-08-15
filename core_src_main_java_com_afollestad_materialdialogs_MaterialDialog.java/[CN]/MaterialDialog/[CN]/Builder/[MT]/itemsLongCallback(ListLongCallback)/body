@@ -1,0 +1,6 @@
+{
+  this.listLongCallback=callback;
+  this.listCallbackSingleChoice=null;
+  this.listCallbackMultiChoice=null;
+  return this;
+}

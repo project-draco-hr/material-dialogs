@@ -1,8 +1,14 @@
 {
   if (mBuilder.adapter == null)   throw new IllegalStateException("This MaterialDialog instance does not yet have an adapter set to it. You cannot use setItems().");
-  mBuilder.items=items;
+  if (items != null) {
+    mBuilder.items=new ArrayList<>(items.length);
+    Collections.addAll(mBuilder.items,items);
+  }
+ else {
+    mBuilder.items=null;
+  }
   if (!(mBuilder.adapter instanceof DefaultRvAdapter)) {
     throw new IllegalStateException("When using a custom adapter, setItems() cannot be used. Set items through the adapter instead.");
   }
-  mBuilder.adapter.notifyDataSetChanged();
+  notifyItemsChanged();
 }
