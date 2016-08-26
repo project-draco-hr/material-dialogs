@@ -3,4 +3,5 @@
   mCancelButton=android.R.string.cancel;
   mInitialPath=Environment.getExternalStorageDirectory().getAbsolutePath();
   mMimeType=null;
+  mGoUpLabel="...";
 }
