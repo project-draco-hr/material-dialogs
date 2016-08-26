@@ -1,0 +1,4 @@
+{
+  mGoUpLabel=text;
+  return this;
+}

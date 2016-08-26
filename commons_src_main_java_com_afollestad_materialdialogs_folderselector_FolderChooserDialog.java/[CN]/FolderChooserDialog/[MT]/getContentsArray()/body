@@ -1,6 +1,6 @@
 {
   if (parentContents == null) {
-    if (canGoUp)     return new String[]{"..."};
+    if (canGoUp)     return new String[]{getBuilder().mGoUpLabel};
     return new String[]{};
   }
   String[] results=new String[parentContents.length + (canGoUp ? 1 : 0)];
