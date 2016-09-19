@@ -5,7 +5,7 @@
   if (getArguments() == null || !getArguments().containsKey("builder"))   throw new IllegalStateException("You must create a FileChooserDialog using the Builder.");
   if (!getArguments().containsKey("current_path"))   getArguments().putString("current_path",getBuilder().mInitialPath);
   parentFolder=new File(getArguments().getString("current_path"));
-  parentContents=listFiles(getBuilder().mMimeType);
+  parentContents=listFiles(getBuilder().mMimeType,getBuilder().mExtensions);
   return new MaterialDialog.Builder(getActivity()).title(parentFolder.getAbsolutePath()).items(getContentsArray()).itemsCallback(this).onNegative(new MaterialDialog.SingleButtonCallback(){
     @Override public void onClick(    @NonNull MaterialDialog dialog,    @NonNull DialogAction which){
       dialog.dismiss();
